@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:task_manager_flutter/bindings/auth/register_bind.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
-import 'package:task_manager_flutter/ui/auth/register_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -8,7 +8,8 @@ class RegisterController extends GetxController {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController retypePasswordController =
       TextEditingController();
-  RxBool isTrue = false.obs;
+  RxBool hasContent = false.obs;
+  RxBool isShowPassword = false.obs;
 
   void isEmpty() {
     if (FormValidator.validatorRequired(nameController.text) == null &&
@@ -17,9 +18,14 @@ class RegisterController extends GetxController {
         FormValidator.validatorConfirmPassword(
                 retypePasswordController.text, passwordController.text) ==
             null) {
-      isTrue.value = true;
+      hasContent.value = true;
     } else {
-      isTrue.value = false;
+      hasContent.value = false;
     }
+  }
+
+  void changeStatePassword(){
+    isShowPassword.value = !isShowPassword.value;
+    
   }
 }

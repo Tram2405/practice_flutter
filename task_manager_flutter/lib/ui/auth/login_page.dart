@@ -40,13 +40,23 @@ class LoginPage extends GetView<LoginController> {
                   validator: FormValidator.validatorEmail,
                 ),
                 const SizedBox(height: 32.0),
-                TMTextFormField(
-                  hintText: '********',
-                  lableText: 'Password',
-                  controller: controller.passwordController,
-                   onChanged: (_) => controller.isEmpty(),
-                  textInputAction: TextInputAction.done,
-                  validator: FormValidator.validatorPassword,
+                Obx(
+                  () => TMTextFormField(
+                    hintText: '********',
+                    lableText: 'Password',
+                    controller: controller.passwordController,
+                    onChanged: (_) => controller.isEmpty(),
+                    textInputAction: TextInputAction.done,
+                    validator: FormValidator.validatorPassword,
+                    obscureText: controller.isShowPassword.value,
+                    onTap: controller.changeStatePassword,
+                    icon: Icon(
+                      controller.isShowPassword.value
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                          color: TMColor.onSecondaryBackground,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 12.0),
                 GestureDetector(
@@ -54,7 +64,6 @@ class LoginPage extends GetView<LoginController> {
                     Get.toNamed(Routes.FORGOT_PASSWORD);
                   },
                   child: const Text(
-                    
                     'Forgot Password',
                     style: TextStyle(
                       fontSize: 16.0,
@@ -67,9 +76,9 @@ class LoginPage extends GetView<LoginController> {
                 ),
                 const SizedBox(height: 40.0),
                 Obx(
-                  () =>  TMElevateButton(
+                  () => TMElevateButton(
                     text: 'Login',
-                    color: controller.isTrue.value
+                    color: controller.hasContent.value
                         ? TMColor.primary
                         : TMColor.button,
                   ),

@@ -15,10 +15,13 @@ class TMTextFormField extends StatelessWidget {
       color: TMColor.onSecondaryBackground,
       fontSize: 16.0,
       fontWeight: FontWeight.w400,
-    ), required this.lableText,
+    ),
+    required this.lableText,
+    this.icon,
+    this.onTap,
   });
- 
- final String lableText;
+
+  final String lableText;
   final TextEditingController? controller;
   final String hintText;
   final Function(String)? onChanged;
@@ -27,6 +30,8 @@ class TMTextFormField extends StatelessWidget {
   final bool obscureText;
   final bool readOnly;
   final TextStyle? hintStyle;
+  final Icon? icon;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -45,32 +50,39 @@ class TMTextFormField extends StatelessWidget {
         TextFormField(
           controller: controller,
           validator: validator,
+          obscureText: obscureText,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           readOnly: readOnly,
-          style: TextStyle(color:readOnly ? TMColor.textField : null ), //auto check validator mỗi khi người dùng gõ phím
+          style: TextStyle(
+              color: readOnly
+                  ? TMColor.textField
+                  : null), //auto check validator mỗi khi người dùng gõ phím
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.all(16.0),
-            border: OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: TMColor.textField,
+              contentPadding: const EdgeInsets.all(16.0),
+              border: OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: TMColor.textField,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: TMColor.textField,
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: TMColor.textField,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide:  BorderSide(
-                color: readOnly ?  TMColor.textField: TMColor.onBackground,
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: readOnly ? TMColor.textField : TMColor.onBackground,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            hintText: hintText,
-            hintStyle: hintStyle,
-          ),
+              hintText: hintText,
+              hintStyle: hintStyle,
+              suffixIcon: icon !=null ? GestureDetector(
+                onTap: onTap,
+                child: icon,
+              ): null),
           textInputAction: textInputAction, //icon duới bàn phím
           onChanged: onChanged,
         ),

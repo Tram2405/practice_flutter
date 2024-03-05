@@ -42,7 +42,7 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                 Obx(
                   () => TMElevateButton(
                     text: 'Send Code',
-                    color: controller.isTrue.value
+                    color: controller.hasContent.value
                         ? TMColor.primary
                         : TMColor.button,
                   ),

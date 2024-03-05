@@ -4,13 +4,13 @@ import 'package:task_manager_flutter/utils/validator.dart';
 
 class ForgotPasswordController extends GetxController{
   TextEditingController emailController = TextEditingController();
-   RxBool isTrue = false.obs;
+   RxBool hasContent = false.obs;
 
   void isEmpty(){
     if (FormValidator.validatorEmail(emailController.text) == null) {
-      isTrue.value = true;
+      hasContent.value = true;
     } else {
-      isTrue.value =  false;
+      hasContent.value =  false;
     }
   }
 }

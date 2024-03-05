@@ -15,7 +15,6 @@ class RegisterPage extends GetView<RegisterController> {
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -51,34 +50,54 @@ class RegisterPage extends GetView<RegisterController> {
                   validator: FormValidator.validatorEmail,
                 ),
                 const SizedBox(height: 32.0),
-                TMTextFormField(
-                  hintText: '********',
-                  lableText: 'Password',
-                  controller: controller.passwordController,
-                  textInputAction: TextInputAction.next,
-                  onChanged: (_) => controller.isEmpty(),
-                  validator: FormValidator.validatorPassword,
+                Obx(
+                  () => TMTextFormField(
+                    hintText: '********',
+                    lableText: 'Password',
+                    controller: controller.passwordController,
+                    textInputAction: TextInputAction.next,
+                    onChanged: (_) => controller.isEmpty(),
+                    validator: FormValidator.validatorPassword,
+                    obscureText: controller.isShowPassword.value,
+                    onTap: controller.changeStatePassword,
+                    icon: Icon(
+                      controller.isShowPassword.value
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: TMColor.onSecondaryBackground,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 32.0),
-                TMTextFormField(
-                  hintText: '********',
-                  lableText: 'Retype Password',
-                  controller: controller.retypePasswordController,
-                  textInputAction: TextInputAction.done,
-                  onChanged: (_) => controller.isEmpty(),
-                  validator: (value) {
-                    return FormValidator.validatorConfirmPassword(
-                      value,
-                      controller.passwordController.text,
-                    );
-                  },
+                Obx(
+                  () => TMTextFormField(
+                    hintText: '********',
+                    lableText: 'Retype Password',
+                    controller: controller.retypePasswordController,
+                    textInputAction: TextInputAction.done,
+                    onChanged: (_) => controller.isEmpty(),
+                    validator: (value) {
+                      return FormValidator.validatorConfirmPassword(
+                        value,
+                        controller.passwordController.text,
+                      );
+                    },
+                    obscureText: controller.isShowPassword.value,
+                    onTap: controller.changeStatePassword,
+                    icon: Icon(
+                      controller.isShowPassword.value
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: TMColor.onSecondaryBackground,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 40.0),
                 Obx(
-                  () =>  TMElevateButton(
+                  () => TMElevateButton(
                     text: 'Register',
                     icon: Assets.icons.iconNext,
-                    color: controller.isTrue.value
+                    color: controller.hasContent.value
                         ? TMColor.primary
                         : TMColor.button,
                     borderRadius: BorderRadius.circular(100.0),

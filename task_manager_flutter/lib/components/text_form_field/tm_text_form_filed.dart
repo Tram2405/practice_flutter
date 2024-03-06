@@ -30,7 +30,7 @@ class TMTextFormField extends StatelessWidget {
   final bool obscureText;
   final bool readOnly;
   final TextStyle? hintStyle;
-  final Icon? icon;
+  final Widget? icon;
   final Function()? onTap;
 
   @override
@@ -58,31 +58,35 @@ class TMTextFormField extends StatelessWidget {
                   ? TMColor.textField
                   : null), //auto check validator mỗi khi người dùng gõ phím
           decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(16.0),
-              border: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: TMColor.textField,
-                ),
-                borderRadius: BorderRadius.circular(8.0),
+            contentPadding: const EdgeInsets.all(16.0),
+            border: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: TMColor.textField,
               ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: TMColor.textField,
-                ),
-                borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: TMColor.textField,
               ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: readOnly ? TMColor.textField : TMColor.onBackground,
-                ),
-                borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: readOnly ? TMColor.textField : TMColor.onBackground,
               ),
-              hintText: hintText,
-              hintStyle: hintStyle,
-              suffixIcon: icon !=null ? GestureDetector(
-                onTap: onTap,
-                child: icon,
-              ): null),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            hintText: hintText,
+            hintStyle: hintStyle,
+            suffixIcon: icon != null
+                ? GestureDetector(
+                    onTap: onTap,
+                    child: icon,
+                  )
+                : null,
+            suffixIconConstraints: const BoxConstraints(maxHeight: 20, minWidth: 52.0),
+          ),
           textInputAction: textInputAction, //icon duới bàn phím
           onChanged: onChanged,
         ),

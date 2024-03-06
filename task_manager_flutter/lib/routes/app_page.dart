@@ -5,7 +5,7 @@ import 'package:task_manager_flutter/bindings/auth/register_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/home_manager_bind.dart';
 import 'package:task_manager_flutter/bindings/onboarding/onboarding_bind.dart';
 import 'package:task_manager_flutter/bindings/splash/splash_bind.dart';
-import 'package:task_manager_flutter/ui/auth/forgot_password.dart';
+import 'package:task_manager_flutter/ui/auth/forgot_password_page.dart';
 import 'package:task_manager_flutter/ui/auth/login_page.dart';
 import 'package:task_manager_flutter/ui/auth/register_page.dart';
 import 'package:task_manager_flutter/ui/manager/home_page_manager.dart';

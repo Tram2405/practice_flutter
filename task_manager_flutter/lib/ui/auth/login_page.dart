@@ -78,15 +78,7 @@ class LoginPage extends GetView<LoginController> {
                 Obx(
                   () => TMElevateButton(
                     onPressed: () async{
-                      final message = await LoginController().login(
-                  email: controller.emailController.text.trim(),
-                  password: controller.passwordController.text.trim(),
-                );
-                if (message!.contains('Success')) {
-                  Get.offAllNamed(Routes.HOME_MANAGER);
-                  // ignore: use_build_context_synchronously
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
-                }
+                      controller.login(context);
                     },
                     text: 'Login',
                     color: controller.hasContent.value

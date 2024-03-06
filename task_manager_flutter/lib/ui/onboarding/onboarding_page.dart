@@ -4,7 +4,6 @@ import 'package:task_manager_flutter/components/buttons/tm_elevatebutton.dart';
 import 'package:task_manager_flutter/controller/onboarding/onboarding_controller.dart';
 import 'package:task_manager_flutter/data/model/onboarding_model.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
-import 'package:task_manager_flutter/routes/app_page.dart';
 
 class OnBoardingPage extends GetView<OnBoardingController> {
   const OnBoardingPage({super.key});

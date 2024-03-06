@@ -6,5 +6,4 @@ class ForgotPasswordBinding implements Bindings{
   void dependencies() {
     Get.lazyPut<ForgotPasswordController>(() => ForgotPasswordController());
   }
-
 }

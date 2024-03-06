@@ -4,7 +4,7 @@ class AuthService{
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   
   Future<User?> getUser() async {
-    var currentUser = FirebaseAuth.instance.currentUser;
+    var currentUser = firebaseAuth.currentUser;
     return currentUser;
   }
 
@@ -13,7 +13,7 @@ class AuthService{
     required String password,
   }) async {
     try {
-      await FirebaseAuth.instance
+      await firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
       return 'Success';
     } on FirebaseAuthException catch (e) {
@@ -38,13 +38,14 @@ class AuthService{
           .signInWithEmailAndPassword(email: email, password: password);
       return 'Success';
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        return 'No user found for that email.';
-      } else if (e.code == 'wrong-password') {
-        return 'Wrong password provided for that user.';
-      } else {
-        return e.message;
-      }
+      // if (e.code == 'user-not-found') {
+      //   return 'No user found for that email.';
+      // } else if (e.code == 'wrong-password') {
+      //   return 'Wrong password provided for that user.';
+      // } else {
+      //   return e.code;
+      // }
+      return 'Username or password is incorrect';
     } catch (e) {
       return e.toString();
     }

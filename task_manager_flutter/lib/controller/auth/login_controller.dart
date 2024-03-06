@@ -44,40 +44,4 @@ class LoginController extends GetxController {
                 }
             });
   }
-
-  checkLoggedIn() async {
-    await authRepository.getUser().then((firebaseUser) {
-      isProgress.value = false;
-      if (firebaseUser != null) {
-        var user = UserModel(firebaseUser.email!, firebaseUser.displayName!);
-        Get.toNamed(Routes.HOME_MANAGER, arguments: [user]);
-      }
-    }).catchError((onError) {
-      Get.toNamed(Routes.LOGIN);
-    });
-  }
-
-  // Future<void> login(BuildContext context) async {
-  //   String? message;
-  //   try {
-  //     await firebaseAuth.signInWithEmailAndPassword(
-  //         email: emailController.text, password: passwordController.text);
-  //     String? token = await FirebaseMessaging.instance.getToken();
-  //     SharedPrefs.token = token;
-
-  //     Get.offAllNamed(Routes.HOME_MANAGER);
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'user-not-found') {
-  //       message =  'No user found for that email';
-  //     } else if (e.code == 'wrong-password') {
-  //       message =  'Wrong password provided for that user';
-  //     } else {
-  //       message = e.message;
-  //     }
-  //   } catch (e) {
-  //     message = e.toString();
-  //   }
-
-  //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message ?? '')));
-  // }
 }

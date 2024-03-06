@@ -77,6 +77,17 @@ class LoginPage extends GetView<LoginController> {
                 const SizedBox(height: 40.0),
                 Obx(
                   () => TMElevateButton(
+                    onPressed: () async{
+                      final message = await LoginController().login(
+                  email: controller.emailController.text.trim(),
+                  password: controller.passwordController.text.trim(),
+                );
+                if (message!.contains('Success')) {
+                  Get.offAllNamed(Routes.HOME_MANAGER);
+                  // ignore: use_build_context_synchronously
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+                }
+                    },
                     text: 'Login',
                     color: controller.hasContent.value
                         ? TMColor.primary

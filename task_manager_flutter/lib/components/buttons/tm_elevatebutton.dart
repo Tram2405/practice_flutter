@@ -28,8 +28,7 @@ class TMElevateButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: borderRadius,
+    return GestureDetector(
         onTap: onPressed,
         child: Container(
           padding: padding,

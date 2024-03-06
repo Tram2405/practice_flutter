@@ -208,6 +208,10 @@ class $AssetsImagesGen {
   AssetGenImage get imgLogo =>
       const AssetGenImage('assets/images/img_logo.jpg');
 
+  /// File path: assets/images/img_logo_app.jpg
+  AssetGenImage get imgLogoApp =>
+      const AssetGenImage('assets/images/img_logo_app.jpg');
+
   /// File path: assets/images/img_onboarding_idea.png
   AssetGenImage get imgOnboardingIdea =>
       const AssetGenImage('assets/images/img_onboarding_idea.png');
@@ -233,6 +237,7 @@ class $AssetsImagesGen {
         imgAvatarMember5,
         imgAvatarMember6,
         imgLogo,
+        imgLogoApp,
         imgOnboardingIdea,
         imgOnboardingMail,
         imgSubTaskEmpty,

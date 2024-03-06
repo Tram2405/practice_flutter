@@ -6,8 +6,8 @@ class RegisterController extends GetxController {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController retypePasswordController =
-      TextEditingController();
+  final TextEditingController retypePasswordController = TextEditingController();
+  
   RxBool hasContent = false.obs;
   RxBool isShowPassword = false.obs;
 
@@ -24,8 +24,7 @@ class RegisterController extends GetxController {
     }
   }
 
-  void changeStatePassword(){
+  void changeStatePassword() {
     isShowPassword.value = !isShowPassword.value;
-    
   }
 }

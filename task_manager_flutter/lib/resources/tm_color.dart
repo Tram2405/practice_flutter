@@ -27,6 +27,9 @@ class TMColor {
   static const onSuccess = Color(0xFFFFFFFF);
   static const primaryContainer = Color(0xFFE6E0E9);
   static const secondaryContainer = Color(0xFFF2E9C9);
+static const onBoarding = Color(0xFFF8C715);
+static const primaryOnBoarding = Color(0xFF6A3EA1);
+static const secondaryOnBoarding = Color(0xFF676576);
 
   // static const subTitle = Color(0xFF827D89);
 }

@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
-class AuthService{
+class AuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-  
+
   Future<User?> getUser() async {
     var currentUser = firebaseAuth.currentUser;
     return currentUser;
@@ -13,8 +14,8 @@ class AuthService{
     required String password,
   }) async {
     try {
-      await firebaseAuth
-          .createUserWithEmailAndPassword(email: email, password: password);
+      await firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
       return 'Success';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -34,17 +35,10 @@ class AuthService{
     required String password,
   }) async {
     try {
-      await firebaseAuth
-          .signInWithEmailAndPassword(email: email, password: password);
+      await firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
       return 'Success';
     } on FirebaseAuthException catch (e) {
-      // if (e.code == 'user-not-found') {
-      //   return 'No user found for that email.';
-      // } else if (e.code == 'wrong-password') {
-      //   return 'Wrong password provided for that user.';
-      // } else {
-      //   return e.code;
-      // }
       return 'Username or password is incorrect';
     } catch (e) {
       return e.toString();
@@ -53,5 +47,30 @@ class AuthService{
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
+  }
+
+  Future passwordReset(BuildContext context, {required String email}) async {
+    try {
+      await firebaseAuth.sendPasswordResetEmail(email: email);
+      // ignore: use_build_context_synchronously
+      showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(
+            content: Text('Password reset link sent! Check your email'),
+          );
+        },
+      );
+    } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text(e.message.toString()),
+          );
+        },
+      );
+    }
   }
 }

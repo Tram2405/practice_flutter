@@ -69,6 +69,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/icon_excel.svg
   String get iconExcel => 'assets/icons/icon_excel.svg';
 
+  /// File path: assets/icons/icon_eye.svg
+  String get iconEye => 'assets/icons/icon_eye.svg';
+
+  /// File path: assets/icons/icon_eye_off.svg
+  String get iconEyeOff => 'assets/icons/icon_eye_off.svg';
+
   /// File path: assets/icons/icon_flag.svg
   String get iconFlag => 'assets/icons/icon_flag.svg';
 
@@ -153,6 +159,8 @@ class $AssetsIconsGen {
         iconEdit,
         iconEmail,
         iconExcel,
+        iconEye,
+        iconEyeOff,
         iconFlag,
         iconLock,
         iconLogout,

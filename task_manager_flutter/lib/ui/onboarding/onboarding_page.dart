@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/buttons/tm_elevatebutton.dart';
+import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/onboarding/onboarding_controller.dart';
 import 'package:task_manager_flutter/data/model/onboarding_model.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
@@ -10,12 +11,11 @@ class OnBoardingPage extends GetView<OnBoardingController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return TMScaffold(
       backgroundColor: TMColor.onBoarding,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(
-              top: MediaQuery.of(context).padding.top + 28.0, bottom: 16.0),
+          padding: const EdgeInsets.only(top: 28.0, bottom: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

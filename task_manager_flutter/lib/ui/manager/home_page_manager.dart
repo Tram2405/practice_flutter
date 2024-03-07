@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/buttons/tm_elevatebutton.dart';
+import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/manager/home_manager_controller.dart';
 
 class HomePageManager extends GetView<HomeManagerController> {
@@ -8,11 +9,14 @@ class HomePageManager extends GetView<HomeManagerController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return TMScaffold(
       body: Center(
-        child: TMElevateButton(text: 'Logout', onPressed: () {
-          controller.logout();
-        },),
+        child: TMElevateButton(
+          text: 'Logout',
+          onPressed: () {
+            controller.logout();
+          },
+        ),
       ),
     );
   }

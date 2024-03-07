@@ -26,11 +26,9 @@ class RegisterPage extends GetView<RegisterController> {
             children: [
               const TMTitle(title: 'Register'),
               const SizedBox(height: 16.0),
-              const TMTitle(
+              TMTitle(
                 title: 'And start taking notes',
-                fontSize: 16.0,
-                fontWeight: FontWeight.w400,
-                colorTitle: TMColor.onSecondaryBackground,
+                textStyle: context.textTheme.titleLarge?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               const SizedBox(height: 32.0),
               TMTextFormField(
@@ -102,7 +100,7 @@ class RegisterPage extends GetView<RegisterController> {
                   borderRadius: BorderRadius.circular(100.0),
                   isDisable: controller.isLoading.value,
                   onPressed: () {
-                   controller.register(context);
+                    controller.register(context);
                   },
                 ),
               ),

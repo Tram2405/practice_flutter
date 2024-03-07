@@ -27,11 +27,10 @@ class LoginPage extends GetView<LoginController> {
             children: [
               const TMTitle(title: 'Let’s Login'),
               const SizedBox(height: 16.0),
-              const TMTitle(
+              TMTitle(
                 title: 'And notes your idea',
-                fontSize: 16.0,
-                fontWeight: FontWeight.w400,
-                colorTitle: TMColor.onSecondaryBackground,
+                textStyle: context.textTheme.titleLarge
+                    ?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               sizedBox32,
               TMTextFormField(
@@ -65,11 +64,9 @@ class LoginPage extends GetView<LoginController> {
                 onTap: () {
                   Get.toNamed(Routes.FORGOT_PASSWORD);
                 },
-                child: const Text(
+                child: Text(
                   'Forgot Password',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w500,
+                  style: context.textTheme.titleMedium?.copyWith(
                     decoration: TextDecoration.underline,
                     decorationColor: TMColor.onError,
                     color: TMColor.onError,

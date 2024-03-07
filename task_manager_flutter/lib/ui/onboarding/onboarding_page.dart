@@ -4,6 +4,7 @@ import 'package:task_manager_flutter/components/buttons/tm_elevatebutton.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/onboarding/onboarding_controller.dart';
 import 'package:task_manager_flutter/data/model/onboarding_model.dart';
+import 'package:task_manager_flutter/gen/fonts.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class OnBoardingPage extends GetView<OnBoardingController> {
@@ -42,11 +43,10 @@ class OnBoardingPage extends GetView<OnBoardingController> {
                     height: 60.0,
                     child: Text(
                       onboardings[controller.currentIndex.value].text ?? '',
-                      style: const TextStyle(
-                          color: TMColor.onSecondary,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w500),
-                      textAlign: TextAlign.center,
+                      style: context.textTheme.labelSmall?.copyWith(
+                        color: TMColor.onSecondary,
+                        fontFamily: FontFamily.interBold,
+                      ),
                     ),
                   ),
                 ),

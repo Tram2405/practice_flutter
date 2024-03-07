@@ -78,7 +78,8 @@ class TMTextFormField extends StatelessWidget {
                     child: icon,
                   )
                 : null,
-            suffixIconConstraints: const BoxConstraints(maxHeight: 20, minWidth: 52.0),
+            suffixIconConstraints:
+                const BoxConstraints(maxHeight: 20, minWidth: 52.0),
           ),
           textInputAction: textInputAction, //icon duới bàn phím
           onChanged: onChanged,

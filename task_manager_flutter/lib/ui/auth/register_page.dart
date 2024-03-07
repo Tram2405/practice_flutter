@@ -17,6 +17,7 @@ class RegisterPage extends GetView<RegisterController> {
 
   @override
   Widget build(BuildContext context) {
+    const sizedBox32 = SizedBox(height: 32.0);
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: TMScaffold(
@@ -30,7 +31,7 @@ class RegisterPage extends GetView<RegisterController> {
                 title: 'And start taking notes',
                 textStyle: context.textTheme.titleLarge?.copyWith(color: TMColor.onSecondaryBackground),
               ),
-              const SizedBox(height: 32.0),
+              sizedBox32,
               TMTextFormField(
                 hintText: 'Example: John Doe',
                 lableText: 'Full Name',
@@ -39,7 +40,7 @@ class RegisterPage extends GetView<RegisterController> {
                 textInputAction: TextInputAction.next,
                 validator: FormValidator.validatorRequired,
               ),
-              const SizedBox(height: 32.0),
+              sizedBox32,
               TMTextFormField(
                 hintText: 'Example: johndoe@gmail.com',
                 lableText: 'Email Address',
@@ -48,7 +49,7 @@ class RegisterPage extends GetView<RegisterController> {
                 textInputAction: TextInputAction.next,
                 validator: FormValidator.validatorEmail,
               ),
-              const SizedBox(height: 32.0),
+              sizedBox32,
               Obx(
                 () => TMTextFormField(
                   hintText: '********',
@@ -66,7 +67,7 @@ class RegisterPage extends GetView<RegisterController> {
                   ),
                 ),
               ),
-              const SizedBox(height: 32.0),
+              sizedBox32,
               Obx(
                 () => TMTextFormField(
                   hintText: '********',
@@ -104,7 +105,7 @@ class RegisterPage extends GetView<RegisterController> {
                   },
                 ),
               ),
-              const SizedBox(height: 32.0),
+              sizedBox32,
               TMTextLink(
                 text: 'Already have an account? ',
                 linkText: 'Login here',

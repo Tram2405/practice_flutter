@@ -27,16 +27,13 @@ class RegisterController extends GetxController {
   }
 
   void isEmpty() {
-    if (FormValidator.validatorRequired(nameController.text) == null &&
-        FormValidator.validatorEmail(emailController.text) == null &&
-        FormValidator.validatorPassword(passwordController.text) == null &&
-        FormValidator.validatorConfirmPassword(
-                retypePasswordController.text, passwordController.text) ==
-            null) {
-      hasContent.value = true;
-    } else {
-      hasContent.value = false;
-    }
+    hasContent.value =
+        FormValidator.validatorRequired(nameController.text) == null &&
+            FormValidator.validatorEmail(emailController.text) == null &&
+            FormValidator.validatorPassword(passwordController.text) == null &&
+            FormValidator.validatorConfirmPassword(
+                    retypePasswordController.text, passwordController.text) ==
+                null;
   }
 
   void changeStatePassword() {

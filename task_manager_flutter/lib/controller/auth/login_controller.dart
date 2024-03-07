@@ -16,12 +16,9 @@ class LoginController extends GetxController {
   final isLoggedIn = false.obs;
 
   void isEmpty() {
-    if (FormValidator.validatorEmail(emailController.text) == null &&
-        FormValidator.validatorPassword(passwordController.text) == null) {
-      hasContent.value = true;
-    } else {
-      hasContent.value = false;
-    }
+    hasContent.value =
+        FormValidator.validatorEmail(emailController.text) == null &&
+            FormValidator.validatorPassword(passwordController.text) == null;
   }
 
   void changeStatePassword() {

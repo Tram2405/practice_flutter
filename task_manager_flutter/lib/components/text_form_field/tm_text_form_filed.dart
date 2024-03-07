@@ -53,10 +53,7 @@ class TMTextFormField extends StatelessWidget {
           obscureText: obscureText,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           readOnly: readOnly,
-          style: TextStyle(
-              color: readOnly
-                  ? TMColor.textField
-                  : null), //auto check validator mỗi khi người dùng gõ phím
+          style: TextStyle(color: readOnly ? TMColor.textField : null),
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(16.0),
             border: OutlineInputBorder(
@@ -85,7 +82,8 @@ class TMTextFormField extends StatelessWidget {
                     child: icon,
                   )
                 : null,
-            suffixIconConstraints: const BoxConstraints(maxHeight: 20, minWidth: 52.0),
+            suffixIconConstraints:
+                const BoxConstraints(maxHeight: 20, minWidth: 52.0),
           ),
           textInputAction: textInputAction, //icon duới bàn phím
           onChanged: onChanged,

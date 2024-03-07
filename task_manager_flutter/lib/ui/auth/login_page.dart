@@ -82,6 +82,7 @@ class LoginPage extends GetView<LoginController> {
                   onPressed: () async {
                     controller.login(context);
                   },
+                  isDisable: controller.isLoading.value,
                   text: 'Login',
                   color: controller.hasContent.value
                       ? TMColor.primary

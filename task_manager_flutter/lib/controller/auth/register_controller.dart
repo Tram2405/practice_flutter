@@ -20,11 +20,6 @@ class RegisterController extends GetxController {
   RxBool isShowRetypePassword = false.obs;
   RxBool isLoading = false.obs;
 
-  @override
-  void dispose() {
-   
-    super.dispose();
-  }
 
   void isEmpty() {
     if (FormValidator.validatorRequired(nameController.text) == null &&

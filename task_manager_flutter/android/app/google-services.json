@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "458669050079",
+    "project_id": "task-manager-demo-51883",
+    "storage_bucket": "task-manager-demo-51883.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458669050079:android:09f09fcea9d56eec92816a",
+        "android_client_info": {
+          "package_name": "com.example.practice_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsUEKnagrYOuwVFwKG72usU4rc3klOvzQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

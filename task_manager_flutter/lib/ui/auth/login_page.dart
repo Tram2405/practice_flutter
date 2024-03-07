@@ -51,12 +51,12 @@ class LoginPage extends GetView<LoginController> {
                   onChanged: (_) => controller.isEmpty(),
                   textInputAction: TextInputAction.done,
                   validator: FormValidator.validatorPassword,
-                  obscureText: controller.isShowPassword.value,
+                  obscureText: !controller.isShowPassword.value,
                   onTap: controller.changeStatePassword,
                   icon: SvgPicture.asset(
                     controller.isShowPassword.value
-                        ? Assets.icons.iconEyeOff
-                        : Assets.icons.iconEye,
+                        ? Assets.icons.iconEye
+                        : Assets.icons.iconEyeOff,
                   ),
                 ),
               ),

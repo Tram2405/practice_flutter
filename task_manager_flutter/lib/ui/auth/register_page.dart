@@ -59,12 +59,12 @@ class RegisterPage extends GetView<RegisterController> {
                   textInputAction: TextInputAction.next,
                   onChanged: (_) => controller.isEmpty(),
                   validator: FormValidator.validatorPassword,
-                  obscureText: controller.isShowPassword.value,
+                  obscureText: !controller.isShowPassword.value,
                   onTap: controller.changeStatePassword,
                   icon: SvgPicture.asset(
                     controller.isShowPassword.value
-                        ? Assets.icons.iconEyeOff
-                        : Assets.icons.iconEye,
+                        ? Assets.icons.iconEye
+                        : Assets.icons.iconEyeOff,
                   ),
                 ),
               ),
@@ -82,12 +82,12 @@ class RegisterPage extends GetView<RegisterController> {
                       controller.passwordController.text,
                     );
                   },
-                  obscureText: controller.isShowPassword.value,
-                  onTap: controller.changeStatePassword,
+                  obscureText: !controller.isShowRetypePassword.value,
+                  onTap: controller.changeStateRetypePassword,
                   icon: SvgPicture.asset(
-                    controller.isShowPassword.value
-                        ? Assets.icons.iconEyeOff
-                        : Assets.icons.iconEye,
+                    controller.isShowRetypePassword.value
+                        ? Assets.icons.iconEye
+                        : Assets.icons.iconEyeOff,
                   ),
                 ),
               ),
@@ -100,14 +100,17 @@ class RegisterPage extends GetView<RegisterController> {
                       ? TMColor.primary
                       : TMColor.button,
                   borderRadius: BorderRadius.circular(100.0),
-                  onPressed: () {},
+                  isDisable: controller.isLoading.value,
+                  onPressed: () {
+                   controller.register(context);
+                  },
                 ),
               ),
               const SizedBox(height: 32.0),
               TMTextLink(
                 text: 'Already have an account? ',
                 linkText: 'Login here',
-                onPressed: () {
+                onPressed: () async {
                   Get.toNamed(Routes.LOGIN);
                 },
               )

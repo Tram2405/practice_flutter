@@ -31,5 +31,4 @@ static const onBoarding = Color(0xFFF8C715);
 static const primaryOnBoarding = Color(0xFF6A3EA1);
 static const secondaryOnBoarding = Color(0xFF676576);
 
-  // static const subTitle = Color(0xFF827D89);
 }

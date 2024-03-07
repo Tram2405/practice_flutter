@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task_manager_flutter/data/model/user_model.dart';
 import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/validator.dart';
@@ -32,16 +31,18 @@ class LoginController extends GetxController {
   login(BuildContext context) async {
     await authRepository
         .login(emailController.text, passwordController.text)
-        .then((loginMessage) => {
-              if (loginMessage == "Success")
-                {
-                  Get.offAllNamed(Routes.HOME_MANAGER),
-                }
-              else
-                {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text(loginMessage ?? '')))
-                }
-            });
+        .then(
+          (loginMessage) {
+            if (loginMessage == "Success")
+              {
+                Get.offAllNamed(Routes.HOME_MANAGER);
+              }
+            else
+              {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(loginMessage ?? '')));
+              }
+          },
+        );
   }
 }

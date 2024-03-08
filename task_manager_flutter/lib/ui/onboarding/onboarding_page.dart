@@ -39,13 +39,10 @@ class OnBoardingPage extends GetView<OnBoardingController> {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Obx(
                   () => SizedBox(
-                    height: 60.0,
+                    height: 75.0,
                     child: Text(
                       onboardings[controller.currentIndex.value].text ?? '',
-                      style: const TextStyle(
-                          color: TMColor.onSecondary,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w500),
+                      style: context.textTheme.labelMedium,
                       textAlign: TextAlign.center,
                     ),
                   ),

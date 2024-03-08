@@ -8,4 +8,6 @@ abstract class Routes{
   static const LOGIN = '/login';
   static const FORGOT_PASSWORD = '/forgot_password';
   static const HOME_MANAGER = '/home_manager';
+  static const TASK_MANAGER = '/task_manager';
+  static const ADD_TASK = '/add-task';
 }

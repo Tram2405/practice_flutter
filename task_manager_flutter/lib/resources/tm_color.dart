@@ -13,6 +13,8 @@ class TMColor {
   static const textField = Color(0xFFC8C5CB);
   static const button = Color(0xFFF0F0F0);
   static const onButton = Color(0xFF1D1B20);
+  static final Color high= const Color(0xFFFF001F).withOpacity(0.2);
+  static const onHigh = Color(0xFFFF001F);
   static final Color error = const Color(0xFFB3261E).withOpacity(0.2);
   static const onError = Color(0xFFB3261E);
   static final Color confirm = const Color(0xFF293CA1).withOpacity(0.2);
@@ -30,5 +32,7 @@ class TMColor {
   static const onBoarding = Color(0xFFF8C715);
   static const primaryOnBoarding = Color(0xFF6A3EA1);
   static const secondaryOnBoarding = Color(0xFF676576);
+  static const primaryIcon = Color(0xFF8A8F9B);
+  static const primaryShadow = Color(0xFF494949);
 
 }

@@ -60,28 +60,13 @@ class AuthService {
     await FirebaseAuth.instance.signOut();
   }
 
-  Future passwordReset(BuildContext context, {required String email}) async {
+  Future<String> passwordReset(BuildContext context,
+      {required String email}) async {
     try {
       await firebaseAuth.sendPasswordResetEmail(email: email);
-      // ignore: use_build_context_synchronously
-      showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            content: Text('Password reset link sent! Check your email'),
-          );
-        },
-      );
+      return 'Password reset link sent! Check your email';
     } on FirebaseAuthException catch (e) {
-      // ignore: use_build_context_synchronously
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            content: Text(e.message.toString()),
-          );
-        },
-      );
+      return e.message.toString();
     }
   }
 }

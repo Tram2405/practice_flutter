@@ -13,5 +13,6 @@ class TMTextTheme {
     bodyLarge: TMTextStyle.textLarge,
     bodyMedium: TMTextStyle.textMedium,
     bodySmall: TMTextStyle.textSmall,
+    labelMedium: TMTextStyle.textOnboarding,
   );
 }

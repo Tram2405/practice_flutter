@@ -45,6 +45,9 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                   color: controller.hasContent.value
                       ? TMColor.primary
                       : TMColor.button,
+                  onPressed: () {
+                    controller.passwordReset(context);
+                  },
                 ),
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMTextFormField extends StatelessWidget {
@@ -11,11 +12,7 @@ class TMTextFormField extends StatelessWidget {
     this.textInputAction,
     this.obscureText = false,
     this.readOnly = false,
-    this.hintStyle = const TextStyle(
-      color: TMColor.onSecondaryBackground,
-      fontSize: 16.0,
-      fontWeight: FontWeight.w400,
-    ),
+    this.hintStyle,
     required this.lableText,
     this.icon,
     this.onTap,
@@ -40,11 +37,7 @@ class TMTextFormField extends StatelessWidget {
       children: [
         Text(
           lableText,
-          style: const TextStyle(
-            color: TMColor.onBackground,
-            fontSize: 16.0,
-            fontWeight: FontWeight.w600,
-          ),
+          style:context.textTheme.titleMedium,
         ),
         const SizedBox(height: 12.0),
         TextFormField(
@@ -53,7 +46,10 @@ class TMTextFormField extends StatelessWidget {
           obscureText: obscureText,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           readOnly: readOnly,
-          style: TextStyle(color: readOnly ? TMColor.textField : null),
+          style: TextStyle(
+              color: readOnly
+                  ? TMColor.textField
+                  : null), 
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(16.0),
             border: OutlineInputBorder(
@@ -75,7 +71,7 @@ class TMTextFormField extends StatelessWidget {
               borderRadius: BorderRadius.circular(8.0),
             ),
             hintText: hintText,
-            hintStyle: hintStyle,
+            hintStyle: hintStyle ?? context.textTheme.titleLarge,
             suffixIcon: icon != null
                 ? GestureDetector(
                     onTap: onTap,

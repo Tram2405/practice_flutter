@@ -21,11 +21,13 @@ class SplashController extends GetxController {
           var user = UserModel(firebaseUser.email!, firebaseUser.displayName!);
           Get.offAllNamed(Routes.HOME_MANAGER, arguments: [user]);
         } else {
-          Get.toNamed(Routes.LOGIN);
+          Get.offAllNamed(Routes.LOGIN);
         }
       }else{
         Get.offAllNamed(Routes.ONBOARDING);
       }
+    }).catchError((onError){
+      Get.offAllNamed(Routes.LOGIN);
     });
   }
 }

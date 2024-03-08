@@ -22,12 +22,10 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
             children: [
               const TMTitle(title: 'Forgot Password'),
               const SizedBox(height: 16.0),
-              const TMTitle(
+              TMTitle(
                 title:
                     'Insert your email address to receive a code for creating a new password',
-                fontSize: 16.0,
-                fontWeight: FontWeight.w400,
-                colorTitle: TMColor.onSecondaryBackground,
+                textStyle: context.textTheme.titleLarge?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               const SizedBox(height: 32.0),
               TMTextFormField(

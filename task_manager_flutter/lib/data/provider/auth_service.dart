@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
   Future<User?> getUser() async {
     var currentUser = firebaseAuth.currentUser;
@@ -10,12 +12,14 @@ class AuthService {
   }
 
   Future<String?> registration({
+    required String fullName,
     required String email,
     required String password,
   }) async {
     try {
       await firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
+      addUserDetails(fullName, email);
       return 'Success';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -28,6 +32,13 @@ class AuthService {
     } catch (e) {
       return e.toString();
     }
+  }
+
+  Future addUserDetails(String fullName, String emailAddress) async {
+    await fireStore.collection('users').add({
+      'full name': fullName,
+      'email address': emailAddress,
+    });
   }
 
   Future<String?> login({

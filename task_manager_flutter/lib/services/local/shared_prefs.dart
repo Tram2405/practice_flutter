@@ -10,7 +10,6 @@ class SharedPrefs {
   }
 
   //check onboarding
-
   static bool get isAccessed {
     return _prefs.getBool(checkAccessKey) ?? false;
   }

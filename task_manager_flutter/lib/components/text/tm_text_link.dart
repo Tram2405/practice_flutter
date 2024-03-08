@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMTextLink extends StatelessWidget {
@@ -19,18 +20,13 @@ class TMTextLink extends StatelessWidget {
       child: RichText(
         text: TextSpan(
             text: text,
-            style: const TextStyle(
-                color: TMColor.onBackground,
-                fontSize: 16.0,
-                fontWeight: FontWeight.w500),
+            style: context.textTheme.titleMedium,
             children: [
               TextSpan(
                 text: linkText,
-                style: const TextStyle(
-                  decoration: TextDecoration.underline,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w500,
+                style: context.textTheme.titleMedium?.copyWith(
                   color: TMColor.onPrimary,
+                  decoration: TextDecoration.underline,
                 ),
                 recognizer: TapGestureRecognizer()..onTap = onPressed,
               ),

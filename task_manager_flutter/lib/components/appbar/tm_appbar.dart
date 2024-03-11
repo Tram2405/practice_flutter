@@ -28,9 +28,7 @@ class TMAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24.0).copyWith(
-        top: MediaQuery.of(context).padding.top +16.0,
-        bottom: 16.0
-      ),
+          top: MediaQuery.of(context).padding.top + 16.0, bottom: 16.0),
       decoration: BoxDecoration(
         color: TMColor.onSecondary,
         borderRadius: const BorderRadius.only(

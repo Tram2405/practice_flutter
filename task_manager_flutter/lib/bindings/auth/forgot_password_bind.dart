@@ -6,9 +6,12 @@ import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 class ForgotPasswordBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ForgotPasswordController>(() => ForgotPasswordController(
-            authRepository: AuthRepository(
+    Get.lazyPut<ForgotPasswordController>(
+      () => ForgotPasswordController(
+        authRepository: AuthRepository(
           authService: AuthService(),
-        )));
+        ),
+      ),
+    );
   }
 }

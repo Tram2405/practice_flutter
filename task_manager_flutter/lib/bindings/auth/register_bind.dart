@@ -6,9 +6,12 @@ import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 class RegisterBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<RegisterController>(() => RegisterController(
-            authRepository: AuthRepository(
+    Get.lazyPut<RegisterController>(
+      () => RegisterController(
+        authRepository: AuthRepository(
           authService: AuthService(),
-        )));
+        ),
+      ),
+    );
   }
 }

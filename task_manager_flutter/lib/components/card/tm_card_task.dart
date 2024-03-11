@@ -42,7 +42,6 @@ class TMCardTask extends StatelessWidget {
               )),
               const SizedBox(width: 10.0),
               task.typeTask.toStatusDisplay(context),
-
               const Spacer(),
             ],
           ),
@@ -73,7 +72,7 @@ class TMCardTask extends StatelessWidget {
                 minLength: 4,
               ),
               const Spacer(),
-             TMDisplayInfo(
+              TMDisplayInfo(
                 child: Row(
                   children: [
                     SvgPicture.asset(Assets.icons.iconPaperclip),

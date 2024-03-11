@@ -20,7 +20,6 @@ class RegisterController extends GetxController {
   RxBool isShowRetypePassword = false.obs;
   RxBool isLoading = false.obs;
 
-
   void isEmpty() {
     hasContent.value =
         FormValidator.validatorRequired(nameController.text) == null &&
@@ -29,14 +28,6 @@ class RegisterController extends GetxController {
             FormValidator.validatorConfirmPassword(
                     retypePasswordController.text, passwordController.text) ==
                 null;
-  }
-
-  void changeStatePassword() {
-    isShowPassword.value = !isShowPassword.value;
-  }
-
-  void changeStateRetypePassword() {
-    isShowRetypePassword.value = !isShowRetypePassword.value;
   }
 
   register(BuildContext context) async {

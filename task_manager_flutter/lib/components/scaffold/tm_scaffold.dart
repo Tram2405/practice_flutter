@@ -6,7 +6,7 @@ class TMScaffold extends StatelessWidget {
     this.backgroundColor,
     this.appBar,
     this.body,
-    this.bottomNavigationBar, 
+    this.bottomNavigationBar,
   });
   final Color? backgroundColor;
   final PreferredSizeWidget? appBar;

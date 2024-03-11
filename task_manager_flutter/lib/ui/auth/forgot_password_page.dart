@@ -25,7 +25,8 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
               TMTitle(
                 title:
                     'Insert your email address to receive a code for creating a new password',
-                textStyle: context.textTheme.titleLarge?.copyWith(color: TMColor.onSecondaryBackground),
+                textStyle: context.textTheme.titleLarge
+                    ?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               const SizedBox(height: 32.0),
               TMTextFormField(

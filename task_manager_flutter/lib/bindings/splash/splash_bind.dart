@@ -6,9 +6,12 @@ import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 class SplashBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<SplashController>(() => SplashController(
-            authRepository: AuthRepository(
+    Get.lazyPut<SplashController>(
+      () => SplashController(
+        authRepository: AuthRepository(
           authService: AuthService(),
-        )));
+        ),
+      ),
+    );
   }
 }

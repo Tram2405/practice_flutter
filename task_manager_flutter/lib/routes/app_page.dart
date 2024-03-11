@@ -40,7 +40,7 @@ class AppPage {
       page: () => const LoginPage(),
       binding: LoginBinding(),
     ),
-     GetPage(
+    GetPage(
       name: Routes.FORGOT_PASSWORD,
       page: () => const ForgotPasswordPage(),
       binding: ForgotPasswordBinding(),
@@ -52,12 +52,12 @@ class AppPage {
     ),
     GetPage(
       name: Routes.TASK_MANAGER,
-      page: () =>  const TaskPage(),
+      page: () => const TaskPage(),
       binding: TaskBindings(),
     ),
     GetPage(
       name: Routes.ADD_TASK,
-      page: () =>  const AddTaskPage(),
+      page: () => const AddTaskPage(),
       binding: AddTaskBinding(),
     ),
   ];

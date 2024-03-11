@@ -23,10 +23,10 @@ class SplashController extends GetxController {
         } else {
           Get.offAllNamed(Routes.LOGIN);
         }
-      }else{
+      } else {
         Get.offAllNamed(Routes.ONBOARDING);
       }
-    }).catchError((onError){
+    }).catchError((onError) {
       Get.offAllNamed(Routes.LOGIN);
     });
   }

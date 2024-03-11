@@ -28,10 +28,11 @@ class SplashPage extends GetView<SplashController> {
             Shimmer.fromColors(
               baseColor: TMColor.onPrimary,
               highlightColor: TMColor.primary,
-              child:  Text(
+              child: Text(
                 'Task Manager',
                 textAlign: TextAlign.center,
-                style: context.textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.w600),
+                style: context.textTheme.headlineLarge
+                    ?.copyWith(fontWeight: FontWeight.w600),
                 // TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
               ),
             ),

@@ -7,6 +7,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
+import 'package:task_manager_flutter/routes/app_page.dart';
 
 class TaskPage extends StatelessWidget {
   const TaskPage({super.key});
@@ -20,7 +21,9 @@ class TaskPage extends StatelessWidget {
         backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
         appBar: TMAppbar(
           leftIcon: Assets.icons.iconAdd,
-          leftPressed: () {},
+          leftPressed: () {
+            Get.toNamed(Routes.ADD_TASK);
+          },
           title: 'Task',
           rightIcon: Assets.icons.iconBell,
         ),
@@ -29,7 +32,7 @@ class TaskPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               TMTitle(
+              TMTitle(
                 title: 'My Tasks',
                 textStyle: context.textTheme.bodyLarge,
               ),

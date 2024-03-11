@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/manager/home_manager_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
@@ -20,7 +19,7 @@ class HomePageManager extends GetView<HomeManagerController> {
     ];
 
     List<Widget> pages = [
-      TaskPage(),
+      const TaskPage(),
       Container(color: Colors.blueAccent),
       Container(color: Colors.red),
       Container(color: Colors.black54),

@@ -1,6 +1,6 @@
 part of './app_page.dart';
 
-abstract class Routes{
+abstract class Routes {
   static const INITIAL = '/';
   static const SPLASH = '/splash';
   static const ONBOARDING = '/onboarding';

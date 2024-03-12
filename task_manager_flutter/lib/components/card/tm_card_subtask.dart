@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:task_manager_flutter/components/buttons/tm_button_task.dart';
+import 'package:task_manager_flutter/components/card/tm_display_info.dart';
 import 'package:task_manager_flutter/components/menu_button/tm_menu_button.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
@@ -35,11 +36,20 @@ class TMCardSubTask extends StatelessWidget {
           children: [
             Row(
               children: [
-                TMButtonTask(
-                  text: subTask.startDate ?? '',
-                  leftIcon: Assets.icons.iconFlag,
-                  color: TMColor.background,
-                ),
+                TMDisplayInfo(
+                  child: Row(
+                children: [
+                  SvgPicture.asset(
+                    Assets.icons.iconFlag,
+                    width: 15.0,
+                  ),
+                  const SizedBox(width: 10.0),
+                  Text(
+                    subTask.startDate.toDateTime ?? '',
+                    style: context.textTheme.bodySmall,
+                  )
+                ],
+              )),
                 const Spacer(),
                 if (onDelete != null)
                   TMPopupMenuSubtask(

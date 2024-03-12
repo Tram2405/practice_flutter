@@ -46,7 +46,7 @@ class TMButtonTask extends StatelessWidget {
             ],
             Text(
               text,
-              style: context.textTheme.bodySmall?.copyWith(color: TMColor.background)
+              style: context.textTheme.bodySmall?.copyWith(color: TMColor.background),
             ),
             if (rightIcon != null) ...[
               const SizedBox(width: 10.0),

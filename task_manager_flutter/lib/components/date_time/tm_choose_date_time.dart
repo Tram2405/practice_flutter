@@ -22,7 +22,7 @@ class ChooseDateTime {
       if (time == null) {
         return null;
       } else {
-        return date.copyWith(hour: time.hour,minute: time.minute).toString().toDateTime;
+        return date.copyWith(hour: time.hour,minute: time.minute).toString();
       }
     }
   }

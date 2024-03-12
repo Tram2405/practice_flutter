@@ -11,6 +11,7 @@ import 'package:task_manager_flutter/components/text_form_field/tm_form_field.da
 import 'package:task_manager_flutter/controller/manager/subtask/add_sub_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/ui/manager/subtask/add_user.dart';
+import 'package:task_manager_flutter/utils/extension.dart';
 
 class AddSubTaskPage extends GetView<AddSubTaskController> {
   const AddSubTaskPage({super.key});
@@ -42,7 +43,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                     controller.chooseStartDate(context);
                   },
                   text: 'Start Date',
-                  dateTime: controller.startDate.value ?? '--:--',
+                  dateTime: controller.startDate.value.toDateTime 
                 ),
                 const SizedBox(height: 12.0),
                 TMDateTime(
@@ -50,7 +51,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                     controller.chooseDueDate(context);
                   },
                   text: 'Due Date',
-                  dateTime: controller.dueDate.value ?? '--:--',
+                  dateTime: controller.dueDate.value.toDateTime,
                 ),
                 const SizedBox(height: 25.0),
                 TMTitle(
@@ -114,9 +115,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
         ),
         bottomNavigationBar: TMBottomButton(
           text: 'Add Sub Task',
-          onPressed: () {
-            controller.checkIsEmpty();
-          },
+          onPressed: controller.addSubTask,
           isAction: controller.canAction.value,
         ),
       ),

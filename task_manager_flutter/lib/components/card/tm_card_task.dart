@@ -35,7 +35,7 @@ class TMCardTask extends StatelessWidget {
                   ),
                   const SizedBox(width: 10.0),
                   Text(
-                    task.startDate.toDateTime,
+                    task.subTasks?[0].dueDate.toDateTime ?? '',
                     style: context.textTheme.bodySmall,
                   )
                 ],
@@ -78,7 +78,7 @@ class TMCardTask extends StatelessWidget {
                     SvgPicture.asset(Assets.icons.iconPaperclip),
                     const SizedBox(width: 10.0),
                     Text(
-                      task.numberFile.toString(),
+                      '${task.numberFile ?? 0}',
                       style: context.textTheme.bodySmall,
                     )
                   ],
@@ -91,7 +91,7 @@ class TMCardTask extends StatelessWidget {
                     SvgPicture.asset(Assets.icons.iconComment),
                     const SizedBox(width: 10.0),
                     Text(
-                      task.numberComment.toString(),
+                      '${task.numberComment ?? 0}',
                       style: context.textTheme.bodySmall,
                     )
                   ],

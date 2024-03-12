@@ -12,7 +12,8 @@ class ForgotPasswordController extends GetxController {
   RxBool hasContent = false.obs;
 
   void isEmpty() {
-    hasContent.value = FormValidator.validatorEmail(emailController.text) == null;
+    hasContent.value =
+        FormValidator.validatorEmail(emailController.text) == null;
   }
 
   passwordReset(BuildContext context) async {

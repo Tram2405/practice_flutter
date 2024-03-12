@@ -6,7 +6,7 @@ class TMTextStyle {
   static TextStyle primaryTextStyle({
     required double fontSize,
     required String fontFamily,
-     Color? textColor,
+    Color? textColor,
   }) {
     return TextStyle(
       fontSize: fontSize,
@@ -16,48 +16,42 @@ class TMTextStyle {
   }
 
   static TextStyle header1TextStyle = primaryTextStyle(
-    fontSize: 32.0,
-    fontFamily: FontFamily.interBold,
-    textColor: TMColor.onBackground
-  );
+      fontSize: 32.0,
+      fontFamily: FontFamily.interBold,
+      textColor: TMColor.onBackground);
   static TextStyle header2TextStyle = primaryTextStyle(
     fontSize: 24.0,
     fontFamily: FontFamily.interBold,
   );
   static TextStyle header3TextStyle = primaryTextStyle(
-    fontSize: 20.0,
-    fontFamily: FontFamily.interBold,
-    textColor: TMColor.onBackground
-  );
+      fontSize: 20.0,
+      fontFamily: FontFamily.interBold,
+      textColor: TMColor.onBackground);
   static TextStyle textAppbar = primaryTextStyle(
-    fontSize: 18.0,
-    fontFamily: FontFamily.interSemiBold,
-    textColor: TMColor.onBackground
-  );
+      fontSize: 18.0,
+      fontFamily: FontFamily.interSemiBold,
+      textColor: TMColor.onBackground);
   static TextStyle titleLarge = primaryTextStyle(
     fontSize: 16.0,
     fontFamily: FontFamily.interRegular,
     textColor: TMColor.textField,
   );
   static TextStyle titleMedium = primaryTextStyle(
-    fontSize: 16.0,
-    fontFamily: FontFamily.interMedium,
-    textColor: TMColor.onBackground
-  );
+      fontSize: 16.0,
+      fontFamily: FontFamily.interMedium,
+      textColor: TMColor.onBackground);
   static TextStyle textLarge = primaryTextStyle(
     fontSize: 16.0,
     fontFamily: FontFamily.interBold,
   );
   static TextStyle textMedium = primaryTextStyle(
-    fontSize: 14.0,
-    fontFamily: FontFamily.interRegular,
-    textColor: TMColor.onTask
-  );
+      fontSize: 14.0,
+      fontFamily: FontFamily.interRegular,
+      textColor: TMColor.onTask);
   static TextStyle textSmall = primaryTextStyle(
-    fontSize: 13.0,
-    fontFamily: FontFamily.interRegular,
-    textColor: TMColor.onTask
-  );
+      fontSize: 13.0,
+      fontFamily: FontFamily.interRegular,
+      textColor: TMColor.onTask);
   static TextStyle lableLarge = primaryTextStyle(
     fontSize: 14.0,
     fontFamily: FontFamily.interBold,

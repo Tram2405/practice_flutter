@@ -16,7 +16,9 @@ class TMAvatarMember extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ...List.generate((subtasks.length > minLength) ? minLength - 1 : subtasks.length, (index) {
+        ...List.generate(
+            (subtasks.length > minLength) ? minLength - 1 : subtasks.length,
+            (index) {
           final avatar = subtasks[index].user?.avatar ?? '';
           return Align(
             widthFactor: 0.65,
@@ -30,20 +32,23 @@ class TMAvatarMember extends StatelessWidget {
             ),
           );
         }),
-        //if members.length > minLength => hinden 
-        if(subtasks.length > minLength)
-         Align(
-          widthFactor: 0.65,
-          child: CircleAvatar(
-            radius: 17.0,
-            backgroundColor: TMColor.textField,
+        //if members.length > minLength => hinden
+        if (subtasks.length > minLength)
+          Align(
+            widthFactor: 0.65,
             child: CircleAvatar(
-              radius: 16.0,
-              backgroundColor: TMColor.task,
-              child: Text('+${subtasks.length - (minLength - 1)}', style: context.textTheme.bodyMedium,),
+              radius: 17.0,
+              backgroundColor: TMColor.textField,
+              child: CircleAvatar(
+                radius: 16.0,
+                backgroundColor: TMColor.task,
+                child: Text(
+                  '+${subtasks.length - (minLength - 1)}',
+                  style: context.textTheme.bodyMedium,
+                ),
+              ),
             ),
           ),
-        ),
       ],
     );
   }

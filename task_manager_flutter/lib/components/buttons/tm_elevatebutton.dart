@@ -54,7 +54,8 @@ class TMElevateButton extends StatelessWidget {
                   if (icon != null) const SizedBox(width: 20.0),
                   Text(
                     text,
-                    style: context.textTheme.titleMedium?.copyWith(color: textColor),
+                    style: context.textTheme.titleMedium
+                        ?.copyWith(color: textColor),
                   ),
                   if (icon != null) SvgPicture.asset(icon!),
                 ],

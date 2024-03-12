@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
-class TMTextFormField extends StatelessWidget {
-  const TMTextFormField({
+class TMTextFormFieldPassword extends StatefulWidget {
+  const TMTextFormFieldPassword({
     super.key,
     this.controller,
+    required this.lableText,
     required this.hintText,
-    this.onChanged,
     this.validator,
     this.textInputAction,
-    this.obscureText = false,
+    this.onChanged,
     this.readOnly = false,
     this.hintStyle,
-    required this.lableText,
+    this.onTap,
   });
 
   final String lableText;
@@ -22,27 +24,34 @@ class TMTextFormField extends StatelessWidget {
   final Function(String)? onChanged;
   final FormFieldValidator<String>? validator;
   final TextInputAction? textInputAction;
-  final bool obscureText;
   final bool readOnly;
   final TextStyle? hintStyle;
+  final Function()? onTap;
 
+  @override
+  State<TMTextFormFieldPassword> createState() =>
+      _TMTextFormFieldPasswordState();
+}
+
+class _TMTextFormFieldPasswordState extends State<TMTextFormFieldPassword> {
+  bool isShowPassword = true;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          lableText,
+          widget.lableText,
           style: context.textTheme.titleMedium,
         ),
         const SizedBox(height: 12.0),
         TextFormField(
-          controller: controller,
-          validator: validator,
-          obscureText: obscureText,
+          controller: widget.controller,
+          validator: widget.validator,
+          obscureText: isShowPassword,
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          readOnly: readOnly,
-          style: TextStyle(color: readOnly ? TMColor.textField : null),
+          readOnly: widget.readOnly,
+          style: TextStyle(color: widget.readOnly ? TMColor.textField : null),
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(16.0),
             border: OutlineInputBorder(
@@ -59,15 +68,28 @@ class TMTextFormField extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: readOnly ? TMColor.textField : TMColor.onBackground,
+                color:
+                    widget.readOnly ? TMColor.textField : TMColor.onBackground,
               ),
               borderRadius: BorderRadius.circular(8.0),
             ),
-            hintText: hintText,
-            hintStyle: hintStyle ?? context.textTheme.titleLarge,
+            hintText: widget.hintText,
+            hintStyle: widget.hintStyle ?? context.textTheme.titleLarge,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                isShowPassword = !isShowPassword;
+                setState(() {});
+              },
+              child: SvgPicture.asset(
+                isShowPassword ? Assets.icons.iconEyeOff : Assets.icons.iconEye,
+                color: TMColor.textField,
+              ),
+            ),
+            suffixIconConstraints:
+                const BoxConstraints(maxHeight: 20, minWidth: 52.0),
           ),
-          textInputAction: textInputAction,
-          onChanged: onChanged,
+          textInputAction: widget.textInputAction,
+          onChanged: widget.onChanged,
         ),
       ],
     );

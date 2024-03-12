@@ -22,10 +22,6 @@ class LoginController extends GetxController {
             FormValidator.validatorPassword(passwordController.text) == null;
   }
 
-  void changeStatePassword() {
-    isShowPassword.value = !isShowPassword.value;
-  }
-
   login(BuildContext context) async {
     isLoading.value = true;
     FocusScope.of(context).unfocus();

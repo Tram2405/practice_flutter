@@ -66,7 +66,7 @@ List<SubTaskModel> subTasks = [
       ..name = 'Arslan'
       ..avatar = Assets.images.imgAvatarMember4.path),
   SubTaskModel()
-    ..subTaskName = 'Up' 
+    ..subTaskName = 'Up'
     ..description = 'Add Task, SubTask...'
     ..startDate = '2023-05-11T02:03:48.467Z'
     ..dueDate = '2023-05-11T02:03:48.467Z'
@@ -75,7 +75,7 @@ List<SubTaskModel> subTasks = [
       ..id = '2'
       ..name = 'Jack'
       ..avatar = Assets.images.imgAvatarMember3.path),
-      SubTaskModel()
+  SubTaskModel()
     ..subTaskName = 'Code UI'
     ..description = 'UI & Navigator: Approval page, detail Approval page'
     ..startDate = '2023-05-11T02:03:48.467Z'
@@ -96,4 +96,3 @@ List<SubTaskModel> subTasks = [
       ..name = 'Arslan'
       ..avatar = Assets.images.imgAvatarMember1.path),
 ];
-

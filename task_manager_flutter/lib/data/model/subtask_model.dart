@@ -12,6 +12,28 @@ class SubTaskModel {
   String? status;
 
   SubTaskModel();
+
+  SubTaskModel copyWith({
+    String? id,
+    String? subTaskName,
+    String? description,
+    AppUserModel? user,
+    String? startDate,
+    String? dueDate,
+    String? status,
+  }) {
+    return SubTaskModel()
+      ..id = id ?? this.id
+      ..subTaskName = subTaskName ?? this.subTaskName
+      ..description = description ?? this.description
+      ..user = user ?? this.user
+      ..startDate = startDate ?? this.startDate
+      ..dueDate = dueDate ?? this.dueDate;
+  }
+
+  void removeUser() {
+    user = null;
+  }
 }
 
 List<SubTaskModel> subTasks = [

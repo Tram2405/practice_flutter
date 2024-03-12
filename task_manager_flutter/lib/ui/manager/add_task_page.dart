@@ -74,7 +74,7 @@ class AddTaskPage extends GetView<AddTaskController> {
               TMTextField(
                 hintText: 'Descripton',
                 maxLines: 4,
-                textInputAction: TextInputAction.next,
+                textInputAction: TextInputAction.done,
                 controller: controller.descriptionController,
                 onChanged: (_) => controller.checkIsEmpty(),
               ),
@@ -112,7 +112,7 @@ class AddTaskPage extends GetView<AddTaskController> {
         ),
       ),
       bottomNavigationBar: Obx(
-        () => BottomButton(
+        () => TMBottomButton(
           text: 'Add Task',
           onPressed: () {},
           isAction: controller.canAction.value,

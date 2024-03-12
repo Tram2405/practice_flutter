@@ -15,16 +15,19 @@ class TMScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      appBar: appBar,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: body,
+    return GestureDetector(
+      onTap: FocusScope.of(context).unfocus,
+      child: Scaffold(
+        backgroundColor: backgroundColor,
+        appBar: appBar,
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: body,
+          ),
         ),
+        bottomNavigationBar: bottomNavigationBar,
       ),
-      bottomNavigationBar: bottomNavigationBar,
     );
   }
 }

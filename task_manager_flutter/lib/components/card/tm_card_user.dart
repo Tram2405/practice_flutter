@@ -35,7 +35,7 @@ class CardUser extends StatelessWidget {
             GestureDetector(
               onTap: onCheck,
               child: SvgPicture.asset(
-                (user.isCheck ?? false) == true
+                (user.isCheck ?? false)
                     ? Assets.icons.iconRadioButtonCheck
                     : Assets.icons.iconRadioButton,
               ),

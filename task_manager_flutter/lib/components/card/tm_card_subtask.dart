@@ -43,36 +43,7 @@ class TMCardSubTask extends StatelessWidget {
                 const Spacer(),
                 if (onDelete != null)
                   TMPopupMenuSubtask(
-                    onSelected: (value) {
-                      if (value == 0) {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) =>
-                        //         DetailSubTaskPage(subTask: widget.subTask),
-                        //   ),
-                        // );
-                      } else if (value == 1) {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => EditSubTaskPage(
-                        //       subTask: widget.subTask,
-                        //       onDone: () {
-                        //         setState(() {});
-                        //       },
-                        //     ),
-                        //   ),
-                        // );
-                      } else {
-                        // TMDialog.dialog(
-                        //   context,
-                        //   title: 'Delete SubTask?',
-                        //   content: 'Are you sure you want to delete SubTask',
-                        //   action: widget.onDelete,
-                        // );
-                      }
-                    },
+                    onSelected: (value) {},
                   ),
               ],
             ),

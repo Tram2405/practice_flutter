@@ -20,12 +20,8 @@ class AddTaskController extends GetxController {
   ].obs;
 
   void checkIsEmpty() {
-    if (taskNameController.text.isEmpty ||
-        descriptionController.text.isEmpty ) {
-      canAction.value = false;
-    } else {
-      canAction.value = true;
-    }
+    canAction.value = !(taskNameController.text.isEmpty ||
+        descriptionController.text.isEmpty);
   }
 
   onSelectedType(int index) {

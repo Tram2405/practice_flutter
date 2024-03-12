@@ -53,15 +53,6 @@ class TaskPage extends StatelessWidget {
                           final task =
                               controller.listTask.reversed.toList()[index];
                           return GestureDetector(
-                            // onTap: () {
-                            //   Navigator.push(
-                            //       context,
-                            //       MaterialPageRoute(
-                            //         builder: (context) => DetailTaskMemberPage(
-                            //           task: task,
-                            //         ),
-                            //       ));
-                            // },
                             child: TMCardTask(task: task),
                           );
                         },

@@ -10,6 +10,7 @@ import 'package:task_manager_flutter/components/text_form_field/tm_form_field.da
 import 'package:task_manager_flutter/controller/manager/add_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
+import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class AddTaskPage extends GetView<AddTaskController> {
@@ -81,8 +82,10 @@ class AddTaskPage extends GetView<AddTaskController> {
               Row(
                 children: [
                   TMButtonTask(
-                    onPressed: () {},
-                    text: 'Add',
+                    onPressed: () {
+                      Get.toNamed(Routes.ADD_SUB_TASK);
+                    },
+                    text: 'Add SubTask',
                     leftIcon: Assets.icons.iconAdd,
                     leftIconColor: TMColor.background,
                   ),
@@ -99,11 +102,6 @@ class AddTaskPage extends GetView<AddTaskController> {
                     subTask: subTask,
                     onDelete: () {
                       controller.subTaskAdds.remove(subTask);
-                      // final snackBar = tmSnackBarSuccess(
-                      //   titleSnackbar: 'Deleted subtask done',
-                      // );
-                      // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      // setState(() {});
                     },
                   );
                 },

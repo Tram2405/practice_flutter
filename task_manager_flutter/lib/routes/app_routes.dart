@@ -10,4 +10,5 @@ abstract class Routes {
   static const HOME_MANAGER = '/home_manager';
   static const TASK_MANAGER = '/task_manager';
   static const ADD_TASK = '/add-task';
+  static const ADD_SUB_TASK = '/add-sub-task';
 }

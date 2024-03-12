@@ -52,9 +52,9 @@ List<SubTaskModel> subTasks = [
     ..dueDate = '2023-05-11T02:03:48.467Z'
     ..status = StatusType.completed.name
     ..user = (AppUserModel()
-      ..id = '4'
-      ..name = 'Arslan'
-      ..avatar = Assets.images.imgAvatarMember5.path),
+      ..id = '6'
+      ..name = 'Berdiyev'
+      ..avatar = Assets.images.imgAvatarMember6.path),
   SubTaskModel()
     ..subTaskName = 'Design Figma'
     ..description = 'Add Task, SubTask...'
@@ -72,8 +72,8 @@ List<SubTaskModel> subTasks = [
     ..dueDate = '2023-05-11T02:03:48.467Z'
     ..status = StatusType.confirmation.name
     ..user = (AppUserModel()
-      ..id = '2'
-      ..name = 'Jack'
+      ..id = '7'
+      ..name = 'Merdan'
       ..avatar = Assets.images.imgAvatarMember3.path),
   SubTaskModel()
     ..subTaskName = 'Code UI'
@@ -82,9 +82,9 @@ List<SubTaskModel> subTasks = [
     ..dueDate = '2023-05-11T02:03:48.467Z'
     ..status = StatusType.completed.name
     ..user = (AppUserModel()
-      ..id = '4'
-      ..name = 'Arslan'
-      ..avatar = Assets.images.imgAvatarMember2.path),
+      ..id = '3'
+      ..name = 'Merdan Berdiyev'
+      ..avatar = Assets.images.imgAvatarMember3.path),
   SubTaskModel()
     ..subTaskName = 'Design Figma'
     ..description = 'Add Task, SubTask...'
@@ -92,7 +92,7 @@ List<SubTaskModel> subTasks = [
     ..dueDate = '2023-05-11T02:03:48.467Z'
     ..status = StatusType.inProgress.name
     ..user = (AppUserModel()
-      ..id = '4'
-      ..name = 'Arslan'
-      ..avatar = Assets.images.imgAvatarMember1.path),
+      ..id = '5'
+      ..name = 'Perhat'
+      ..avatar = Assets.images.imgAvatarMember5.path),
 ];

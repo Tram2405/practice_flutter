@@ -23,6 +23,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
     final task = Get.arguments[0] as TaskModel;
     const sizedBox12 = SizedBox(height: 12.0);
     const sizedBox16 = SizedBox(height: 16.0);
+    controller.getSubTask(task);
 
     return TMScaffold(
       backgroundColor: TMColor.onSecondary,
@@ -36,19 +37,19 @@ class DetailTaskPage extends GetView<DetailTaskController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            task.typeTask.toStyleTaskDisplay(context),
+            controller.task.value.typeTask.toStyleTaskDisplay(context),
             sizedBox12,
             TMTitle(
-              title: task.nameTask ?? '--:--',
+              title: controller.task.value.nameTask ?? '--:--',
               textStyle: context.textTheme.displaySmall,
             ),
             sizedBox12,
             TMDisplayDateTime(
                 title: 'Start Date',
-                dateTime: task.subTasks?[0].dueDate.toDateTime ?? '--:--'),
+                dateTime: controller.task.value.subTasks?[0].dueDate.toDateTime ?? '--:--'),
             sizedBox12,
             TMTitle(
-              title: task.description ?? '',
+              title: controller.task.value.description ?? '',
               textStyle: context.textTheme.bodyMedium,
             ),
             sizedBox12,
@@ -78,10 +79,12 @@ class DetailTaskPage extends GetView<DetailTaskController> {
             ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: task.subTasks?.length ?? 0,
+              itemCount: controller.task.value.subTasks?.length ?? 0,
               itemBuilder: (context, index) {
-                final subTask = task.subTasks?[index] ?? SubTaskModel();
-                return TMCardSubTask(onTap: () {}, subTask: subTask);
+                final subTask = controller.task.value.subTasks?[index] ?? SubTaskModel();
+                return TMCardSubTask(onTap: () {
+                  Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
+                }, subTask: subTask,index: index,);
               },
               separatorBuilder: (context, index) => const SizedBox(
                 height: 6.0,

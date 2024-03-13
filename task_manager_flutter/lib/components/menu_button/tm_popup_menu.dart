@@ -17,6 +17,9 @@ class TMPopupMenuSubtask extends StatelessWidget {
       elevation: 0,
       padding: EdgeInsets.zero,
       icon: SvgPicture.asset(Assets.icons.iconMore),
+      shape: BeveledRectangleBorder(
+        borderRadius: BorderRadius.circular(6.0),
+      ),
       itemBuilder: (context) {
         return [
           PopupMenuItem(

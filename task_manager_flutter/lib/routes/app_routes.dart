@@ -11,4 +11,5 @@ abstract class Routes {
   static const TASK_MANAGER = '/task_manager';
   static const ADD_TASK = '/add-task';
   static const ADD_SUB_TASK = '/add-sub-task';
+  static const DETAIL_TASK = '/detail-task';
 }

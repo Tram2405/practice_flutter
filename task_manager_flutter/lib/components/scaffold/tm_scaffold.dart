@@ -22,7 +22,7 @@ class TMScaffold extends StatelessWidget {
         appBar: appBar,
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.all( 16.0),
             child: body,
           ),
         ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:task_manager_flutter/components/buttons/tm_elevatebutton.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
-class BottomButton extends StatelessWidget {
-  const BottomButton({
+class TMBottomButton extends StatelessWidget {
+  const TMBottomButton({
     super.key,
     required this.text,
     this.isAction = false,

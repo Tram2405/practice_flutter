@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_flutter/controller/manager/task_controller.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
@@ -26,5 +27,17 @@ class AddTaskController extends GetxController {
 
   onSelectedType(int index) {
     currentIndex.value = index;
+  }
+
+  void addTask() {
+    TaskModel task = TaskModel()
+      ..typeTask = taskTypes[currentIndex.value].name
+      ..nameTask = taskNameController.text
+      ..description = descriptionController.text
+      ..subTasks = subTaskAdds;
+
+    final addTaskController = Get.find<TaskController>();
+    addTaskController.listTask.value = [...addTaskController.listTask, task];
+    Get.back();
   }
 }

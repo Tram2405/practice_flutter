@@ -10,7 +10,7 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 class AddUser extends StatelessWidget {
   const AddUser({super.key, this.onPressed});
 
-  final Function()? onPressed;
+  final Function(AppUserModel)? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class AddUser extends StatelessWidget {
                         user: user,
                         onCheck: () {
                           controller.selectedUser(user);
-                          onPressed?.call();
+                          onPressed?.call(user);
                         },
                       ),
                     );

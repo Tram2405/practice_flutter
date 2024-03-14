@@ -93,21 +93,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
                             arguments: [subTask]);
                       },
                       onSelected: (value) {
-                        if (value == 0) {
-                          Get.toNamed(Routes.DETAIL_SUB_TASK,
-                              arguments: [subTask]);
-                        } else if (value == 1) {
-                          Get.toNamed(Routes.EDIT_SUB_TASK,
-                                  arguments: [subTask])
-                              ?.then<SubTaskModel?>((value) {
-                            if (value != null) {
-                              controller.task.value.subTasks[index] = value;
-                            }
-                            return null;
-                          });
-                        } else {
-                          controller.task.value.subTasks.remove(subTask);
-                        }
+                        controller.onSelectDropDown(value, subTask, index);
                       },
                       subTask: subTask,
                       index: index,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
+import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 
 class AddTaskController extends GetxController {
@@ -52,5 +53,21 @@ class AddTaskController extends GetxController {
       ..startDate = subTaskAdds[0].startDate;
 
     Get.back(result: task);
+  }
+
+  void onSelectDropDown(int value, SubTaskModel subTask, int index) {
+    if (value == 0) {
+      Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
+    } else if (value == 1) {
+      Get.toNamed(Routes.EDIT_SUB_TASK, arguments: [subTask])?.then((value) {
+        if (value != null) {
+          subTaskAdds[index] = value;
+        }
+        return null;
+      });
+    } else {
+      subTaskAdds.remove(subTask);
+      checkIsEmpty();
+    }
   }
 }

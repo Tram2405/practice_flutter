@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
@@ -35,20 +36,12 @@ class TMDateTime extends StatelessWidget {
           children: [
             Text(
               text,
-              style: const TextStyle(
-                color: TMColor.onTask,
-                fontSize: 14.0,
-                fontWeight: FontWeight.w600,
-              ),
+              style: context.textTheme.bodyMedium,
             ),
             const SizedBox(height: 4.0),
             Text(
               dateTime,
-              style: const TextStyle(
-                color: TMColor.onTask,
-                fontSize: 14.0,
-                fontWeight: FontWeight.w400,
-              ),
+              style: context.textTheme.bodyMedium,
             ),
           ],
         ),

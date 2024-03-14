@@ -49,7 +49,7 @@ class AuthService {
       await firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
       return 'Success';
-    } on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException catch (_) {
       return 'Username or password is incorrect';
     } catch (e) {
       return e.toString();

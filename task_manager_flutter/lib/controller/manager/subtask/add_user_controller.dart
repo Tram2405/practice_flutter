@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 
@@ -15,13 +14,8 @@ class AddUserController extends GetxController {
         .toList();
   }
 
-  void selectedUser(AppUserModel userSelect){
-    for ( AppUserModel user in listSearch) {
-      user.isCheck = false;
-  
-    }
+  void selectedUser(AppUserModel userSelect) {
+    listSearch.map((element) => element.isCheck = false).toList();
     userSelect.isCheck = true;
   }
-
-  
 }

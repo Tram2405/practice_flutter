@@ -35,6 +35,7 @@ class TMButtonTask extends StatelessWidget {
           borderRadius: borderRadius,
         ),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             if (leftIcon != null) ...[
               SvgPicture.asset(

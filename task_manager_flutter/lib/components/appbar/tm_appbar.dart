@@ -52,6 +52,8 @@ class TMAppbar extends StatelessWidget implements PreferredSizeWidget {
                   child: SvgPicture.asset(
                     leftIcon!,
                     color: colorLeftIcon,
+                    width: 22.0,
+                    height: 22.0,
                   ),
                 )
               : const SizedBox(width: 24.0),
@@ -69,6 +71,8 @@ class TMAppbar extends StatelessWidget implements PreferredSizeWidget {
                   child: SvgPicture.asset(
                     rightIcon!,
                     color: colorRightIcon,
+                    width: 22.0,
+                    height: 22.0,
                   ),
                 )
               : const SizedBox(width: 24.0),

@@ -15,7 +15,6 @@ class TaskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(TaskController());
-    controller.getTask();
     return Obx(
       () => TMScaffold(
         backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
@@ -27,42 +26,43 @@ class TaskPage extends StatelessWidget {
           title: 'Task',
           rightIcon: Assets.icons.iconBell,
         ),
-        body: Container(
-          padding: const EdgeInsets.only(top: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TMTitle(
-                title: 'My Tasks',
-                textStyle: context.textTheme.bodyLarge,
-              ),
-              const SizedBox(height: 16.0),
-              controller.listTask.isEmpty
-                  ? Expanded(
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Image.asset(Assets.images.imgTaskEmpty.path),
-                        ),
-                      ),
-                    )
-                  : Expanded(
-                      child: ListView.separated(
-                        itemCount: controller.listTask.length,
-                        itemBuilder: (_, index) {
-                          final task =
-                              controller.listTask.reversed.toList()[index];
-                          return GestureDetector(
-                            child: TMCardTask(task: task),
-                          );
-                        },
-                        separatorBuilder: (_, __) => const SizedBox(
-                          height: 10.0,
-                        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TMTitle(
+              title: 'My Tasks',
+              textStyle: context.textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 16.0),
+            controller.listTask.isEmpty
+                ? Expanded(
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Image.asset(Assets.images.imgTaskEmpty.path),
                       ),
                     ),
-            ],
-          ),
+                  )
+                : Expanded(
+                    child: ListView.separated(
+                      itemCount: controller.listTask.length,
+                      itemBuilder: (_, index) {
+                        final task =
+                            controller.listTask.reversed.toList()[index];
+                        return TMCardTask(
+                          task: task,
+                          onPressed: () => Get.toNamed(
+                            Routes.DETAIL_TASK,
+                            arguments: [task],
+                          ),
+                        );
+                      },
+                      separatorBuilder: (_, __) => const SizedBox(
+                        height: 10.0,
+                      ),
+                    ),
+                  ),
+          ],
         ),
       ),
     );

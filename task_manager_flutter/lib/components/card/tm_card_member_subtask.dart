@@ -19,6 +19,7 @@ class TMCardMemberSubTask extends StatelessWidget {
         color: TMColor.button,
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           CircleAvatar(
             radius: 14.0,

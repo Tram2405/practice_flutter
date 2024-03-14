@@ -15,7 +15,8 @@ class OnBoardingPage extends GetView<OnBoardingController> {
       backgroundColor: TMColor.onBoarding,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 28.0, bottom: 16.0),
+          // padding: const EdgeInsets.only(top: 28.0, bottom: 16.0),
+          padding: const EdgeInsets.only(top: 12.0, bottom: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

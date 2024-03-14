@@ -3,8 +3,11 @@ import 'package:task_manager_flutter/bindings/auth/forgot_password_bind.dart';
 import 'package:task_manager_flutter/bindings/auth/login_bind.dart';
 import 'package:task_manager_flutter/bindings/auth/register_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/add_task_bind.dart';
+import 'package:task_manager_flutter/bindings/manager/detail_task_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/home_manager_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/subtask/add_sub_task_bind.dart';
+import 'package:task_manager_flutter/bindings/manager/subtask/detail_subtask_bind.dart';
+import 'package:task_manager_flutter/bindings/manager/subtask/edit_subtask_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/task_bind.dart';
 import 'package:task_manager_flutter/bindings/onboarding/onboarding_bind.dart';
 import 'package:task_manager_flutter/bindings/splash/splash_bind.dart';
@@ -12,8 +15,11 @@ import 'package:task_manager_flutter/ui/auth/forgot_password_page.dart';
 import 'package:task_manager_flutter/ui/auth/login_page.dart';
 import 'package:task_manager_flutter/ui/auth/register_page.dart';
 import 'package:task_manager_flutter/ui/manager/add_task_page.dart';
+import 'package:task_manager_flutter/ui/manager/detail_task_page.dart';
 import 'package:task_manager_flutter/ui/manager/home_page_manager.dart';
 import 'package:task_manager_flutter/ui/manager/subtask/add_sub_task.dart';
+import 'package:task_manager_flutter/ui/manager/subtask/detail_subtask.dart';
+import 'package:task_manager_flutter/ui/manager/subtask/edit_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/task_page.dart';
 import 'package:task_manager_flutter/ui/onboarding/onboarding_page.dart';
 import 'package:task_manager_flutter/ui/splash/splash_page.dart';
@@ -66,6 +72,21 @@ class AppPage {
       name: Routes.ADD_SUB_TASK,
       page: () => const AddSubTaskPage(),
       binding: AddSubTaskBinding(),
+    ),
+    GetPage(
+      name: Routes.DETAIL_TASK,
+      page: () =>  const DetailTaskPage(),
+      binding: DetaiTaskBinding(),
+    ),
+    GetPage(
+      name: Routes.DETAIL_SUB_TASK,
+      page: () =>  const DetailSubTaskPage(),
+      binding: DetailSubTaskBinding(),
+    ),
+    GetPage(
+      name: Routes.EDIT_SUB_TASK,
+      page: () =>  const EditSubTaskPage(),
+      binding: EditSubTaskBinding(),
     ),
   ];
 }

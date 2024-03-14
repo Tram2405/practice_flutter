@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/buttons/tm_elevatebutton.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';

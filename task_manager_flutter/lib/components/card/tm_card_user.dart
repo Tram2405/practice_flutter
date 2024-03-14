@@ -18,7 +18,8 @@ class CardUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
+      onTap: onCheck,
       child: Container(
         padding: const EdgeInsets.all(16.0),
         decoration: const BoxDecoration(color: TMColor.onSecondary),
@@ -32,13 +33,10 @@ class CardUser extends StatelessWidget {
             ),
             Text(user.name ?? ''),
             const Spacer(),
-            GestureDetector(
-              onTap: onCheck,
-              child: SvgPicture.asset(
-                (user.isCheck ?? false)
-                    ? Assets.icons.iconRadioButtonCheck
-                    : Assets.icons.iconRadioButton,
-              ),
+            SvgPicture.asset(
+              (user.isCheck ?? false)
+                  ? Assets.icons.iconRadioButtonCheck
+                  : Assets.icons.iconRadioButton,
             )
           ],
         ),

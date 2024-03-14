@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/card/tm_display_info.dart';
-import 'package:task_manager_flutter/components/menu_button/tm_menu_button.dart';
+import 'package:task_manager_flutter/components/card/tm_member_assign.dart';
+import 'package:task_manager_flutter/components/menu_button/tm_popup_menu.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
+import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class TMCardSubTask extends StatelessWidget {
@@ -16,15 +18,18 @@ class TMCardSubTask extends StatelessWidget {
     required this.subTask,
     this.onDelete,
     Color? color,
-  }) : color = color ?? TMColor.secondaryContainer.withOpacity(0.6);
+     this.index,
+  }) : color = color ?? TMColor.secondaryContainer.withOpacity(0.4);
 
   final Function()? onTap;
   final SubTaskModel subTask;
   final Function()? onDelete;
   final Color? color;
+  final int? index;
 
   @override
   Widget build(BuildContext context) {
+    const sizedBox8 = SizedBox(height: 8.0);
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -38,48 +43,44 @@ class TMCardSubTask extends StatelessWidget {
               children: [
                 TMDisplayInfo(
                   child: Row(
-                children: [
-                  SvgPicture.asset(
-                    Assets.icons.iconFlag,
-                    width: 15.0,
-                  ),
-                  const SizedBox(width: 10.0),
-                  Text(
-                    subTask.startDate.toDateTime ?? '',
-                    style: context.textTheme.bodySmall,
-                  )
-                ],
-              )),
-                const Spacer(),
-                if (onDelete != null)
-                  TMPopupMenuSubtask(
-                    onSelected: (value) {},
-                  ),
-              ],
-            ),
-            const SizedBox(height: 8.0),
-            subTask.status.toStatusDisplay(context),
-            const SizedBox(height: 8.0),
-            TMTitle(
-              title: subTask.subTaskName ?? '',
-              textStyle: context.textTheme.displayMedium,
-            ),
-            const SizedBox(height: 10.0),
-            Row(
-              children: [
-                CircleAvatar(
-                  radius: 12.5,
-                  backgroundImage: AssetImage(
-                    subTask.user?.avatar ?? '',
+                    children: [
+                      SvgPicture.asset(
+                        Assets.icons.iconFlag,
+                        width: 15.0,
+                      ),
+                      const SizedBox(width: 10.0),
+                      Text(
+                        subTask.startDate.toDateTime,
+                        style: context.textTheme.bodySmall,
+                      )
+                    ],
                   ),
                 ),
-                const SizedBox(width: 10.0),
-                TMTitle(
-                  title: subTask.user?.name ?? '',
-                  textStyle: context.textTheme.bodyMedium,
-                )
+                const Spacer(),
+                //TODO (TramNguyen): handle popup menus
+                TMPopupMenuSubtask(
+                  onSelected: (value) {
+                    if (value == 0) {
+                      Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
+                    } else if (value == 1) {
+                      Get.toNamed(Routes.EDIT_SUB_TASK, arguments: [subTask,index]);
+                    }else{
+
+                    }
+                  },
+                ),
               ],
-            )
+            ),
+            sizedBox8,
+            subTask.status.toStatusSubTask(context),
+            sizedBox8,
+            TMTitle(
+              title: subTask.subTaskName ?? '',
+              textStyle: context.textTheme.displayMedium
+                  ?.copyWith(color: TMColor.onBackground),
+            ),
+            const SizedBox(height: 10.0),
+            TMMemberAssign(subTask: subTask),
           ],
         ),
       ),

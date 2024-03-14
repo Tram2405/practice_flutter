@@ -9,10 +9,12 @@ class TMDisplayDateTime extends StatelessWidget {
     required this.title,
     required this.dateTime,
     this.icon,
+    this.textColor = TMColor.onCompleted,
   });
   final String title;
   final String dateTime;
   final String? icon;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +23,9 @@ class TMDisplayDateTime extends StatelessWidget {
       children: [
         Text(
           title,
-          style: context.textTheme.bodyMedium
-              ?.copyWith(color: TMColor.primaryIcon),
+          style: context.textTheme.bodyMedium?.copyWith(color: textColor),
         ),
-        const SizedBox(height: 8.0),
+        const SizedBox(height: 4.0),
         Row(
           children: [
             Text(

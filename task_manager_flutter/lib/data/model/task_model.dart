@@ -13,6 +13,26 @@ class TaskModel {
   List<SubTaskModel>? subTasks;
 
   TaskModel();
+
+  TaskModel copyWith({
+    String? id,
+    String? typeTask,
+    String? nameTask,
+    String? description,
+    String? startDate,
+    String? dueDate,
+    List<SubTaskModel>? subTasks,
+  }) {
+    return TaskModel()
+      ..id = id ?? this.id
+      ..typeTask = typeTask ?? this.typeTask
+      ..nameTask = nameTask ?? this.nameTask
+      ..description = description ?? this.description
+      ..startDate = startDate ?? this.startDate
+      ..dueDate = dueDate ?? this.dueDate
+      ..subTasks = subTasks ?? this.subTasks;
+  }
+
   double getPercentCompleted() {
     double total = 0;
     double percentMember = 100 / (subTasks?.length ?? 1);

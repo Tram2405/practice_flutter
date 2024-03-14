@@ -9,23 +9,26 @@ import 'package:task_manager_flutter/components/date_time/tm_date_time.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_form_field.dart';
-import 'package:task_manager_flutter/controller/manager/subtask/add_sub_task_controller.dart';
+import 'package:task_manager_flutter/controller/manager/subtask/edit_subtask_controller.dart';
+import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
-class AddSubTaskPage extends GetView<AddSubTaskController> {
-  const AddSubTaskPage({super.key});
+class EditSubTaskPage extends GetView<EditSubTaskController> {
+  const EditSubTaskPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {
+    const sizedBox12 = SizedBox(height: 12.0);
+    final subTask = Get.arguments[0] as SubTaskModel;
+    controller.getSubTask(subTask);
     return Obx(
       () => TMScaffold(
         appBar: TMAppbar(
-          title: 'Create Sub Task',
-          leftIcon: Assets.icons.iconClose,
-          leftPressed: () {
-            Get.back();
-          },
+          title: 'Edit Sub Task',
+          leftIcon: Assets.icons.iconCloseBlack,
+          leftPressed: () => Get.back(),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -33,29 +36,32 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
             children: [
               TMTitle(
                 title: 'Chose date',
-                textStyle: context.textTheme.bodyLarge,
+                textStyle: context.textTheme.displaySmall,
               ),
-              const SizedBox(height: 10.0),
+              sizedBox12,
               TMDateTime(
-                  onPressed: () {
-                    controller.chooseStartDate(context);
-                  },
-                  text: 'Start Date',
-                  dateTime: controller.startDate.value.toDateTime),
-              const SizedBox(height: 12.0),
+                onPressed: () {
+                  controller.chooseStartDate(context);
+                },
+                text: 'Start Date',
+                dateTime: (controller.startDate.value ?? subTask.startDate)
+                    .toDateTime,
+              ),
+              sizedBox12,
               TMDateTime(
                 onPressed: () {
                   controller.chooseDueDate(context);
                 },
                 text: 'Due Date',
-                dateTime: controller.dueDate.value.toDateTime,
+                dateTime:
+                    (controller.dueDate.value ?? subTask.dueDate).toDateTime,
               ),
-              const SizedBox(height: 25.0),
+              sizedBox12,
               TMTitle(
                 title: 'Assigned users',
-                textStyle: context.textTheme.bodyLarge,
+                textStyle: context.textTheme.displaySmall,
               ),
-              const SizedBox(height: 15.0),
+              const SizedBox(height: 6.0),
               controller.userSelect.value == null
                   ? TMButtonTask(
                       onPressed: () {
@@ -70,7 +76,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                       user: controller.userSelect.value!,
                       onRemove: () => controller.onDeleteUser(),
                     ),
-              const SizedBox(height: 15.0),
+              const SizedBox(height: 18.0),
               TMTextField(
                 hintText: 'SubTask Name',
                 textInputAction: TextInputAction.next,
@@ -85,13 +91,12 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                 controller: controller.descriptionController,
                 onChanged: (_) => controller.checkIsEmpty(),
               ),
-              const SizedBox(height: 12.0),
             ],
           ),
         ),
         bottomNavigationBar: TMBottomButton(
-          text: 'Add Sub Task',
-          onPressed: controller.addSubTask,
+          text: 'Edit Sub Task',
+          onPressed: controller.updateSubTask,
           isAction: controller.canAction.value,
         ),
       ),

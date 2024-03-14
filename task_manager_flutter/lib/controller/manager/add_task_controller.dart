@@ -34,7 +34,8 @@ class AddTaskController extends GetxController {
       ..typeTask = taskTypes[currentIndex.value].name
       ..nameTask = taskNameController.text
       ..description = descriptionController.text
-      ..subTasks = subTaskAdds;
+      ..subTasks = subTaskAdds
+      ..startDate = subTaskAdds[0].startDate;
 
     final addTaskController = Get.find<TaskController>();
     addTaskController.listTask.value = [...addTaskController.listTask, task];

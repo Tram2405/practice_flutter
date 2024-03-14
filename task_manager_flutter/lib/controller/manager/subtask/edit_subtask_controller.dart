@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/date_time/tm_choose_date_time.dart';
 import 'package:task_manager_flutter/controller/manager/detail_task_controller.dart';
+import 'package:task_manager_flutter/controller/manager/task_controller.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 
@@ -15,8 +16,6 @@ class EditSubTaskController extends GetxController {
   RxBool canAction = false.obs;
 
   int index = Get.arguments[1];
-
-
 
   void getSubTask(SubTaskModel subTask) {
     startDate.value = subTask.startDate;
@@ -53,7 +52,7 @@ class EditSubTaskController extends GetxController {
   }
 
   void updateSubTask() {
-    SubTaskModel subTaskEdit = SubTaskModel()
+    SubTaskModel subTask = SubTaskModel()
       ..status = status
       ..subTaskName = subTaskNameController.text
       ..description = descriptionController.text
@@ -61,13 +60,14 @@ class EditSubTaskController extends GetxController {
       ..dueDate = dueDate.value
       ..user = userSelect.value;
 
-    final detaiTaskController = Get.find<DetailTaskController>();
-    List<SubTaskModel> subTasks = detaiTaskController.task.value.subTasks ?? [];
-    subTasks[index] = subTaskEdit;
+    // final detaiTaskController = Get.find<DetailTaskController>();
+    // List<SubTaskModel> subTasks = detaiTaskController.task.value.subTasks ?? [];
+    // subTasks[index] = subTask;
 
-    detaiTaskController.task.value = detaiTaskController.task.value.copyWith(
-      subTasks: subTasks,
-    );
-    Get.back();
+    // detaiTaskController.task.value = detaiTaskController.task.value.copyWith(
+    //   subTasks: subTasks,
+    // );
+
+    Get.back(result: subTask);
   }
 }

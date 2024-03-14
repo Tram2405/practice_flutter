@@ -7,5 +7,7 @@ class DetailTaskController extends GetxController {
 
   void getSubTask(TaskModel subTaskInit) {
     task.value = subTaskInit;
-  }
+  } 
+
+
 }

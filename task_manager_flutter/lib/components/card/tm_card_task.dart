@@ -38,7 +38,7 @@ class TMCardTask extends StatelessWidget {
                       ),
                       const SizedBox(width: 10.0),
                       Text(
-                        task.subTasks?[0].dueDate.toDateTime ?? '',
+                        task.startDate.toDateTime,
                         style: context.textTheme.bodySmall,
                       )
                     ],

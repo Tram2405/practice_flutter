@@ -15,6 +15,7 @@ class TMCardSubTask extends StatelessWidget {
   TMCardSubTask({
     super.key,
     this.onTap,
+    this.onSelected,
     required this.subTask,
     this.onDelete,
     Color? color,
@@ -22,6 +23,7 @@ class TMCardSubTask extends StatelessWidget {
   }) : color = color ?? TMColor.secondaryContainer.withOpacity(0.4);
 
   final Function()? onTap;
+  final Function(int)? onSelected;
   final SubTaskModel subTask;
   final Function()? onDelete;
   final Color? color;
@@ -59,15 +61,7 @@ class TMCardSubTask extends StatelessWidget {
                 const Spacer(),
                 //TODO (TramNguyen): handle popup menus
                 TMPopupMenuSubtask(
-                  onSelected: (value) {
-                    if (value == 0) {
-                      Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
-                    } else if (value == 1) {
-                      Get.toNamed(Routes.EDIT_SUB_TASK, arguments: [subTask,index]);
-                    }else{
-
-                    }
-                  },
+                  onSelected: onSelected,
                 ),
               ],
             ),

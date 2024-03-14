@@ -26,12 +26,12 @@ class DetailTaskPage extends GetView<DetailTaskController> {
     controller.getSubTask(task);
 
     return Obx(
-      () =>  TMScaffold(
+      () => TMScaffold(
         backgroundColor: TMColor.onSecondary,
         appBar: TMAppbar(
           title: 'Detail Task',
           leftIcon: Assets.icons.iconArrowLeft,
-          leftPressed: () => Get.back(),
+          leftPressed: () => Get.back(result: controller.task.value),
           rightIcon: Assets.icons.iconComment,
         ),
         body: SingleChildScrollView(
@@ -47,7 +47,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               sizedBox12,
               TMDisplayDateTime(
                   title: 'Start Date',
-                  dateTime: controller.task.value.subTasks?[0].dueDate.toDateTime ?? '--:--'),
+                  dateTime: controller.task.value.startDate.toDateTime),
               sizedBox12,
               TMTitle(
                 title: controller.task.value.description ?? '',
@@ -77,20 +77,44 @@ class DetailTaskPage extends GetView<DetailTaskController> {
                 leftIconColor: TMColor.background,
               ),
               sizedBox16,
-              ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: controller.task.value.subTasks?.length ?? 0,
-                itemBuilder: (context, index) {
-                  final subTask = controller.task.value.subTasks?[index] ?? SubTaskModel();
-                  return TMCardSubTask(onTap: () {
-                    Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
-                  }, subTask: subTask,index: index,);
-                },
-                separatorBuilder: (context, index) => const SizedBox(
-                  height: 6.0,
-                ),
-              )
+              if (controller.task.value.subTasks.isNotEmpty)
+                ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: controller.task.value.subTasks.length,
+                  itemBuilder: (context, index) {
+                    final subTask = controller.task.value.subTasks[index];
+                    return TMCardSubTask(
+                      onTap: () {
+                        Get.toNamed(Routes.DETAIL_SUB_TASK,
+                            arguments: [subTask]);
+                      },
+                      onSelected: (value) {
+                        if (value == 0) {
+                          Get.toNamed(Routes.DETAIL_SUB_TASK,
+                              arguments: [subTask]);
+                        } else if (value == 1) {
+                          Get.toNamed(Routes.EDIT_SUB_TASK,
+                                  arguments: [subTask, index])
+                              ?.then<SubTaskModel?>((value) {
+                            print('object $value');
+                            if (value != null) {
+                              controller.task.value.subTasks[index] = value;
+                            }
+                            return null;
+                          });
+                        } else {
+                          controller.task.value.subTasks.remove(subTask);
+                        }
+                      },
+                      subTask: subTask,
+                      index: index,
+                    );
+                  },
+                  separatorBuilder: (context, index) => const SizedBox(
+                    height: 6.0,
+                  ),
+                )
             ],
           ),
         ),

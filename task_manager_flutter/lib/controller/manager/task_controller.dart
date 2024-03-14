@@ -13,4 +13,5 @@ class TaskController extends GetxController {
   getTask() {
     listTask.value = tasks;
   }
+ 
 }

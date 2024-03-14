@@ -38,6 +38,7 @@ class SubTaskModel {
 
 List<SubTaskModel> subTasks = [
   SubTaskModel()
+    ..id = '1'
     ..subTaskName = 'Code UI'
     ..description = 'UI & Navigator: Approval page, detail Approval page'
     ..startDate = '2023-05-11T02:03:48.467Z'
@@ -48,6 +49,7 @@ List<SubTaskModel> subTasks = [
       ..name = 'Jemal'
       ..avatar = Assets.images.imgAvatarMember2.path),
   SubTaskModel()
+    ..id = '2'
     ..subTaskName = 'Design Figma'
     ..description = 'Add Task, SubTask...'
     ..startDate = '2023-05-11T02:03:48.467Z'
@@ -58,6 +60,7 @@ List<SubTaskModel> subTasks = [
       ..name = 'Jack'
       ..avatar = Assets.images.imgAvatarMember4.path),
   SubTaskModel()
+    ..id = '3'
     ..subTaskName = 'Up'
     ..description = 'Add Task, SubTask...'
     ..startDate = '2023-05-11T02:03:48.467Z'
@@ -68,6 +71,7 @@ List<SubTaskModel> subTasks = [
       ..name = 'Arslan'
       ..avatar = Assets.images.imgAvatarMember6.path),
   SubTaskModel()
+    ..id = '4'
     ..subTaskName = 'Code UI'
     ..description = 'UI & Navigator: Approval page, detail Approval page'
     ..startDate = '2023-05-11T02:03:48.467Z'
@@ -78,6 +82,7 @@ List<SubTaskModel> subTasks = [
       ..name = 'Berdiyev'
       ..avatar = Assets.images.imgAvatarMember6.path),
   SubTaskModel()
+    ..id = '5'
     ..subTaskName = 'Design Figma'
     ..description = 'Add Task, SubTask...'
     ..startDate = '2023-05-11T02:03:48.467Z'
@@ -88,6 +93,7 @@ List<SubTaskModel> subTasks = [
       ..name = 'Arslan'
       ..avatar = Assets.images.imgAvatarMember4.path),
   SubTaskModel()
+    ..id = '6'
     ..subTaskName = 'Up'
     ..description = 'Add Task, SubTask...'
     ..startDate = '2023-05-11T02:03:48.467Z'
@@ -98,6 +104,7 @@ List<SubTaskModel> subTasks = [
       ..name = 'Merdan'
       ..avatar = Assets.images.imgAvatarMember3.path),
   SubTaskModel()
+    ..id = '7'
     ..subTaskName = 'Code UI'
     ..description = 'UI & Navigator: Approval page, detail Approval page'
     ..startDate = '2023-05-11T02:03:48.467Z'
@@ -108,6 +115,7 @@ List<SubTaskModel> subTasks = [
       ..name = 'Merdan Berdiyev'
       ..avatar = Assets.images.imgAvatarMember3.path),
   SubTaskModel()
+    ..id = '8'
     ..subTaskName = 'Design Figma'
     ..description = 'Add Task, SubTask...'
     ..startDate = '2023-05-11T02:03:48.467Z'

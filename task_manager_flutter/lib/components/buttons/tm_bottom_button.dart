@@ -32,7 +32,7 @@ class TMBottomButton extends StatelessWidget {
             )
           ]),
       child: TMElevateButton(
-        onPressed: onPressed,
+        onPressed: isAction ? onPressed : null,
         text: text,
          color:
                 isAction ? TMColor.primary : TMColor.primaryContainer,

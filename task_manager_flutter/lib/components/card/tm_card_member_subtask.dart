@@ -18,25 +18,26 @@ class TMCardMemberSubTask extends StatelessWidget {
         borderRadius: BorderRadius.circular(25.0),
         color: TMColor.button,
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CircleAvatar(
-            radius: 14.0,
-            backgroundImage: AssetImage(user.avatar ?? ''),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: TMTitle(
-                title: user.name ?? '',
-                textStyle: context.textTheme.bodySmall,
-                ),
-          ),
-          GestureDetector(
-            onTap: onRemove,
-            child: SvgPicture.asset(Assets.icons.iconCloseBlack),
-          ),
-        ],
+      child: InkWell(
+        onTap: onRemove,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CircleAvatar(
+              radius: 14.0,
+              //set image when avatar null
+              backgroundImage: AssetImage(user.avatar ?? Assets.images.imgAvatarDefault.path),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TMTitle(
+                  title: user.name ?? '',
+                  textStyle: context.textTheme.bodySmall,
+                  ),
+            ),
+            SvgPicture.asset(Assets.icons.iconCloseBlack),
+          ],
+        ),
       ),
     );
   }

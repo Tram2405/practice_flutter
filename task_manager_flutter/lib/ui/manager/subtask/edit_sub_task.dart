@@ -27,7 +27,7 @@ class EditSubTaskPage extends GetView<EditSubTaskController> {
       () => TMScaffold(
         appBar: TMAppbar(
           title: 'Edit Sub Task',
-          leftIcon: Assets.icons.iconCloseBlack,
+          leftIcon: Assets.icons.iconClose,
           leftPressed: () => Get.back(),
         ),
         body: SingleChildScrollView(

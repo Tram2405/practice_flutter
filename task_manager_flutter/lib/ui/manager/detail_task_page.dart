@@ -46,8 +46,9 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               ),
               sizedBox12,
               TMDisplayDateTime(
-                  title: 'Start Date',
-                  dateTime: controller.task.value.startDate.toDateTime),
+                title: 'Start Date',
+                dateTime: controller.task.value.startDate.toDateTime,
+              ),
               sizedBox12,
               TMTitle(
                 title: controller.task.value.description ?? '',
@@ -70,7 +71,9 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               sizedBox12,
               TMButtonTask(
                 onPressed: () {
-                  Get.toNamed(Routes.ADD_SUB_TASK);
+                  Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
+                    controller.task.value.subTasks.add(value);
+                  });
                 },
                 text: 'Add SubTask',
                 leftIcon: Assets.icons.iconAdd,
@@ -95,9 +98,8 @@ class DetailTaskPage extends GetView<DetailTaskController> {
                               arguments: [subTask]);
                         } else if (value == 1) {
                           Get.toNamed(Routes.EDIT_SUB_TASK,
-                                  arguments: [subTask, index])
+                                  arguments: [subTask])
                               ?.then<SubTaskModel?>((value) {
-                            print('object $value');
                             if (value != null) {
                               controller.task.value.subTasks[index] = value;
                             }

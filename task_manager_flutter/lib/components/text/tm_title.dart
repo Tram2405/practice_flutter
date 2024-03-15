@@ -6,11 +6,11 @@ class TMTitle extends StatefulWidget {
     super.key,
     required this.title,
     this.textStyle,
-    this.isRedMore = false,
+    this.isReadMore = false,
   });
   final String title;
   final TextStyle? textStyle;
-  final bool isRedMore;
+  final bool isReadMore;
 
   @override
   State<TMTitle> createState() => _TMTitleState();
@@ -21,9 +21,11 @@ class _TMTitleState extends State<TMTitle> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.isRedMore ? () => setState(() {
-        isReadMore = !isReadMore;
-      }) : null,
+      onTap: widget.isReadMore
+          ? () => setState(() {
+                isReadMore = !isReadMore;
+              })
+          : null,
       child: Text(
         widget.title,
         style: widget.textStyle ?? context.textTheme.displayLarge,

@@ -56,8 +56,7 @@ class TMCardSubTask extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                //TODO (TramNguyen): handle popup menus
-                TMPopupMenuSubtask(
+                if (onSelected != null) TMPopupMenuSubtask(
                   onSelected: onSelected,
                 ),
               ],

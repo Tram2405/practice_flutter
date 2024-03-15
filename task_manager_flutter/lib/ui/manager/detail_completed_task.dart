@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
-import 'package:task_manager_flutter/components/buttons/tm_button_task.dart';
 import 'package:task_manager_flutter/components/card/tm_card_subtask.dart';
 import 'package:task_manager_flutter/components/card/tm_percent_task.dart';
 import 'package:task_manager_flutter/components/date_time/tm_display_date_time.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
-import 'package:task_manager_flutter/controller/manager/detail_task_controller.dart';
-import 'package:task_manager_flutter/data/model/subtask_model.dart';
-import 'package:task_manager_flutter/data/model/task_model.dart';
+import 'package:task_manager_flutter/controller/manager/detail_completed_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
-class DetailTaskPage extends GetView<DetailTaskController> {
-  const DetailTaskPage({super.key});
+class DetailCompletedTaskPage extends GetView<DetailCompletedTaskController>{
+  const DetailCompletedTaskPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     const sizedBox12 = SizedBox(height: 12.0);
     const sizedBox16 = SizedBox(height: 16.0);
-
     return Obx(
       () => TMScaffold(
         backgroundColor: TMColor.onSecondary,
@@ -69,17 +65,6 @@ class DetailTaskPage extends GetView<DetailTaskController> {
                 textStyle: context.textTheme.labelLarge,
               ),
               sizedBox12,
-              TMButtonTask(
-                onPressed: () {
-                  Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
-                    controller.task.value.subTasks.add(value);
-                  });
-                },
-                text: 'Add SubTask',
-                leftIcon: Assets.icons.iconAdd,
-                leftIconColor: TMColor.background,
-              ),
-              sizedBox16,
               if (controller.task.value.subTasks.isNotEmpty)
                 ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
@@ -91,9 +76,6 @@ class DetailTaskPage extends GetView<DetailTaskController> {
                       onTap: () {
                         Get.toNamed(Routes.DETAIL_SUB_TASK,
                             arguments: [subTask]);
-                      },
-                      onSelected: (value) {
-                        controller.onSelectDropDown(value, subTask, index);
                       },
                       subTask: subTask,
                       index: index,
@@ -109,4 +91,5 @@ class DetailTaskPage extends GetView<DetailTaskController> {
       ),
     );
   }
+
 }

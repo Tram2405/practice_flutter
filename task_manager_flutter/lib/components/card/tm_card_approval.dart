@@ -24,53 +24,56 @@ class TMCardApproval extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: TMColor.onSecondary,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              TMDisplayInfo(
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      Assets.icons.iconFlag,
-                      width: 15.0,
-                    ),
-                    const SizedBox(width: 10.0),
-                    Text(
-                      task.startDate.toDateTime,
-                      style: context.textTheme.bodySmall,
-                    )
-                  ],
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.all(20.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: TMColor.onSecondary,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                TMDisplayInfo(
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        Assets.icons.iconFlag,
+                        width: 15.0,
+                      ),
+                      const SizedBox(width: 10.0),
+                      Text(
+                        task.startDate.toDateTime,
+                        style: context.textTheme.bodySmall,
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 14.0),
-              task.typeTask.toStyleTaskDisplay(context),
-            ],
-          ),
-          const SizedBox(height: 10.0),
-          TMCardMemberSubTask(
-            user: user,
-          ),
-          const SizedBox(height: 10.0),
-          TMTitle(
-            title: task.nameTask ?? '',
-            textStyle: context.textTheme.displayMedium
-                ?.copyWith(color: TMColor.onTask),
-          ),
-          const SizedBox(height: 12.0),
-          TMTitle(
-            title: task.description ?? '',
-            textStyle: context.textTheme.bodySmall
-                ?.copyWith(color: TMColor.primaryIcon),
-          ),
-        ],
+                const SizedBox(width: 14.0),
+                task.typeTask.toStyleTaskDisplay(context),
+              ],
+            ),
+            const SizedBox(height: 10.0),
+            TMCardMemberSubTask(
+              user: user,
+            ),
+            const SizedBox(height: 10.0),
+            TMTitle(
+              title: task.nameTask ?? '',
+              textStyle: context.textTheme.displayMedium
+                  ?.copyWith(color: TMColor.onTask),
+            ),
+            const SizedBox(height: 12.0),
+            TMTitle(
+              title: task.description ?? '',
+              textStyle: context.textTheme.bodySmall
+                  ?.copyWith(color: TMColor.primaryIcon),
+            ),
+          ],
+        ),
       ),
     );
   }

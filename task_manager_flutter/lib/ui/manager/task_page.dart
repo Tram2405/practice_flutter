@@ -22,7 +22,7 @@ class TaskPage extends StatelessWidget {
           leftIcon: Assets.icons.iconAdd,
           leftPressed: () {
             Get.toNamed(Routes.ADD_TASK)?.then((value) {
-            controller.listTask.add(value);
+              controller.listTask.add(value);
             });
           },
           title: 'Task',
@@ -51,16 +51,15 @@ class TaskPage extends StatelessWidget {
                       itemBuilder: (_, index) {
                         final task =
                             controller.listTask.reversed.toList()[index];
-                        
+
                         return TMCardTask(
                           task: task,
                           onPressed: () => Get.toNamed(
                             Routes.DETAIL_TASK,
                             arguments: [task],
                           )?.then((value) {
-                            if(value == null) return;
-                            controller.listTask[index] = value;
-                          } ),
+                            controller.checkIdTaskUpdate(task);
+                          }),
                         );
                       },
                       separatorBuilder: (_, __) => const SizedBox(

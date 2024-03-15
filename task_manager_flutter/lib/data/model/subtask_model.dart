@@ -39,7 +39,7 @@ class SubTaskModel {
 List<SubTaskModel> subTasks = [
   SubTaskModel()
     ..id = '1'
-    ..subTaskName = 'Code UI'
+    ..subTaskName = 'f UI'
     ..description = 'UI & Navigator: Approval page, detail Approval page'
     ..startDate = '2023-04-10T02:03:48.467Z'
     ..dueDate = '2023-05-11T02:03:48.467Z'
@@ -50,7 +50,7 @@ List<SubTaskModel> subTasks = [
       ..avatar = Assets.images.imgAvatarMember2.path),
   SubTaskModel()
     ..id = '2'
-    ..subTaskName = 'Design Figma'
+    ..subTaskName = 'fffff Figma'
     ..description = 'Add Task, SubTask...'
     ..startDate = '2023-04-10T02:03:48.467Z'
     ..dueDate = '2023-05-11T02:03:48.467Z'
@@ -72,7 +72,7 @@ List<SubTaskModel> subTasks = [
       ..avatar = Assets.images.imgAvatarMember6.path),
   SubTaskModel()
     ..id = '4'
-    ..subTaskName = 'Code UI'
+    ..subTaskName = 'cooo '
     ..description = 'UI & Navigator: Approval page, detail Approval page'
     ..startDate = '2023-04-10T02:03:48.467Z'
     ..dueDate = '2023-05-11T02:03:48.467Z'
@@ -83,7 +83,7 @@ List<SubTaskModel> subTasks = [
       ..avatar = Assets.images.imgAvatarMember6.path),
   SubTaskModel()
     ..id = '5'
-    ..subTaskName = 'Design Figma'
+    ..subTaskName = 'De'
     ..description = 'Add Task, SubTask...'
     ..startDate = '2023-04-10T02:03:48.467Z'
     ..dueDate = '2023-05-11T02:03:48.467Z'
@@ -116,7 +116,7 @@ List<SubTaskModel> subTasks = [
       ..avatar = Assets.images.imgAvatarMember3.path),
   SubTaskModel()
     ..id = '8'
-    ..subTaskName = 'Design Figma'
+    ..subTaskName = 'Design '
     ..description = 'Add Task, SubTask...'
     ..startDate = '2023-04-10T02:03:48.467Z'
     ..dueDate = '2023-05-11T02:03:48.467Z'

@@ -20,10 +20,8 @@ class DetailTaskPage extends GetView<DetailTaskController> {
 
   @override
   Widget build(BuildContext context) {
-    final task = Get.arguments[0] as TaskModel;
     const sizedBox12 = SizedBox(height: 12.0);
     const sizedBox16 = SizedBox(height: 16.0);
-    controller.getSubTask(task);
 
     return Obx(
       () => TMScaffold(
@@ -61,7 +59,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               ),
               sizedBox16,
               TMPercentTask(
-                percent: task.getPercentCompleted(),
+                percent: controller.task.value.getPercentCompleted(),
               ),
               sizedBox16,
               TMTitle(

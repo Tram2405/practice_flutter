@@ -4,11 +4,7 @@ import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 
 class DetailTaskController extends GetxController {
-  Rx<TaskModel> task = TaskModel().obs;
-
-  void getSubTask(TaskModel subTaskInit) {
-    task.value = subTaskInit;
-  }
+  Rx<TaskModel> task = (Get.arguments[0] as TaskModel).obs;
 
   void onSelectDropDown(int value, SubTaskModel subTask, int index) {
     if (value == 0) {

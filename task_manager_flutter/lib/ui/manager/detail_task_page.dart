@@ -41,6 +41,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               TMTitle(
                 title: controller.task.value.nameTask ?? '--:--',
                 textStyle: context.textTheme.displaySmall,
+                isRedMore: true,
               ),
               sizedBox12,
               TMDisplayDateTime(
@@ -51,6 +52,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               TMTitle(
                 title: controller.task.value.description ?? '',
                 textStyle: context.textTheme.bodyMedium,
+                isRedMore: true,
               ),
               sizedBox12,
               TMTitle(

@@ -52,6 +52,7 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
             sizedBox12,
             TMTitle(
               title: subTask.description ?? '',
+              isRedMore: true,
               textStyle: context.textTheme.titleLarge
                   ?.copyWith(color: TMColor.onBackground),
             ),

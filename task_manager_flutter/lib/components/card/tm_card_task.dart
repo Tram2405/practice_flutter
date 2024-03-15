@@ -72,7 +72,7 @@ class TMCardTask extends StatelessWidget {
             Row(
               children: [
                 TMAvatarMember(
-                  subtasks: task.subTasks ?? [],
+                  subtasks: task.subTasks,
                   minLength: 4,
                 ),
                 const Spacer(),

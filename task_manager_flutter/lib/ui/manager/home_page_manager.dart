@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/controller/manager/home_manager_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
+import 'package:task_manager_flutter/ui/manager/approval_task_page.dart';
+import 'package:task_manager_flutter/ui/manager/completed_page.dart';
 import 'package:task_manager_flutter/ui/manager/task_page.dart';
 
 class HomePageManager extends GetView<HomeManagerController> {
@@ -20,8 +22,8 @@ class HomePageManager extends GetView<HomeManagerController> {
 
     List<Widget> pages = [
       const TaskPage(),
-      Container(color: Colors.blueAccent),
-      Container(color: Colors.red),
+      const ApprovalTaskPage(),
+      const CompletedTaskPage(),
       Container(color: Colors.black54),
     ];
     return Obx(

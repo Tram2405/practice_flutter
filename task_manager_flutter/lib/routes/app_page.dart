@@ -88,5 +88,10 @@ class AppPage {
       page: () =>  const EditSubTaskPage(),
       binding: EditSubTaskBinding(),
     ),
+    // GetPage(
+    //   name: Routes.EDIT_SUB_TASK,
+    //   page: () =>  const EditSubTaskPage(),
+    //   binding: EditSubTaskBinding(),
+    // ),
   ];
 }

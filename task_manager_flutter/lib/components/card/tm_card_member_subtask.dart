@@ -13,7 +13,7 @@ class TMCardMemberSubTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25.0),
         color: TMColor.button,
@@ -26,16 +26,18 @@ class TMCardMemberSubTask extends StatelessWidget {
             CircleAvatar(
               radius: 14.0,
               //set image when avatar null
-              backgroundImage: AssetImage(user.avatar ?? Assets.images.imgAvatarDefault.path),
+              backgroundImage: AssetImage(
+                  user.avatar ?? Assets.images.imgAvatarDefault.path),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: TMTitle(
-                  title: user.name ?? '',
-                  textStyle: context.textTheme.bodySmall,
-                  ),
+            const SizedBox(width: 10.0),
+            TMTitle(
+              title: user.name ?? '',
+              textStyle: context.textTheme.bodySmall,
             ),
-            SvgPicture.asset(Assets.icons.iconCloseBlack),
+            if (onRemove != null) ...[
+              const SizedBox(width: 10.0),
+              SvgPicture.asset(Assets.icons.iconCloseBlack)
+            ],
           ],
         ),
       ),

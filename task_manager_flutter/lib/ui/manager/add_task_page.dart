@@ -19,7 +19,7 @@ class AddTaskPage extends GetView<AddTaskController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      ()=> TMScaffold(
+      () => TMScaffold(
         appBar: TMAppbar(
           title: 'Create New Task',
           leftIcon: Assets.icons.iconClose,
@@ -80,7 +80,9 @@ class AddTaskPage extends GetView<AddTaskController> {
               const SizedBox(height: 20.0),
               TMButtonTask(
                 onPressed: () {
-                  Get.toNamed(Routes.ADD_SUB_TASK);
+                  Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
+                    controller.addSubTask(value);
+                  });
                 },
                 text: 'Add SubTask',
                 leftIcon: Assets.icons.iconAdd,
@@ -94,9 +96,12 @@ class AddTaskPage extends GetView<AddTaskController> {
                 itemBuilder: (_, index) {
                   final subTask = controller.subTaskAdds[index];
                   return TMCardSubTask(
+                    onTap: () {
+                      Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
+                    },
                     subTask: subTask,
-                    onDelete: () {
-                      controller.subTaskAdds.remove(subTask);
+                    onSelected: (value) {
+                      controller.onSelectDropDown(value, subTask, index);
                     },
                   );
                 },
@@ -106,10 +111,10 @@ class AddTaskPage extends GetView<AddTaskController> {
           ),
         ),
         bottomNavigationBar: TMBottomButton(
-            text: 'Add Task',
-            onPressed: controller.addTask,
-            isAction: controller.canAction.value,
-          ),
+          text: 'Add Task',
+          onPressed: controller.addTask,
+          isAction: controller.canAction.value,
+        ),
       ),
     );
   }

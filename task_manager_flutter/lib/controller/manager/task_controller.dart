@@ -13,5 +13,14 @@ class TaskController extends GetxController {
   getTask() {
     listTask.value = tasks;
   }
- 
+
+  void checkIdTaskUpdate(TaskModel? task) {
+    if (task == null) return;
+    for (var e in listTask) {
+      if (e.id == task.id) {
+        e = task;
+        return;
+      }
+    }
+  }
 }

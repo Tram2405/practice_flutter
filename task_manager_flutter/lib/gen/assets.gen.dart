@@ -188,6 +188,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/img_avatar_default.jpg
+  AssetGenImage get imgAvatarDefault =>
+      const AssetGenImage('assets/images/img_avatar_default.jpg');
+
   /// File path: assets/images/img_avatar_member_1.jpg
   AssetGenImage get imgAvatarMember1 =>
       const AssetGenImage('assets/images/img_avatar_member_1.jpg');
@@ -238,6 +242,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        imgAvatarDefault,
         imgAvatarMember1,
         imgAvatarMember2,
         imgAvatarMember3,

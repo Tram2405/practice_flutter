@@ -8,7 +8,6 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
-import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class TMCardSubTask extends StatelessWidget {
@@ -17,7 +16,6 @@ class TMCardSubTask extends StatelessWidget {
     this.onTap,
     this.onSelected,
     required this.subTask,
-    this.onDelete,
     Color? color,
      this.index,
   }) : color = color ?? TMColor.secondaryContainer.withOpacity(0.4);
@@ -25,7 +23,6 @@ class TMCardSubTask extends StatelessWidget {
   final Function()? onTap;
   final Function(int)? onSelected;
   final SubTaskModel subTask;
-  final Function()? onDelete;
   final Color? color;
   final int? index;
 

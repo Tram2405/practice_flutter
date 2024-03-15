@@ -20,10 +20,8 @@ class DetailTaskPage extends GetView<DetailTaskController> {
 
   @override
   Widget build(BuildContext context) {
-    final task = Get.arguments[0] as TaskModel;
     const sizedBox12 = SizedBox(height: 12.0);
     const sizedBox16 = SizedBox(height: 16.0);
-    controller.getSubTask(task);
 
     return Obx(
       () => TMScaffold(
@@ -46,8 +44,9 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               ),
               sizedBox12,
               TMDisplayDateTime(
-                  title: 'Start Date',
-                  dateTime: controller.task.value.startDate.toDateTime),
+                title: 'Start Date',
+                dateTime: controller.task.value.startDate.toDateTime,
+              ),
               sizedBox12,
               TMTitle(
                 title: controller.task.value.description ?? '',
@@ -60,7 +59,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               ),
               sizedBox16,
               TMPercentTask(
-                percent: task.getPercentCompleted(),
+                percent: controller.task.value.getPercentCompleted(),
               ),
               sizedBox16,
               TMTitle(
@@ -70,7 +69,9 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               sizedBox12,
               TMButtonTask(
                 onPressed: () {
-                  Get.toNamed(Routes.ADD_SUB_TASK);
+                  Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
+                    controller.task.value.subTasks.add(value);
+                  });
                 },
                 text: 'Add SubTask',
                 leftIcon: Assets.icons.iconAdd,
@@ -90,22 +91,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
                             arguments: [subTask]);
                       },
                       onSelected: (value) {
-                        if (value == 0) {
-                          Get.toNamed(Routes.DETAIL_SUB_TASK,
-                              arguments: [subTask]);
-                        } else if (value == 1) {
-                          Get.toNamed(Routes.EDIT_SUB_TASK,
-                                  arguments: [subTask, index])
-                              ?.then<SubTaskModel?>((value) {
-                            print('object $value');
-                            if (value != null) {
-                              controller.task.value.subTasks[index] = value;
-                            }
-                            return null;
-                          });
-                        } else {
-                          controller.task.value.subTasks.remove(subTask);
-                        }
+                        controller.onSelectDropDown(value, subTask, index);
                       },
                       subTask: subTask,
                       index: index,

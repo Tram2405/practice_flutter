@@ -8,8 +8,8 @@ import 'package:task_manager_flutter/bindings/manager/completed/detail/detail_co
 import 'package:task_manager_flutter/bindings/manager/task/detail/detail_task_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/home_manager_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/subtask/add_sub_task_bind.dart';
-import 'package:task_manager_flutter/bindings/manager/subtask/detail_subtask_bind.dart';
-import 'package:task_manager_flutter/bindings/manager/subtask/edit_subtask_bind.dart';
+import 'package:task_manager_flutter/bindings/manager/subtask/detail_sub_task_bind.dart';
+import 'package:task_manager_flutter/bindings/manager/subtask/edit_sub_task_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/task/task_bind.dart';
 import 'package:task_manager_flutter/bindings/onboarding/onboarding_bind.dart';
 import 'package:task_manager_flutter/bindings/splash/splash_bind.dart';
@@ -21,7 +21,7 @@ import 'package:task_manager_flutter/ui/manager/approval/detail/detail_approval_
 import 'package:task_manager_flutter/ui/manager/task/detail/detail_task_page.dart';
 import 'package:task_manager_flutter/ui/manager/home_page_manager.dart';
 import 'package:task_manager_flutter/ui/manager/subtask/add_sub_task.dart';
-import 'package:task_manager_flutter/ui/manager/subtask/detail_subtask.dart';
+import 'package:task_manager_flutter/ui/manager/subtask/detail_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/subtask/edit_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/task/task_page.dart';
 import 'package:task_manager_flutter/ui/onboarding/onboarding_page.dart';

@@ -36,8 +36,8 @@ class TaskModel {
 
   double getPercentCompleted() {
     double total = 0;
-    double percentMember = 100 / (subTasks.length ?? 1);
-    for (SubTaskModel subTask in subTasks ?? []) {
+    double percentMember = 100 / (subTasks.length);
+    for (SubTaskModel subTask in subTasks) {
       if (subTask.status == StatusType.completed.name) {
         total = total + percentMember;
       }

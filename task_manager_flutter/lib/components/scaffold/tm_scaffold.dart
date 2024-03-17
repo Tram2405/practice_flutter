@@ -21,6 +21,7 @@ class TMScaffold extends StatelessWidget {
         backgroundColor: backgroundColor,
         appBar: appBar,
         body: SafeArea(
+          bottom: false,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0).copyWith(top: 16.0),
             child: body,

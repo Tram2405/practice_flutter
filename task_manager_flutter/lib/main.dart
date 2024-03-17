@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: TMTextTheme.appTextTheme,
+        useMaterial3: true,
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:task_manager_flutter/controller/manager/detail_completed_task_controller.dart';
+import 'package:task_manager_flutter/controller/manager/completed/detail/detail_completed_task_controller.dart';
 
 class DetailCompletedTaskBinding implements Bindings {
   @override

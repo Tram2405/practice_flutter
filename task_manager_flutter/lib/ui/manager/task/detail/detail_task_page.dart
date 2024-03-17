@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
+import 'package:task_manager_flutter/components/buttons/tm_button_task.dart';
 import 'package:task_manager_flutter/components/card/tm_card_subtask.dart';
 import 'package:task_manager_flutter/components/card/tm_percent_task.dart';
 import 'package:task_manager_flutter/components/date_time/tm_display_date_time.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
-import 'package:task_manager_flutter/controller/manager/detail_completed_task_controller.dart';
+import 'package:task_manager_flutter/controller/manager/task/detail/detail_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
-class DetailCompletedTaskPage extends GetView<DetailCompletedTaskController>{
-  const DetailCompletedTaskPage({super.key});
+enum DetailType { no, edit }
+
+class DetailTaskPage extends StatelessWidget {
+  const DetailTaskPage({super.key, this.detailType = DetailType.no});
+  final DetailType detailType;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(DetailTaskController());
     const sizedBox12 = SizedBox(height: 12.0);
     const sizedBox16 = SizedBox(height: 16.0);
+
     return Obx(
       () => TMScaffold(
         backgroundColor: TMColor.onSecondary,
@@ -64,7 +70,20 @@ class DetailCompletedTaskPage extends GetView<DetailCompletedTaskController>{
                 title: 'SubTasks',
                 textStyle: context.textTheme.labelLarge,
               ),
-              sizedBox12,
+              if (detailType == DetailType.edit) ...[
+                sizedBox12,
+                TMButtonTask(
+                  onPressed: () {
+                    Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
+                      controller.task.value.subTasks.add(value);
+                    });
+                  },
+                  text: 'Add SubTask',
+                  leftIcon: Assets.icons.iconAdd,
+                  leftIconColor: TMColor.background,
+                ),
+              ],
+              sizedBox16,
               if (controller.task.value.subTasks.isNotEmpty)
                 ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
@@ -77,13 +96,17 @@ class DetailCompletedTaskPage extends GetView<DetailCompletedTaskController>{
                         Get.toNamed(Routes.DETAIL_SUB_TASK,
                             arguments: [subTask]);
                       },
+                      onSelected: detailType == DetailType.edit
+                          ? (value) {
+                              controller.onSelectDropDown(
+                                  value, subTask, index);
+                            }
+                          : null,
                       subTask: subTask,
                       index: index,
                     );
                   },
-                  separatorBuilder: (context, index) => const SizedBox(
-                    height: 6.0,
-                  ),
+                  separatorBuilder: (_, __) => const SizedBox(height: 6.0),
                 )
             ],
           ),
@@ -91,5 +114,4 @@ class DetailCompletedTaskPage extends GetView<DetailCompletedTaskController>{
       ),
     );
   }
-
 }

@@ -17,7 +17,7 @@ class TMCardSubTask extends StatelessWidget {
     this.onSelected,
     required this.subTask,
     Color? color,
-     this.index,
+    this.index,
   }) : color = color ?? TMColor.secondaryContainer.withOpacity(0.4);
 
   final Function()? onTap;
@@ -56,9 +56,10 @@ class TMCardSubTask extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                if (onSelected != null) TMPopupMenuSubtask(
-                  onSelected: onSelected,
-                ),
+                if (onSelected != null)
+                  TMPopupMenuSubtask(
+                    onSelected: onSelected,
+                  ),
               ],
             ),
             sizedBox8,

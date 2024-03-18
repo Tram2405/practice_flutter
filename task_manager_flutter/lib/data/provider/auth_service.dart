@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class AuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore fireStore = FirebaseFirestore.instance;
+  final userCurrent = FirebaseAuth.instance.currentUser;
 
   Future<User?> getUser() async {
     var currentUser = firebaseAuth.currentUser;
@@ -68,5 +69,12 @@ class AuthService {
     } on FirebaseAuthException catch (e) {
       return e.message.toString();
     }
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getUserById(String email) {
+    return fireStore
+        .collection('users')
+        .where('email address', isEqualTo: email)
+        .snapshots();
   }
 }

@@ -34,4 +34,5 @@ class TMColor {
   static const secondaryOnBoarding = Color(0xFF676576);
   static const primaryIcon = Color(0xFF8A8F9B);
   static const primaryShadow = Color(0xFF494949);
+  static const primaryDivider = Color(0xFFEFEEF0);
 }

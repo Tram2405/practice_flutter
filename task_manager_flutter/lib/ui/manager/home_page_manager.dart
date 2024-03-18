@@ -7,6 +7,7 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/ui/manager/approval/approval_task_page.dart';
 import 'package:task_manager_flutter/ui/manager/completed/completed_page.dart';
 import 'package:task_manager_flutter/ui/manager/task/task_page.dart';
+import 'package:task_manager_flutter/ui/settings/setting_page.dart';
 
 class HomePageManager extends GetView<HomeManagerController> {
   const HomePageManager({super.key});
@@ -24,7 +25,7 @@ class HomePageManager extends GetView<HomeManagerController> {
       const TaskPage(),
       const ApprovalTaskPage(),
       const CompletedTaskPage(),
-      Container(color: Colors.black54),
+      const SettingPage(),
     ];
     return Obx(
       () => Scaffold(

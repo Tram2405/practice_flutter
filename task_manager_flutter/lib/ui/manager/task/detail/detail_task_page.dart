@@ -6,6 +6,7 @@ import 'package:task_manager_flutter/components/card/tm_card_subtask.dart';
 import 'package:task_manager_flutter/components/card/tm_percent_task.dart';
 import 'package:task_manager_flutter/components/date_time/tm_display_date_time.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
+import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/task/detail/detail_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
@@ -84,30 +85,31 @@ class DetailTaskPage extends StatelessWidget {
                 ),
               ],
               sizedBox16,
-              if (controller.task.value.subTasks.isNotEmpty)
-                ListView.separated(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: controller.task.value.subTasks.length,
-                  itemBuilder: (context, index) {
-                    final subTask = controller.task.value.subTasks[index];
-                    return TMCardSubTask(
-                      onTap: () {
-                        Get.toNamed(Routes.DETAIL_SUB_TASK,
-                            arguments: [subTask]);
+              controller.task.value.subTasks.isNotEmpty
+                  ? ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: controller.task.value.subTasks.length,
+                      itemBuilder: (context, index) {
+                        final subTask = controller.task.value.subTasks[index];
+                        return TMCardSubTask(
+                          onTap: () {
+                            Get.toNamed(Routes.DETAIL_SUB_TASK,
+                                arguments: [subTask]);
+                          },
+                          onSelected: detailType == DetailType.edit
+                              ? (value) {
+                                  controller.onSelectDropDown(
+                                      value, subTask, index);
+                                }
+                              : null,
+                          subTask: subTask,
+                          index: index,
+                        );
                       },
-                      onSelected: detailType == DetailType.edit
-                          ? (value) {
-                              controller.onSelectDropDown(
-                                  value, subTask, index);
-                            }
-                          : null,
-                      subTask: subTask,
-                      index: index,
-                    );
-                  },
-                  separatorBuilder: (_, __) => const SizedBox(height: 6.0),
-                )
+                      separatorBuilder: (_, __) => const SizedBox(height: 6.0),
+                    )
+                  : const TMTextPrompt(text: 'There are no subtasks')
             ],
           ),
         ),

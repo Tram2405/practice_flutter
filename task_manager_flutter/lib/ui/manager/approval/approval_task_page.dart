@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
+import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
 import 'package:task_manager_flutter/ui/manager/approval/widget/tm_list_confirm.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/manager/approval/approval_task_controller.dart';
@@ -20,18 +21,20 @@ class ApprovalTaskPage extends StatelessWidget {
         leftIcon: Assets.icons.iconAdd,
         rightIcon: Assets.icons.iconBell,
       ),
-      body: ListView.separated(
-        itemCount: controller.taskConfirms.length,
-        itemBuilder: (_, index) {
-          final task = controller.taskConfirms[index];
-          return TMListConfirm(
-            task: task,
-          );
-        },
-        separatorBuilder: (_, __) => const SizedBox(
-          height: 3.0,
-        ),
-      ),
+      body: controller.subTaskConfirms.isEmpty
+          ? const TMTextPrompt(text: 'There are no Approval Task')
+          : ListView.separated(
+              itemCount: controller.taskConfirms.length,
+              itemBuilder: (_, index) {
+                final task = controller.taskConfirms[index];
+                return TMListConfirm(
+                  task: task,
+                );
+              },
+              separatorBuilder: (_, __) => const SizedBox(
+                height: 3.0,
+              ),
+            ),
     );
   }
 }

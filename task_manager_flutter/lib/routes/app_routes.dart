@@ -20,4 +20,5 @@ abstract class Routes {
   static const DETAIL_APPROVAL_TASK = '/detail-approval-task';
   static const COMPLETED_TASK = '/completed-task';
   static const DETAIL_COMPLETED_TASK = '/detail-completed-task';
+  static const SETTING = '/setting';
 }

@@ -25,6 +25,7 @@ import 'package:task_manager_flutter/ui/manager/subtask/detail_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/subtask/edit_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/task/task_page.dart';
 import 'package:task_manager_flutter/ui/onboarding/onboarding_page.dart';
+import 'package:task_manager_flutter/ui/settings/setting_page.dart';
 import 'package:task_manager_flutter/ui/splash/splash_page.dart';
 
 part 'app_routes.dart';
@@ -100,9 +101,12 @@ class AppPage {
     ),
     GetPage(
       name: Routes.DETAIL_COMPLETED_TASK,
-      page: () => const DetailTaskPage(
-        detailType: DetailType.no,
-      ),
+      page: () => const DetailTaskPage(),
+      binding: DetailCompletedTaskBinding(),
+    ),
+    GetPage(
+      name: Routes.SETTING,
+      page: () => const SettingPage(),
       binding: DetailCompletedTaskBinding(),
     ),
   ];

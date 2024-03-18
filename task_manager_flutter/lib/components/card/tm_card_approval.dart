@@ -11,11 +11,14 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class TMCardApproval extends StatelessWidget {
+  ///Create card item for Card approval page
+  ///
+  ///The [onPressed], [task], [user] arguments must not be null
   const TMCardApproval({
-    super.key,
     required this.onPressed,
     required this.task,
     required this.user,
+    super.key,
   });
 
   final Function() onPressed;

@@ -4,11 +4,15 @@ import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMAvatarMember extends StatelessWidget {
+  ///a widget that displays representative images of members in the subtask
+  ///
+  ///[subtasks] and [minLength]: arguments must not be null.
   const TMAvatarMember({
-    super.key,
     required this.subtasks,
     required this.minLength,
+    super.key,
   });
+
   final List<SubTaskModel> subtasks;
   final int minLength;
 
@@ -32,7 +36,9 @@ class TMAvatarMember extends StatelessWidget {
             ),
           );
         }),
-        //if members.length > minLength => hinden
+
+        ///If the number of subtasks is greater than the minimum length
+        ///display the last avatar as the remaining number.
         if (subtasks.length > minLength)
           Align(
             widthFactor: 0.65,

@@ -8,8 +8,8 @@ import 'package:task_manager_flutter/routes/app_page.dart';
 
 class TMListConfirm extends StatelessWidget {
   const TMListConfirm({
-    super.key,
     required this.task,
+    super.key,
   });
 
   final TaskModel task;

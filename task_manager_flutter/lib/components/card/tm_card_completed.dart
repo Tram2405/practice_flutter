@@ -10,10 +10,13 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class TMCardCompleted extends StatelessWidget {
+  ///Create card item for Card completed page
+  ///
+  ///The [onPressed], [task] arguments must not be null
   const TMCardCompleted({
-    super.key,
     required this.onPressed,
     required this.task,
+    super.key,
   });
 
   final Function() onPressed;

@@ -4,16 +4,16 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMTextFormField extends StatelessWidget {
   const TMTextFormField({
-    super.key,
-    this.controller,
     required this.hintText,
+    required this.lableText,
+    this.controller,
     this.onChanged,
     this.validator,
     this.textInputAction,
     this.obscureText = false,
     this.readOnly = false,
     this.hintStyle,
-    required this.lableText,
+    super.key,
   });
 
   final String lableText;

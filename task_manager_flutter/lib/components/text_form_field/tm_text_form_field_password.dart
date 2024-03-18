@@ -6,16 +6,16 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMTextFormFieldPassword extends StatefulWidget {
   const TMTextFormFieldPassword({
-    super.key,
-    this.controller,
     required this.lableText,
     required this.hintText,
+    this.controller,
     this.validator,
     this.textInputAction,
     this.onChanged,
     this.readOnly = false,
     this.hintStyle,
     this.onTap,
+    super.key,
   });
 
   final String lableText;

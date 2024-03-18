@@ -11,13 +11,17 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class TMCardSubTask extends StatelessWidget {
+
+  ///Create card item for Card subtask
+  ///
+  ///The [subTask] arguments must not be null
   TMCardSubTask({
-    super.key,
+    required this.subTask,
     this.onTap,
     this.onSelected,
-    required this.subTask,
     Color? color,
     this.index,
+    super.key,
   }) : color = color ?? TMColor.secondaryContainer.withOpacity(0.4);
 
   final Function()? onTap;

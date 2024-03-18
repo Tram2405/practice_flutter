@@ -6,12 +6,12 @@ import 'package:task_manager_flutter/components/date_time/tm_display_date_time.d
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_form_field.dart';
-import 'package:task_manager_flutter/controller/manager/detail_approval_controller.dart';
+import 'package:task_manager_flutter/controller/manager/approval/detail/detail_approval_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
-
+enum TaskType{no, action}
 class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
   const DetailApprovalTaskPage({super.key});
 

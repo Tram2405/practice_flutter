@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
 import 'package:task_manager_flutter/components/card/tm_card_completed.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
-import 'package:task_manager_flutter/controller/manager/completed_task_controller.dart';
+import 'package:task_manager_flutter/controller/manager/completed/completed_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';

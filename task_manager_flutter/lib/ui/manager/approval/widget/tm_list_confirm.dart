@@ -28,7 +28,10 @@ class TMListConfirm extends StatelessWidget {
           final subTask = controller.subTaskConfirms[index];
           return TMCardApproval(
             onPressed: () {
-              Get.toNamed(Routes.DETAIL_APPROVAL_TASK, arguments: [subTask]);
+              Get.toNamed(Routes.DETAIL_APPROVAL_TASK, arguments: [subTask])
+                  ?.then((value) {
+                controller.taskConfirms.refresh();
+              });
             },
             task: task,
             user: subTask.user ?? AppUserModel(),

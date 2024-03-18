@@ -73,7 +73,7 @@ class TMDialog {
       child: Text(
         title,
         style:
-            context.textTheme.labelLarge?.copyWith(color: TMColor.primaryIcon),
+            context.textTheme.labelLarge?.copyWith(color: TMColor.onPrimary),
       ),
     );
   }

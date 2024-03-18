@@ -22,5 +22,6 @@ class AddUserController extends GetxController {
   void selectedUser(AppUserModel userSelect) {
     listSearch.map((element) => element.isCheck = false).toList();
     userSelect.isCheck = true;
+    listSearch.refresh();
   }
 }

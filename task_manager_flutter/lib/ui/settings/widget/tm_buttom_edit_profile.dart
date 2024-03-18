@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMButtomEditProfile extends StatelessWidget {
@@ -25,6 +26,7 @@ class TMButtomEditProfile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100.0),
+          
           border: Border.all(
             color: TMColor.secondary,
           ),
@@ -33,7 +35,7 @@ class TMButtomEditProfile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: mainAxisSize,
           children: [
-            SvgPicture.asset('assets/svg/icon_edit.svg'),
+            SvgPicture.asset(Assets.icons.iconEdit),
             const SizedBox(width: 8.0),
             Text(
               title,

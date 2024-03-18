@@ -12,6 +12,8 @@ import 'package:task_manager_flutter/bindings/manager/subtask/detail_sub_task_bi
 import 'package:task_manager_flutter/bindings/manager/subtask/edit_sub_task_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/task/task_bind.dart';
 import 'package:task_manager_flutter/bindings/onboarding/onboarding_bind.dart';
+import 'package:task_manager_flutter/bindings/settings/change_password_bind.dart';
+import 'package:task_manager_flutter/bindings/settings/edit_profile_bind.dart';
 import 'package:task_manager_flutter/bindings/splash/splash_bind.dart';
 import 'package:task_manager_flutter/ui/auth/forgot_password_page.dart';
 import 'package:task_manager_flutter/ui/auth/login_page.dart';
@@ -25,6 +27,8 @@ import 'package:task_manager_flutter/ui/manager/subtask/detail_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/subtask/edit_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/task/task_page.dart';
 import 'package:task_manager_flutter/ui/onboarding/onboarding_page.dart';
+import 'package:task_manager_flutter/ui/settings/change_password_page.dart';
+import 'package:task_manager_flutter/ui/settings/edit_profile_page.dart';
 import 'package:task_manager_flutter/ui/settings/setting_page.dart';
 import 'package:task_manager_flutter/ui/splash/splash_page.dart';
 
@@ -108,6 +112,16 @@ class AppPage {
       name: Routes.SETTING,
       page: () => const SettingPage(),
       binding: DetailCompletedTaskBinding(),
+    ),
+    GetPage(
+      name: Routes.EDIT_PROFILE,
+      page: () => const EditProfilePage(),
+      binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: Routes.CHANGE_PASSWORD,
+      page: () => const ChangePasswordPage(),
+      binding: ChangePasswordBinding(),
     ),
   ];
 }

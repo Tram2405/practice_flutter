@@ -21,4 +21,6 @@ abstract class Routes {
   static const COMPLETED_TASK = '/completed-task';
   static const DETAIL_COMPLETED_TASK = '/detail-completed-task';
   static const SETTING = '/setting';
+  static const EDIT_PROFILE = '/edit-profile';
+  static const CHANGE_PASSWORD = '/change-password';
 }

@@ -10,6 +10,7 @@ import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/ui/settings/widget/tm_buttom_edit_profile.dart';
+import 'package:task_manager_flutter/ui/settings/widget/tm_card_notification.dart';
 import 'package:task_manager_flutter/ui/settings/widget/tm_card_profile.dart';
 import 'package:task_manager_flutter/ui/settings/widget/tm_card_setting.dart';
 
@@ -21,17 +22,19 @@ class SettingPage extends GetView<SettingController> {
     const sizedBox24 = SizedBox(height: 24.0);
     return TMScaffold(
       backgroundColor: TMColor.onSecondary,
-      appBar: TMAppbar(
+      appBar: const TMAppbar(
         title: 'Settings',
-        leftIcon: Assets.icons.iconBack,
-        leftPressed: () => Get.back(),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const TMCardProfile(),
           const SizedBox(height: 32.0),
-          TMButtomEditProfile(onPressed: () {}, title: 'Edit Profile'),
+          TMButtomEditProfile(
+              onPressed: () {
+                Get.toNamed(Routes.EDIT_PROFILE);
+              },
+              title: 'Edit Profile'),
           sizedBox24,
           const Divider(color: TMColor.primaryDivider),
           sizedBox24,
@@ -40,12 +43,49 @@ class SettingPage extends GetView<SettingController> {
             textStyle: context.textTheme.bodySmall,
           ),
           TMCardSetting(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(Routes.CHANGE_PASSWORD);
+            },
             title: 'Change Password',
             leftIcon: Assets.icons.iconLock,
           ),
           TMCardSetting(
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                backgroundColor: TMColor.onSecondary,
+                context: context,
+                builder: (context) {
+                  return FractionallySizedBox(
+                    heightFactor: 0.3,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Obx(
+                        () => Column(
+                          children: [
+                            TMCardNoitfication(
+                              title: 'Email Notifications',
+                              onChanged: () {
+                                controller.isEmailTurnOn.value =
+                                    !controller.isEmailTurnOn.value;
+                              },
+                              isTurnOn: controller.isEmailTurnOn.value,
+                            ),
+                            TMCardNoitfication(
+                              title: 'Push Notifications',
+                              onChanged: () {
+                                controller.isNotification.value =
+                                    !controller.isNotification.value;
+                              },
+                              isTurnOn: controller.isNotification.value,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
             title: 'Notifications',
             leftIcon: Assets.icons.iconBell,
           ),

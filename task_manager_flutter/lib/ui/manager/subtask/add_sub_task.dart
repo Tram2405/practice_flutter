@@ -32,7 +32,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TMTitle(
-                title: 'Chose date',
+                title: 'Choose date',
                 textStyle: context.textTheme.bodyLarge,
               ),
               const SizedBox(height: 10.0),

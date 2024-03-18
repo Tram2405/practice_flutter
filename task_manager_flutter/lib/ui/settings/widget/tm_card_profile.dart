@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
+import 'package:task_manager_flutter/controller/settings/setting_controller.dart';
 import 'package:task_manager_flutter/data/provider/auth_service.dart';
+import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
@@ -13,9 +15,9 @@ class TMCardProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthService authService = AuthService();
+    final controller = Get.put(SettingController(authRepository: AuthRepository(authService: AuthService())));
     return StreamBuilder(
-        stream: authService.getUserById(authService.userCurrent!.email!),
+        stream: controller.getUserByEmail(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Row(
@@ -42,7 +44,7 @@ class TMCardProfile extends StatelessWidget {
                         ),
                         const SizedBox(width: 8.0),
                         Text(
-                          authService.userCurrent!.email ?? '',
+                          controller.emailCurrent.value,
                           style: const TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.w400,

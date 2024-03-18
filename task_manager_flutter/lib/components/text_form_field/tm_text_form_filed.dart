@@ -4,8 +4,8 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMTextFormField extends StatelessWidget {
   const TMTextFormField({
-    required this.hintText,
     required this.lableText,
+    this.hintText,
     this.controller,
     this.onChanged,
     this.validator,
@@ -18,7 +18,7 @@ class TMTextFormField extends StatelessWidget {
 
   final String lableText;
   final TextEditingController? controller;
-  final String hintText;
+  final String? hintText;
   final Function(String)? onChanged;
   final FormFieldValidator<String>? validator;
   final TextInputAction? textInputAction;
@@ -42,7 +42,7 @@ class TMTextFormField extends StatelessWidget {
           obscureText: obscureText,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           readOnly: readOnly,
-          style: TextStyle(color: readOnly ? TMColor.textField : null),
+          style: context.textTheme.titleLarge?.copyWith(color: readOnly ? TMColor.textField : TMColor.onBackground),
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(16.0),
             border: OutlineInputBorder(

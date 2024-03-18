@@ -40,6 +40,7 @@ class RegisterPage extends GetView<RegisterController> {
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
                 validator: FormValidator.validatorRequired,
+                readOnly: controller.isLoading.value,
               ),
               sizedBox32,
               TMTextFormField(
@@ -49,6 +50,7 @@ class RegisterPage extends GetView<RegisterController> {
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
                 validator: FormValidator.validatorEmail,
+                readOnly: controller.isLoading.value,
               ),
               sizedBox32,
               TMTextFormFieldPassword(
@@ -57,12 +59,16 @@ class RegisterPage extends GetView<RegisterController> {
                 controller: controller.passwordController,
                 validator: FormValidator.validatorPassword,
                 readOnly: controller.isLoading.value,
+                textInputAction: TextInputAction.next,
+                onChanged: (_) => controller.isEmpty(),
               ),
               sizedBox32,
               TMTextFormFieldPassword(
                 lableText: 'Retype Password',
                 hintText: '********',
                 controller: controller.retypePasswordController,
+                textInputAction: TextInputAction.done,
+                onChanged: (_) => controller.isEmpty(),
                 validator: (value) {
                   return FormValidator.validatorConfirmPassword(
                     value,

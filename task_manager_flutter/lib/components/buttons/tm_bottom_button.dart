@@ -3,15 +3,22 @@ import 'package:task_manager_flutter/components/buttons/tm_elevatebutton.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMBottomButton extends StatelessWidget {
+  ///A bottom button in an interface
+  /// The [text] arguments must not be null.
   const TMBottomButton({
-    super.key,
     required this.text,
     this.isAction = false,
     this.onPressed,
+    super.key,
   });
 
+  ///[text] : The text content of the button
   final String text;
+
+  ///[isAction] : Determines whether the button is a primary action or not
   final bool isAction;
+
+  ///[onPressed] : The callback function is called when the button is pressed
   final Function()? onPressed;
 
   @override
@@ -31,11 +38,14 @@ class TMBottomButton extends StatelessWidget {
               blurRadius: 5.0,
             )
           ]),
+
+      ///If [isAction] is True, the button will take action [onPressed],
+      ///The button's background color will be TMColor.primary
+      ///Opposite, [isAction] = null, The button's background color will be TMColor.primaryContainer
       child: TMElevateButton(
         onPressed: isAction ? onPressed : null,
         text: text,
-         color:
-                isAction ? TMColor.primary : TMColor.primaryContainer,
+        color: isAction ? TMColor.primary : TMColor.primaryContainer,
         textColor: TMColor.onTask,
         borderRadius: const BorderRadius.all(Radius.circular(10.0)),
       ),

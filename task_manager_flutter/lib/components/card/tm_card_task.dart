@@ -10,7 +10,14 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class TMCardTask extends StatelessWidget {
-  const TMCardTask({super.key, required this.task, required this.onPressed});
+  ///Create card item for Card Task
+  ///
+  ///The [task] and [onPressed] arguments must not be null
+  const TMCardTask({
+    required this.task,
+    required this.onPressed,
+    super.key,
+  });
   final TaskModel task;
   final Function() onPressed;
 

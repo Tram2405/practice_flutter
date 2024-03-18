@@ -5,10 +5,10 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMTextLink extends StatelessWidget {
   const TMTextLink({
-    super.key,
     required this.text,
     required this.linkText,
     required this.onPressed,
+    super.key,
   });
   final String text;
   final String linkText;

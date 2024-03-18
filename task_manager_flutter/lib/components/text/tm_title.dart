@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 
 class TMTitle extends StatefulWidget {
   const TMTitle({
-    super.key,
     required this.title,
     this.textStyle,
     this.isReadMore = false,
+    super.key,
   });
   final String title;
   final TextStyle? textStyle;

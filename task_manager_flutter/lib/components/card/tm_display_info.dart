@@ -3,11 +3,11 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMDisplayInfo extends StatelessWidget {
   const TMDisplayInfo({
-    super.key,
-    this.onPressed,
+    required this.child,
     this.color = TMColor.button,
     this.borderRadius = const BorderRadius.all(Radius.circular(25.0)),
-    required this.child,
+    this.onPressed,
+    super.key,
   });
   final Function()? onPressed;
   final Color color;

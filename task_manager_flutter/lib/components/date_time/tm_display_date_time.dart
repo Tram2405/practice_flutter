@@ -4,6 +4,10 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMDisplayDateTime extends StatelessWidget {
+
+  ///Displays date and time information subtask
+  ///
+  ///[title], [dateTime] arguments must not be null
   const TMDisplayDateTime({
     super.key,
     required this.title,

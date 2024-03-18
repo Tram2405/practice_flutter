@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMAppbarSearch extends StatelessWidget implements PreferredSizeWidget {
+
+  ///Widget TMAppbarSearch is a custom search bar
   const TMAppbarSearch({
     super.key,
     this.controller,
@@ -13,10 +15,16 @@ class TMAppbarSearch extends StatelessWidget implements PreferredSizeWidget {
     this.onChanged,
   });
 
+  ///[controller] : Manage imported content
   final TextEditingController? controller;
+
+  ///[hintText] : The suggested word is displayed in textformfield
   final String? hintText;
+
   final String? leftIcon;
   final Color? colorLeftIcon;
+
+  ///[onChanged] The callback function is called when the content of textformfield changes
   final Function(String)? onChanged;
 
   @override
@@ -44,11 +52,13 @@ class TMAppbarSearch extends StatelessWidget implements PreferredSizeWidget {
               ?.copyWith(color: TMColor.primaryIcon),
           prefixIcon: leftIcon != null
               ? SvgPicture.asset(
-                leftIcon!,
-                color: colorLeftIcon,
-                width: 20.0,
-              )
+                  leftIcon!,
+                  color: colorLeftIcon,
+                  width: 20.0,
+                )
               : null,
+
+          ///Constrain the size of the left icon.
           prefixIconConstraints: const BoxConstraints(
             maxHeight: 24.0,
             minWidth: 56.0,

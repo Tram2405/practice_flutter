@@ -4,6 +4,10 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMPercentTask extends StatelessWidget {
+
+  ///The bar displays the task's completion percentage
+  ///
+  ///[percent] arguments must not be null
   const TMPercentTask({
     super.key,
     required this.percent,

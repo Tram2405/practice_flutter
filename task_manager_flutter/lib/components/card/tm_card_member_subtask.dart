@@ -7,9 +7,18 @@ import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMCardMemberSubTask extends StatelessWidget {
-  const TMCardMemberSubTask({super.key, required this.user, this.onRemove});
+  ///Create card user item for subtask
+  ///
+  ///The [onPressed], [task], [user] arguments must not be null
+  const TMCardMemberSubTask({
+    required this.user,
+    this.onRemove,
+    super.key,
+  });
+
   final AppUserModel user;
   final Function()? onRemove;
+
   @override
   Widget build(BuildContext context) {
     return Container(

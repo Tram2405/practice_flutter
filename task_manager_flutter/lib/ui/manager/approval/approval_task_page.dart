@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
-import 'package:task_manager_flutter/components/list/tm_list_confirm.dart';
+import 'package:task_manager_flutter/ui/manager/approval/widget/tm_list_confirm.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/manager/approval/approval_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';

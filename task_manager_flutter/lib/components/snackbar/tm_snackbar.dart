@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMSnackBar {
- static void tmSnackBarSuccess(
+  static void tmSnackBarSuccess(
     BuildContext context, {
     required String titleSnackbar,
   }) {
@@ -17,9 +18,8 @@ class TMSnackBar {
           ),
           child: Text(
             titleSnackbar,
-            style: const TextStyle(
-              color: TMColor.onSecondary,
-            ),
+            style: context.textTheme.titleLarge
+                ?.copyWith(color: TMColor.onSecondary),
           ),
         ),
         backgroundColor: Colors.transparent,
@@ -30,7 +30,7 @@ class TMSnackBar {
     );
   }
 
- static void tmSnackBarError(
+  static void tmSnackBarError(
     BuildContext context, {
     required String titleSnackbar,
   }) {
@@ -45,10 +45,7 @@ class TMSnackBar {
           ),
           child: Text(
             titleSnackbar,
-            style: const TextStyle(
-                color: TMColor.onBackground,
-                fontSize: 16.0,
-                fontWeight: FontWeight.w400),
+            style: context.textTheme.titleLarge,
           ),
         ),
         backgroundColor: Colors.transparent,

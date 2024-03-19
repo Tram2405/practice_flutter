@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
@@ -44,7 +45,7 @@ class AddTaskController extends GetxController {
   }
 
   ///Method to add a task to the list and return to the previous screen
-  void addTask() {
+  void addTask(BuildContext context) {
     TaskModel task = TaskModel()
       ..typeTask = taskTypes[currentIndex.value].name
       ..nameTask = taskNameController.text
@@ -53,6 +54,7 @@ class AddTaskController extends GetxController {
       ..startDate = subTaskAdds[0].startDate;
 
     Get.back(result: task);
+    TMSnackBar.tmSnackBarSuccess(context, titleSnackbar: 'New task created successfully');
   }
 
   void onSelectDropDown(int value, SubTaskModel subTask, int index) {

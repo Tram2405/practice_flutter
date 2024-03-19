@@ -24,13 +24,10 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
         ),
         body: ListView(
           children: [
-            const Text(
+            Text(
               'Please input your curent password first',
-              style: TextStyle(
-                color: TMColor.primaryOnBoarding,
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-              ),
+              style: context.textTheme.bodySmall
+                  ?.copyWith(color: TMColor.primaryOnBoarding),
             ),
             const SizedBox(height: 16.0),
             TMTextFormFieldPassword(
@@ -42,13 +39,10 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
             const SizedBox(height: 24.0),
             const Divider(color: TMColor.primaryDivider),
             const SizedBox(height: 24.0),
-            const Text(
+            Text(
               'Now, create your new password',
-              style: TextStyle(
-                color: TMColor.primaryOnBoarding,
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-              ),
+              style: context.textTheme.bodySmall
+                  ?.copyWith(color: TMColor.primaryOnBoarding),
             ),
             const SizedBox(height: 16.0),
             TMTextFormFieldPassword(
@@ -59,13 +53,10 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
               onChanged: (_) => controller.checkIsEmpty(),
             ),
             const SizedBox(height: 12.0),
-            const Text(
+            Text(
               'Password should contain a-z, A-Z, 0-9',
-              style: TextStyle(
-                color: TMColor.textField,
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-              ),
+              style: context.textTheme.bodySmall
+                  ?.copyWith(color: TMColor.textField),
             ),
             const SizedBox(height: 32.0),
             TMTextFormFieldPassword(
@@ -92,13 +83,15 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
                 borderRadius: const BorderRadius.all(
                   Radius.circular(100.0),
                 ),
-                onPressed: controller.canAction.value ? () {
-                  controller.changePassword(
-                    context,
-                    controller.currentPasswordContoller.text,
-                    controller.newPassController.text,
-                  );
-                } : null,
+                onPressed: controller.canAction.value
+                    ? () {
+                        controller.changePassword(
+                          context,
+                          controller.currentPasswordContoller.text,
+                          controller.newPassController.text,
+                        );
+                      }
+                    : null,
                 isDisable: controller.isLoading.value,
               ),
             ),

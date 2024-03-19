@@ -15,7 +15,8 @@ class TMCardProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SettingController(authRepository: AuthRepository(authService: AuthService())));
+    final controller = Get.put(SettingController(
+        authRepository: AuthRepository(authService: AuthService())));
     return StreamBuilder(
         stream: controller.getUserByEmail(),
         builder: (context, snapshot) {
@@ -45,10 +46,8 @@ class TMCardProfile extends StatelessWidget {
                         const SizedBox(width: 8.0),
                         Text(
                           controller.emailCurrent.value,
-                          style: const TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w400,
-                              color: TMColor.primaryIcon),
+                          style: context.textTheme.bodySmall
+                              ?.copyWith(color: TMColor.primaryIcon),
                         )
                       ],
                     ),

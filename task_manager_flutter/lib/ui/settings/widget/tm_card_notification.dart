@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMCardNoitfication extends StatelessWidget {
@@ -20,10 +21,7 @@ class TMCardNoitfication extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w500,
-            ),
+            style: context.textTheme.titleMedium,
           ),
           const Spacer(),
           GestureDetector(

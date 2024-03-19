@@ -100,7 +100,7 @@ class DetailTaskPage extends StatelessWidget {
                           onSelected: detailType == DetailType.edit
                               ? (value) {
                                   controller.onSelectDropDown(
-                                      value, subTask, index);
+                                      context, value, subTask, index);
                                 }
                               : null,
                           subTask: subTask,

@@ -5,6 +5,7 @@ import 'package:task_manager_flutter/components/buttons/tm_bottom_button.dart';
 import 'package:task_manager_flutter/components/buttons/tm_button_task.dart';
 import 'package:task_manager_flutter/components/card/tm_card_subtask.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
+import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_form_field.dart';
 import 'package:task_manager_flutter/controller/manager/add_task_controller.dart';
@@ -89,24 +90,27 @@ class AddTaskPage extends GetView<AddTaskController> {
                 leftIconColor: TMColor.background,
               ),
               const SizedBox(height: 8.0),
-              ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: controller.subTaskAdds.length,
-                itemBuilder: (_, index) {
-                  final subTask = controller.subTaskAdds[index];
-                  return TMCardSubTask(
-                    onTap: () {
-                      Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
-                    },
-                    subTask: subTask,
-                    onSelected: (value) {
-                      controller.onSelectDropDown(value, subTask, index);
-                    },
-                  );
-                },
-                separatorBuilder: (_, __) => const SizedBox(height: 8.0),
-              )
+              controller.subTaskAdds.isEmpty
+                  ? const TMTextPrompt(text: 'There are no subtasks')
+                  : ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: controller.subTaskAdds.length,
+                      itemBuilder: (_, index) {
+                        final subTask = controller.subTaskAdds[index];
+                        return TMCardSubTask(
+                          onTap: () {
+                            Get.toNamed(Routes.DETAIL_SUB_TASK,
+                                arguments: [subTask]);
+                          },
+                          subTask: subTask,
+                          onSelected: (value) {
+                            controller.onSelectDropDown(value, subTask, index);
+                          },
+                        );
+                      },
+                      separatorBuilder: (_, __) => const SizedBox(height: 8.0),
+                    )
             ],
           ),
         ),

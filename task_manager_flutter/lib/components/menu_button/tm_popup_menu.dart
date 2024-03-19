@@ -6,7 +6,10 @@ import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMPopupMenuSubtask extends StatelessWidget {
-  const TMPopupMenuSubtask({super.key, this.onSelected});
+  const TMPopupMenuSubtask({
+    this.onSelected,
+    super.key,
+  });
 
   final Function(int)? onSelected;
 

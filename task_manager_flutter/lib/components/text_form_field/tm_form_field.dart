@@ -4,12 +4,12 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMTextField extends StatelessWidget {
   const TMTextField({
-    super.key,
-    this.controller,
     required this.hintText,
+    this.controller,
     this.maxLines,
     this.onChanged,
     this.textInputAction,
+    super.key,
   });
 
   final TextEditingController? controller;
@@ -23,7 +23,8 @@ class TMTextField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       textInputAction: textInputAction,
-      style: context.textTheme.titleLarge?.copyWith(color: TMColor.onBackground),
+      style:
+          context.textTheme.titleLarge?.copyWith(color: TMColor.onBackground),
       decoration: InputDecoration(
         contentPadding: const EdgeInsetsDirectional.all(16.0),
         filled: true,

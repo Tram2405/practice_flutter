@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:task_manager_flutter/controller/manager/approval_task_controller.dart';
+import 'package:task_manager_flutter/controller/manager/approval/approval_task_controller.dart';
 
 class ApprovalTaskBinding implements Bindings{
   @override

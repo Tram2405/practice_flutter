@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 part of './app_page.dart';
 
 abstract class Routes {
@@ -15,5 +17,8 @@ abstract class Routes {
   static const DETAIL_SUB_TASK = '/detail-sub-task';
   static const EDIT_SUB_TASK = '/edit-sub-task';
   static const APPROVAL_TASK = '/approval-task';
+  static const DETAIL_APPROVAL_TASK = '/detail-approval-task';
   static const COMPLETED_TASK = '/completed-task';
+  static const DETAIL_COMPLETED_TASK = '/detail-completed-task';
+  static const SETTING = '/setting';
 }

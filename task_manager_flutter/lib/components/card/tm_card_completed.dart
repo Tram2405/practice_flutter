@@ -10,10 +10,13 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class TMCardCompleted extends StatelessWidget {
+  ///Create card item for Card completed page
+  ///
+  ///The [onPressed], [task] arguments must not be null
   const TMCardCompleted({
-    super.key,
     required this.onPressed,
     required this.task,
+    super.key,
   });
 
   final Function() onPressed;
@@ -34,8 +37,10 @@ class TMCardCompleted extends StatelessWidget {
           children: [
             TMTitle(
               title: task.nameTask ?? '',
-              textStyle: context.textTheme.labelLarge
-                  ?.copyWith(color: TMColor.onTask),
+              textStyle: context.textTheme.labelLarge?.copyWith(
+                color: TMColor.onTask,
+                decoration: TextDecoration.lineThrough,
+              ),
             ),
             const SizedBox(height: 12.0),
             TMTitle(
@@ -47,20 +52,20 @@ class TMCardCompleted extends StatelessWidget {
             Row(
               children: [
                 TMDisplayInfo(
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      Assets.icons.iconFlag,
-                      width: 15.0,
-                    ),
-                    const SizedBox(width: 10.0),
-                    Text(
-                      task.startDate.toDateTime,
-                      style: context.textTheme.bodySmall,
-                    )
-                  ],
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        Assets.icons.iconFlag,
+                        width: 15.0,
+                      ),
+                      const SizedBox(width: 10.0),
+                      Text(
+                        task.startDate.toDateTime,
+                        style: context.textTheme.bodySmall,
+                      )
+                    ],
+                  ),
                 ),
-              ),
                 const Spacer(),
                 TMAvatarMember(
                   subtasks: task.subTasks,

@@ -6,20 +6,23 @@ import 'package:task_manager_flutter/components/card/tm_card_subtask.dart';
 import 'package:task_manager_flutter/components/card/tm_percent_task.dart';
 import 'package:task_manager_flutter/components/date_time/tm_display_date_time.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
+import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
-import 'package:task_manager_flutter/controller/manager/detail_task_controller.dart';
-import 'package:task_manager_flutter/data/model/subtask_model.dart';
-import 'package:task_manager_flutter/data/model/task_model.dart';
+import 'package:task_manager_flutter/controller/manager/task/detail/detail_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
-class DetailTaskPage extends GetView<DetailTaskController> {
-  const DetailTaskPage({super.key});
+enum DetailType { no, edit }
+
+class DetailTaskPage extends StatelessWidget {
+  const DetailTaskPage({super.key, this.detailType = DetailType.no});
+  final DetailType detailType;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(DetailTaskController());
     const sizedBox12 = SizedBox(height: 12.0);
     const sizedBox16 = SizedBox(height: 16.0);
 
@@ -41,7 +44,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               TMTitle(
                 title: controller.task.value.nameTask ?? '--:--',
                 textStyle: context.textTheme.displaySmall,
-                isRedMore: true,
+                isReadMore: true,
               ),
               sizedBox12,
               TMDisplayDateTime(
@@ -52,7 +55,7 @@ class DetailTaskPage extends GetView<DetailTaskController> {
               TMTitle(
                 title: controller.task.value.description ?? '',
                 textStyle: context.textTheme.bodyMedium,
-                isRedMore: true,
+                isReadMore: true,
               ),
               sizedBox12,
               TMTitle(
@@ -68,41 +71,45 @@ class DetailTaskPage extends GetView<DetailTaskController> {
                 title: 'SubTasks',
                 textStyle: context.textTheme.labelLarge,
               ),
-              sizedBox12,
-              TMButtonTask(
-                onPressed: () {
-                  Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
-                    controller.task.value.subTasks.add(value);
-                  });
-                },
-                text: 'Add SubTask',
-                leftIcon: Assets.icons.iconAdd,
-                leftIconColor: TMColor.background,
-              ),
-              sizedBox16,
-              if (controller.task.value.subTasks.isNotEmpty)
-                ListView.separated(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: controller.task.value.subTasks.length,
-                  itemBuilder: (context, index) {
-                    final subTask = controller.task.value.subTasks[index];
-                    return TMCardSubTask(
-                      onTap: () {
-                        Get.toNamed(Routes.DETAIL_SUB_TASK,
-                            arguments: [subTask]);
-                      },
-                      onSelected: (value) {
-                        controller.onSelectDropDown(value, subTask, index);
-                      },
-                      subTask: subTask,
-                      index: index,
-                    );
+              if (detailType == DetailType.edit) ...[
+                sizedBox12,
+                TMButtonTask(
+                  onPressed: () {
+                    Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
+                      controller.task.value.subTasks.add(value);
+                    });
                   },
-                  separatorBuilder: (context, index) => const SizedBox(
-                    height: 6.0,
-                  ),
-                )
+                  text: 'Add SubTask',
+                  leftIcon: Assets.icons.iconAdd,
+                  leftIconColor: TMColor.background,
+                ),
+              ],
+              sizedBox16,
+              controller.task.value.subTasks.isNotEmpty
+                  ? ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: controller.task.value.subTasks.length,
+                      itemBuilder: (context, index) {
+                        final subTask = controller.task.value.subTasks[index];
+                        return TMCardSubTask(
+                          onTap: () {
+                            Get.toNamed(Routes.DETAIL_SUB_TASK,
+                                arguments: [subTask]);
+                          },
+                          onSelected: detailType == DetailType.edit
+                              ? (value) {
+                                  controller.onSelectDropDown(
+                                      value, subTask, index);
+                                }
+                              : null,
+                          subTask: subTask,
+                          index: index,
+                        );
+                      },
+                      separatorBuilder: (_, __) => const SizedBox(height: 6.0),
+                    )
+                  : const TMTextPrompt(text: 'There are no subtasks')
             ],
           ),
         ),

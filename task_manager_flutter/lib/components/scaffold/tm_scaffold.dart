@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class TMScaffold extends StatelessWidget {
   const TMScaffold({
-    super.key,
     this.backgroundColor,
     this.appBar,
     this.body,
     this.bottomNavigationBar,
+    super.key,
   });
   final Color? backgroundColor;
   final PreferredSizeWidget? appBar;
@@ -21,8 +21,10 @@ class TMScaffold extends StatelessWidget {
         backgroundColor: backgroundColor,
         appBar: appBar,
         body: SafeArea(
+          bottom: false,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0).copyWith(top: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0)
+                .copyWith(top: 16.0),
             child: body,
           ),
         ),

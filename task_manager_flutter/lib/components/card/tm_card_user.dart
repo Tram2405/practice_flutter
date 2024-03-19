@@ -5,11 +5,15 @@ import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class CardUser extends StatelessWidget {
+
+  ///Create a user card to use to display users in assigned user subtask
+  ///
+  ///The [user] arguments must not be null
   const CardUser({
-    super.key,
     required this.user,
     this.onTap,
     this.onCheck,
+    super.key,
   });
 
   final AppUserModel user;

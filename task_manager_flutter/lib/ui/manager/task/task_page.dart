@@ -4,7 +4,7 @@ import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
 import 'package:task_manager_flutter/components/card/tm_card_task.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
-import 'package:task_manager_flutter/controller/manager/task_controller.dart';
+import 'package:task_manager_flutter/controller/manager/task/task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
@@ -36,17 +36,15 @@ class TaskPage extends StatelessWidget {
               textStyle: context.textTheme.bodyLarge,
             ),
             const SizedBox(height: 16.0),
-            controller.listTask.isEmpty
-                ? Expanded(
-                    child: Center(
+            Expanded(
+              child: controller.listTask.isEmpty
+                  ? Center(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Image.asset(Assets.images.imgTaskEmpty.path),
                       ),
-                    ),
-                  )
-                : Expanded(
-                    child: ListView.separated(
+                    )
+                  : ListView.separated(
                       itemCount: controller.listTask.length,
                       itemBuilder: (_, index) {
                         final task =
@@ -57,7 +55,7 @@ class TaskPage extends StatelessWidget {
                           onPressed: () => Get.toNamed(
                             Routes.DETAIL_TASK,
                             arguments: [task],
-                          )?.then((value) {
+                          )?.then((_) {
                             controller.checkIdTaskUpdate(task);
                           }),
                         );
@@ -66,7 +64,7 @@ class TaskPage extends StatelessWidget {
                         height: 10.0,
                       ),
                     ),
-                  ),
+            ),
           ],
         ),
       ),

@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMAppbar extends StatelessWidget implements PreferredSizeWidget {
+  ///custom widget representing the title bar in the application.
   const TMAppbar({
-    super.key,
+    required this.title,
     this.leftPressed,
     this.rightPressed,
     this.leftIcon,
     this.rightIcon,
     this.colorLeftIcon,
     this.colorRightIcon,
-    required this.title,
-    this.colorText = TMColor.onTask,
+    super.key,
   });
 
+  ///[leftPressed] : The callback function is called when the user clicks on the left icon
   final Function()? leftPressed;
+
+  ///[rightPressed] : The callback function is called when the user clicks on the right icon
   final Function()? rightPressed;
+
+  ///[leftIcon], [rightIcon] icon
   final String? leftIcon;
   final String? rightIcon;
+
+  ///[colorLeftIcon], [colorRightIcon] color icon
   final Color? colorLeftIcon;
   final Color? colorRightIcon;
+
+  ///[title] : Title of the title bar.
   final String title;
-  final Color colorText;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +55,9 @@ class TMAppbar extends StatelessWidget implements PreferredSizeWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          ///Check if the icon on the left exists or not, if so,
+          /// create a [GestureDetector] with the icon and [onTap] the event
+          /// Otherwise, it returns a [SizedBox] widget to preserve the space
           leftIcon != null
               ? GestureDetector(
                   onTap: leftPressed,
@@ -59,12 +71,12 @@ class TMAppbar extends StatelessWidget implements PreferredSizeWidget {
               : const SizedBox(width: 24.0),
           Text(
             title,
-            style: TextStyle(
-              color: colorText,
-              fontSize: 18.0,
-              fontWeight: FontWeight.w600,
-            ),
+            style: context.textTheme.labelSmall,
           ),
+
+          ///Check if the icon on the right exists or not, if so,
+          /// create a [GestureDetector] with the icon and [onTap] the event
+          /// Otherwise, it returns a [SizedBox] widget to preserve the space
           rightIcon != null
               ? GestureDetector(
                   onTap: rightPressed,

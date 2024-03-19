@@ -4,11 +4,15 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 
 class TMMemberAssign extends StatelessWidget {
+
+  ///Create a card displaying the assigned member in the subtask
+  ///
+  ///The [subTask] arguments must not be null
   const TMMemberAssign({
-    super.key,
     required this.subTask,
     this.radius = 12.5,
     this.textStyle,
+    super.key,
   });
   final SubTaskModel subTask;
   final double? radius;

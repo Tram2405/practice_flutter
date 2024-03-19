@@ -33,20 +33,27 @@ class EditSubTaskController extends GetxController {
 
   ///method choose start date
   void chooseStartDate(BuildContext context) async {
-    startDate.value = await ChooseDateTime.pickDateTime(context,
-            firstDate:
-                DateTime.parse(startDate.value ?? DateTime.now().toString()),
-            lastDate:
-                DateTime.parse(dueDate.value ?? DateTime.now().toString())) ??
+    startDate.value = await ChooseDateTime.pickDateTime(
+          context,
+          firstDate: DateTime.parse(
+            startDate.value ?? DateTime.now().toString(),
+          ),
+          lastDate: DateTime.parse(
+            dueDate.value ?? DateTime.now().toString(),
+          ),
+        ) ??
         startDate.value;
   }
 
   ///method choose due date
   void chooseDueDate(BuildContext context) async {
-    dueDate.value = await ChooseDateTime.pickDateTime(context,
-            firstDate:
-                DateTime.parse(startDate.value ?? DateTime.now().toString()),
-            lastDate: DateTime(2030)) ??
+    dueDate.value = await ChooseDateTime.pickDateTime(
+          context,
+          firstDate: DateTime.parse(
+            startDate.value ?? DateTime.now().toString(),
+          ),
+          lastDate: DateTime(2030),
+        ) ??
         dueDate.value;
   }
 

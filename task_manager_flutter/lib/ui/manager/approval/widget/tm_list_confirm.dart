@@ -18,7 +18,13 @@ class TMListConfirm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ApprovalTaskController(taskRepository: TaskRepository(taskProvider: TaskProvider())));
+    final controller = Get.put(
+      ApprovalTaskController(
+        taskRepository: TaskRepository(
+          taskProvider: TaskProvider(),
+        ),
+      ),
+    );
     controller.getSubTaskConfirm(task);
     return Obx(
       () => ListView.separated(
@@ -30,8 +36,10 @@ class TMListConfirm extends StatelessWidget {
           final subTask = controller.subTaskConfirms[index];
           return TMCardApproval(
             onPressed: () {
-              Get.toNamed(Routes.DETAIL_APPROVAL_TASK, arguments: [subTask])
-                  ?.then((value) {
+              Get.toNamed(
+                Routes.DETAIL_APPROVAL_TASK,
+                arguments: [subTask],
+              )?.then((value) {
                 controller.taskConfirms.refresh();
               });
             },

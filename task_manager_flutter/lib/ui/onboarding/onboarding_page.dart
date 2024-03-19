@@ -62,10 +62,11 @@ class OnBoardingPage extends GetView<OnBoardingController> {
                         width: 10.0,
                         height: 10.0,
                         decoration: BoxDecoration(
-                            color: index == controller.currentIndex.value
-                                ? TMColor.secondaryOnBoarding
-                                : TMColor.onSecondary,
-                            borderRadius: BorderRadius.circular(20.0)),
+                          color: index == controller.currentIndex.value
+                              ? TMColor.secondaryOnBoarding
+                              : TMColor.onSecondary,
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
                       ),
                     ),
                   ),

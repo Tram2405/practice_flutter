@@ -11,10 +11,15 @@ class DetailTaskController extends GetxController {
   void onSelectDropDown(
       BuildContext context, int value, SubTaskModel subTask, int index) {
     if (value == 0) {
-      Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
+      Get.toNamed(
+        Routes.DETAIL_SUB_TASK,
+        arguments: [subTask],
+      );
     } else if (value == 1) {
-      Get.toNamed(Routes.EDIT_SUB_TASK, arguments: [subTask])
-          ?.then<SubTaskModel?>(
+      Get.toNamed(
+        Routes.EDIT_SUB_TASK,
+        arguments: [subTask],
+      )?.then<SubTaskModel?>(
         (value) {
           if (value != null) {
             task.value.subTasks[index] = value;

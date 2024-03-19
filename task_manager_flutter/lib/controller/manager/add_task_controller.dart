@@ -54,14 +54,21 @@ class AddTaskController extends GetxController {
       ..startDate = subTaskAdds[0].startDate;
 
     Get.back(result: task);
-    TMSnackBar.tmSnackBarSuccess(context, titleSnackbar: 'New task created successfully');
+    TMSnackBar.tmSnackBarSuccess(context,
+        titleSnackbar: 'New task created successfully');
   }
 
   void onSelectDropDown(int value, SubTaskModel subTask, int index) {
     if (value == 0) {
-      Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
+      Get.toNamed(
+        Routes.DETAIL_SUB_TASK,
+        arguments: [subTask],
+      );
     } else if (value == 1) {
-      Get.toNamed(Routes.EDIT_SUB_TASK, arguments: [subTask])?.then((value) {
+      Get.toNamed(
+        Routes.EDIT_SUB_TASK,
+        arguments: [subTask],
+      )?.then((value) {
         if (value != null) {
           subTaskAdds[index] = value;
         }

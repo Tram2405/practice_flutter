@@ -11,7 +11,6 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class TMCardSubTask extends StatelessWidget {
-
   ///Create card item for Card subtask
   ///
   ///The [subTask] arguments must not be null
@@ -38,7 +37,9 @@ class TMCardSubTask extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-            color: color, borderRadius: BorderRadius.circular(10.0)),
+          color: color,
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

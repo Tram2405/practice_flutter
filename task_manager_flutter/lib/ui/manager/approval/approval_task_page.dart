@@ -15,17 +15,22 @@ class ApprovalTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ApprovalTaskController(taskRepository: TaskRepository(taskProvider: TaskProvider())));
+    final controller = Get.put(
+      ApprovalTaskController(
+        taskRepository: TaskRepository(
+          taskProvider: TaskProvider(),
+        ),
+      ),
+    );
     return Obx(
-      () =>  TMScaffold(
+      () => TMScaffold(
         backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
         appBar: TMAppbar(
           title: 'Approval Tasks',
           leftIcon: Assets.icons.iconAdd,
           rightIcon: Assets.icons.iconBell,
         ),
-        body: 
-        controller.taskConfirms.isEmpty
+        body: controller.taskConfirms.isEmpty
             ? const TMTextPrompt(text: 'There are no Approval Task')
             : ListView.separated(
                 itemCount: controller.taskConfirms.length,

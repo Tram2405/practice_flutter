@@ -16,7 +16,13 @@ class CompletedTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(CompletedTaskController(taskRepository: TaskRepository(taskProvider: TaskProvider())));
+    final controller = Get.put(
+      CompletedTaskController(
+        taskRepository: TaskRepository(
+          taskProvider: TaskProvider(),
+        ),
+      ),
+    );
     controller.getSubTaskConfirm();
     return TMScaffold(
       backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
@@ -26,18 +32,23 @@ class CompletedTaskPage extends StatelessWidget {
       ),
       body: GestureDetector(
         onTap: () {},
-        child: 
-        controller.taskCompleteds.isEmpty ? const TMTextPrompt(text: 'There are no completed task') :
-        ListView.separated(
-          itemCount: controller.taskCompleteds.length,
-          itemBuilder: (_, index) {
-            final task = controller.taskCompleteds[index];
-            return TMCardCompleted(onPressed: () {
-              Get.toNamed(Routes.DETAIL_COMPLETED_TASK, arguments: [task]);
-            }, task: task);
-          },
-          separatorBuilder: (_, __) => const SizedBox(height: 3.0),
-        ),
+        child: controller.taskCompleteds.isEmpty
+            ? const TMTextPrompt(text: 'There are no completed task')
+            : ListView.separated(
+                itemCount: controller.taskCompleteds.length,
+                itemBuilder: (_, index) {
+                  final task = controller.taskCompleteds[index];
+                  return TMCardCompleted(
+                      onPressed: () {
+                        Get.toNamed(
+                          Routes.DETAIL_COMPLETED_TASK,
+                          arguments: [task],
+                        );
+                      },
+                      task: task);
+                },
+                separatorBuilder: (_, __) => const SizedBox(height: 3.0),
+              ),
       ),
     );
   }

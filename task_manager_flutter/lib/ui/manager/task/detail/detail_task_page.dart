@@ -97,13 +97,15 @@ class DetailTaskPage extends StatelessWidget {
                         final subTask = controller.task.value.subTasks[index];
                         return TMCardSubTask(
                           onTap: () {
-                            Get.toNamed(Routes.DETAIL_SUB_TASK,
-                                arguments: [subTask]);
+                            Get.toNamed(
+                              Routes.DETAIL_SUB_TASK,
+                              arguments: [subTask],
+                            );
                           },
                           onSelected: detailType == DetailType.edit
                               ? (value) {
                                   controller.onSelectDropDown(
-                                      context, value, subTask , index);
+                                      context, value, subTask, index);
                                 }
                               : null,
                           subTask: subTask,

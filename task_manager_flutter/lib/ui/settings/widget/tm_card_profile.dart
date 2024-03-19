@@ -18,8 +18,13 @@ class TMCardProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SettingController(
-        authRepository: AuthRepository(authService: AuthService())));
+    final controller = Get.put(
+      SettingController(
+        authRepository: AuthRepository(
+          authService: AuthService(),
+        ),
+      ),
+    );
     return StreamBuilder(
       stream: controller.getUserByEmail(),
       builder: (context, snapshot) {
@@ -60,29 +65,33 @@ class TMCardProfile extends StatelessWidget {
           );
         } else {
           return Shimmer.fromColors(
-            baseColor: Colors.grey.shade100,
-            highlightColor: Colors.grey.shade200,
+            baseColor: TMColor.secondaryShimmer,
+            highlightColor: TMColor.primaryHighlight,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
                   radius: 32,
-                  backgroundColor: Colors.grey.shade400,
+                  backgroundColor: TMColor.primaryShimmer,
                 ),
                 const SizedBox(width: 16.0),
                 Expanded(
                   child: Column(
                     children: [
-                      Container(
-                        height: 25.0,
-                        width: double.infinity,
-                        color: Colors.grey.shade400,
+                      ColoredBox(
+                        color: TMColor.primaryShimmer,
+                        child: const SizedBox(
+                          height: 25.0,
+                          width: double.infinity,
+                        ),
                       ),
                       const SizedBox(height: 8.0),
-                      Container(
-                        height: 20.0,
-                        width: double.infinity,
-                        color: Colors.grey.shade400,
+                      ColoredBox(
+                        color: TMColor.primaryShimmer,
+                        child: const SizedBox(
+                          height: 20.0,
+                          width: double.infinity,
+                        ),
                       ),
                     ],
                   ),

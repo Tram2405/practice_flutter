@@ -17,8 +17,13 @@ class EditProfilePage extends GetView<EditProfileController> {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(EditProfileController(
-        authRepository: AuthRepository(authService: AuthService())));
+    final controller = Get.put(
+      EditProfileController(
+        authRepository: AuthRepository(
+          authService: AuthService(),
+        ),
+      ),
+    );
     return StreamBuilder(
       stream: controller.getUserByEmail(),
       builder: (context, snapshot) {

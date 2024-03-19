@@ -1,4 +1,6 @@
 
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,12 +34,10 @@ class EditProfileController extends GetxController {
         await authRepository.updateProfile(id, nameController.text);
     if (resultUpdate == 'success') {
       isLoading.value = false;
-      // ignore: use_build_context_synchronously
       TMSnackBar.tmSnackBarSuccess(context, titleSnackbar: 'Update profile successfully');
       Get.back();
     } else {
       isLoading.value = false;
-      // ignore: use_build_context_synchronously
       TMSnackBar.tmSnackBarError(context, titleSnackbar: resultUpdate);
     }
   }

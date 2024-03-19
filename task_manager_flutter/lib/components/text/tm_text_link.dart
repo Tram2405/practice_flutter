@@ -19,18 +19,19 @@ class TMTextLink extends StatelessWidget {
     return Center(
       child: RichText(
         text: TextSpan(
-            text: text,
-            style: context.textTheme.titleMedium,
-            children: [
-              TextSpan(
-                text: linkText,
-                style: context.textTheme.titleMedium?.copyWith(
-                  color: TMColor.onPrimary,
-                  decoration: TextDecoration.underline,
-                ),
-                recognizer: TapGestureRecognizer()..onTap = onPressed,
+          text: text,
+          style: context.textTheme.titleMedium,
+          children: [
+            TextSpan(
+              text: linkText,
+              style: context.textTheme.titleMedium?.copyWith(
+                color: TMColor.onPrimary,
+                decoration: TextDecoration.underline,
               ),
-            ]),
+              recognizer: TapGestureRecognizer()..onTap = onPressed,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -39,4 +39,8 @@ class TMColor {
   static const secondarySwith = Color.fromARGB(255, 230, 228, 234);
   static const primarySnackBarSuccess = Color.fromARGB(245, 54, 187, 5);
   static const secondarySnackBarError = Color.fromARGB(238, 249, 26, 52);
+  
+  static final primaryShimmer = Colors.grey.shade400;
+  static final secondaryShimmer = Colors.grey.shade100;
+  static final primaryHighlight = Colors.grey.shade200;
 }

@@ -16,7 +16,13 @@ class TaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(TaskController(taskRepository: TaskRepository(taskProvider: TaskProvider())));
+    final controller = Get.put(
+      TaskController(
+        taskRepository: TaskRepository(
+          taskProvider: TaskProvider(),
+        ),
+      ),
+    );
     return Obx(
       () => TMScaffold(
         backgroundColor: TMColor.primaryIcon.withOpacity(0.1),

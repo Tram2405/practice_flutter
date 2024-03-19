@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 
 class AddUserController extends GetxController {
-
   ///Observable list for displaying search results
   RxList<AppUserModel> listSearch = users.obs;
 
@@ -12,9 +11,11 @@ class AddUserController extends GetxController {
   ///Method to search for users based on search text
   void searchUser(String searchText) {
     listSearch.value = users
-        .where((element) => (element.name ?? '')
-            .toLowerCase()
-            .contains(searchText.toLowerCase()))
+        .where(
+          (element) => (element.name ?? '').toLowerCase().contains(
+                searchText.toLowerCase(),
+              ),
+        )
         .toList();
   }
 

@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run app",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "lib/main.dart"
+            ]
+        },
+        {
+            "name": "Device preview",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/device_preview.dart",
+            "args": [
+                "lib/device_preview.dart"
+            ]
+        }
+    ]
+}

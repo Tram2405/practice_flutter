@@ -64,7 +64,7 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
               lableText: 'Retype Password',
               hintText: '********',
               validator: (value) {
-                FormValidator.validatorConfirmPassword(
+                return FormValidator.validatorConfirmPassword(
                     value, controller.newPassController.text);
               },
               onChanged: (_) => controller.checkIsEmpty(),

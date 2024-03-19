@@ -4,6 +4,8 @@ import 'package:task_manager_flutter/components/card/tm_card_approval.dart';
 import 'package:task_manager_flutter/controller/manager/approval/approval_task_controller.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
+import 'package:task_manager_flutter/data/provider/task_provider.dart';
+import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 
 class TMListConfirm extends StatelessWidget {
@@ -16,7 +18,7 @@ class TMListConfirm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ApprovalTaskController());
+    final controller = Get.put(ApprovalTaskController(taskRepository: TaskRepository(taskProvider: TaskProvider())));
     controller.getSubTaskConfirm(task);
     return Obx(
       () => ListView.separated(

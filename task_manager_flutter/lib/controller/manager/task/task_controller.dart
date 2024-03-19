@@ -1,7 +1,12 @@
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
+import 'package:task_manager_flutter/data/respository/task_repository.dart';
 
 class TaskController extends GetxController {
+  final TaskRepository taskRepository;
+
+  TaskController({required this.taskRepository});
+
   RxList<TaskModel> listTask = <TaskModel>[].obs;
 
   @override
@@ -11,7 +16,7 @@ class TaskController extends GetxController {
   }
 
   getTask() {
-    listTask.value = tasks;
+    listTask.value = taskRepository.getTasks();
   }
 
   void checkIdTaskUpdate(TaskModel? task) {

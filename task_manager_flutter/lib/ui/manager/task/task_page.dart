@@ -5,6 +5,8 @@ import 'package:task_manager_flutter/components/card/tm_card_task.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/task/task_controller.dart';
+import 'package:task_manager_flutter/data/provider/task_provider.dart';
+import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
@@ -14,7 +16,7 @@ class TaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(TaskController());
+    final controller = Get.put(TaskController(taskRepository: TaskRepository(taskProvider: TaskProvider())));
     return Obx(
       () => TMScaffold(
         backgroundColor: TMColor.primaryIcon.withOpacity(0.1),

@@ -57,7 +57,7 @@ class TMTextStyle {
     fontFamily: FontFamily.interBold,
   );
   static TextStyle textOnboarding = primaryTextStyle(
-    fontSize: 18.0,
+    fontSize: 16.0,
     fontFamily: FontFamily.interBold,
     textColor: TMColor.onSecondary,
   );

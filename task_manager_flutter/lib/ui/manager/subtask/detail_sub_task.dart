@@ -19,6 +19,7 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
     const sizedBox12 = SizedBox(height: 12.0);
     final subTask = Get.arguments[0] as SubTaskModel;
     return TMScaffold(
+      backgroundColor: TMColor.background,
       appBar: TMAppbar(
         title: 'Detail Sub Task',
         leftIcon: Assets.icons.iconArrowLeft,

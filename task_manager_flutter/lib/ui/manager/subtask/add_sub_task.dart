@@ -11,6 +11,8 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_form_field.dart';
 import 'package:task_manager_flutter/controller/manager/subtask/add_sub_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
 class AddSubTaskPage extends GetView<AddSubTaskController> {
@@ -20,8 +22,9 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
   Widget build(BuildContext context) {
     return Obx(
       () => TMScaffold(
+        backgroundColor: TMColor.onSecondary,
         appBar: TMAppbar(
-          title: 'Create Sub Task',
+          title: AppLocalizations.of(context).createSubtask,
           leftIcon: Assets.icons.iconClose,
           leftPressed: () {
             Get.back();
@@ -32,7 +35,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TMTitle(
-                title: 'Choose date',
+                title: AppLocalizations.of(context).chooseDate,
                 textStyle: context.textTheme.bodyLarge,
               ),
               const SizedBox(height: 10.0),
@@ -40,19 +43,19 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                   onPressed: () {
                     controller.chooseStartDate(context);
                   },
-                  text: 'Start Date',
+                  text: AppLocalizations.of(context).startDate,
                   dateTime: controller.startDate.value.toDateTime),
               const SizedBox(height: 12.0),
               TMDateTime(
                 onPressed: () {
                   controller.chooseDueDate(context);
                 },
-                text: 'Due Date',
+                text: AppLocalizations.of(context).dueDate,
                 dateTime: controller.dueDate.value.toDateTime,
               ),
               const SizedBox(height: 25.0),
               TMTitle(
-                title: 'Assigned users',
+                title: AppLocalizations.of(context).assignedUser,
                 textStyle: context.textTheme.bodyLarge,
               ),
               const SizedBox(height: 15.0),
@@ -63,7 +66,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                           controller.assignUser(user);
                         });
                       },
-                      text: 'Add',
+                      text: AppLocalizations.of(context).add,
                       leftIcon: Assets.icons.iconAdd2,
                     )
                   : TMCardMemberSubTask(
@@ -72,14 +75,14 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                     ),
               const SizedBox(height: 15.0),
               TMTextField(
-                hintText: 'SubTask Name',
+                hintText: AppLocalizations.of(context).subTaskName,
                 textInputAction: TextInputAction.next,
                 controller: controller.subTaskNameController,
                 onChanged: (_) => controller.checkIsEmpty(),
               ),
               const SizedBox(height: 26.0),
               TMTextField(
-                hintText: 'Descripton',
+                hintText: AppLocalizations.of(context).description,
                 maxLines: 4,
                 textInputAction: TextInputAction.done,
                 controller: controller.descriptionController,
@@ -90,7 +93,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
           ),
         ),
         bottomNavigationBar: TMBottomButton(
-          text: 'Add Sub Task',
+          text: AppLocalizations.of(context).addSubTask,
           onPressed: controller.addSubTask,
           isAction: controller.canAction.value,
         ),

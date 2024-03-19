@@ -8,6 +8,7 @@ import 'package:task_manager_flutter/controller/manager/task/task_controller.dar
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 
@@ -33,14 +34,14 @@ class TaskPage extends StatelessWidget {
               controller.listTask.add(value);
             });
           },
-          title: 'Task',
+          title: AppLocalizations.of(context).task,
           rightIcon: Assets.icons.iconBell,
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TMTitle(
-              title: 'My Tasks',
+              title: AppLocalizations.of(context).myTask,
               textStyle: context.textTheme.bodyLarge,
             ),
             const SizedBox(height: 16.0),

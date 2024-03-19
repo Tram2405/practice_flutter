@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 
 class DetailTaskController extends GetxController {
@@ -32,7 +33,7 @@ class DetailTaskController extends GetxController {
       task.value.subTasks.remove(subTask);
       task.refresh();
       TMSnackBar.tmSnackBarSuccess(context,
-          titleSnackbar: 'Delete Subtask done');
+          titleSnackbar: AppLocalizations.of(context).snackDelete);
     }
   }
 

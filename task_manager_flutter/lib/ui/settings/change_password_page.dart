@@ -6,6 +6,7 @@ import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_text_form_field_password.dart';
 import 'package:task_manager_flutter/controller/settings/change_password_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/validator.dart';
 
@@ -18,21 +19,21 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: TMScaffold(
         appBar: TMAppbar(
-          title: 'Change password',
+          title: AppLocalizations.of(context).changePass,
           leftIcon: Assets.icons.iconBack,
           leftPressed: () => Get.back(),
         ),
         body: ListView(
           children: [
             Text(
-              'Please input your curent password first',
+              AppLocalizations.of(context).titleChangePass1,
               style: context.textTheme.bodySmall
                   ?.copyWith(color: TMColor.primaryOnBoarding),
             ),
             const SizedBox(height: 16.0),
             TMTextFormFieldPassword(
-              lableText: 'Current Password',
-              hintText: '********',
+              lableText: AppLocalizations.of(context).currentPass,
+              hintText: AppLocalizations.of(context).hintPassword,
               controller: controller.currentPasswordContoller,
               onChanged: (_) => controller.checkIsEmpty(),
             ),
@@ -40,29 +41,29 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
             const Divider(color: TMColor.primaryDivider),
             const SizedBox(height: 24.0),
             Text(
-              'Now, create your new password',
+              AppLocalizations.of(context).titleChangePass2,
               style: context.textTheme.bodySmall
                   ?.copyWith(color: TMColor.primaryOnBoarding),
             ),
             const SizedBox(height: 16.0),
             TMTextFormFieldPassword(
               controller: controller.newPassController,
-              lableText: 'New Password',
-              hintText: '********',
+              lableText: AppLocalizations.of(context).newPass,
+              hintText: AppLocalizations.of(context).hintPassword,
               validator: FormValidator.validatorPassword,
               onChanged: (_) => controller.checkIsEmpty(),
             ),
             const SizedBox(height: 12.0),
             Text(
-              'Password should contain a-z, A-Z, 0-9',
+              AppLocalizations.of(context).titleChangePass3,
               style: context.textTheme.bodySmall
                   ?.copyWith(color: TMColor.textField),
             ),
             const SizedBox(height: 32.0),
             TMTextFormFieldPassword(
               controller: controller.retypePassController,
-              lableText: 'Retype Password',
-              hintText: '********',
+              lableText: AppLocalizations.of(context).retypePassword,
+              hintText: AppLocalizations.of(context).hintPassword,
               validator: (value) {
                 return FormValidator.validatorConfirmPassword(
                     value, controller.newPassController.text);
@@ -72,7 +73,7 @@ class ChangePasswordPage extends GetView<ChangePasswordController> {
             const SizedBox(height: 140.0),
             Obx(
               () => TMElevateButton(
-                text: 'Submit new password',
+                text: AppLocalizations.of(context).submitPass,
                 color: controller.canAction.value
                     ? TMColor.primaryOnBoarding
                     : TMColor.primary,

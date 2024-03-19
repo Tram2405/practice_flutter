@@ -23,4 +23,5 @@ abstract class Routes {
   static const SETTING = '/setting';
   static const EDIT_PROFILE = '/edit-profile';
   static const CHANGE_PASSWORD = '/change-password';
+  static const HOME_MEMBER = '/home_member';
 }

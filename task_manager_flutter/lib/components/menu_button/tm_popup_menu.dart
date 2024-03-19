@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMPopupMenuSubtask extends StatelessWidget {
@@ -27,15 +28,15 @@ class TMPopupMenuSubtask extends StatelessWidget {
         return [
           PopupMenuItem(
             value: 0,
-            child: textPopupMenu(context, 'Detail'),
+            child: textPopupMenu(context, AppLocalizations.of(context).detail),
           ),
           PopupMenuItem(
             value: 1,
-            child: textPopupMenu(context, 'Edit'),
+            child: textPopupMenu(context, AppLocalizations.of(context).edit),
           ),
           PopupMenuItem(
             value: 2,
-            child: textPopupMenu(context, 'Delete'),
+            child: textPopupMenu(context, AppLocalizations.of(context).deleted),
           ),
         ];
       },

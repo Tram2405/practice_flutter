@@ -21,6 +21,7 @@ class EditSubTaskController extends GetxController {
   ///An observable variable to test that can perform an action when the conditions are right
   RxBool canAction = false.obs;
 
+ 
   ///Get subtask information and fill in the fields to edit the subtask
   void getSubTask(SubTaskModel subTask) {
     startDate.value = subTask.startDate;

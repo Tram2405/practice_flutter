@@ -23,7 +23,7 @@ class AddTaskPage extends GetView<AddTaskController> {
     return Obx(
       () => TMScaffold(
         appBar: TMAppbar(
-          title: AppLocalizations.of(context).createTask,
+          title: AppLocalizations.of(context).txtCreateTask,
           leftIcon: Assets.icons.iconClose,
           leftPressed: () {
             Get.back();
@@ -34,7 +34,7 @@ class AddTaskPage extends GetView<AddTaskController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TMTitle(
-                title: AppLocalizations.of(context).taskType,
+                title: AppLocalizations.of(context).txtTaskType,
                 textStyle: context.textTheme.bodyLarge,
               ),
               const SizedBox(height: 14.0),
@@ -66,14 +66,14 @@ class AddTaskPage extends GetView<AddTaskController> {
               ),
               const SizedBox(height: 20.0),
               TMTextField(
-                hintText: AppLocalizations.of(context).taskName,
+                hintText: AppLocalizations.of(context).txtTaskName,
                 textInputAction: TextInputAction.next,
                 controller: controller.taskNameController,
                 onChanged: (_) => controller.checkIsEmpty(),
               ),
               const SizedBox(height: 15.0),
               TMTextField(
-                hintText: AppLocalizations.of(context).description,
+                hintText: AppLocalizations.of(context).txtDescription,
                 maxLines: 4,
                 textInputAction: TextInputAction.done,
                 controller: controller.descriptionController,
@@ -86,13 +86,13 @@ class AddTaskPage extends GetView<AddTaskController> {
                     controller.addSubTask(value);
                   });
                 },
-                text: AppLocalizations.of(context).addSubTask,
+                text: AppLocalizations.of(context).txtAddSubTask,
                 leftIcon: Assets.icons.iconAdd,
                 leftIconColor: TMColor.background,
               ),
               const SizedBox(height: 8.0),
               controller.subTaskAdds.isEmpty
-                  ? TMTextPrompt(text: AppLocalizations.of(context).noSubTask)
+                  ? TMTextPrompt(text: AppLocalizations.of(context).txtNoSubTask)
                   : ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
@@ -118,7 +118,7 @@ class AddTaskPage extends GetView<AddTaskController> {
           ),
         ),
         bottomNavigationBar: TMBottomButton(
-          text: AppLocalizations.of(context).addTask,
+          text: AppLocalizations.of(context).btnAddTask,
           onPressed: () => controller.addTask(context),
           isAction: controller.canAction.value,
         ),

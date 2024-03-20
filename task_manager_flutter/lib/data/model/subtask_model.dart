@@ -46,7 +46,8 @@ List<SubTaskModel> subTasks = [
     ..status = StatusType.newTask.name
     ..user = (AppUserModel()
       ..id = '1'
-      ..name = 'Jemal'
+      ..name = 'Trâm'
+      ..email = 'tram123@gmail.com'
       ..avatar = Assets.images.imgAvatarMember2.path),
   SubTaskModel()
     ..id = '2'
@@ -68,7 +69,8 @@ List<SubTaskModel> subTasks = [
     ..status = StatusType.newTask.name
     ..user = (AppUserModel()
       ..id = '4'
-      ..name = 'Arslan'
+      ..name = 'Trâm'
+      ..email = 'tram123@gmail.com'
       ..avatar = Assets.images.imgAvatarMember6.path),
   SubTaskModel()
     ..id = '4'
@@ -90,7 +92,8 @@ List<SubTaskModel> subTasks = [
     ..status = StatusType.inProgress.name
     ..user = (AppUserModel()
       ..id = '4'
-      ..name = 'Arslan'
+      ..name = 'Trâm'
+      ..email = 'tram123@gmail.com'
       ..avatar = Assets.images.imgAvatarMember4.path),
   SubTaskModel()
     ..id = '6'

@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager_flutter/data/provider/auth_service.dart';
+import 'package:task_manager_flutter/data/provider/auth_service_provider.dart';
 
 class AuthRepository {
-  final AuthService authService;
+  final AuthServiceProvider authService;
   AuthRepository({required this.authService});
 
   Future<String?> login(String email, String password) {

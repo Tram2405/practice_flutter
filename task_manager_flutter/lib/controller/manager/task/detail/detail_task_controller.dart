@@ -7,7 +7,8 @@ import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 
 class DetailTaskController extends GetxController {
-  Rx<TaskModel> task = (Get.arguments[0] as TaskModel).obs;
+  Rx<TaskModel> task =  (Get.arguments?[0] as TaskModel
+  ).obs;
 
   void onSelectDropDown(
       BuildContext context, int value, SubTaskModel subTask, int index) {
@@ -33,7 +34,7 @@ class DetailTaskController extends GetxController {
       task.value.subTasks.remove(subTask);
       task.refresh();
       TMSnackBar.tmSnackBarSuccess(context,
-          titleSnackbar: AppLocalizations.of(context).snackDelete);
+          titleSnackbar: AppLocalizations.of(context).btnSnackDelete);
     }
   }
 

@@ -41,12 +41,12 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
             Row(
               children: [
                 TMDisplayDateTime(
-                  title: AppLocalizations.of(context).startDate,
+                  title: AppLocalizations.of(context).txtStartDate,
                   dateTime: controller.subTask.startDate.toDateTime,
                 ),
                 const SizedBox(width: 30.0),
                 TMDisplayDateTime(
-                  title: AppLocalizations.of(context).dueDate,
+                  title: AppLocalizations.of(context).txtDueDate,
                   textColor: TMColor.onError,
                   dateTime: controller.subTask.dueDate.toDateTime,
                 ),
@@ -61,7 +61,7 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
             ),
             const SizedBox(height: 20.0),
             TMTextField(
-              hintText: AppLocalizations.of(context).description,
+              hintText: AppLocalizations.of(context).txtDescription,
               maxLines: 4,
               textInputAction: TextInputAction.done,
               controller: controller.descriptionController,
@@ -80,7 +80,7 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
                 controller.subTask.status = StatusType.error.name;
                 Get.back();
               },
-              text: AppLocalizations.of(context).sendAgain,
+              text: AppLocalizations.of(context).btnSendAgain,
               color: TMColor.button,
               borderRadius: BorderRadius.circular(10.0),
             ),
@@ -90,7 +90,7 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
                 controller.subTask.status = StatusType.completed.name;
                 Get.back();
               },
-              text: AppLocalizations.of(context).approval,
+              text: AppLocalizations.of(context).btnApproval,
               color: TMColor.primaryOnBoarding,
               textColor: TMColor.onSecondary,
               borderRadius: BorderRadius.circular(10.0),

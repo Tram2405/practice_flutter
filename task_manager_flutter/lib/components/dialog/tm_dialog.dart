@@ -45,7 +45,7 @@ class TMDialog {
             children: [
               textDialog(
                 context,
-                title: AppLocalizations.of(context).yes,
+                title: AppLocalizations.of(context).btnYes,
                 onPressed: () {
                   action?.call();
                   Navigator.pop(context);
@@ -54,7 +54,7 @@ class TMDialog {
               const SizedBox(width: 40.0),
               textDialog(
                 context,
-                title: AppLocalizations.of(context).no,
+                title: AppLocalizations.of(context).btnNo,
                 onPressed: () {
                   Navigator.pop(context);
                 },

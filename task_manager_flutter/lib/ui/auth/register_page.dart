@@ -26,17 +26,17 @@ class RegisterPage extends GetView<RegisterController> {
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: ListView(
             children: [
-              TMTitle(title: AppLocalizations.of(context).register),
+              TMTitle(title: AppLocalizations.of(context).txtRegister),
               const SizedBox(height: 16.0),
               TMTitle(
-                title: AppLocalizations.of(context).titleRegister,
+                title: AppLocalizations.of(context).txtTitleRegister,
                 textStyle: context.textTheme.titleLarge
                     ?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               sizedBox32,
               TMTextFormField(
-                hintText: AppLocalizations.of(context).hintName,
-                lableText: AppLocalizations.of(context).fullName,
+                hintText: AppLocalizations.of(context).txtHintName,
+                lableText: AppLocalizations.of(context).txtFullName,
                 controller: controller.nameController,
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
@@ -45,8 +45,8 @@ class RegisterPage extends GetView<RegisterController> {
               ),
               sizedBox32,
               TMTextFormField(
-                hintText: AppLocalizations.of(context).hintEmail,
-                lableText: AppLocalizations.of(context).email,
+                hintText: AppLocalizations.of(context).txtHintEmail,
+                lableText: AppLocalizations.of(context).txtEmail,
                 controller: controller.emailController,
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
@@ -55,8 +55,8 @@ class RegisterPage extends GetView<RegisterController> {
               ),
               sizedBox32,
               TMTextFormFieldPassword(
-                lableText: AppLocalizations.of(context).password,
-                hintText: AppLocalizations.of(context).hintPassword,
+                lableText: AppLocalizations.of(context).txtPassword,
+                hintText: AppLocalizations.of(context).txtHintPassword,
                 controller: controller.passwordController,
                 validator: FormValidator.validatorPassword,
                 readOnly: controller.isLoading.value,
@@ -65,8 +65,8 @@ class RegisterPage extends GetView<RegisterController> {
               ),
               sizedBox32,
               TMTextFormFieldPassword(
-                lableText: AppLocalizations.of(context).retypePassword,
-                hintText: AppLocalizations.of(context).hintRetypePassword,
+                lableText: AppLocalizations.of(context).txtRetypePassword,
+                hintText: AppLocalizations.of(context).txtHintRetypePassword,
                 controller: controller.retypePasswordController,
                 textInputAction: TextInputAction.done,
                 onChanged: (_) => controller.isEmpty(),
@@ -81,7 +81,7 @@ class RegisterPage extends GetView<RegisterController> {
               const SizedBox(height: 40.0),
               Obx(
                 () => TMElevateButton(
-                  text: AppLocalizations.of(context).register,
+                  text: AppLocalizations.of(context).btnRegister,
                   icon: Assets.icons.iconNext,
                   color: controller.hasContent.value
                       ? TMColor.primary
@@ -95,8 +95,8 @@ class RegisterPage extends GetView<RegisterController> {
               ),
               sizedBox32,
               TMTextLink(
-                text: AppLocalizations.of(context).lableRegister,
-                linkText: AppLocalizations.of(context).loginHere,
+                text: AppLocalizations.of(context).txtLableRegister,
+                linkText: AppLocalizations.of(context).txtLoginHere,
                 onPressed: () async {
                   Get.toNamed(Routes.LOGIN);
                 },

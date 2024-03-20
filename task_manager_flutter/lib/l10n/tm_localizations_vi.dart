@@ -5,254 +5,260 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get onboarding1 => 'Chào mừng bạn đến với Trình quản lý tác vụ. Tạo dự án, phân công nhiệm vụ và cộng tác dễ dàng.';
+  String get txtOnboarding1 => 'Chào mừng bạn đến với Trình quản lý tác vụ. Tạo dự án, phân công nhiệm vụ và cộng tác dễ dàng.';
 
   @override
-  String get onboarding2 => 'Quản lý nhiệm vụ chính. Phân loại, đặt ra thời hạn và nâng cao hiệu quả của nhóm.';
+  String get txtOnboarding2 => 'Quản lý nhiệm vụ chính. Phân loại, đặt ra thời hạn và nâng cao hiệu quả của nhóm.';
 
   @override
-  String get onboarding3 => 'Theo dõi tiến trình một cách dễ dàng. Giám sát nhiệm vụ và thúc đẩy nhóm của bạn lên tầm cao mới.';
+  String get txtOnboarding3 => 'Theo dõi tiến trình một cách dễ dàng. Giám sát nhiệm vụ và thúc đẩy nhóm của bạn lên tầm cao mới.';
 
   @override
-  String get back => 'Trở về';
+  String get txtBack => 'Trở về';
 
   @override
-  String get next => 'Tiếp';
+  String get txtNext => 'Tiếp';
 
   @override
-  String get register => 'Tạo tài khoản';
+  String get txtRegister => 'Tạo tài khoản';
 
   @override
-  String get titleRegister => 'Và bắt đầu ghi chép';
+  String get txtTitleRegister => 'Và bắt đầu ghi chép';
 
   @override
-  String get fullName => 'Họ và tên';
+  String get txtFullName => 'Họ và tên';
 
   @override
-  String get hintName => 'Ví dụ: John Doe';
+  String get txtHintName => 'Ví dụ: John Doe';
 
   @override
-  String get email => 'Địa chỉ email';
+  String get txtEmail => 'Địa chỉ email';
 
   @override
-  String get hintEmail => 'Ví dụ: johndoe@gmail.com';
+  String get txtHintEmail => 'Ví dụ: johndoe@gmail.com';
 
   @override
-  String get password => 'Mật khẩu';
+  String get txtPassword => 'Mật khẩu';
 
   @override
-  String get hintPassword => '********';
+  String get txtHintPassword => '********';
 
   @override
-  String get retypePassword => 'Nhập lại mật khẩu';
+  String get txtRetypePassword => 'Nhập lại mật khẩu';
 
   @override
-  String get hintRetypePassword => '********';
+  String get txtHintRetypePassword => '********';
 
   @override
-  String get lableRegister => 'Bạn đã có tài khoản? ';
+  String get txtLableRegister => 'Bạn đã có tài khoản? ';
 
   @override
-  String get loginHere => 'Đăng nhập tại đây';
+  String get txtLoginHere => 'Đăng nhập tại đây';
 
   @override
-  String get letsLogin => 'Hãy đăng nhập';
+  String get btnRegister => 'Tạo tài khoản';
 
   @override
-  String get titleLogin => 'Và ghi lại ý tưởng của bạn';
+  String get txtLetsLogin => 'Hãy đăng nhập';
 
   @override
-  String get forgotPassword => 'Quên mật khẩu';
+  String get txtTitleLogin => 'Và ghi lại ý tưởng của bạn';
 
   @override
-  String get login => 'Đăng nhập';
+  String get txtForgotPassword => 'Quên mật khẩu';
 
   @override
-  String get lableLogin => 'Bạn chưa có tài khoản? ';
+  String get txtLableLogin => 'Bạn chưa có tài khoản? ';
 
   @override
-  String get registerHere => 'Đăng ký ở đây';
+  String get txtRegisterHere => 'Đăng ký ở đây';
 
   @override
-  String get forgotPass => 'Quên mật khẩu';
+  String get txtForgotPass => 'Quên mật khẩu';
 
   @override
-  String get titleForgotPass => 'Nhập địa chỉ email của bạn để nhận mã tạo mật khẩu mới';
+  String get txtTitleForgotPass => 'Nhập địa chỉ email của bạn để nhận mã tạo mật khẩu mới';
 
   @override
-  String get sendCode => 'Gửi mã';
+  String get txtTask => 'Nhiệm vụ';
 
   @override
-  String get task => 'Nhiệm vụ';
+  String get txtMyTask => 'Nhiệm vụ của tôi';
 
   @override
-  String get myTask => 'Nhiệm vụ của tôi';
+  String get txtCreateTask => 'Tạo Nhiệm Vụ mới';
 
   @override
-  String get createTask => 'Tạo Nhiệm Vụ mới';
+  String get txtTaskType => 'Loại nhiệm vụ';
 
   @override
-  String get taskType => 'Loại nhiệm vụ';
+  String get txtTaskName => 'Tên nhiệm vụ';
 
   @override
-  String get taskName => 'Tên nhiệm vụ';
+  String get txtDescription => 'Mô tả';
 
   @override
-  String get description => 'Mô tả';
+  String get txtLow => 'Thấp';
 
   @override
-  String get low => 'Thấp';
+  String get txtMedium => 'Trung bình';
 
   @override
-  String get medium => 'Trung bình';
+  String get txtHigh => 'Cao';
 
   @override
-  String get high => 'Cao';
+  String get txtAddSubTask => 'Thêm nhiệm vụ phụ';
 
   @override
-  String get addSubTask => 'Thêm nhiệm vụ phụ';
+  String get txtNoSubTask => 'Không có nhiệm vụ phụ nào! ';
 
   @override
-  String get noSubTask => 'Không có nhiệm vụ phụ nào! ';
+  String get txtCreateSubtask => 'Tạo nhiệm vụ phụ';
 
   @override
-  String get addTask => 'Thêm nhiệm vụ';
+  String get txtChooseDate => 'Chọn ngày';
 
   @override
-  String get createSubtask => 'Tạo nhiệm vụ phụ';
+  String get txtStartDate => 'Ngày bắt đầu';
 
   @override
-  String get chooseDate => 'Chọn ngày';
+  String get txtDueDate => 'Ngày kết thúc';
 
   @override
-  String get startDate => 'Ngày bắt đầu';
+  String get txtAssignedUser => 'Chỉ định thành viên';
 
   @override
-  String get dueDate => 'Ngày kết thúc';
+  String get txtSubTaskName => 'Tên nhiệm vụ phụ';
 
   @override
-  String get assignedUser => 'Chỉ định thành viên';
+  String get txtSearchMember => 'Tìm kiếm thành viên...';
 
   @override
-  String get add => 'Thêm';
+  String get txtApproval => 'Phê duyệt';
 
   @override
-  String get subTaskName => 'Tên nhiệm vụ phụ';
+  String get txtConfirmation => 'Xác nhận';
 
   @override
-  String get searchMember => 'Tìm kiếm thành viên...';
+  String get txtNewTask => 'Nhiệm vụ mới';
 
   @override
-  String get approval => 'Phê duyệt';
+  String get txtInProgress => 'Trong tiến trình';
 
   @override
-  String get sendAgain => 'Gửi lại';
+  String get txtError => 'Lỗi';
 
   @override
-  String get confirmation => 'Xác nhận';
+  String get txtCompleted => 'Hoàn thành';
 
   @override
-  String get newTask => 'Nhiệm vụ mới';
+  String get txtCompletedTask => 'Nhiệm vụ đã hoàn thành';
 
   @override
-  String get inProgress => 'Trong tiến trình';
+  String get txtNoCompleted => 'Không có nhiệm vụ nào hoàn th';
 
   @override
-  String get error => 'Lỗi';
+  String get txtProgress => 'Tiến triển';
 
   @override
-  String get completed => 'Hoàn thành';
+  String get txtDetailTask => 'Chi tiết nhiệm vụ';
 
   @override
-  String get completedTask => 'Nhiệm vụ đã hoàn thành';
+  String get txtDetailSubTask => 'Chi tiết nhiệm vụ phụ';
 
   @override
-  String get noCompleted => 'There are no task completed';
+  String get txtSubTasks => 'Nhiệm vụ phụ';
 
   @override
-  String get progress => 'Tiến triển';
+  String get txtExecutor => 'Người thực hiện';
 
   @override
-  String get detailTask => 'Chi tiết nhiệm vụ';
+  String get txtSetting => 'Cài đặt';
 
   @override
-  String get detailSubTask => 'Chi tiết nhiệm vụ phụ';
+  String get txtAppSetting => 'Cài đặt ứng dụng';
 
   @override
-  String get subTasks => 'Nhiệm vụ phụ';
+  String get txtTitleChangePass1 => 'Vui lòng nhập mật khẩu hiện tại của bạn trước';
 
   @override
-  String get executor => 'Người thực hiện';
+  String get txtTitleChangePass2 => 'Bây giờ, hãy tạo mật khẩu mới của bạn';
 
   @override
-  String get setting => 'Cài đặt';
+  String get txtTitleChangePass3 => 'Mật khẩu phải chứa a-z, A-Z, 0-9';
 
   @override
-  String get editProfile => 'Chỉnh sửa thông tin';
+  String get txtCurrentPass => 'Mật khẩu cũ';
 
   @override
-  String get appSetting => 'Cài đặt ứng dụng';
+  String get txtNewPass => 'Mật khẩu mới';
 
   @override
-  String get changePass => 'Đổi mật khẩu';
+  String get txtRetypePass => 'Nhập lại mật khẩu';
 
   @override
-  String get notification => 'Thông báo';
+  String get txtSubmitPass => 'Gửi mật khẩu mới';
 
   @override
-  String get logout => 'Đăng xuất';
+  String get txtTitleLogout => 'Bạn có chắc chắn muốn đăng xuất khỏi ứng dụng không?';
 
   @override
-  String get changeImage => 'Chọn ảnh';
+  String get btnLogin => 'Đăng nhập';
 
   @override
-  String get saveChange => 'Lưu thay đổi';
+  String get btnSendCode => 'Gửi mã';
 
   @override
-  String get titleChangePass1 => 'Vui lòng nhập mật khẩu hiện tại của bạn trước';
+  String get btnAddTask => 'Thêm nhiệm vụ';
 
   @override
-  String get titleChangePass2 => 'Bây giờ, hãy tạo mật khẩu mới của bạn';
+  String get btnAdd => 'Thêm';
 
   @override
-  String get titleChangePass3 => 'Mật khẩu phải chứa a-z, A-Z, 0-9';
+  String get btnApproval => 'Phê duyệt nhiệm vụ';
 
   @override
-  String get currentPass => 'Mật khẩu cũ';
+  String get btnSendAgain => 'Gửi lại';
 
   @override
-  String get newPass => 'Mật khẩu mới';
+  String get btnEditProfile => 'Edit Profile';
 
   @override
-  String get retypePass => 'Nhập lại mật khẩu';
+  String get btnChangePass => 'Đổi mật khẩu';
 
   @override
-  String get submitPass => 'Gửi mật khẩu mới';
+  String get btnNotification => 'Thông báo';
 
   @override
-  String get emailNotification => 'Thông báo email';
+  String get btnLogout => 'Đăng xuất';
 
   @override
-  String get pushNotification => 'Thông báo đẩy';
+  String get btnChangeImage => 'Chọn ảnh';
 
   @override
-  String get titleLogout => 'Bạn có chắc chắn muốn đăng xuất khỏi ứng dụng không?';
+  String get btnSaveChange => 'Lưu thay đổi';
 
   @override
-  String get yes => 'Có';
+  String get btnEmailNotification => 'Thông báo email';
 
   @override
-  String get no => 'Không';
+  String get btnPushNotification => 'Thông báo đẩy';
 
   @override
-  String get detail => 'Chi tiết';
+  String get btnYes => 'Có';
 
   @override
-  String get edit => 'Chỉnh sửa';
+  String get btnNo => 'Không';
 
   @override
-  String get deleted => 'Xoá';
+  String get btnDetail => 'Chi tiết';
 
   @override
-  String get snackDelete => 'Xoá nhiệm vụ phụ thành công';
+  String get btnEdit => 'Chỉnh sửa';
+
+  @override
+  String get btnDeleted => 'Xoá';
+
+  @override
+  String get btnSnackDelete => 'Xoá nhiệm vụ phụ thành công';
 }

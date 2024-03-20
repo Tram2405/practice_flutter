@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
+import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class TMAvatarMember extends StatelessWidget {
@@ -23,7 +24,7 @@ class TMAvatarMember extends StatelessWidget {
         ...List.generate(
             (subtasks.length > minLength) ? minLength - 1 : subtasks.length,
             (index) {
-          final avatar = subtasks[index].user?.avatar ?? '';
+          final avatar = subtasks[index].user?.avatar ?? Assets.images.imgAvatarDefault.path;
           return Align(
             widthFactor: 0.65,
             child: CircleAvatar(

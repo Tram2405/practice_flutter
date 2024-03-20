@@ -85,14 +85,14 @@ class OnBoardingPage extends GetView<OnBoardingController> {
                     if (controller.currentIndex.value > 0)
                       TMElevateButton(
                         onPressed: controller.onBack,
-                        text: AppLocalizations.of(context).back,
+                        text: AppLocalizations.of(context).txtBack,
                         textColor: TMColor.primaryOnBoarding,
                         padding: const EdgeInsets.symmetric(horizontal: 30.0),
                       ),
                     const Spacer(),
                     TMElevateButton(
                       onPressed: () => controller.onNext(context),
-                      text: AppLocalizations.of(context).next,
+                      text: AppLocalizations.of(context).txtNext,
                       textColor: TMColor.primaryOnBoarding,
                       padding: const EdgeInsets.symmetric(horizontal: 30.0),
                     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
+import 'package:task_manager_flutter/gen/assets.gen.dart';
 
 class TMMemberAssign extends StatelessWidget {
 
@@ -25,7 +26,7 @@ class TMMemberAssign extends StatelessWidget {
         CircleAvatar(
           radius: radius,
           backgroundImage: AssetImage(
-            subTask.user?.avatar ?? '',
+            subTask.user?.avatar ?? Assets.images.imgAvatarDefault.path,
           ),
         ),
         const SizedBox(width: 10.0),

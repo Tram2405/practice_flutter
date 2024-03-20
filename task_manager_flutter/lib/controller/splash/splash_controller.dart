@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:get/get.dart';
-import 'package:task_manager_flutter/data/model/user_model.dart';
+import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/services/local/shared_prefs.dart';
@@ -18,7 +16,9 @@ class SplashController extends GetxController {
       isProgress.value = false;
       if (SharedPrefs.isAccessed) {
         if (firebaseUser != null) {
-          var user = UserModel(firebaseUser.email!, firebaseUser.displayName!);
+          var user = AppUserModel()
+            ..email = firebaseUser.email
+            ..name = firebaseUser.displayName;
           if (firebaseUser.email == 'manager@gmail.com') {
             Get.offAllNamed(
               Routes.HOME_MANAGER,

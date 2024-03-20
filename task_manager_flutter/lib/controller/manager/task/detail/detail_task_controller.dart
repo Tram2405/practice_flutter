@@ -7,8 +7,23 @@ import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 
 class DetailTaskController extends GetxController {
-  Rx<TaskModel> task =  (Get.arguments?[0] as TaskModel
-  ).obs;
+  Rx<TaskModel> task = (Get.arguments?[0] as TaskModel).obs;
+
+  String? emailUser;
+
+  @override
+  void onInit() {
+    getEmailUser();
+    super.onInit();
+  }
+
+  getEmailUser() {
+    try {
+      emailUser = Get.arguments[1];
+    } catch (e) {
+      emailUser = null;
+    }
+  }
 
   void onSelectDropDown(
       BuildContext context, int value, SubTaskModel subTask, int index) {

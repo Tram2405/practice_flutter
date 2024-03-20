@@ -11,6 +11,7 @@ import 'package:task_manager_flutter/bindings/manager/subtask/add_sub_task_bind.
 import 'package:task_manager_flutter/bindings/manager/subtask/detail_sub_task_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/subtask/edit_sub_task_bind.dart';
 import 'package:task_manager_flutter/bindings/manager/task/task_bind.dart';
+import 'package:task_manager_flutter/bindings/member/completed/completed_member_bind.dart';
 import 'package:task_manager_flutter/bindings/member/home_member_bind.dart';
 import 'package:task_manager_flutter/bindings/onboarding/onboarding_bind.dart';
 import 'package:task_manager_flutter/bindings/settings/change_password_bind.dart';
@@ -27,6 +28,7 @@ import 'package:task_manager_flutter/ui/manager/subtask/add_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/subtask/detail_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/subtask/edit_sub_task.dart';
 import 'package:task_manager_flutter/ui/manager/task/task_page.dart';
+import 'package:task_manager_flutter/ui/member/completed/completed_member_page.dart';
 import 'package:task_manager_flutter/ui/member/home_page_member.dart';
 import 'package:task_manager_flutter/ui/onboarding/onboarding_page.dart';
 import 'package:task_manager_flutter/ui/settings/change_password_page.dart';
@@ -129,6 +131,23 @@ class AppPage {
       name: Routes.HOME_MEMBER,
       page: () => const HomeMemberPage(),
       binding: HomeMemberBinding(),
+    ),
+    GetPage(
+      name: Routes.DETAIL_TASK_MEMBER,
+      page: () => const DetailTaskPage(),
+      binding: DetailCompletedTaskBinding(),
+    ),
+    GetPage(
+      name: Routes.DETAIL_SUB_TASK_MEMBER,
+      page: () => const DetailSubTaskPage(
+        detailType: DetailSubTaskType.action,
+      ),
+      binding: DetailSubTaskBinding(),
+    ),
+    GetPage(
+      name: Routes.COMPLETED_TASK_MEMBER,
+      page: () => const CompletedMemberPage(),
+      binding: CompletedMemberBinding(),
     ),
   ];
 }

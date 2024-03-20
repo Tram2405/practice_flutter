@@ -66,6 +66,7 @@
     "txtRetypePass" : "Retype Password",
     "txtSubmitPass" : "Submit new password",
     "txtTitleLogout" : "Are you sure you want to log out from the application?",
+    "txtMyAssignment" : "My Assignment",
     "btnLogin" : "Login",
     "btnSendCode" : "Send Code",
     "btnAddTask" : "Add Task",
@@ -85,7 +86,8 @@
     "btnDetail" : "Detail",
     "btnEdit" : "Edit",
     "btnDeleted" : "Delete",
-    "btnSnackDelete" : "Delete Subtask done"
+    "btnSnackDelete" : "Delete Subtask done",
+    "btnWaitResponse" : "waiting for response"
 
 }
 

@@ -34,8 +34,13 @@ class LoginController extends GetxController {
           Get.offAllNamed(Routes.HOME_MANAGER);
         } else {
           isLoading.value = false;
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(loginMessage ?? '')));
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                loginMessage ?? '',
+              ),
+            ),
+          );
         }
       },
     );

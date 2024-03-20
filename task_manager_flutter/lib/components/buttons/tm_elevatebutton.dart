@@ -62,7 +62,7 @@ class TMElevateButton extends StatelessWidget {
         padding: padding,
         height: height,
         alignment: alignment,
-        decoration: BoxDecoration(color: color, borderRadius: borderRadius),
+        decoration: BoxDecoration(color: color, borderRadius: borderRadius,),
 
         /// If the button is disabled => Show Indicator Loading
         child: isDisable

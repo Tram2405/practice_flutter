@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 
 class ChooseDateTime {
@@ -20,7 +22,6 @@ class ChooseDateTime {
     if (date == null) {
       return null;
     } else {
-      // ignore: use_build_context_synchronously
       TimeOfDay? time = await showTimePicker(
         context: context,
         initialTime: TimeOfDay.now(),

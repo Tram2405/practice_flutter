@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
 import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
-import 'package:task_manager_flutter/data/model/task_model.dart';
+import 'package:task_manager_flutter/data/provider/task_provider.dart';
+import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/ui/manager/approval/widget/tm_list_confirm.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/manager/approval/approval_task_controller.dart';
@@ -14,17 +15,22 @@ class ApprovalTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ApprovalTaskController());
+    final controller = Get.put(
+      ApprovalTaskController(
+        taskRepository: TaskRepository(
+          taskProvider: TaskProvider(),
+        ),
+      ),
+    );
     return Obx(
-      () =>  TMScaffold(
+      () => TMScaffold(
         backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
         appBar: TMAppbar(
           title: 'Approval Tasks',
           leftIcon: Assets.icons.iconAdd,
           rightIcon: Assets.icons.iconBell,
         ),
-        body: 
-        controller.taskConfirms.isEmpty
+        body: controller.taskConfirms.isEmpty
             ? const TMTextPrompt(text: 'There are no Approval Task')
             : ListView.separated(
                 itemCount: controller.taskConfirms.length,

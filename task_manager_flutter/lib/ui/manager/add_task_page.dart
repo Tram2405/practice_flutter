@@ -48,14 +48,14 @@ class AddTaskPage extends GetView<AddTaskController> {
                         onTap: () => controller.onSelectedType(index),
                         child: Container(
                           decoration: BoxDecoration(
-                              border: controller.currentIndex.value == index
-                                  ? Border.all(
-                                      width: 1.5,
-                                      color:
-                                          TMColor.primaryIcon.withOpacity(0.6),
-                                    )
-                                  : null,
-                              borderRadius: BorderRadius.circular(25.0)),
+                            border: controller.currentIndex.value == index
+                                ? Border.all(
+                                    width: 1.5,
+                                    color: TMColor.primaryIcon.withOpacity(0.6),
+                                  )
+                                : null,
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
                           child: type.toStyleTaskDisplay(context),
                         ),
                       ),
@@ -100,8 +100,10 @@ class AddTaskPage extends GetView<AddTaskController> {
                         final subTask = controller.subTaskAdds[index];
                         return TMCardSubTask(
                           onTap: () {
-                            Get.toNamed(Routes.DETAIL_SUB_TASK,
-                                arguments: [subTask]);
+                            Get.toNamed(
+                              Routes.DETAIL_SUB_TASK,
+                              arguments: [subTask],
+                            );
                           },
                           subTask: subTask,
                           onSelected: (value) {

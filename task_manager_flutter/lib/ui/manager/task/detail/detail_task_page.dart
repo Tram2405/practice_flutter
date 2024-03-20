@@ -76,7 +76,9 @@ class DetailTaskPage extends StatelessWidget {
                 TMButtonTask(
                   onPressed: () {
                     Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
-                      controller.task.value.subTasks.add(value);
+                      controller.addSubTask(value);
+                      // controller.task.value.subTasks.add(value);
+                      // controller.task.refresh();
                     });
                   },
                   text: 'Add SubTask',
@@ -90,12 +92,15 @@ class DetailTaskPage extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: controller.task.value.subTasks.length,
+                      reverse: true,
                       itemBuilder: (context, index) {
                         final subTask = controller.task.value.subTasks[index];
                         return TMCardSubTask(
                           onTap: () {
-                            Get.toNamed(Routes.DETAIL_SUB_TASK,
-                                arguments: [subTask]);
+                            Get.toNamed(
+                              Routes.DETAIL_SUB_TASK,
+                              arguments: [subTask],
+                            );
                           },
                           onSelected: detailType == DetailType.edit
                               ? (value) {

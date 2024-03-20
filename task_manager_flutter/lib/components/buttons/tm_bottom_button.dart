@@ -26,18 +26,19 @@ class TMBottomButton extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
       decoration: BoxDecoration(
-          color: TMColor.background,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(10.0),
-            topRight: Radius.circular(10.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0xFF494949).withOpacity(0.1),
-              offset: const Offset(0.0, -5.0),
-              blurRadius: 5.0,
-            )
-          ]),
+        color: TMColor.background,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(10.0),
+          topRight: Radius.circular(10.0),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF494949).withOpacity(0.1),
+            offset: const Offset(0.0, -5.0),
+            blurRadius: 5.0,
+          )
+        ],
+      ),
 
       ///If [isAction] is True, the button will take action [onPressed],
       ///The button's background color will be TMColor.primary
@@ -47,7 +48,9 @@ class TMBottomButton extends StatelessWidget {
         text: text,
         color: isAction ? TMColor.primary : TMColor.primaryContainer,
         textColor: TMColor.onTask,
-        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10.0),
+        ),
       ),
     );
   }

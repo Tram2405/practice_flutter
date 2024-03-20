@@ -7,8 +7,9 @@ import 'package:task_manager_flutter/resources/tm_color.dart';
 extension ExString on String? {
   String get toDateTime {
     try {
-      return DateFormat('d.M.yyyy - h:mm')
-          .format(DateTime.parse(this ?? '').toLocal());
+      return DateFormat('d.M.yyyy - h:mm').format(
+        DateTime.parse(this ?? '').toLocal(),
+      );
     } on FormatException {
       return '--:--';
     }
@@ -95,7 +96,7 @@ extension ExString on String? {
             ),
           ),
         );
-        case 'completed':
+      case 'completed':
         return TMDisplayInfo(
           color: TMColor.completed,
           child: Text(

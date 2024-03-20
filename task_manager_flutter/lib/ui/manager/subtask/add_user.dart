@@ -14,7 +14,9 @@ class AddUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(AddUserController());
+    final controller = Get.put(
+      AddUserController(),
+    );
     return Scaffold(
       backgroundColor: TMColor.background,
       body: ClipRRect(

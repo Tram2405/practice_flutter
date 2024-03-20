@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
@@ -18,17 +20,18 @@ class ChangePasswordController extends GetxController {
   Future<void> changePassword(
       BuildContext context, String currentPassword, String newPassword) async {
     isLoading.value = true;
-    await Future.delayed(const Duration(milliseconds: 1500));
+    await Future.delayed(
+      const Duration(milliseconds: 1500),
+    );
     String result = await authRepository.changePassword(
         currentPasswordContoller.text, newPassController.text);
     if (result == 'success') {
-      // ignore: use_build_context_synchronously
-      TMSnackBar.tmSnackBarSuccess(context, titleSnackbar: 'Update profile successfully');
+      TMSnackBar.tmSnackBarSuccess(context,
+          titleSnackbar: 'Update profile successfully');
       isLoading.value = false;
       Get.back();
     } else {
       isLoading.value = false;
-      // ignore: use_build_context_synchronously
       TMSnackBar.tmSnackBarError(context, titleSnackbar: result);
     }
   }

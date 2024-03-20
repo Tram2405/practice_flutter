@@ -44,8 +44,11 @@ class RegisterController extends GetxController {
         Get.offAllNamed(Routes.LOGIN);
       } else {
         isLoading.value = false;
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(registerMessage ?? '')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(registerMessage ?? ''),
+          ),
+        );
       }
     });
   }

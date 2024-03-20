@@ -33,7 +33,6 @@ class TMDialog {
                 content,
                 style: context.textTheme.titleMedium
                     ?.copyWith(color: TMColor.primaryIcon),
-                // const TextStyle(color: AppColor.textHint, fontSize: 18.0),
                 textAlign: TextAlign.center,
               ),
             )
@@ -73,7 +72,7 @@ class TMDialog {
       child: Text(
         title,
         style:
-            context.textTheme.labelLarge?.copyWith(color: TMColor.primaryIcon),
+            context.textTheme.labelLarge?.copyWith(color: TMColor.onPrimary),
       ),
     );
   }

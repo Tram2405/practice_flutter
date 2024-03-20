@@ -1,4 +1,6 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
@@ -6,7 +8,8 @@ import 'package:task_manager_flutter/routes/app_page.dart';
 class DetailTaskController extends GetxController {
   Rx<TaskModel> task = (Get.arguments[0] as TaskModel).obs;
 
-  void onSelectDropDown(int value, SubTaskModel subTask, int index) {
+  void onSelectDropDown(
+      BuildContext context, int value, SubTaskModel subTask, int index) {
     if (value == 0) {
       Get.toNamed(Routes.DETAIL_SUB_TASK, arguments: [subTask]);
     } else if (value == 1) {
@@ -19,6 +22,8 @@ class DetailTaskController extends GetxController {
       });
     } else {
       task.value.subTasks.remove(subTask);
+      TMSnackBar.tmSnackBarSuccess(context,
+          titleSnackbar: 'Delete Subtask done');
     }
   }
 }

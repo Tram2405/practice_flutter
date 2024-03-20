@@ -20,7 +20,7 @@ class OnBoardingPage extends GetView<OnBoardingController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 70.0),
+              const SizedBox(height: 80.0),
               SizedBox(
                 height: 240.0,
                 child: PageView(

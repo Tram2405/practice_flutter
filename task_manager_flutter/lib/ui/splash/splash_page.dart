@@ -33,7 +33,6 @@ class SplashPage extends GetView<SplashController> {
                 textAlign: TextAlign.center,
                 style: context.textTheme.headlineLarge
                     ?.copyWith(fontWeight: FontWeight.w600),
-                // TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
               ),
             ),
           ],

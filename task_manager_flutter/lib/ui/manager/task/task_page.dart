@@ -56,7 +56,7 @@ class TaskPage extends StatelessWidget {
                             Routes.DETAIL_TASK,
                             arguments: [task],
                           )?.then((_) {
-                            controller.checkIdTaskUpdate(task);
+                            controller.listTask.refresh();
                           }),
                         );
                       },

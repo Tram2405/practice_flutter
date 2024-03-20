@@ -51,7 +51,7 @@ class _TMTextFormFieldPasswordState extends State<TMTextFormFieldPassword> {
           obscureText: isShowPassword,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           readOnly: widget.readOnly,
-          style: TextStyle(color: widget.readOnly ? TMColor.textField : null),
+          style: context.textTheme.titleLarge?.copyWith(color: widget.readOnly ? TMColor.textField : TMColor.onBackground),
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(16.0),
             border: OutlineInputBorder(

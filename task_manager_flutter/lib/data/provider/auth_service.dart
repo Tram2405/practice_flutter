@@ -6,6 +6,7 @@ class AuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore fireStore = FirebaseFirestore.instance;
   final userCurrent = FirebaseAuth.instance.currentUser;
+  final userCollection = FirebaseFirestore.instance.collection('users');
 
   Future<User?> getUser() async {
     var currentUser = firebaseAuth.currentUser;
@@ -71,10 +72,37 @@ class AuthService {
     }
   }
 
-  Stream<QuerySnapshot<Map<String, dynamic>>> getUserById(String email) {
-    return fireStore
-        .collection('users')
-        .where('email address', isEqualTo: email)
-        .snapshots();
+  Future<String> updateProfile(
+      {required String id, required String name}) async {
+    try {
+      await userCollection.doc(id).update({
+        'full name': name,
+      });
+      return 'success';
+    } catch (e) {
+      return 'Update profile failed';
+    }
+  }
+
+  Future<String> changePassword(
+      String currentPassword, String newPassword) async {
+    String message= 'false';
+
+    var user = FirebaseAuth.instance.currentUser!;
+    //Must re-authenticate user before updating the password. Otherwise it may fail or user get signed out.
+
+    final cred = EmailAuthProvider.credential(
+        email: user.email!, password: currentPassword);
+    await user.reauthenticateWithCredential(cred).then((value) async {
+      await user.updatePassword(newPassword).then((_) {
+        message = 'success';
+      }).catchError((error) {
+        message = 'Error update';
+      });
+    }).catchError((err) {
+      message = 'Current password not matching';
+    });
+
+    return message;
   }
 }

@@ -38,7 +38,7 @@ class TMCardSetting extends StatelessWidget {
             ),
             const SizedBox(width: 12.0),
             TMTitle(
-              title: title ?? '',
+              title: title,
               textStyle:
                   context.textTheme.titleLarge?.copyWith(color: titleColor),
             ),

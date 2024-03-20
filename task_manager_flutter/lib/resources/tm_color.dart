@@ -35,4 +35,8 @@ class TMColor {
   static const primaryIcon = Color(0xFF8A8F9B);
   static const primaryShadow = Color(0xFF494949);
   static const primaryDivider = Color(0xFFEFEEF0);
+  static const primarySwith = Color.fromARGB(255, 213, 192, 240);
+  static const secondarySwith = Color.fromARGB(255, 230, 228, 234);
+  static const primarySnackBarSuccess = Color.fromARGB(245, 54, 187, 5);
+  static const secondarySnackBarError = Color.fromARGB(238, 249, 26, 52);
 }

@@ -116,7 +116,7 @@ class AddTaskPage extends GetView<AddTaskController> {
         ),
         bottomNavigationBar: TMBottomButton(
           text: 'Add Task',
-          onPressed: controller.addTask,
+          onPressed: () => controller.addTask(context),
           isAction: controller.canAction.value,
         ),
       ),

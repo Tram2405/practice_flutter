@@ -1,7 +1,7 @@
-
-// ignore_for_file: use_build_context_synchronously
-
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
@@ -16,6 +16,11 @@ class EditProfileController extends GetxController {
   TextEditingController emailController = TextEditingController();
   RxString emailCurrent = ''.obs;
   RxBool isLoading = false.obs;
+  RxString avatarPath = ''.obs;
+  RxString? avatarUrl;
+  RxBool isLoadAvatar = false.obs;
+
+  final storage = FirebaseStorage.instance;
 
   @override
   void onInit() {
@@ -23,22 +28,50 @@ class EditProfileController extends GetxController {
     super.onInit();
   }
 
+  // pick avatar
+  void pickAvatar() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+    if (result != null) {
+      isLoadAvatar.value = true;
+      avatarPath.value = result.files.single.path!;
+
+      final fileName = result.files.singleOrNull?.name;
+      DateTime now = DateTime.now();
+
+      Reference ref = FirebaseStorage.instance.ref().child(
+          "avatar/${now.millisecondsSinceEpoch.toStringAsFixed(5)}$fileName");
+
+      await ref.putFile(File(result.files.single.path!));
+
+      ref.getDownloadURL().then((value) {
+        avatarUrl?.value = value;
+
+        isLoadAvatar.value = false;
+      });
+    }
+  }
+
   Stream<QuerySnapshot<Map<String, dynamic>>> getUserByEmail() {
     return authRepository.getUserByEmail(emailCurrent.value);
   }
 
-  Future<void> updateProfile(BuildContext context,
-      {required String id}) async {
-        isLoading.value = true;
-    String resultUpdate =
-        await authRepository.updateProfile(id, nameController.text);
+  Future<void> updateProfile(BuildContext context, {required String id}) async {
+    isLoading.value = true;
+    String resultUpdate = await authRepository.updateProfile(
+        id, nameController.text, avatarUrl?.value);
     if (resultUpdate == 'success') {
       isLoading.value = false;
-      TMSnackBar.tmSnackBarSuccess(context, titleSnackbar: 'Update profile successfully');
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        TMSnackBar.tmSnackBarSuccess(context,
+            titleSnackbar: 'Update profile successfully');
+      });
       Get.back();
     } else {
       isLoading.value = false;
-      TMSnackBar.tmSnackBarError(context, titleSnackbar: resultUpdate);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        TMSnackBar.tmSnackBarError(context, titleSnackbar: resultUpdate);
+      });
     }
   }
 }

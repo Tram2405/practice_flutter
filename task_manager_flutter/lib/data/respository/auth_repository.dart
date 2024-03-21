@@ -38,14 +38,15 @@ class AuthRepository {
   Stream<QuerySnapshot<Map<String, dynamic>>> getUserByEmail(String email) {
     return authService.fireStore
         .collection('users')
-        .where('email address', isEqualTo: email)
+        .where('email_address', isEqualTo: email)
         .snapshots();
   }
 
-  Future<String> updateProfile(String id, String name) async {
+  Future<String> updateProfile(String id, String name, String? avatar) async {
     return await authService.updateProfile(
       id: id,
       name: name,
+      avatar : avatar,
     );
   }
 

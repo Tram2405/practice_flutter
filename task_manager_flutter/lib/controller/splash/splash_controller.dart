@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
@@ -11,6 +15,19 @@ class SplashController extends GetxController {
   final isProgress = true.obs;
 
   checkLoggedIn() async {
+    Connectivity().onConnectivityChanged.listen(
+      (status) {
+        if (status == ConnectivityResult.none) {
+          TMSnackBar.tmSnackBarError(
+            Get.context!,
+            titleSnackbar: 'No Network',
+          );
+        } else {
+          TMSnackBar.tmSnackBarSuccess(Get.context!,
+              titleSnackbar: 'Connect Network');
+        }
+      },
+    );
     authRepository.getUser().then((firebaseUser) async {
       await Future.delayed(const Duration(milliseconds: 2600));
       isProgress.value = false;

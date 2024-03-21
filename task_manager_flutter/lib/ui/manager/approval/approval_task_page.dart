@@ -4,6 +4,7 @@ import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
 import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/ui/manager/approval/widget/tm_list_confirm.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/manager/approval/approval_task_controller.dart';
@@ -26,12 +27,12 @@ class ApprovalTaskPage extends StatelessWidget {
       () => TMScaffold(
         backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
         appBar: TMAppbar(
-          title: 'Approval Tasks',
+          title: AppLocalizations.of(context).approval,
           leftIcon: Assets.icons.iconAdd,
           rightIcon: Assets.icons.iconBell,
         ),
         body: controller.taskConfirms.isEmpty
-            ? const TMTextPrompt(text: 'There are no Approval Task')
+            ? TMTextPrompt(text: AppLocalizations.of(context).noSubTask)
             : ListView.separated(
                 itemCount: controller.taskConfirms.length,
                 itemBuilder: (_, index) {

@@ -8,6 +8,7 @@ import 'package:task_manager_flutter/controller/manager/completed/completed_task
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 
@@ -27,13 +28,13 @@ class CompletedTaskPage extends StatelessWidget {
     return TMScaffold(
       backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
       appBar: TMAppbar(
-        title: 'Completed Tasks',
+        title: AppLocalizations.of(context).completedTask,
         rightIcon: Assets.icons.iconBell,
       ),
       body: GestureDetector(
         onTap: () {},
         child: controller.taskCompleteds.isEmpty
-            ? const TMTextPrompt(text: 'There are no completed task')
+            ? TMTextPrompt(text: AppLocalizations.of(context).noCompleted)
             : ListView.separated(
                 itemCount: controller.taskCompleteds.length,
                 itemBuilder: (_, index) {

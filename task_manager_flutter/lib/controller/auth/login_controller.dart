@@ -31,7 +31,11 @@ class LoginController extends GetxController {
       (loginMessage) {
         if (loginMessage == "Success") {
           isLoading.value = false;
-          Get.offAllNamed(Routes.HOME_MANAGER);
+          if (emailController.text == 'manager@gmail.com') {
+            Get.offAllNamed(Routes.HOME_MANAGER);
+          } else {
+            Get.offAllNamed(Routes.HOME_MEMBER);
+          }
         } else {
           isLoading.value = false;
           ScaffoldMessenger.of(context).showSnackBar(

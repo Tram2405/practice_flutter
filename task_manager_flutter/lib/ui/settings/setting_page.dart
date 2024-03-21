@@ -7,6 +7,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/settings/setting_controller.dart';
 import 'package:task_manager_flutter/data/provider/auth_service.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/ui/settings/widget/tm_buttom_edit_profile.dart';
@@ -22,8 +23,8 @@ class SettingPage extends GetView<SettingController> {
     const sizedBox24 = SizedBox(height: 24.0);
     return TMScaffold(
       backgroundColor: TMColor.onSecondary,
-      appBar: const TMAppbar(
-        title: 'Settings',
+      appBar: TMAppbar(
+        title: AppLocalizations.of(context).setting,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,22 +32,23 @@ class SettingPage extends GetView<SettingController> {
           const TMCardProfile(),
           const SizedBox(height: 32.0),
           TMButtomEditProfile(
-              onPressed: () {
-                Get.toNamed(Routes.EDIT_PROFILE);
-              },
-              title: 'Edit Profile'),
+            onPressed: () {
+              Get.toNamed(Routes.EDIT_PROFILE);
+            },
+            title: AppLocalizations.of(context).editProfile,
+          ),
           sizedBox24,
           const Divider(color: TMColor.primaryDivider),
           sizedBox24,
           TMTitle(
-            title: 'APP SETTING',
+            title: AppLocalizations.of(context).appSetting,
             textStyle: context.textTheme.bodySmall,
           ),
           TMCardSetting(
             onPressed: () {
               Get.toNamed(Routes.CHANGE_PASSWORD);
             },
-            title: 'Change Password',
+            title: AppLocalizations.of(context).changePass,
             leftIcon: Assets.icons.iconLock,
           ),
           TMCardSetting(
@@ -63,7 +65,8 @@ class SettingPage extends GetView<SettingController> {
                         () => Column(
                           children: [
                             TMCardNoitfication(
-                              title: 'Email Notifications',
+                              title: AppLocalizations.of(context)
+                                  .emailNotification,
                               onChanged: () {
                                 controller.isEmailTurnOn.value =
                                     !controller.isEmailTurnOn.value;
@@ -71,7 +74,8 @@ class SettingPage extends GetView<SettingController> {
                               isTurnOn: controller.isEmailTurnOn.value,
                             ),
                             TMCardNoitfication(
-                              title: 'Push Notifications',
+                              title:
+                                  AppLocalizations.of(context).pushNotification,
                               onChanged: () {
                                 controller.isNotification.value =
                                     !controller.isNotification.value;
@@ -86,19 +90,18 @@ class SettingPage extends GetView<SettingController> {
                 },
               );
             },
-            title: 'Notifications',
+            title: AppLocalizations.of(context).notification,
             leftIcon: Assets.icons.iconBell,
           ),
           TMCardSetting(
-            title: 'Log out',
+            title: AppLocalizations.of(context).logout,
             titleColor: TMColor.onError,
             leftIcon: Assets.icons.iconLogout,
             onPressed: () {
               return TMDialog.dialog(
                 context,
-                title: 'LOGOUT?',
-                content:
-                    'Are you sure you want to log out from the application?',
+                title: AppLocalizations.of(context).logout,
+                content: AppLocalizations.of(context).titleLogout,
                 action: () => WidgetsBinding.instance.addPostFrameCallback(
                   (_) {
                     AuthService().signOut();

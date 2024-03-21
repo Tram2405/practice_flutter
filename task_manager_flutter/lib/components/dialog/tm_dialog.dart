@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 typedef MyDataType = BuildContext;
@@ -44,7 +45,7 @@ class TMDialog {
             children: [
               textDialog(
                 context,
-                title: 'YES',
+                title: AppLocalizations.of(context).yes,
                 onPressed: () {
                   action?.call();
                   Navigator.pop(context);
@@ -53,7 +54,7 @@ class TMDialog {
               const SizedBox(width: 40.0),
               textDialog(
                 context,
-                title: 'NO',
+                title: AppLocalizations.of(context).no,
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -71,8 +72,7 @@ class TMDialog {
       onTap: onPressed,
       child: Text(
         title,
-        style:
-            context.textTheme.labelLarge?.copyWith(color: TMColor.onPrimary),
+        style: context.textTheme.labelLarge?.copyWith(color: TMColor.onPrimary),
       ),
     );
   }

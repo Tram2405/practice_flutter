@@ -8,6 +8,7 @@ import 'package:task_manager_flutter/components/text_form_field/tm_text_form_fie
 import 'package:task_manager_flutter/components/text_form_field/tm_text_form_filed.dart';
 import 'package:task_manager_flutter/controller/auth/register_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/validator.dart';
@@ -25,17 +26,17 @@ class RegisterPage extends GetView<RegisterController> {
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: ListView(
             children: [
-              const TMTitle(title: 'Register'),
+              TMTitle(title: AppLocalizations.of(context).register),
               const SizedBox(height: 16.0),
               TMTitle(
-                title: 'And start taking notes',
+                title: AppLocalizations.of(context).titleRegister,
                 textStyle: context.textTheme.titleLarge
                     ?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               sizedBox32,
               TMTextFormField(
-                hintText: 'Example: John Doe',
-                lableText: 'Full Name',
+                hintText: AppLocalizations.of(context).hintName,
+                lableText: AppLocalizations.of(context).fullName,
                 controller: controller.nameController,
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
@@ -44,8 +45,8 @@ class RegisterPage extends GetView<RegisterController> {
               ),
               sizedBox32,
               TMTextFormField(
-                hintText: 'Example: johndoe@gmail.com',
-                lableText: 'Email Address',
+                hintText: AppLocalizations.of(context).hintEmail,
+                lableText: AppLocalizations.of(context).email,
                 controller: controller.emailController,
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
@@ -54,8 +55,8 @@ class RegisterPage extends GetView<RegisterController> {
               ),
               sizedBox32,
               TMTextFormFieldPassword(
-                lableText: 'Password',
-                hintText: '********',
+                lableText: AppLocalizations.of(context).password,
+                hintText: AppLocalizations.of(context).hintPassword,
                 controller: controller.passwordController,
                 validator: FormValidator.validatorPassword,
                 readOnly: controller.isLoading.value,
@@ -64,8 +65,8 @@ class RegisterPage extends GetView<RegisterController> {
               ),
               sizedBox32,
               TMTextFormFieldPassword(
-                lableText: 'Retype Password',
-                hintText: '********',
+                lableText: AppLocalizations.of(context).retypePassword,
+                hintText: AppLocalizations.of(context).hintRetypePassword,
                 controller: controller.retypePasswordController,
                 textInputAction: TextInputAction.done,
                 onChanged: (_) => controller.isEmpty(),
@@ -80,7 +81,7 @@ class RegisterPage extends GetView<RegisterController> {
               const SizedBox(height: 40.0),
               Obx(
                 () => TMElevateButton(
-                  text: 'Register',
+                  text: AppLocalizations.of(context).register,
                   icon: Assets.icons.iconNext,
                   color: controller.hasContent.value
                       ? TMColor.primary
@@ -94,8 +95,8 @@ class RegisterPage extends GetView<RegisterController> {
               ),
               sizedBox32,
               TMTextLink(
-                text: 'Already have an account? ',
-                linkText: 'Login here',
+                text: AppLocalizations.of(context).lableRegister,
+                linkText: AppLocalizations.of(context).loginHere,
                 onPressed: () async {
                   Get.toNamed(Routes.LOGIN);
                 },

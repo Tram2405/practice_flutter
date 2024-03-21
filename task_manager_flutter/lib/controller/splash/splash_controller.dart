@@ -21,10 +21,17 @@ class SplashController extends GetxController {
       if (SharedPrefs.isAccessed) {
         if (firebaseUser != null) {
           var user = UserModel(firebaseUser.email!, firebaseUser.displayName!);
-          Get.offAllNamed(
+          if(firebaseUser.email == 'manager@gmail.com'){
+            Get.offAllNamed(
             Routes.HOME_MANAGER,
             arguments: [user],
           );
+          }else {
+            Get.offAllNamed(
+            Routes.HOME_MEMBER,
+            arguments: [user],
+          );
+          }
         } else {
           Get.offAllNamed(Routes.LOGIN);
         }

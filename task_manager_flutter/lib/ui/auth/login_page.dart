@@ -7,6 +7,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_text_form_field_password.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_text_form_filed.dart';
 import 'package:task_manager_flutter/controller/auth/login_controller.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/validator.dart';
@@ -24,17 +25,17 @@ class LoginPage extends GetView<LoginController> {
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: ListView(
             children: [
-              const TMTitle(title: 'Let’s Login'),
+              TMTitle(title: AppLocalizations.of(context).letsLogin),
               const SizedBox(height: 16.0),
               TMTitle(
-                title: 'And notes your idea',
+                title: AppLocalizations.of(context).titleLogin,
                 textStyle: context.textTheme.titleLarge
                     ?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               sizedBox32,
               TMTextFormField(
-                hintText: 'Example: johndoe@gmail.com',
-                lableText: 'Email Address',
+                hintText: AppLocalizations.of(context).hintEmail,
+                lableText: AppLocalizations.of(context).email,
                 controller: controller.emailController,
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
@@ -42,8 +43,8 @@ class LoginPage extends GetView<LoginController> {
               ),
               sizedBox32,
               TMTextFormFieldPassword(
-                lableText: 'Password',
-                hintText: '********',
+                lableText: AppLocalizations.of(context).password,
+                hintText: AppLocalizations.of(context).hintPassword,
                 controller: controller.passwordController,
                 validator: FormValidator.validatorPassword,
                 readOnly: controller.isLoading.value,
@@ -55,7 +56,7 @@ class LoginPage extends GetView<LoginController> {
                   Get.toNamed(Routes.FORGOT_PASSWORD);
                 },
                 child: Text(
-                  'Forgot Password',
+                  AppLocalizations.of(context).forgotPassword,
                   style: context.textTheme.titleMedium?.copyWith(
                     decoration: TextDecoration.underline,
                     decorationColor: TMColor.onError,
@@ -70,7 +71,7 @@ class LoginPage extends GetView<LoginController> {
                     controller.login(context);
                   },
                   isDisable: controller.isLoading.value,
-                  text: 'Login',
+                  text: AppLocalizations.of(context).login,
                   color: controller.hasContent.value
                       ? TMColor.primary
                       : TMColor.button,
@@ -78,8 +79,8 @@ class LoginPage extends GetView<LoginController> {
               ),
               sizedBox32,
               TMTextLink(
-                text: 'Don’t have any account? ',
-                linkText: 'Register here',
+                text: AppLocalizations.of(context).lableLogin,
+                linkText: AppLocalizations.of(context).registerHere,
                 onPressed: () => Get.toNamed(Routes.REGISTER),
               )
             ],

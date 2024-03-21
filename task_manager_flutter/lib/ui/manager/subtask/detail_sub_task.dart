@@ -8,6 +8,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/subtask/detail_subtask_controller.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
@@ -21,7 +22,7 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
     return TMScaffold(
       backgroundColor: TMColor.background,
       appBar: TMAppbar(
-        title: 'Detail Sub Task',
+        title: AppLocalizations.of(context).detailSubTask,
         leftIcon: Assets.icons.iconArrowLeft,
         leftPressed: () => Get.back(),
       ),
@@ -39,12 +40,12 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
             Row(
               children: [
                 TMDisplayDateTime(
-                  title: 'Start Date',
+                  title: AppLocalizations.of(context).startDate,
                   dateTime: subTask.startDate.toDateTime,
                 ),
                 const SizedBox(width: 30.0),
                 TMDisplayDateTime(
-                  title: 'Start Date',
+                  title: AppLocalizations.of(context).dueDate,
                   textColor: TMColor.onError,
                   dateTime: subTask.dueDate.toDateTime,
                 ),
@@ -59,7 +60,7 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
             ),
             const SizedBox(height: 16.0),
             TMTitle(
-              title: 'Executor',
+              title: AppLocalizations.of(context).executor,
               textStyle: context.textTheme.displaySmall,
             ),
             sizedBox12,

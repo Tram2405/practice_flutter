@@ -5,6 +5,7 @@ import 'package:task_manager_flutter/components/card/tm_card_user.dart';
 import 'package:task_manager_flutter/controller/manager/subtask/add_user_controller.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class AddUser extends StatelessWidget {
@@ -25,7 +26,7 @@ class AddUser extends StatelessWidget {
           children: [
             TMAppbarSearch(
               leftIcon: Assets.icons.iconSearch,
-              hintText: 'Search member...',
+              hintText: AppLocalizations.of(context).searchMember,
               onChanged: controller.searchUser,
             ),
             Obx(

@@ -5,6 +5,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
+import 'package:task_manager_flutter/ui/settings/widget/tm_img_network.dart';
 
 class TMCardMemberSubTask extends StatelessWidget {
   ///Create card user item for subtask
@@ -32,11 +33,13 @@ class TMCardMemberSubTask extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            CircleAvatar(
-              radius: 14.0,
-              //set image when avatar null
-              backgroundImage: AssetImage(
-                  user.avatar ?? Assets.images.imgAvatarDefault.path),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: CircleAvatar(
+                radius: 14.0,
+                //set image when avatar null
+                child: TMImageNetwork(imageUrl: user.avatar ?? ''),
+              ),
             ),
             const SizedBox(width: 10.0),
             TMTitle(

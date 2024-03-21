@@ -13,20 +13,24 @@ class TMImageNetwork extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.square(
-      dimension: demesion,
-      child: CachedNetworkImage(
-        imageUrl: imageUrl,
-        placeholder: (context, url) => const Center(
-          child: CircularProgressIndicator(),
-        ),
-        errorWidget: (context, url, error) => CircleAvatar(
-          radius: 50.0,
-          backgroundImage: AssetImage(
-            Assets.images.imgAvatarDefault.path,
-          ),
-        ),
-      ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(demesion),
+      child: SizedBox.square(
+          dimension: demesion,
+          child: !imageUrl.contains('http')
+              ? Image.asset(Assets.images.imgAvatarDefault.path)
+              : CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) => CircleAvatar(
+                    radius: 50.0,
+                    backgroundImage: AssetImage(
+                      Assets.images.imgAvatarDefault.path,
+                    ),
+                  ),
+                )),
     );
   }
 }

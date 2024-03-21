@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
-import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/ui/settings/widget/tm_img_network.dart';
 
 class TMMemberAssign extends StatelessWidget {
-
   ///Create a card displaying the assigned member in the subtask
   ///
   ///The [subTask] arguments must not be null
@@ -16,18 +15,16 @@ class TMMemberAssign extends StatelessWidget {
     super.key,
   });
   final SubTaskModel subTask;
-  final double? radius;
+  final double radius;
   final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
-          radius: radius,
-          backgroundImage: AssetImage(
-            subTask.user?.avatar ?? Assets.images.imgAvatarDefault.path,
-          ),
+        TMImageNetwork(
+          demesion: radius * 2,
+          imageUrl: subTask.user?.avatar ?? '',
         ),
         const SizedBox(width: 10.0),
         TMTitle(

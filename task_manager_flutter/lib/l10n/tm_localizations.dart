@@ -495,6 +495,24 @@ abstract class AppLocalizations {
   /// **'My Assignment'**
   String get txtMyAssignment;
 
+  /// No description provided for @txtConfirmTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Task'**
+  String get txtConfirmTask;
+
+  /// No description provided for @txhintDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description for sub-task'**
+  String get txhintDescription;
+
+  /// No description provided for @btnDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get btnDone;
+
   /// No description provided for @btnLogin.
   ///
   /// In en, this message translates to:

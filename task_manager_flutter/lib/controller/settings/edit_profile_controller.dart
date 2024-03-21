@@ -17,7 +17,7 @@ class EditProfileController extends GetxController {
   RxString emailCurrent = ''.obs;
   RxBool isLoading = false.obs;
   RxString avatarPath = ''.obs;
-  RxString? avatarUrl;
+  Rx<String?> avatarUrl = Rx(null);
   RxBool isLoadAvatar = false.obs;
 
   final storage = FirebaseStorage.instance;
@@ -45,9 +45,9 @@ class EditProfileController extends GetxController {
       await ref.putFile(File(result.files.single.path!));
 
       ref.getDownloadURL().then((value) {
-        avatarUrl?.value = value;
+        avatarUrl.value = value;
 
-        isLoadAvatar.value = false;
+        isLoadAvatar.value = false;        
       });
     }
   }
@@ -59,7 +59,7 @@ class EditProfileController extends GetxController {
   Future<void> updateProfile(BuildContext context, {required String id}) async {
     isLoading.value = true;
     String resultUpdate = await authRepository.updateProfile(
-        id, nameController.text, avatarUrl?.value);
+        id, nameController.text, avatarUrl.value);
     if (resultUpdate == 'success') {
       isLoading.value = false;
       WidgetsBinding.instance.addPostFrameCallback((_) {

@@ -15,7 +15,6 @@ class ApprovalTaskController extends GetxController {
   
   ///Get subtask status = confirm
   RxList<SubTaskModel> subTaskConfirms = <SubTaskModel>[].obs;
-
   @override
   void onInit() {
     getTask();

@@ -28,4 +28,5 @@ abstract class Routes {
   static const DETAIL_TASK_MEMBER = '/detail-task-member';
   static const DETAIL_SUB_TASK_MEMBER = '/detail-sub-task-member';
   static const COMPLETED_TASK_MEMBER = '/completed-task-member';
+  static const CONFIRM_SUB_TASK_MEMBER = '/confirm-sub-task-member';
 }

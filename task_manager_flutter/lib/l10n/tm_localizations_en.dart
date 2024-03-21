@@ -206,6 +206,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get txtMyAssignment => 'My Assignment';
 
   @override
+  String get txtConfirmTask => 'Confirm Task';
+
+  @override
+  String get txhintDescription => 'Description for sub-task';
+
+  @override
+  String get btnDone => 'Done';
+
+  @override
   String get btnLogin => 'Login';
 
   @override

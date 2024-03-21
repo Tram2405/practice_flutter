@@ -93,509 +93,521 @@ abstract class AppLocalizations {
     Locale('vi')
   ];
 
-  /// No description provided for @onboarding1.
+  /// No description provided for @txtOnboarding1.
   ///
   /// In en, this message translates to:
   /// **'Welcome to Task Manager. Create projects, assign tasks, and collaborate effortlessly.'**
-  String get onboarding1;
+  String get txtOnboarding1;
 
-  /// No description provided for @onboarding2.
+  /// No description provided for @txtOnboarding2.
   ///
   /// In en, this message translates to:
   /// **'Master task management. Categorize, set deadlines, and boost team efficiency.'**
-  String get onboarding2;
+  String get txtOnboarding2;
 
-  /// No description provided for @onboarding3.
+  /// No description provided for @txtOnboarding3.
   ///
   /// In en, this message translates to:
   /// **'Track progress effortlessly. Monitor tasks, and propel your team to new heights.'**
-  String get onboarding3;
+  String get txtOnboarding3;
 
-  /// No description provided for @back.
+  /// No description provided for @txtBack.
   ///
   /// In en, this message translates to:
   /// **'Back'**
-  String get back;
+  String get txtBack;
 
-  /// No description provided for @next.
+  /// No description provided for @txtNext.
   ///
   /// In en, this message translates to:
   /// **'Next'**
-  String get next;
+  String get txtNext;
 
-  /// No description provided for @register.
+  /// No description provided for @txtRegister.
   ///
   /// In en, this message translates to:
   /// **'Register'**
-  String get register;
+  String get txtRegister;
 
-  /// No description provided for @titleRegister.
+  /// No description provided for @txtTitleRegister.
   ///
   /// In en, this message translates to:
   /// **'And start taking notes'**
-  String get titleRegister;
+  String get txtTitleRegister;
 
-  /// No description provided for @fullName.
+  /// No description provided for @txtFullName.
   ///
   /// In en, this message translates to:
   /// **'Full Name'**
-  String get fullName;
+  String get txtFullName;
 
-  /// No description provided for @hintName.
+  /// No description provided for @txtHintName.
   ///
   /// In en, this message translates to:
   /// **'Example: John Doe'**
-  String get hintName;
+  String get txtHintName;
 
-  /// No description provided for @email.
+  /// No description provided for @txtEmail.
   ///
   /// In en, this message translates to:
   /// **'Email Adress'**
-  String get email;
+  String get txtEmail;
 
-  /// No description provided for @hintEmail.
+  /// No description provided for @txtHintEmail.
   ///
   /// In en, this message translates to:
   /// **'Example: johndoe@gmail.com'**
-  String get hintEmail;
+  String get txtHintEmail;
 
-  /// No description provided for @password.
+  /// No description provided for @txtPassword.
   ///
   /// In en, this message translates to:
   /// **'Password'**
-  String get password;
+  String get txtPassword;
 
-  /// No description provided for @hintPassword.
+  /// No description provided for @txtHintPassword.
   ///
   /// In en, this message translates to:
   /// **'********'**
-  String get hintPassword;
+  String get txtHintPassword;
 
-  /// No description provided for @retypePassword.
+  /// No description provided for @txtRetypePassword.
   ///
   /// In en, this message translates to:
   /// **'Retype Password'**
-  String get retypePassword;
+  String get txtRetypePassword;
 
-  /// No description provided for @hintRetypePassword.
+  /// No description provided for @txtHintRetypePassword.
   ///
   /// In en, this message translates to:
   /// **'********'**
-  String get hintRetypePassword;
+  String get txtHintRetypePassword;
 
-  /// No description provided for @lableRegister.
+  /// No description provided for @txtLableRegister.
   ///
   /// In en, this message translates to:
   /// **'Already have an account? '**
-  String get lableRegister;
+  String get txtLableRegister;
 
-  /// No description provided for @loginHere.
+  /// No description provided for @txtLoginHere.
   ///
   /// In en, this message translates to:
   /// **'Login here'**
-  String get loginHere;
+  String get txtLoginHere;
 
-  /// No description provided for @letsLogin.
+  /// No description provided for @btnRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get btnRegister;
+
+  /// No description provided for @txtLetsLogin.
   ///
   /// In en, this message translates to:
   /// **'Let’s Login'**
-  String get letsLogin;
+  String get txtLetsLogin;
 
-  /// No description provided for @titleLogin.
+  /// No description provided for @txtTitleLogin.
   ///
   /// In en, this message translates to:
   /// **'And note your idea'**
-  String get titleLogin;
+  String get txtTitleLogin;
 
-  /// No description provided for @forgotPassword.
+  /// No description provided for @txtForgotPassword.
   ///
   /// In en, this message translates to:
   /// **'Forgot Password'**
-  String get forgotPassword;
+  String get txtForgotPassword;
 
-  /// No description provided for @login.
-  ///
-  /// In en, this message translates to:
-  /// **'Login'**
-  String get login;
-
-  /// No description provided for @lableLogin.
+  /// No description provided for @txtLableLogin.
   ///
   /// In en, this message translates to:
   /// **'Don’t have any account '**
-  String get lableLogin;
+  String get txtLableLogin;
 
-  /// No description provided for @registerHere.
+  /// No description provided for @txtRegisterHere.
   ///
   /// In en, this message translates to:
   /// **'Register here'**
-  String get registerHere;
+  String get txtRegisterHere;
 
-  /// No description provided for @forgotPass.
+  /// No description provided for @txtForgotPass.
   ///
   /// In en, this message translates to:
   /// **'Forgot Password'**
-  String get forgotPass;
+  String get txtForgotPass;
 
-  /// No description provided for @titleForgotPass.
+  /// No description provided for @txtTitleForgotPass.
   ///
   /// In en, this message translates to:
   /// **'Insert your email address to receive a code for creating a new password'**
-  String get titleForgotPass;
+  String get txtTitleForgotPass;
 
-  /// No description provided for @sendCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Send Code'**
-  String get sendCode;
-
-  /// No description provided for @task.
+  /// No description provided for @txtTask.
   ///
   /// In en, this message translates to:
   /// **'Task'**
-  String get task;
+  String get txtTask;
 
-  /// No description provided for @myTask.
+  /// No description provided for @txtMyTask.
   ///
   /// In en, this message translates to:
   /// **'My Task'**
-  String get myTask;
+  String get txtMyTask;
 
-  /// No description provided for @createTask.
+  /// No description provided for @txtCreateTask.
   ///
   /// In en, this message translates to:
   /// **'Create New Task'**
-  String get createTask;
+  String get txtCreateTask;
 
-  /// No description provided for @taskType.
+  /// No description provided for @txtTaskType.
   ///
   /// In en, this message translates to:
   /// **'Task type'**
-  String get taskType;
+  String get txtTaskType;
 
-  /// No description provided for @taskName.
+  /// No description provided for @txtTaskName.
   ///
   /// In en, this message translates to:
   /// **'Task name'**
-  String get taskName;
+  String get txtTaskName;
 
-  /// No description provided for @description.
+  /// No description provided for @txtDescription.
   ///
   /// In en, this message translates to:
   /// **'Description'**
-  String get description;
+  String get txtDescription;
 
-  /// No description provided for @low.
+  /// No description provided for @txtLow.
   ///
   /// In en, this message translates to:
   /// **'Low'**
-  String get low;
+  String get txtLow;
 
-  /// No description provided for @medium.
+  /// No description provided for @txtMedium.
   ///
   /// In en, this message translates to:
   /// **'Medium'**
-  String get medium;
+  String get txtMedium;
 
-  /// No description provided for @high.
+  /// No description provided for @txtHigh.
   ///
   /// In en, this message translates to:
   /// **'high'**
-  String get high;
+  String get txtHigh;
 
-  /// No description provided for @addSubTask.
+  /// No description provided for @txtAddSubTask.
   ///
   /// In en, this message translates to:
   /// **'Add Sub-Task'**
-  String get addSubTask;
+  String get txtAddSubTask;
 
-  /// No description provided for @noSubTask.
+  /// No description provided for @txtNoSubTask.
   ///
   /// In en, this message translates to:
   /// **'There are no subTasks'**
-  String get noSubTask;
+  String get txtNoSubTask;
 
-  /// No description provided for @addTask.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Task'**
-  String get addTask;
-
-  /// No description provided for @createSubtask.
+  /// No description provided for @txtCreateSubtask.
   ///
   /// In en, this message translates to:
   /// **'Create Sub-Task'**
-  String get createSubtask;
+  String get txtCreateSubtask;
 
-  /// No description provided for @chooseDate.
+  /// No description provided for @txtChooseDate.
   ///
   /// In en, this message translates to:
   /// **'Choose date'**
-  String get chooseDate;
+  String get txtChooseDate;
 
-  /// No description provided for @startDate.
+  /// No description provided for @txtStartDate.
   ///
   /// In en, this message translates to:
   /// **'Start Date'**
-  String get startDate;
+  String get txtStartDate;
 
-  /// No description provided for @dueDate.
+  /// No description provided for @txtDueDate.
   ///
   /// In en, this message translates to:
   /// **'Due Date'**
-  String get dueDate;
+  String get txtDueDate;
 
-  /// No description provided for @assignedUser.
+  /// No description provided for @txtAssignedUser.
   ///
   /// In en, this message translates to:
   /// **'Assigned user'**
-  String get assignedUser;
+  String get txtAssignedUser;
 
-  /// No description provided for @add.
-  ///
-  /// In en, this message translates to:
-  /// **'Add'**
-  String get add;
-
-  /// No description provided for @subTaskName.
+  /// No description provided for @txtSubTaskName.
   ///
   /// In en, this message translates to:
   /// **'Sub-Task Name'**
-  String get subTaskName;
+  String get txtSubTaskName;
 
-  /// No description provided for @searchMember.
+  /// No description provided for @txtSearchMember.
   ///
   /// In en, this message translates to:
   /// **'Search member...'**
-  String get searchMember;
+  String get txtSearchMember;
 
-  /// No description provided for @approval.
+  /// No description provided for @txtApproval.
   ///
   /// In en, this message translates to:
   /// **'Approval'**
-  String get approval;
+  String get txtApproval;
 
-  /// No description provided for @sendAgain.
-  ///
-  /// In en, this message translates to:
-  /// **'Send Again'**
-  String get sendAgain;
-
-  /// No description provided for @confirmation.
+  /// No description provided for @txtConfirmation.
   ///
   /// In en, this message translates to:
   /// **'Confirmation'**
-  String get confirmation;
+  String get txtConfirmation;
 
-  /// No description provided for @newTask.
+  /// No description provided for @txtNewTask.
   ///
   /// In en, this message translates to:
   /// **'New Task'**
-  String get newTask;
+  String get txtNewTask;
 
-  /// No description provided for @inProgress.
+  /// No description provided for @txtInProgress.
   ///
   /// In en, this message translates to:
   /// **'In Progress'**
-  String get inProgress;
+  String get txtInProgress;
 
-  /// No description provided for @error.
+  /// No description provided for @txtError.
   ///
   /// In en, this message translates to:
   /// **'Error'**
-  String get error;
+  String get txtError;
 
-  /// No description provided for @completed.
+  /// No description provided for @txtCompleted.
   ///
   /// In en, this message translates to:
   /// **'Completed'**
-  String get completed;
+  String get txtCompleted;
 
-  /// No description provided for @completedTask.
+  /// No description provided for @txtCompletedTask.
   ///
   /// In en, this message translates to:
   /// **'Completed Task'**
-  String get completedTask;
+  String get txtCompletedTask;
 
-  /// No description provided for @noCompleted.
+  /// No description provided for @txtNoCompleted.
   ///
   /// In en, this message translates to:
   /// **'There are no task completed'**
-  String get noCompleted;
+  String get txtNoCompleted;
 
-  /// No description provided for @progress.
+  /// No description provided for @txtProgress.
   ///
   /// In en, this message translates to:
   /// **'Progress'**
-  String get progress;
+  String get txtProgress;
 
-  /// No description provided for @detailTask.
+  /// No description provided for @txtDetailTask.
   ///
   /// In en, this message translates to:
   /// **'Detail Task'**
-  String get detailTask;
+  String get txtDetailTask;
 
-  /// No description provided for @detailSubTask.
+  /// No description provided for @txtDetailSubTask.
   ///
   /// In en, this message translates to:
   /// **'Detail Sub-Task'**
-  String get detailSubTask;
+  String get txtDetailSubTask;
 
-  /// No description provided for @subTasks.
+  /// No description provided for @txtSubTasks.
   ///
   /// In en, this message translates to:
   /// **'Sub-Tasks'**
-  String get subTasks;
+  String get txtSubTasks;
 
-  /// No description provided for @executor.
+  /// No description provided for @txtExecutor.
   ///
   /// In en, this message translates to:
   /// **'Executor'**
-  String get executor;
+  String get txtExecutor;
 
-  /// No description provided for @setting.
+  /// No description provided for @txtSetting.
   ///
   /// In en, this message translates to:
   /// **'Setting'**
-  String get setting;
+  String get txtSetting;
 
-  /// No description provided for @editProfile.
-  ///
-  /// In en, this message translates to:
-  /// **'Edit Profile'**
-  String get editProfile;
-
-  /// No description provided for @appSetting.
+  /// No description provided for @txtAppSetting.
   ///
   /// In en, this message translates to:
   /// **'App Setting'**
-  String get appSetting;
+  String get txtAppSetting;
 
-  /// No description provided for @changePass.
-  ///
-  /// In en, this message translates to:
-  /// **'Change Password'**
-  String get changePass;
-
-  /// No description provided for @notification.
-  ///
-  /// In en, this message translates to:
-  /// **'Notification'**
-  String get notification;
-
-  /// No description provided for @logout.
-  ///
-  /// In en, this message translates to:
-  /// **'Log out'**
-  String get logout;
-
-  /// No description provided for @changeImage.
-  ///
-  /// In en, this message translates to:
-  /// **'Change Image'**
-  String get changeImage;
-
-  /// No description provided for @saveChange.
-  ///
-  /// In en, this message translates to:
-  /// **'Save Changes'**
-  String get saveChange;
-
-  /// No description provided for @titleChangePass1.
+  /// No description provided for @txtTitleChangePass1.
   ///
   /// In en, this message translates to:
   /// **'Please input your current password first'**
-  String get titleChangePass1;
+  String get txtTitleChangePass1;
 
-  /// No description provided for @titleChangePass2.
+  /// No description provided for @txtTitleChangePass2.
   ///
   /// In en, this message translates to:
   /// **'Now, create your new password'**
-  String get titleChangePass2;
+  String get txtTitleChangePass2;
 
-  /// No description provided for @titleChangePass3.
+  /// No description provided for @txtTitleChangePass3.
   ///
   /// In en, this message translates to:
   /// **'Password should contain a-z, A-Z, 0-9'**
-  String get titleChangePass3;
+  String get txtTitleChangePass3;
 
-  /// No description provided for @currentPass.
+  /// No description provided for @txtCurrentPass.
   ///
   /// In en, this message translates to:
   /// **'Current Password'**
-  String get currentPass;
+  String get txtCurrentPass;
 
-  /// No description provided for @newPass.
+  /// No description provided for @txtNewPass.
   ///
   /// In en, this message translates to:
   /// **'New Password'**
-  String get newPass;
+  String get txtNewPass;
 
-  /// No description provided for @retypePass.
+  /// No description provided for @txtRetypePass.
   ///
   /// In en, this message translates to:
   /// **'Retype Password'**
-  String get retypePass;
+  String get txtRetypePass;
 
-  /// No description provided for @submitPass.
+  /// No description provided for @txtSubmitPass.
   ///
   /// In en, this message translates to:
   /// **'Submit new password'**
-  String get submitPass;
+  String get txtSubmitPass;
 
-  /// No description provided for @emailNotification.
-  ///
-  /// In en, this message translates to:
-  /// **'Email Notifications'**
-  String get emailNotification;
-
-  /// No description provided for @pushNotification.
-  ///
-  /// In en, this message translates to:
-  /// **'Push Notification'**
-  String get pushNotification;
-
-  /// No description provided for @titleLogout.
+  /// No description provided for @txtTitleLogout.
   ///
   /// In en, this message translates to:
   /// **'Are you sure you want to log out from the application?'**
-  String get titleLogout;
+  String get txtTitleLogout;
 
-  /// No description provided for @yes.
+  /// No description provided for @btnLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get btnLogin;
+
+  /// No description provided for @btnSendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Code'**
+  String get btnSendCode;
+
+  /// No description provided for @btnAddTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Task'**
+  String get btnAddTask;
+
+  /// No description provided for @btnAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get btnAdd;
+
+  /// No description provided for @btnApproval.
+  ///
+  /// In en, this message translates to:
+  /// **'Approval Tasks'**
+  String get btnApproval;
+
+  /// No description provided for @btnSendAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Again'**
+  String get btnSendAgain;
+
+  /// No description provided for @btnEditProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get btnEditProfile;
+
+  /// No description provided for @btnChangePass.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Password'**
+  String get btnChangePass;
+
+  /// No description provided for @btnNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification'**
+  String get btnNotification;
+
+  /// No description provided for @btnLogout.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get btnLogout;
+
+  /// No description provided for @btnChangeImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Image'**
+  String get btnChangeImage;
+
+  /// No description provided for @btnSaveChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get btnSaveChange;
+
+  /// No description provided for @btnEmailNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Notifications'**
+  String get btnEmailNotification;
+
+  /// No description provided for @btnPushNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Push Notification'**
+  String get btnPushNotification;
+
+  /// No description provided for @btnYes.
   ///
   /// In en, this message translates to:
   /// **'Yes'**
-  String get yes;
+  String get btnYes;
 
-  /// No description provided for @no.
+  /// No description provided for @btnNo.
   ///
   /// In en, this message translates to:
   /// **'No'**
-  String get no;
+  String get btnNo;
 
-  /// No description provided for @detail.
+  /// No description provided for @btnDetail.
   ///
   /// In en, this message translates to:
   /// **'Detail'**
-  String get detail;
+  String get btnDetail;
 
-  /// No description provided for @edit.
+  /// No description provided for @btnEdit.
   ///
   /// In en, this message translates to:
   /// **'Edit'**
-  String get edit;
+  String get btnEdit;
 
-  /// No description provided for @deleted.
+  /// No description provided for @btnDeleted.
   ///
   /// In en, this message translates to:
   /// **'Delete'**
-  String get deleted;
+  String get btnDeleted;
 
-  /// No description provided for @snackDelete.
+  /// No description provided for @btnSnackDelete.
   ///
   /// In en, this message translates to:
   /// **'Delete Subtask done'**
-  String get snackDelete;
+  String get btnSnackDelete;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

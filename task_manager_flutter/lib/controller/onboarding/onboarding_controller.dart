@@ -14,13 +14,13 @@ class OnBoardingController extends GetxController {
     return [
       OnboardingModel()
         ..imagePath = Assets.images.imgOnboardingIdea.path
-        ..text = AppLocalizations.of(context).onboarding1,
+        ..text = AppLocalizations.of(context).txtOnboarding1,
       OnboardingModel()
         ..imagePath = Assets.images.imgOnboardingMail.path
-        ..text = AppLocalizations.of(context).onboarding2,
+        ..text = AppLocalizations.of(context).txtOnboarding2,
       OnboardingModel()
         ..imagePath = Assets.images.imgOnboardingIdea.path
-        ..text = AppLocalizations.of(context).onboarding3,
+        ..text = AppLocalizations.of(context).txtOnboarding3,
     ];
   }
 

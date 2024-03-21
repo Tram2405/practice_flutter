@@ -21,17 +21,17 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: ListView(
             children: [
-              TMTitle(title: AppLocalizations.of(context).forgotPass),
+              TMTitle(title: AppLocalizations.of(context).txtForgotPass),
               const SizedBox(height: 16.0),
               TMTitle(
-                title: AppLocalizations.of(context).titleForgotPass,
+                title: AppLocalizations.of(context).txtTitleForgotPass,
                 textStyle: context.textTheme.titleLarge
                     ?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               const SizedBox(height: 32.0),
               TMTextFormField(
-                hintText: AppLocalizations.of(context).hintPassword,
-                lableText: AppLocalizations.of(context).password,
+                hintText: AppLocalizations.of(context).txtHintPassword,
+                lableText: AppLocalizations.of(context).txtPassword,
                 controller: controller.emailController,
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
@@ -40,7 +40,7 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
               const SizedBox(height: 64.0),
               Obx(
                 () => TMElevateButton(
-                  text: AppLocalizations.of(context).sendCode,
+                  text: AppLocalizations.of(context).btnSendCode,
                   color: controller.hasContent.value
                       ? TMColor.primary
                       : TMColor.button,

@@ -34,14 +34,14 @@ class TaskPage extends StatelessWidget {
               controller.listTask.add(value);
             });
           },
-          title: AppLocalizations.of(context).task,
+          title: AppLocalizations.of(context).txtTask,
           rightIcon: Assets.icons.iconBell,
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TMTitle(
-              title: AppLocalizations.of(context).myTask,
+              title: AppLocalizations.of(context).txtMyTask,
               textStyle: context.textTheme.bodyLarge,
             ),
             const SizedBox(height: 16.0),

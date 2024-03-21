@@ -25,17 +25,17 @@ class LoginPage extends GetView<LoginController> {
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: ListView(
             children: [
-              TMTitle(title: AppLocalizations.of(context).letsLogin),
+              TMTitle(title: AppLocalizations.of(context).txtLetsLogin),
               const SizedBox(height: 16.0),
               TMTitle(
-                title: AppLocalizations.of(context).titleLogin,
+                title: AppLocalizations.of(context).txtTitleLogin,
                 textStyle: context.textTheme.titleLarge
                     ?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               sizedBox32,
               TMTextFormField(
-                hintText: AppLocalizations.of(context).hintEmail,
-                lableText: AppLocalizations.of(context).email,
+                hintText: AppLocalizations.of(context).txtHintEmail,
+                lableText: AppLocalizations.of(context).txtEmail,
                 controller: controller.emailController,
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
@@ -43,8 +43,8 @@ class LoginPage extends GetView<LoginController> {
               ),
               sizedBox32,
               TMTextFormFieldPassword(
-                lableText: AppLocalizations.of(context).password,
-                hintText: AppLocalizations.of(context).hintPassword,
+                lableText: AppLocalizations.of(context).txtPassword,
+                hintText: AppLocalizations.of(context).txtHintPassword,
                 controller: controller.passwordController,
                 validator: FormValidator.validatorPassword,
                 readOnly: controller.isLoading.value,
@@ -56,7 +56,7 @@ class LoginPage extends GetView<LoginController> {
                   Get.toNamed(Routes.FORGOT_PASSWORD);
                 },
                 child: Text(
-                  AppLocalizations.of(context).forgotPassword,
+                  AppLocalizations.of(context).txtForgotPassword,
                   style: context.textTheme.titleMedium?.copyWith(
                     decoration: TextDecoration.underline,
                     decorationColor: TMColor.onError,
@@ -71,7 +71,7 @@ class LoginPage extends GetView<LoginController> {
                     controller.login(context);
                   },
                   isDisable: controller.isLoading.value,
-                  text: AppLocalizations.of(context).login,
+                  text: AppLocalizations.of(context).btnLogin,
                   color: controller.hasContent.value
                       ? TMColor.primary
                       : TMColor.button,
@@ -79,8 +79,8 @@ class LoginPage extends GetView<LoginController> {
               ),
               sizedBox32,
               TMTextLink(
-                text: AppLocalizations.of(context).lableLogin,
-                linkText: AppLocalizations.of(context).registerHere,
+                text: AppLocalizations.of(context).txtLableLogin,
+                linkText: AppLocalizations.of(context).txtRegisterHere,
                 onPressed: () => Get.toNamed(Routes.REGISTER),
               )
             ],

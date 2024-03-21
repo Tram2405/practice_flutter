@@ -24,7 +24,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
       () => TMScaffold(
         backgroundColor: TMColor.onSecondary,
         appBar: TMAppbar(
-          title: AppLocalizations.of(context).createSubtask,
+          title: AppLocalizations.of(context).txtCreateSubtask,
           leftIcon: Assets.icons.iconClose,
           leftPressed: () {
             Get.back();
@@ -35,7 +35,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TMTitle(
-                title: AppLocalizations.of(context).chooseDate,
+                title: AppLocalizations.of(context).txtChooseDate,
                 textStyle: context.textTheme.bodyLarge,
               ),
               const SizedBox(height: 10.0),
@@ -43,30 +43,34 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                   onPressed: () {
                     controller.chooseStartDate(context);
                   },
-                  text: AppLocalizations.of(context).startDate,
+                  text: AppLocalizations.of(context).txtStartDate,
                   dateTime: controller.startDate.value.toDateTime),
               const SizedBox(height: 12.0),
               TMDateTime(
                 onPressed: () {
                   controller.chooseDueDate(context);
                 },
-                text: AppLocalizations.of(context).dueDate,
+                text: AppLocalizations.of(context).txtDueDate,
                 dateTime: controller.dueDate.value.toDateTime,
               ),
               const SizedBox(height: 25.0),
               TMTitle(
-                title: AppLocalizations.of(context).assignedUser,
+                title: AppLocalizations.of(context).txtAssignedUser,
                 textStyle: context.textTheme.bodyLarge,
               ),
               const SizedBox(height: 15.0),
               controller.userSelect.value == null
                   ? TMButtonTask(
                       onPressed: () {
-                        TMBottomSheet.bottomSheetAddUser(context, (user) {
-                          controller.assignUser(user);
-                        });
+                        TMBottomSheet.show(
+                          context,
+                          
+                          onPressed: (user) {
+                            controller.assignUser(user);
+                          },
+                        );
                       },
-                      text: AppLocalizations.of(context).add,
+                      text: AppLocalizations.of(context).btnAdd,
                       leftIcon: Assets.icons.iconAdd2,
                     )
                   : TMCardMemberSubTask(
@@ -75,14 +79,14 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                     ),
               const SizedBox(height: 15.0),
               TMTextField(
-                hintText: AppLocalizations.of(context).subTaskName,
+                hintText: AppLocalizations.of(context).txtSubTaskName,
                 textInputAction: TextInputAction.next,
                 controller: controller.subTaskNameController,
                 onChanged: (_) => controller.checkIsEmpty(),
               ),
               const SizedBox(height: 26.0),
               TMTextField(
-                hintText: AppLocalizations.of(context).description,
+                hintText: AppLocalizations.of(context).txtDescription,
                 maxLines: 4,
                 textInputAction: TextInputAction.done,
                 controller: controller.descriptionController,
@@ -93,7 +97,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
           ),
         ),
         bottomNavigationBar: TMBottomButton(
-          text: AppLocalizations.of(context).addSubTask,
+          text: AppLocalizations.of(context).txtAddSubTask,
           onPressed: controller.addSubTask,
           isAction: controller.canAction.value,
         ),

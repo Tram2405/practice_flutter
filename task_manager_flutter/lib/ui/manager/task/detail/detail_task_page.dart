@@ -31,7 +31,7 @@ class DetailTaskPage extends StatelessWidget {
       () => TMScaffold(
         backgroundColor: TMColor.onSecondary,
         appBar: TMAppbar(
-          title: AppLocalizations.of(context).detailTask,
+          title: AppLocalizations.of(context).txtDetailTask,
           leftIcon: Assets.icons.iconArrowLeft,
           leftPressed: () => Get.back(result: controller.task.value),
           rightIcon: Assets.icons.iconComment,
@@ -49,7 +49,7 @@ class DetailTaskPage extends StatelessWidget {
               ),
               sizedBox12,
               TMDisplayDateTime(
-                title: AppLocalizations.of(context).startDate,
+                title: AppLocalizations.of(context).txtStartDate,
                 dateTime: controller.task.value.startDate.toDateTime,
               ),
               sizedBox12,
@@ -60,7 +60,7 @@ class DetailTaskPage extends StatelessWidget {
               ),
               sizedBox12,
               TMTitle(
-                title: AppLocalizations.of(context).progress,
+                title: AppLocalizations.of(context).txtProgress,
                 textStyle: context.textTheme.labelLarge,
               ),
               sizedBox16,
@@ -69,7 +69,7 @@ class DetailTaskPage extends StatelessWidget {
               ),
               sizedBox16,
               TMTitle(
-                title: AppLocalizations.of(context).subTasks,
+                title: AppLocalizations.of(context).txtSubTasks,
                 textStyle: context.textTheme.labelLarge,
               ),
               if (detailType == DetailType.edit) ...[
@@ -82,7 +82,7 @@ class DetailTaskPage extends StatelessWidget {
                       // controller.task.refresh();
                     });
                   },
-                  text: AppLocalizations.of(context).addSubTask,
+                  text: AppLocalizations.of(context).txtAddSubTask,
                   leftIcon: Assets.icons.iconAdd,
                   leftIconColor: TMColor.background,
                 ),
@@ -115,7 +115,7 @@ class DetailTaskPage extends StatelessWidget {
                       },
                       separatorBuilder: (_, __) => const SizedBox(height: 6.0),
                     )
-                  : TMTextPrompt(text: AppLocalizations.of(context).noSubTask)
+                  : TMTextPrompt(text: AppLocalizations.of(context).txtNoSubTask)
             ],
           ),
         ),

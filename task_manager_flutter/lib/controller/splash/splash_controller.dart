@@ -13,24 +13,22 @@ class SplashController extends GetxController {
   final isProgress = true.obs;
 
   checkLoggedIn() async {
-    await Future.delayed(
-      const Duration(milliseconds: 2600),
-    );
-    await authRepository.getUser().then((firebaseUser) {
+    authRepository.getUser().then((firebaseUser) async {
+      await Future.delayed(const Duration(milliseconds: 2600));
       isProgress.value = false;
       if (SharedPrefs.isAccessed) {
         if (firebaseUser != null) {
           var user = UserModel(firebaseUser.email!, firebaseUser.displayName!);
-          if(firebaseUser.email == 'manager@gmail.com'){
+          if (firebaseUser.email == 'manager@gmail.com') {
             Get.offAllNamed(
-            Routes.HOME_MANAGER,
-            arguments: [user],
-          );
-          }else {
+              Routes.HOME_MANAGER,
+              arguments: [user],
+            );
+          } else {
             Get.offAllNamed(
-            Routes.HOME_MEMBER,
-            arguments: [user],
-          );
+              Routes.HOME_MEMBER,
+              arguments: [user],
+            );
           }
         } else {
           Get.offAllNamed(Routes.LOGIN);

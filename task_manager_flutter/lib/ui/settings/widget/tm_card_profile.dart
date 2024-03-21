@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/settings/setting_controller.dart';
-import 'package:task_manager_flutter/data/provider/auth_service.dart';
+import 'package:task_manager_flutter/data/provider/auth_service_provider.dart';
 import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
@@ -19,7 +19,7 @@ class TMCardProfile extends StatelessWidget {
     final controller = Get.put(
       SettingController(
         authRepository: AuthRepository(
-          authService: AuthService(),
+          authService: AuthServiceProvider(),
         ),
       ),
     );

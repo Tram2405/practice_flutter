@@ -5,7 +5,7 @@ import 'package:task_manager_flutter/components/dialog/tm_dialog.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/settings/setting_controller.dart';
-import 'package:task_manager_flutter/data/provider/auth_service.dart';
+import 'package:task_manager_flutter/data/provider/auth_service_provider.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
@@ -24,7 +24,7 @@ class SettingPage extends GetView<SettingController> {
     return TMScaffold(
       backgroundColor: TMColor.onSecondary,
       appBar: TMAppbar(
-        title: AppLocalizations.of(context).setting,
+        title: AppLocalizations.of(context).txtSetting,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,20 +35,20 @@ class SettingPage extends GetView<SettingController> {
             onPressed: () {
               Get.toNamed(Routes.EDIT_PROFILE);
             },
-            title: AppLocalizations.of(context).editProfile,
+            title: AppLocalizations.of(context).btnEditProfile,
           ),
           sizedBox24,
           const Divider(color: TMColor.primaryDivider),
           sizedBox24,
           TMTitle(
-            title: AppLocalizations.of(context).appSetting,
+            title: AppLocalizations.of(context).txtAppSetting,
             textStyle: context.textTheme.bodySmall,
           ),
           TMCardSetting(
             onPressed: () {
               Get.toNamed(Routes.CHANGE_PASSWORD);
             },
-            title: AppLocalizations.of(context).changePass,
+            title: AppLocalizations.of(context).btnChangePass,
             leftIcon: Assets.icons.iconLock,
           ),
           TMCardSetting(
@@ -66,7 +66,7 @@ class SettingPage extends GetView<SettingController> {
                           children: [
                             TMCardNoitfication(
                               title: AppLocalizations.of(context)
-                                  .emailNotification,
+                                  .btnEmailNotification,
                               onChanged: () {
                                 controller.isEmailTurnOn.value =
                                     !controller.isEmailTurnOn.value;
@@ -75,7 +75,7 @@ class SettingPage extends GetView<SettingController> {
                             ),
                             TMCardNoitfication(
                               title:
-                                  AppLocalizations.of(context).pushNotification,
+                                  AppLocalizations.of(context).btnPushNotification,
                               onChanged: () {
                                 controller.isNotification.value =
                                     !controller.isNotification.value;
@@ -90,21 +90,21 @@ class SettingPage extends GetView<SettingController> {
                 },
               );
             },
-            title: AppLocalizations.of(context).notification,
+            title: AppLocalizations.of(context).btnNotification,
             leftIcon: Assets.icons.iconBell,
           ),
           TMCardSetting(
-            title: AppLocalizations.of(context).logout,
+            title: AppLocalizations.of(context).btnLogout,
             titleColor: TMColor.onError,
             leftIcon: Assets.icons.iconLogout,
             onPressed: () {
               return TMDialog.dialog(
                 context,
-                title: AppLocalizations.of(context).logout,
-                content: AppLocalizations.of(context).titleLogout,
+                title: AppLocalizations.of(context).btnLogout,
+                content: AppLocalizations.of(context).txtTitleLogout,
                 action: () => WidgetsBinding.instance.addPostFrameCallback(
                   (_) {
-                    AuthService().signOut();
+                    AuthServiceProvider().signOut();
                     Get.toNamed(Routes.LOGIN);
                   },
                 ),

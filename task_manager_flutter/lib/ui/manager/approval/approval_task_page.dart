@@ -27,12 +27,12 @@ class ApprovalTaskPage extends StatelessWidget {
       () => TMScaffold(
         backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
         appBar: TMAppbar(
-          title: AppLocalizations.of(context).approval,
+          title: AppLocalizations.of(context).txtApproval,
           leftIcon: Assets.icons.iconAdd,
           rightIcon: Assets.icons.iconBell,
         ),
         body: controller.taskConfirms.isEmpty
-            ? TMTextPrompt(text: AppLocalizations.of(context).noSubTask)
+            ? TMTextPrompt(text: AppLocalizations.of(context).txtNoSubTask)
             : ListView.separated(
                 itemCount: controller.taskConfirms.length,
                 itemBuilder: (_, index) {

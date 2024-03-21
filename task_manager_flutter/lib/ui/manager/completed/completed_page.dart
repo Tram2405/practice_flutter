@@ -28,13 +28,13 @@ class CompletedTaskPage extends StatelessWidget {
     return TMScaffold(
       backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
       appBar: TMAppbar(
-        title: AppLocalizations.of(context).completedTask,
+        title: AppLocalizations.of(context).txtCompletedTask,
         rightIcon: Assets.icons.iconBell,
       ),
       body: GestureDetector(
         onTap: () {},
         child: controller.taskCompleteds.isEmpty
-            ? TMTextPrompt(text: AppLocalizations.of(context).noCompleted)
+            ? TMTextPrompt(text: AppLocalizations.of(context).txtNoCompleted)
             : ListView.separated(
                 itemCount: controller.taskCompleteds.length,
                 itemBuilder: (_, index) {

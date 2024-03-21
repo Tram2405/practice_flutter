@@ -5,254 +5,260 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get onboarding1 => 'Welcome to Task Manager. Create projects, assign tasks, and collaborate effortlessly.';
+  String get txtOnboarding1 => 'Welcome to Task Manager. Create projects, assign tasks, and collaborate effortlessly.';
 
   @override
-  String get onboarding2 => 'Master task management. Categorize, set deadlines, and boost team efficiency.';
+  String get txtOnboarding2 => 'Master task management. Categorize, set deadlines, and boost team efficiency.';
 
   @override
-  String get onboarding3 => 'Track progress effortlessly. Monitor tasks, and propel your team to new heights.';
+  String get txtOnboarding3 => 'Track progress effortlessly. Monitor tasks, and propel your team to new heights.';
 
   @override
-  String get back => 'Back';
+  String get txtBack => 'Back';
 
   @override
-  String get next => 'Next';
+  String get txtNext => 'Next';
 
   @override
-  String get register => 'Register';
+  String get txtRegister => 'Register';
 
   @override
-  String get titleRegister => 'And start taking notes';
+  String get txtTitleRegister => 'And start taking notes';
 
   @override
-  String get fullName => 'Full Name';
+  String get txtFullName => 'Full Name';
 
   @override
-  String get hintName => 'Example: John Doe';
+  String get txtHintName => 'Example: John Doe';
 
   @override
-  String get email => 'Email Adress';
+  String get txtEmail => 'Email Adress';
 
   @override
-  String get hintEmail => 'Example: johndoe@gmail.com';
+  String get txtHintEmail => 'Example: johndoe@gmail.com';
 
   @override
-  String get password => 'Password';
+  String get txtPassword => 'Password';
 
   @override
-  String get hintPassword => '********';
+  String get txtHintPassword => '********';
 
   @override
-  String get retypePassword => 'Retype Password';
+  String get txtRetypePassword => 'Retype Password';
 
   @override
-  String get hintRetypePassword => '********';
+  String get txtHintRetypePassword => '********';
 
   @override
-  String get lableRegister => 'Already have an account? ';
+  String get txtLableRegister => 'Already have an account? ';
 
   @override
-  String get loginHere => 'Login here';
+  String get txtLoginHere => 'Login here';
 
   @override
-  String get letsLogin => 'Let’s Login';
+  String get btnRegister => 'Register';
 
   @override
-  String get titleLogin => 'And note your idea';
+  String get txtLetsLogin => 'Let’s Login';
 
   @override
-  String get forgotPassword => 'Forgot Password';
+  String get txtTitleLogin => 'And note your idea';
 
   @override
-  String get login => 'Login';
+  String get txtForgotPassword => 'Forgot Password';
 
   @override
-  String get lableLogin => 'Don’t have any account ';
+  String get txtLableLogin => 'Don’t have any account ';
 
   @override
-  String get registerHere => 'Register here';
+  String get txtRegisterHere => 'Register here';
 
   @override
-  String get forgotPass => 'Forgot Password';
+  String get txtForgotPass => 'Forgot Password';
 
   @override
-  String get titleForgotPass => 'Insert your email address to receive a code for creating a new password';
+  String get txtTitleForgotPass => 'Insert your email address to receive a code for creating a new password';
 
   @override
-  String get sendCode => 'Send Code';
+  String get txtTask => 'Task';
 
   @override
-  String get task => 'Task';
+  String get txtMyTask => 'My Task';
 
   @override
-  String get myTask => 'My Task';
+  String get txtCreateTask => 'Create New Task';
 
   @override
-  String get createTask => 'Create New Task';
+  String get txtTaskType => 'Task type';
 
   @override
-  String get taskType => 'Task type';
+  String get txtTaskName => 'Task name';
 
   @override
-  String get taskName => 'Task name';
+  String get txtDescription => 'Description';
 
   @override
-  String get description => 'Description';
+  String get txtLow => 'Low';
 
   @override
-  String get low => 'Low';
+  String get txtMedium => 'Medium';
 
   @override
-  String get medium => 'Medium';
+  String get txtHigh => 'high';
 
   @override
-  String get high => 'high';
+  String get txtAddSubTask => 'Add Sub-Task';
 
   @override
-  String get addSubTask => 'Add Sub-Task';
+  String get txtNoSubTask => 'There are no subTasks';
 
   @override
-  String get noSubTask => 'There are no subTasks';
+  String get txtCreateSubtask => 'Create Sub-Task';
 
   @override
-  String get addTask => 'Add Task';
+  String get txtChooseDate => 'Choose date';
 
   @override
-  String get createSubtask => 'Create Sub-Task';
+  String get txtStartDate => 'Start Date';
 
   @override
-  String get chooseDate => 'Choose date';
+  String get txtDueDate => 'Due Date';
 
   @override
-  String get startDate => 'Start Date';
+  String get txtAssignedUser => 'Assigned user';
 
   @override
-  String get dueDate => 'Due Date';
+  String get txtSubTaskName => 'Sub-Task Name';
 
   @override
-  String get assignedUser => 'Assigned user';
+  String get txtSearchMember => 'Search member...';
 
   @override
-  String get add => 'Add';
+  String get txtApproval => 'Approval';
 
   @override
-  String get subTaskName => 'Sub-Task Name';
+  String get txtConfirmation => 'Confirmation';
 
   @override
-  String get searchMember => 'Search member...';
+  String get txtNewTask => 'New Task';
 
   @override
-  String get approval => 'Approval';
+  String get txtInProgress => 'In Progress';
 
   @override
-  String get sendAgain => 'Send Again';
+  String get txtError => 'Error';
 
   @override
-  String get confirmation => 'Confirmation';
+  String get txtCompleted => 'Completed';
 
   @override
-  String get newTask => 'New Task';
+  String get txtCompletedTask => 'Completed Task';
 
   @override
-  String get inProgress => 'In Progress';
+  String get txtNoCompleted => 'There are no task completed';
 
   @override
-  String get error => 'Error';
+  String get txtProgress => 'Progress';
 
   @override
-  String get completed => 'Completed';
+  String get txtDetailTask => 'Detail Task';
 
   @override
-  String get completedTask => 'Completed Task';
+  String get txtDetailSubTask => 'Detail Sub-Task';
 
   @override
-  String get noCompleted => 'There are no task completed';
+  String get txtSubTasks => 'Sub-Tasks';
 
   @override
-  String get progress => 'Progress';
+  String get txtExecutor => 'Executor';
 
   @override
-  String get detailTask => 'Detail Task';
+  String get txtSetting => 'Setting';
 
   @override
-  String get detailSubTask => 'Detail Sub-Task';
+  String get txtAppSetting => 'App Setting';
 
   @override
-  String get subTasks => 'Sub-Tasks';
+  String get txtTitleChangePass1 => 'Please input your current password first';
 
   @override
-  String get executor => 'Executor';
+  String get txtTitleChangePass2 => 'Now, create your new password';
 
   @override
-  String get setting => 'Setting';
+  String get txtTitleChangePass3 => 'Password should contain a-z, A-Z, 0-9';
 
   @override
-  String get editProfile => 'Edit Profile';
+  String get txtCurrentPass => 'Current Password';
 
   @override
-  String get appSetting => 'App Setting';
+  String get txtNewPass => 'New Password';
 
   @override
-  String get changePass => 'Change Password';
+  String get txtRetypePass => 'Retype Password';
 
   @override
-  String get notification => 'Notification';
+  String get txtSubmitPass => 'Submit new password';
 
   @override
-  String get logout => 'Log out';
+  String get txtTitleLogout => 'Are you sure you want to log out from the application?';
 
   @override
-  String get changeImage => 'Change Image';
+  String get btnLogin => 'Login';
 
   @override
-  String get saveChange => 'Save Changes';
+  String get btnSendCode => 'Send Code';
 
   @override
-  String get titleChangePass1 => 'Please input your current password first';
+  String get btnAddTask => 'Add Task';
 
   @override
-  String get titleChangePass2 => 'Now, create your new password';
+  String get btnAdd => 'Add';
 
   @override
-  String get titleChangePass3 => 'Password should contain a-z, A-Z, 0-9';
+  String get btnApproval => 'Approval Tasks';
 
   @override
-  String get currentPass => 'Current Password';
+  String get btnSendAgain => 'Send Again';
 
   @override
-  String get newPass => 'New Password';
+  String get btnEditProfile => 'Edit Profile';
 
   @override
-  String get retypePass => 'Retype Password';
+  String get btnChangePass => 'Change Password';
 
   @override
-  String get submitPass => 'Submit new password';
+  String get btnNotification => 'Notification';
 
   @override
-  String get emailNotification => 'Email Notifications';
+  String get btnLogout => 'Log out';
 
   @override
-  String get pushNotification => 'Push Notification';
+  String get btnChangeImage => 'Change Image';
 
   @override
-  String get titleLogout => 'Are you sure you want to log out from the application?';
+  String get btnSaveChange => 'Save Changes';
 
   @override
-  String get yes => 'Yes';
+  String get btnEmailNotification => 'Email Notifications';
 
   @override
-  String get no => 'No';
+  String get btnPushNotification => 'Push Notification';
 
   @override
-  String get detail => 'Detail';
+  String get btnYes => 'Yes';
 
   @override
-  String get edit => 'Edit';
+  String get btnNo => 'No';
 
   @override
-  String get deleted => 'Delete';
+  String get btnDetail => 'Detail';
 
   @override
-  String get snackDelete => 'Delete Subtask done';
+  String get btnEdit => 'Edit';
+
+  @override
+  String get btnDeleted => 'Delete';
+
+  @override
+  String get btnSnackDelete => 'Delete Subtask done';
 }

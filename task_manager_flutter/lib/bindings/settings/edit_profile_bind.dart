@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/controller/settings/edit_profile_controller.dart';
-import 'package:task_manager_flutter/data/provider/auth_service.dart';
+import 'package:task_manager_flutter/data/provider/auth_service_provider.dart';
 import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 
 class EditProfileBinding implements Bindings {
@@ -9,7 +9,7 @@ class EditProfileBinding implements Bindings {
     Get.lazyPut(
       () => EditProfileController(
         authRepository: AuthRepository(
-          authService: AuthService(),
+          authService: AuthServiceProvider(),
         ),
       ),
     );

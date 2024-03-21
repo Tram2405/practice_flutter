@@ -22,7 +22,7 @@ extension ExString on String? {
         return TMDisplayInfo(
           color: TMColor.completed,
           child: Text(
-            AppLocalizations.of(context).low,
+            AppLocalizations.of(context).txtLow,
             style: context.textTheme.bodySmall?.copyWith(
               color: TMColor.onCompleted,
             ),
@@ -32,7 +32,7 @@ extension ExString on String? {
         return TMDisplayInfo(
           color: TMColor.high,
           child: Text(
-            AppLocalizations.of(context).high,
+            AppLocalizations.of(context).txtHigh,
             style: context.textTheme.bodySmall?.copyWith(
               color: TMColor.onHigh,
             ),
@@ -42,7 +42,7 @@ extension ExString on String? {
         return TMDisplayInfo(
           color: TMColor.progress,
           child: Text(
-            AppLocalizations.of(context).medium,
+            AppLocalizations.of(context).txtMedium,
             style: context.textTheme.bodySmall?.copyWith(
               color: TMColor.onProgress,
             ),
@@ -61,7 +61,7 @@ extension ExString on String? {
         return TMDisplayInfo(
           color: TMColor.onSecondary,
           child: Text(
-            AppLocalizations.of(context).newTask,
+            AppLocalizations.of(context).txtNewTask,
             style: context.textTheme.bodySmall?.copyWith(
               color: TMColor.onBackground,
             ),
@@ -71,7 +71,7 @@ extension ExString on String? {
         return TMDisplayInfo(
           color: TMColor.progress,
           child: Text(
-            AppLocalizations.of(context).inProgress,
+            AppLocalizations.of(context).txtInProgress,
             style: context.textTheme.bodySmall?.copyWith(
               color: TMColor.onProgress,
             ),
@@ -81,7 +81,7 @@ extension ExString on String? {
         return TMDisplayInfo(
           color: TMColor.error,
           child: Text(
-            AppLocalizations.of(context).error,
+            AppLocalizations.of(context).txtError,
             style: context.textTheme.bodySmall?.copyWith(
               color: TMColor.onError,
             ),
@@ -91,7 +91,7 @@ extension ExString on String? {
         return TMDisplayInfo(
           color: TMColor.confirm,
           child: Text(
-            AppLocalizations.of(context).confirmation,
+            AppLocalizations.of(context).txtConfirmation,
             style: context.textTheme.bodySmall?.copyWith(
               color: TMColor.onConfirm,
             ),
@@ -101,7 +101,7 @@ extension ExString on String? {
         return TMDisplayInfo(
           color: TMColor.completed,
           child: Text(
-            AppLocalizations.of(context).completed,
+            AppLocalizations.of(context).txtCompleted,
             style: context.textTheme.bodySmall?.copyWith(
               color: TMColor.onCompleted,
             ),

@@ -11,4 +11,8 @@ class UserModel {
     this.email,
     this.displayName,
   );
+
+  UserModel.fromJson(Map<String, dynamic> json)
+      : email = json['email'],
+        displayName = json['displayName'];
 }

@@ -28,15 +28,15 @@ class TMPopupMenuSubtask extends StatelessWidget {
         return [
           PopupMenuItem(
             value: 0,
-            child: textPopupMenu(context, AppLocalizations.of(context).detail),
+            child: textPopupMenu(context, AppLocalizations.of(context).btnDetail),
           ),
           PopupMenuItem(
             value: 1,
-            child: textPopupMenu(context, AppLocalizations.of(context).edit),
+            child: textPopupMenu(context, AppLocalizations.of(context).btnEdit),
           ),
           PopupMenuItem(
             value: 2,
-            child: textPopupMenu(context, AppLocalizations.of(context).deleted),
+            child: textPopupMenu(context, AppLocalizations.of(context).btnDeleted),
           ),
         ];
       },

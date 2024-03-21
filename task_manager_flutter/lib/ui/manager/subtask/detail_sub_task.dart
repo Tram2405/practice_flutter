@@ -22,7 +22,7 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
     return TMScaffold(
       backgroundColor: TMColor.background,
       appBar: TMAppbar(
-        title: AppLocalizations.of(context).detailSubTask,
+        title: AppLocalizations.of(context).txtDetailSubTask,
         leftIcon: Assets.icons.iconArrowLeft,
         leftPressed: () => Get.back(),
       ),
@@ -40,12 +40,12 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
             Row(
               children: [
                 TMDisplayDateTime(
-                  title: AppLocalizations.of(context).startDate,
+                  title: AppLocalizations.of(context).txtStartDate,
                   dateTime: subTask.startDate.toDateTime,
                 ),
                 const SizedBox(width: 30.0),
                 TMDisplayDateTime(
-                  title: AppLocalizations.of(context).dueDate,
+                  title: AppLocalizations.of(context).txtDueDate,
                   textColor: TMColor.onError,
                   dateTime: subTask.dueDate.toDateTime,
                 ),
@@ -60,7 +60,7 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
             ),
             const SizedBox(height: 16.0),
             TMTitle(
-              title: AppLocalizations.of(context).executor,
+              title: AppLocalizations.of(context).txtExecutor,
               textStyle: context.textTheme.displaySmall,
             ),
             sizedBox12,

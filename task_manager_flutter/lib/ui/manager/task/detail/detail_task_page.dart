@@ -97,12 +97,19 @@ class DetailTaskPage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final subTask = controller.task.value.subTasks[index];
                         return TMCardSubTask(
-                          onTap: () {
-                            Get.toNamed(
-                              Routes.DETAIL_SUB_TASK,
-                              arguments: [subTask],
-                            );
-                          },
+                          onTap: controller.emailUser != null &&
+                                  controller.emailUser == subTask.user?.email
+                              ? () {
+                                  Get.toNamed(
+                                    controller.emailUser == null
+                                        ? Routes.DETAIL_SUB_TASK
+                                        : Routes.DETAIL_SUB_TASK_MEMBER,
+                                    arguments: [subTask],
+                                  )?.then((value) {
+                                    controller.task.refresh();
+                                  });
+                                }
+                              : null,
                           onSelected: detailType == DetailType.edit
                               ? (value) {
                                   controller.onSelectDropDown(
@@ -111,11 +118,16 @@ class DetailTaskPage extends StatelessWidget {
                               : null,
                           subTask: subTask,
                           index: index,
+                          color: controller.emailUser != null &&
+                                  controller.emailUser == subTask.user?.email
+                              ? TMColor.primaryContainer
+                              : null,
                         );
                       },
                       separatorBuilder: (_, __) => const SizedBox(height: 6.0),
                     )
-                  : TMTextPrompt(text: AppLocalizations.of(context).txtNoSubTask)
+                  : TMTextPrompt(
+                      text: AppLocalizations.of(context).txtNoSubTask)
             ],
           ),
         ),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/member/home_member_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
+import 'package:task_manager_flutter/ui/member/completed/completed_member_page.dart';
+import 'package:task_manager_flutter/ui/member/task/task_page_member.dart';
+import 'package:task_manager_flutter/ui/settings/setting_page.dart';
 
 class HomeMemberPage extends GetView<HomeMemberController> {
   const HomeMemberPage({super.key});
@@ -18,18 +20,12 @@ class HomeMemberPage extends GetView<HomeMemberController> {
     ];
 
     List<Widget> pages = [
-      Container(
-        color: TMColor.onBackground,
-      ),
-      Container(
-        color: TMColor.high,
-      ),
-      Container(
-        color: TMColor.confirm,
-      ),
+      const TaskMemberPage(),
+      const CompletedMemberPage(),
+      const SettingPage(),
     ];
     return Obx(
-      () => TMScaffold(
+      () => Scaffold(
         body: pages[controller.currentIndex.value],
         bottomNavigationBar: Container(
           height: 70.0,

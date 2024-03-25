@@ -24,4 +24,8 @@ abstract class Routes {
   static const EDIT_PROFILE = '/edit-profile';
   static const CHANGE_PASSWORD = '/change-password';
   static const HOME_MEMBER = '/home_member';
+  static const TASK_MEMBER = '/task-member';
+  static const DETAIL_TASK_MEMBER = '/detail-task-member';
+  static const DETAIL_SUB_TASK_MEMBER = '/detail-sub-task-member';
+  static const COMPLETED_TASK_MEMBER = '/completed-task-member';
 }

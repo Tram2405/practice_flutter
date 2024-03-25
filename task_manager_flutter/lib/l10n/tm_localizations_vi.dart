@@ -203,6 +203,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get txtTitleLogout => 'Bạn có chắc chắn muốn đăng xuất khỏi ứng dụng không?';
 
   @override
+  String get txtMyAssignment => 'Nhiệm vụ của tôi';
+
+  @override
   String get btnLogin => 'Đăng nhập';
 
   @override
@@ -261,4 +264,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get btnSnackDelete => 'Xoá nhiệm vụ phụ thành công';
+
+  @override
+  String get btnWaitResponse => 'Đang chờ phản hồi';
 }

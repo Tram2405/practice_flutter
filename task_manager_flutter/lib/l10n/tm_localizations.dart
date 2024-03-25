@@ -489,6 +489,12 @@ abstract class AppLocalizations {
   /// **'Are you sure you want to log out from the application?'**
   String get txtTitleLogout;
 
+  /// No description provided for @txtMyAssignment.
+  ///
+  /// In en, this message translates to:
+  /// **'My Assignment'**
+  String get txtMyAssignment;
+
   /// No description provided for @btnLogin.
   ///
   /// In en, this message translates to:
@@ -608,6 +614,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete Subtask done'**
   String get btnSnackDelete;
+
+  /// No description provided for @btnWaitResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'waiting for response'**
+  String get btnWaitResponse;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

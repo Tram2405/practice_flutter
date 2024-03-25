@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
+import 'package:task_manager_flutter/components/buttons/tm_bottom_button.dart';
 import 'package:task_manager_flutter/components/card/tm_member_assign.dart';
 import 'package:task_manager_flutter/components/date_time/tm_display_date_time.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
@@ -10,10 +11,14 @@ import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
+import 'package:task_manager_flutter/utils/enum.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
+enum DetailSubTaskType { no, action }
+
 class DetailSubTaskPage extends GetView<DetailSubTaskController> {
-  const DetailSubTaskPage({super.key});
+  const DetailSubTaskPage({super.key, this.detailType = DetailSubTaskType.no});
+  final DetailSubTaskType detailType;
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +77,21 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
           ],
         ),
       ),
+      bottomNavigationBar: detailType == DetailSubTaskType.action &&
+              subTask.status != StatusType.completed.name
+          ? Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TMBottomButton(
+                  isAction: subTask.status != StatusType.confirmation.name,
+                  onPressed: () {
+                    controller.action(subTask);
+                  },
+                  text: controller.getTextButton(context, subTask.status ?? ''),
+                ),
+              ],
+            )
+          : null,
     );
   }
 }

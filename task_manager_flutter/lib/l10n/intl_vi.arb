@@ -65,6 +65,7 @@
     "txtRetypePass" : "Nhập lại mật khẩu",
     "txtSubmitPass" : "Gửi mật khẩu mới",
     "txtTitleLogout" : "Bạn có chắc chắn muốn đăng xuất khỏi ứng dụng không?",
+    "txtMyAssignment" : "Nhiệm vụ của tôi",
     "btnRegister" : "Tạo tài khoản",
     "btnLogin" : "Đăng nhập",
     "btnSendCode" : "Gửi mã",
@@ -84,5 +85,6 @@
     "btnDetail" : "Chi tiết",
     "btnEdit" : "Chỉnh sửa",
     "btnDeleted" : "Xoá",
-    "btnSnackDelete" : "Xoá nhiệm vụ phụ thành công"
+    "btnSnackDelete" : "Xoá nhiệm vụ phụ thành công",
+    "btnWaitResponse" : "Đang chờ phản hồi"
 }

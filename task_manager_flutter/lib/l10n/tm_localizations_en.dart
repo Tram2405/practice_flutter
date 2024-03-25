@@ -203,6 +203,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get txtTitleLogout => 'Are you sure you want to log out from the application?';
 
   @override
+  String get txtMyAssignment => 'My Assignment';
+
+  @override
   String get btnLogin => 'Login';
 
   @override
@@ -261,4 +264,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get btnSnackDelete => 'Delete Subtask done';
+
+  @override
+  String get btnWaitResponse => 'waiting for response';
 }

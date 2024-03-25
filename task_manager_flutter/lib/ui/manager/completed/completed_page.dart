@@ -31,26 +31,23 @@ class CompletedTaskPage extends StatelessWidget {
         title: AppLocalizations.of(context).txtCompletedTask,
         rightIcon: Assets.icons.iconBell,
       ),
-      body: GestureDetector(
-        onTap: () {},
-        child: controller.taskCompleteds.isEmpty
-            ? TMTextPrompt(text: AppLocalizations.of(context).txtNoCompleted)
-            : ListView.separated(
-                itemCount: controller.taskCompleteds.length,
-                itemBuilder: (_, index) {
-                  final task = controller.taskCompleteds[index];
-                  return TMCardCompleted(
-                      onPressed: () {
-                        Get.toNamed(
-                          Routes.DETAIL_COMPLETED_TASK,
-                          arguments: [task],
-                        );
-                      },
-                      task: task);
-                },
-                separatorBuilder: (_, __) => const SizedBox(height: 3.0),
-              ),
-      ),
+      body: controller.taskCompleteds.isEmpty
+          ? TMTextPrompt(text: AppLocalizations.of(context).txtNoCompleted)
+          : ListView.separated(
+              itemCount: controller.taskCompleteds.length,
+              itemBuilder: (_, index) {
+                final task = controller.taskCompleteds[index];
+                return TMCardCompleted(
+                    onPressed: () {
+                      Get.toNamed(
+                        Routes.DETAIL_COMPLETED_TASK,
+                        arguments: [task],
+                      );
+                    },
+                    task: task);
+              },
+              separatorBuilder: (_, __) => const SizedBox(height: 3.0),
+            ),
     );
   }
 }

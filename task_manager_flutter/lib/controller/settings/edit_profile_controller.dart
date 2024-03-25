@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/respository/auth_repository.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 
 class EditProfileController extends GetxController {
   final AuthRepository authRepository;
@@ -64,7 +65,7 @@ class EditProfileController extends GetxController {
       isLoading.value = false;
       WidgetsBinding.instance.addPostFrameCallback((_) {
         TMSnackBar.tmSnackBarSuccess(context,
-            titleSnackbar: 'Update profile successfully');
+            titleSnackbar: AppLocalizations.of(context).txtSnackbarUpdate);
       });
       Get.back();
     } else {

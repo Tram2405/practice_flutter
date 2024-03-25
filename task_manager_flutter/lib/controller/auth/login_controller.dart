@@ -16,6 +16,16 @@ class LoginController extends GetxController {
   final isProgress = true.obs;
   final isLoggedIn = false.obs;
 
+  @override
+  void onInit() {
+    try {
+      emailController.text = Get.arguments[0].toString();
+    } catch (e) {
+      emailController.text = '';
+    }
+    super.onInit();
+  }
+
   void isEmpty() {
     hasContent.value =
         FormValidator.validatorEmail(emailController.text) == null &&

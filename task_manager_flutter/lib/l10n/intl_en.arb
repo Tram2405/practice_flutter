@@ -16,7 +16,6 @@
     "txtHintRetypePassword" : "********",
     "txtLableRegister" : "Already have an account? ",
     "txtLoginHere" : "Login here",
-    "btnRegister" : "Register",
     "txtLetsLogin" : "Let’s Login",
     "txtTitleLogin" : "And note your idea",
     "txtForgotPassword" : "Forgot Password",
@@ -69,6 +68,10 @@
     "txtMyAssignment" : "My Assignment",
     "txtConfirmTask" : "Confirm Task",
     "txhintDescription" : "Description for sub-task",
+    "txtSnackbarUpdate" : "Update profile successfully",
+    "txtSnackbarUpdateSubTask" : "Edit Sub-task successfully",
+    "txtSnackbarChangePass" : "Change password successfully",
+    "btnRegister" : "Register",
     "btnDone" : "Done",
     "btnLogin" : "Login",
     "btnSendCode" : "Send Code",
@@ -91,6 +94,5 @@
     "btnDeleted" : "Delete",
     "btnSnackDelete" : "Delete Subtask done",
     "btnWaitResponse" : "waiting for response"
-
 }
 

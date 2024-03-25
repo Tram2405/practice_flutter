@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.INITIAL,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: const Locale('vi'),
+      locale: const Locale('en'),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: TMTextTheme.appTextTheme,

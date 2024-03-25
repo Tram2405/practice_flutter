@@ -46,7 +46,7 @@ class CompletedTaskPage extends StatelessWidget {
                     },
                     task: task);
               },
-              separatorBuilder: (_, __) => const SizedBox(height: 3.0),
+              separatorBuilder: (_, __) => const SizedBox(height: 10.0),
             ),
     );
   }

@@ -56,9 +56,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get txtLoginHere => 'Login here';
 
   @override
-  String get btnRegister => 'Register';
-
-  @override
   String get txtLetsLogin => 'Let’s Login';
 
   @override
@@ -210,6 +207,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get txhintDescription => 'Description for sub-task';
+
+  @override
+  String get txtSnackbarUpdate => 'Update profile successfully';
+
+  @override
+  String get txtSnackbarUpdateSubTask => 'Edit Sub-task successfully';
+
+  @override
+  String get txtSnackbarChangePass => 'Change password successfully';
+
+  @override
+  String get btnRegister => 'Register';
 
   @override
   String get btnDone => 'Done';

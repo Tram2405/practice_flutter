@@ -42,7 +42,7 @@ class ApprovalTaskPage extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (_, __) => const SizedBox(
-                  height: 3.0,
+                  height: 5.0,
                 ),
               ),
       ),

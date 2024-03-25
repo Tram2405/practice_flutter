@@ -56,9 +56,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get txtLoginHere => 'Đăng nhập tại đây';
 
   @override
-  String get btnRegister => 'Tạo tài khoản';
-
-  @override
   String get txtLetsLogin => 'Hãy đăng nhập';
 
   @override
@@ -212,6 +209,18 @@ class AppLocalizationsVi extends AppLocalizations {
   String get txhintDescription => 'Mô tả cho nhiệm vụ phụ';
 
   @override
+  String get txtSnackbarUpdate => 'Cập nhật thông tin thành công';
+
+  @override
+  String get txtSnackbarUpdateSubTask => 'Chỉnh sửa Sub-task thành công';
+
+  @override
+  String get txtSnackbarChangePass => 'Đổi mật khẩu thành công';
+
+  @override
+  String get btnRegister => 'Tạo tài khoản';
+
+  @override
   String get btnDone => 'Hoàn thành';
 
   @override
@@ -233,7 +242,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get btnSendAgain => 'Gửi lại';
 
   @override
-  String get btnEditProfile => 'Edit Profile';
+  String get btnEditProfile => 'Chỉnh sửa thông tin';
 
   @override
   String get btnChangePass => 'Đổi mật khẩu';

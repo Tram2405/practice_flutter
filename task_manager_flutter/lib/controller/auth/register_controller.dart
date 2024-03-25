@@ -41,7 +41,7 @@ class RegisterController extends GetxController {
         .then((registerMessage) {
       if (registerMessage == 'Success') {
         isLoading.value = false;
-        Get.offAllNamed(Routes.LOGIN);
+        Get.offAllNamed(Routes.LOGIN, arguments: [emailController.text]);
       } else {
         isLoading.value = false;
         ScaffoldMessenger.of(context).showSnackBar(

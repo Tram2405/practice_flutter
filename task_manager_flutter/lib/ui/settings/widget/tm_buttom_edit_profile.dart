@@ -26,7 +26,6 @@ class TMButtomEditProfile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100.0),
-          
           border: Border.all(
             color: TMColor.secondary,
           ),
@@ -35,7 +34,9 @@ class TMButtomEditProfile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: mainAxisSize,
           children: [
-            SvgPicture.asset(Assets.icons.iconEdit),
+            SvgPicture.asset(
+              Assets.icons.iconEdit,
+            ),
             const SizedBox(width: 8.0),
             Text(
               title,

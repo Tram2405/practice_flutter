@@ -97,8 +97,8 @@ class RegisterPage extends GetView<RegisterController> {
               TMTextLink(
                 text: AppLocalizations.of(context).txtLableRegister,
                 linkText: AppLocalizations.of(context).txtLoginHere,
-                onPressed: () async {
-                  Get.toNamed(Routes.LOGIN);
+                onPressed: () {
+                  Get.offAllNamed(Routes.LOGIN);
                 },
               )
             ],

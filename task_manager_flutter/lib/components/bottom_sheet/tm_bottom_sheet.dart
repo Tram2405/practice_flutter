@@ -14,7 +14,7 @@ class TMBottomSheet extends StatelessWidget {
   }) {
     return showFlexibleBottomSheet(
       isModal: true,
-      maxHeight: 1,
+      maxHeight: 0.7,
       minHeight: 0.5,
       bottomSheetBorderRadius: const BorderRadius.only(
         topLeft: Radius.circular(12.0),

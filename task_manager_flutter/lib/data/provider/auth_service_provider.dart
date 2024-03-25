@@ -38,8 +38,8 @@ class AuthServiceProvider {
 
   Future addUserDetails(String fullName, String emailAddress) async {
     await fireStore.collection('users').add({
-      'full name': fullName,
-      'email address': emailAddress,
+      'full_name': fullName,
+      'email_address': emailAddress,
     });
   }
 
@@ -73,10 +73,11 @@ class AuthServiceProvider {
   }
 
   Future<String> updateProfile(
-      {required String id, required String name}) async {
+      {required String id, required String name, String? avatar}) async {
     try {
       await userCollection.doc(id).update({
-        'full name': name,
+        'full_name': name,
+        if (avatar != null) 'avatar': avatar,
       });
       return 'success';
     } catch (e) {
@@ -86,7 +87,7 @@ class AuthServiceProvider {
 
   Future<String> changePassword(
       String currentPassword, String newPassword) async {
-    String message= 'false';
+    String message = 'false';
 
     var user = FirebaseAuth.instance.currentUser!;
     //Must re-authenticate user before updating the password. Otherwise it may fail or user get signed out.

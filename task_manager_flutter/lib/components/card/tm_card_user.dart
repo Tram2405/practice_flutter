@@ -5,7 +5,6 @@ import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class CardUser extends StatelessWidget {
-
   ///Create a user card to use to display users in assigned user subtask
   ///
   ///The [user] arguments must not be null
@@ -30,7 +29,7 @@ class CardUser extends StatelessWidget {
         child: Row(
           children: [
             CircleAvatar(
-              backgroundImage: AssetImage(user.avatar ?? ''),
+              backgroundImage: AssetImage(user.memberPicture()),
             ),
             const SizedBox(
               width: 10.0,

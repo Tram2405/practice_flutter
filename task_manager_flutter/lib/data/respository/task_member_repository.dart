@@ -7,10 +7,11 @@ class TaskMemberRepository {
 
   TaskMemberRepository({required this.taskProvider});
 
-  List<TaskModel> getMyTasks(String myEmail) {
+  Future<List<TaskModel>> getMyTasks(String myEmail) async {
+    final tasks = await taskProvider.getTasks();
     List<TaskModel> myTasks = [];
 
-    for (TaskModel task in taskProvider.getTasks()) {
+    for (TaskModel task in tasks) {
       for (SubTaskModel subtask in task.subTasks) {
         if (myEmail == subtask.user?.email) {
           myTasks.add(task);

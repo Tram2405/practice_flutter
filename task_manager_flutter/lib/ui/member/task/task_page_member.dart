@@ -24,49 +24,52 @@ class TaskMemberPage extends StatelessWidget {
         ),
       ),
     );
-    return TMScaffold(
-      backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
-      appBar: TMAppbar(
-        title: AppLocalizations.of(context).txtTask,
-        rightIcon: Assets.icons.iconBell,
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TMTitle(
-            title: AppLocalizations.of(context).txtMyTask,
-            textStyle: context.textTheme.bodyLarge,
-          ),
-          const SizedBox(height: 16.0),
-          Expanded(
-            child: controller.myTasks.isEmpty
-                ? Center(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Image.asset(Assets.images.imgTaskEmpty.path),
-                    ),
-                  )
-                : ListView.separated(
-                    itemCount: controller.myTasks.length,
-                    itemBuilder: (_, index) {
-                      final task = controller.myTasks.reversed.toList()[index];
+    return Obx(
+      () => TMScaffold(
+        backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
+        appBar: TMAppbar(
+          title: AppLocalizations.of(context).txtTask,
+          rightIcon: Assets.icons.iconBell,
+        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TMTitle(
+              title: AppLocalizations.of(context).txtMyTask,
+              textStyle: context.textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 16.0),
+            Expanded(
+              child: controller.myTasks.isEmpty
+                  ? Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Image.asset(Assets.images.imgTaskEmpty.path),
+                      ),
+                    )
+                  : ListView.separated(
+                      itemCount: controller.myTasks.length,
+                      itemBuilder: (_, index) {
+                        final task =
+                            controller.myTasks.reversed.toList()[index];
 
-                      return TMCardTask(
-                        task: task,
-                        onPressed: () => Get.toNamed(
-                          Routes.DETAIL_TASK_MEMBER,
-                          arguments: [task, controller.userCurrent?.email],
-                        )?.then((_) {
-                          controller.myTasks.refresh();
-                        }),
-                      );
-                    },
-                    separatorBuilder: (_, __) => const SizedBox(
-                      height: 10.0,
+                        return TMCardTask(
+                          task: task,
+                          onPressed: () => Get.toNamed(
+                            Routes.DETAIL_TASK_MEMBER,
+                            arguments: [task, controller.userCurrent?.email],
+                          )?.then((_) {
+                            controller.myTasks.refresh();
+                          }),
+                        );
+                      },
+                      separatorBuilder: (_, __) => const SizedBox(
+                        height: 10.0,
+                      ),
                     ),
-                  ),
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

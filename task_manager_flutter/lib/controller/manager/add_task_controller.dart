@@ -9,6 +9,7 @@ import 'package:task_manager_flutter/utils/enum.dart';
 class AddTaskController extends GetxController {
   TextEditingController taskNameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
+  final descriptonFocusNode = FocusNode();
 
   ///Observable variable to listen for added subtasks
   RxList<SubTaskModel> subTaskAdds = <SubTaskModel>[].obs;

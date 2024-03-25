@@ -8,11 +8,13 @@ class TMDisplayInfo extends StatelessWidget {
     this.borderRadius = const BorderRadius.all(Radius.circular(25.0)),
     this.onPressed,
     super.key,
+    this.border,
   });
   final Function()? onPressed;
   final Color color;
   final BorderRadius borderRadius;
   final Widget child;
+  final Border? border;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class TMDisplayInfo extends StatelessWidget {
         decoration: BoxDecoration(
           color: color,
           borderRadius: borderRadius,
+          border: border,
         ),
         child: child,
       ),

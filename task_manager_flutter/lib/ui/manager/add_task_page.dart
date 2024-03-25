@@ -47,18 +47,7 @@ class AddTaskPage extends GetView<AddTaskController> {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(25.0),
                         onTap: () => controller.onSelectedType(index),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: controller.currentIndex.value == index
-                                ? Border.all(
-                                    width: 1.5,
-                                    color: TMColor.primaryIcon.withOpacity(0.6),
-                                  )
-                                : null,
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          child: type.toStyleTaskDisplay(context),
-                        ),
+                        child: type.toStyleTaskDisplay(context, isFocus: controller.currentIndex.value == index),
                       ),
                     );
                   }),
@@ -74,6 +63,7 @@ class AddTaskPage extends GetView<AddTaskController> {
               const SizedBox(height: 15.0),
               TMTextField(
                 hintText: AppLocalizations.of(context).txtDescription,
+                focusNode: controller.descriptonFocusNode,
                 maxLines: 4,
                 textInputAction: TextInputAction.done,
                 controller: controller.descriptionController,
@@ -82,6 +72,7 @@ class AddTaskPage extends GetView<AddTaskController> {
               const SizedBox(height: 20.0),
               TMButtonTask(
                 onPressed: () {
+                  controller.descriptonFocusNode.unfocus();
                   Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
                     controller.addSubTask(value);
                   });
@@ -92,7 +83,8 @@ class AddTaskPage extends GetView<AddTaskController> {
               ),
               const SizedBox(height: 8.0),
               controller.subTaskAdds.isEmpty
-                  ? TMTextPrompt(text: AppLocalizations.of(context).txtNoSubTask)
+                  ? TMTextPrompt(
+                      text: AppLocalizations.of(context).txtNoSubTask)
                   : ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,

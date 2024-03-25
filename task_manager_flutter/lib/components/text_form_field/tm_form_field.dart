@@ -10,6 +10,7 @@ class TMTextField extends StatelessWidget {
     this.onChanged,
     this.textInputAction,
     super.key,
+    this.focusNode,
   });
 
   final TextEditingController? controller;
@@ -17,11 +18,13 @@ class TMTextField extends StatelessWidget {
   final int? maxLines;
   final ValueChanged<String>? onChanged;
   final TextInputAction? textInputAction;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      focusNode: focusNode,
       textInputAction: textInputAction,
       style:
           context.textTheme.titleLarge?.copyWith(color: TMColor.onBackground),

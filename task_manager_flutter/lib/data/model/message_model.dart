@@ -27,6 +27,18 @@ class MessageModel {
         isManagerMessage: data?['is_manager_message']);
   }
 
+  factory MessageModel.fromJson(
+   Map<String, dynamic> json,
+  ) {
+    return MessageModel(
+        id: json['id'] ?? '',
+        email: json['email'] ?? '',
+        avatar: json['avatar'] ?? '',
+        message: json['message'] ?? '',
+        isManagerMessage: json['is_manager_message'] as bool?,
+        );
+  }
+
   Map<String, dynamic> toFirestore() {
     return {
       "id": id,

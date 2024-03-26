@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
-import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
+import 'package:task_manager_flutter/ui/settings/widget/tm_img_network.dart';
 
 class TMAvatarMember extends StatelessWidget {
   ///a widget that displays representative images of members in the subtask
@@ -24,17 +24,10 @@ class TMAvatarMember extends StatelessWidget {
         ...List.generate(
             (subtasks.length > minLength) ? minLength - 1 : subtasks.length,
             (index) {
-          final avatar = subtasks[index].user?.avatar ?? Assets.images.imgAvatarDefault.path;
+          final avatar = subtasks[index].user?.avatar;
           return Align(
             widthFactor: 0.65,
-            child: CircleAvatar(
-              radius: 17.0,
-              backgroundColor: TMColor.button,
-              child: CircleAvatar(
-                radius: 16.0,
-                backgroundImage: AssetImage(avatar),
-              ),
-            ),
+            child: TMImageNetwork(demesion: 32, imageUrl: avatar ?? ''),
           );
         }),
 

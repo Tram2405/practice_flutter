@@ -155,7 +155,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get txtCompletedTask => 'Nhiệm vụ đã hoàn thành';
 
   @override
-  String get txtNoCompleted => 'Không có nhiệm vụ nào hoàn th';
+  String get txtNoCompleted => 'Không có nhiệm vụ nào hoàn thành';
 
   @override
   String get txtProgress => 'Tiến triển';
@@ -204,6 +204,15 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get txtMyAssignment => 'Nhiệm vụ của tôi';
+
+  @override
+  String get txtConfirmTask => 'Xác nhận nhiệm vụ';
+
+  @override
+  String get txhintDescription => 'Mô tả cho nhiệm vụ phụ';
+
+  @override
+  String get btnDone => 'Hoàn thành';
 
   @override
   String get btnLogin => 'Đăng nhập';

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
 import 'package:task_manager_flutter/components/buttons/tm_elevatebutton.dart';
+import 'package:task_manager_flutter/components/card/tm_card_message.dart';
 import 'package:task_manager_flutter/components/date_time/tm_display_date_time.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
@@ -21,81 +22,102 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
   @override
   Widget build(BuildContext context) {
     const sizedBox12 = SizedBox(height: 12.0);
-    return TMScaffold(
-      appBar: TMAppbar(
-        title: controller.subTask.user?.name ?? '',
-        leftIcon: Assets.icons.iconClose,
-        leftPressed: () => Get.back(),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            controller.subTask.status.toStatusSubTask(context),
-            sizedBox12,
-            TMTitle(
-              title: controller.subTask.subTaskName ?? '',
-              textStyle: context.textTheme.displaySmall,
-            ),
-            sizedBox12,
-            Row(
-              children: [
-                TMDisplayDateTime(
-                  title: AppLocalizations.of(context).txtStartDate,
-                  dateTime: controller.subTask.startDate.toDateTime,
-                ),
-                const SizedBox(width: 30.0),
-                TMDisplayDateTime(
-                  title: AppLocalizations.of(context).txtDueDate,
-                  textColor: TMColor.onError,
-                  dateTime: controller.subTask.dueDate.toDateTime,
-                ),
-              ],
-            ),
-            sizedBox12,
-            TMTitle(
-              title: controller.subTask.description ?? '',
-              textStyle: context.textTheme.bodyMedium
-                  ?.copyWith(color: TMColor.primaryIcon),
-              isReadMore: true,
-            ),
-            const SizedBox(height: 20.0),
-            TMTextField(
-              hintText: AppLocalizations.of(context).txtDescription,
-              maxLines: 4,
-              textInputAction: TextInputAction.done,
-              controller: controller.descriptionController,
-              // onChanged: (_) => controller.checkIsEmpty(),
-            ),
-          ],
+    return Obx(
+      () => TMScaffold(
+        appBar: TMAppbar(
+          title: controller.subTask.value.user?.name ?? '',
+          leftIcon: Assets.icons.iconClose,
+          leftPressed: () => Get.back(),
         ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TMElevateButton(
-              onPressed: () {
-                controller.subTask.status = StatusType.error.name;
-                Get.back();
-              },
-              text: AppLocalizations.of(context).btnSendAgain,
-              color: TMColor.button,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            const SizedBox(height: 16.0),
-            TMElevateButton(
-              onPressed: () {
-                controller.subTask.status = StatusType.completed.name;
-                Get.back();
-              },
-              text: AppLocalizations.of(context).btnApproval,
-              color: TMColor.primaryOnBoarding,
-              textColor: TMColor.onSecondary,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              controller.subTask.value.status.toStatusSubTask(context),
+              sizedBox12,
+              TMTitle(
+                title: controller.subTask.value.subTaskName ?? '',
+                textStyle: context.textTheme.displaySmall,
+              ),
+              sizedBox12,
+              Row(
+                children: [
+                  TMDisplayDateTime(
+                    title: AppLocalizations.of(context).txtStartDate,
+                    dateTime: controller.subTask.value.startDate.toDateTime,
+                  ),
+                  const SizedBox(width: 30.0),
+                  TMDisplayDateTime(
+                    title: AppLocalizations.of(context).txtDueDate,
+                    textColor: TMColor.onError,
+                    dateTime: controller.subTask.value.dueDate.toDateTime,
+                  ),
+                ],
+              ),
+              sizedBox12,
+              TMTitle(
+                title: controller.subTask.value.description ?? '',
+                textStyle: context.textTheme.bodyMedium
+                    ?.copyWith(color: TMColor.primaryIcon),
+                isReadMore: true,
+              ),
+              const SizedBox(height: 15.0),
+              TMTextField(
+                hintText: AppLocalizations.of(context).txtDescription,
+                textInputAction: TextInputAction.done,
+                controller: controller.descriptionController,
+                onChanged: (_) => controller.checkIsEmpty(),
+              ),
+              const SizedBox(height: 20.0),
+              TMTitle(
+                title: 'Message',
+                textStyle: context.textTheme.displaySmall,
+              ),
+              sizedBox12,
+              ListView.separated(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: controller.subTask.value.messages.length,
+                itemBuilder: (context, index) {
+                  final message = controller.subTask.value.messages[index];
+                  return TMCardMessage(message: message);
+                },
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 10.0),
+              )
+            ],
+          ),
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TMElevateButton(
+                onPressed:
+                    controller.canAction.value ? controller.addMessage : null,
+                text: AppLocalizations.of(context).btnSendAgain,
+                color: controller.canAction.value
+                    ? TMColor.primary
+                    : TMColor.button,
+                borderRadius: BorderRadius.circular(10.0),
+                textColor: controller.canAction.value
+                    ? TMColor.onBackground
+                    : TMColor.onPrimary,
+              ),
+              const Spacer(),
+              TMElevateButton(
+                onPressed: () {
+                  controller.subTask.value.status = StatusType.completed.name;
+                  Get.back();
+                },
+                text: AppLocalizations.of(context).btnApproval,
+                color: TMColor.primaryOnBoarding,
+                textColor: TMColor.onSecondary,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+            ],
+          ),
         ),
       ),
     );

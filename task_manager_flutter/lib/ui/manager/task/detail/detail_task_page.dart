@@ -109,7 +109,16 @@ class DetailTaskPage extends StatelessWidget {
                                     controller.task.refresh();
                                   });
                                 }
-                              : null,
+                              : detailType == DetailType.edit
+                                  ? () {
+                                      Get.toNamed(
+                                        Routes.DETAIL_SUB_TASK,
+                                        arguments: [subTask],
+                                      )?.then((value) {
+                                        controller.task.refresh();
+                                      });
+                                    }
+                                  : null,
                           onSelected: detailType == DetailType.edit
                               ? (value) {
                                   controller.onSelectDropDown(

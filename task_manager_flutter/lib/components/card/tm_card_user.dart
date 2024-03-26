@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
+import 'package:task_manager_flutter/ui/settings/widget/tm_img_network.dart';
 
 class CardUser extends StatelessWidget {
   ///Create a user card to use to display users in assigned user subtask
@@ -28,8 +29,16 @@ class CardUser extends StatelessWidget {
         decoration: const BoxDecoration(color: TMColor.onSecondary),
         child: Row(
           children: [
-            CircleAvatar(
-              backgroundImage: AssetImage(user.memberPicture()),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: CircleAvatar(
+                radius: 20,
+                child: user.avatar == null || !user.avatar!.contains('http')
+                    ? Image.asset(
+                        user.memberPicture(),
+                      )
+                    : TMImageNetwork(imageUrl: user.avatar ?? ''),
+              ),
             ),
             const SizedBox(
               width: 10.0,

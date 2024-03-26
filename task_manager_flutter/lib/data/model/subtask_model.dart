@@ -1,5 +1,5 @@
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
-import 'package:task_manager_flutter/gen/assets.gen.dart';
+import 'package:task_manager_flutter/data/model/message_model.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 
 class SubTaskModel {
@@ -10,26 +10,9 @@ class SubTaskModel {
   String? startDate;
   String? dueDate;
   String? status;
+  List<MessageModel> messages = [];
 
   SubTaskModel();
-
-  SubTaskModel copyWith({
-    String? id,
-    String? subTaskName,
-    String? description,
-    AppUserModel? user,
-    String? startDate,
-    String? dueDate,
-    String? status,
-  }) {
-    return SubTaskModel()
-      ..id = id ?? this.id
-      ..subTaskName = subTaskName ?? this.subTaskName
-      ..description = description ?? this.description
-      ..user = user ?? this.user
-      ..startDate = startDate ?? this.startDate
-      ..dueDate = dueDate ?? this.dueDate;
-  }
 
   void removeUser() {
     user = null;
@@ -48,7 +31,7 @@ List<SubTaskModel> subTasks = [
       ..id = '1'
       ..name = 'Trâm'
       ..email = 'tram123@gmail.com'
-      ..avatar = Assets.images.imgAvatarMember2.path),
+      ..avatar = 'https://i.pinimg.com/564x/44/cc/f8/44ccf87224a4733d37288b0d727c2ea0.jpg'),
   SubTaskModel()
     ..id = '2'
     ..subTaskName = 'fffff Figma'
@@ -59,7 +42,7 @@ List<SubTaskModel> subTasks = [
     ..user = (AppUserModel()
       ..id = '2'
       ..name = 'Jack'
-      ..avatar = Assets.images.imgAvatarMember4.path),
+      ..avatar = 'https://i.pinimg.com/564x/1d/f9/6e/1df96e458e6e10779de6f52cafd2d655.jpg'),
   SubTaskModel()
     ..id = '3'
     ..subTaskName = 'Up'
@@ -71,7 +54,7 @@ List<SubTaskModel> subTasks = [
       ..id = '4'
       ..name = 'Trâm'
       ..email = 'tram123@gmail.com'
-      ..avatar = Assets.images.imgAvatarMember6.path),
+      ..avatar = 'https://i.pinimg.com/564x/4f/6b/44/4f6b4473a03eb0d219e0351b1315e18b.jpg'),
   SubTaskModel()
     ..id = '4'
     ..subTaskName = 'cooo '
@@ -82,7 +65,7 @@ List<SubTaskModel> subTasks = [
     ..user = (AppUserModel()
       ..id = '6'
       ..name = 'Berdiyev'
-      ..avatar = Assets.images.imgAvatarMember6.path),
+      ..avatar = 'https://i.pinimg.com/564x/6a/7a/e6/6a7ae6ffdbf8b25efa62872b4f071539.jpg'),
   SubTaskModel()
     ..id = '5'
     ..subTaskName = 'De'
@@ -94,7 +77,7 @@ List<SubTaskModel> subTasks = [
       ..id = '4'
       ..name = 'Trâm'
       ..email = 'tram123@gmail.com'
-      ..avatar = Assets.images.imgAvatarMember4.path),
+      ..avatar = 'https://i.pinimg.com/564x/4f/6b/44/4f6b4473a03eb0d219e0351b1315e18b.jpg'),
   SubTaskModel()
     ..id = '6'
     ..subTaskName = 'Up'
@@ -105,7 +88,7 @@ List<SubTaskModel> subTasks = [
     ..user = (AppUserModel()
       ..id = '7'
       ..name = 'Merdan'
-      ..avatar = Assets.images.imgAvatarMember3.path),
+      ..avatar = 'https://i.pinimg.com/564x/28/f0/3d/28f03dbe2c0b7982a2658e5bb50123e8.jpg'),
   SubTaskModel()
     ..id = '7'
     ..subTaskName = 'Code UI'
@@ -116,7 +99,7 @@ List<SubTaskModel> subTasks = [
     ..user = (AppUserModel()
       ..id = '3'
       ..name = 'Merdan Berdiyev'
-      ..avatar = Assets.images.imgAvatarMember3.path),
+      ..avatar = 'https://i.pinimg.com/564x/11/2f/1b/112f1b1758e9af56a75782bc942cb7d1.jpg'),
   SubTaskModel()
     ..id = '8'
     ..subTaskName = 'Design '
@@ -127,5 +110,5 @@ List<SubTaskModel> subTasks = [
     ..user = (AppUserModel()
       ..id = '5'
       ..name = 'Perhat'
-      ..avatar = Assets.images.imgAvatarMember5.path),
+      ..avatar = 'https://i.pinimg.com/564x/11/2f/1b/112f1b1758e9af56a75782bc942cb7d1.jpg'),
 ];

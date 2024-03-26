@@ -44,13 +44,14 @@ class CompletedTaskPage extends StatelessWidget {
                     itemBuilder: (_, index) {
                       final task = controller.taskCompleteds[index];
                       return TMCardCompleted(
-                          onPressed: () {
-                            Get.toNamed(
-                              Routes.DETAIL_COMPLETED_TASK,
-                              arguments: {'task': task},
-                            );
-                          },
-                          task: task);
+                        onPressed: () {
+                          Get.toNamed(
+                            Routes.DETAIL_COMPLETED_TASK,
+                            arguments: {'task': task},
+                          );
+                        },
+                        task: task,
+                      );
                     },
                     separatorBuilder: (_, __) => const SizedBox(height: 10.0),
                   ),

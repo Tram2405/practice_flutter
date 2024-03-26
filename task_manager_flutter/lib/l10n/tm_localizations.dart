@@ -525,6 +525,12 @@ abstract class AppLocalizations {
   /// **'Add Sub-task successfully'**
   String get txtSnackbarAddSubbtask;
 
+  /// No description provided for @txtSnackbarError.
+  ///
+  /// In en, this message translates to:
+  /// **'Đã xảy ra lỗi'**
+  String get txtSnackbarError;
+
   /// No description provided for @btnRegister.
   ///
   /// In en, this message translates to:

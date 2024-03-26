@@ -17,10 +17,10 @@ class TaskMemberController extends GetxController {
     return taskMemberRepository.stream();
   }
 
-  Future<void> getMyTask(List<DocumentData> documents) async {
-    final allTasks = documents.map((e) => e.task ?? TaskModel()).toList();
-    final tasks = await taskMemberRepository.getMyTasks(
-        myEmail: userCurrent?.email ?? '', tasks: allTasks);
+  void getMyTask(List<DocumentData> documents) {
+    final tasks = taskMemberRepository.getMyTasks(
+        myEmail: userCurrent?.email ?? '',
+        tasks: documents.map((e) => e.task ?? TaskModel()).toList());
     myTasks.value = tasks;
     print('object ${myTasks.length}');
   }

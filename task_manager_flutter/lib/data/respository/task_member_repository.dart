@@ -8,7 +8,8 @@ class TaskMemberRepository {
 
   TaskMemberRepository({required this.taskProvider});
 
-  Future<List<TaskModel>> getMyTasks({required String myEmail,required List<TaskModel> tasks}) async {
+  List<TaskModel> getMyTasks(
+      {required String myEmail, required List<TaskModel> tasks}) {
     List<TaskModel> myTasks = [];
 
     for (TaskModel task in tasks) {
@@ -23,9 +24,6 @@ class TaskMemberRepository {
   }
 
   Stream<QuerySnapshot> stream() {
-    return taskProvider.tasksCollection
-        .snapshots();
+    return taskProvider.tasksCollection.snapshots();
   }
-
-
 }

@@ -37,7 +37,8 @@ class TaskMemberPage extends StatelessWidget {
           stream: controller.taskStream(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
-              return const TMTitle(title: 'Something went wrong');
+              return TMTitle(
+                  title: AppLocalizations.of(context).txtSnackbarError);
             }
 
             if (snapshot.connectionState == (ConnectionState.waiting)) {

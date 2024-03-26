@@ -9,6 +9,8 @@ import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/task/detail/detail_task_controller.dart';
+import 'package:task_manager_flutter/data/provider/task_provider.dart';
+import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
@@ -23,7 +25,13 @@ class DetailTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(DetailTaskController());
+    final controller = Get.put(
+      DetailTaskController(
+        taskRepository: TaskRepository(
+          taskProvider: TaskProvider(),
+        ),
+      ),
+    );
     const sizedBox12 = SizedBox(height: 12.0);
     const sizedBox16 = SizedBox(height: 16.0);
 
@@ -77,9 +85,7 @@ class DetailTaskPage extends StatelessWidget {
                 TMButtonTask(
                   onPressed: () {
                     Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
-                      controller.addSubTask(value);
-                      // controller.task.value.subTasks.add(value);
-                      // controller.task.refresh();
+                      controller.addSubTask(context, value);
                     });
                   },
                   text: AppLocalizations.of(context).txtAddSubTask,

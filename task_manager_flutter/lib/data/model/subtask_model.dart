@@ -31,14 +31,16 @@ class SubTaskModel {
       DocumentSnapshot<Map<String, dynamic>>? snapshot) {
     final data = snapshot?.data();
     return SubTaskModel(
-      id: data?['id'] ?? '',
-      subTaskName: data?['sub_task_name'] ?? '',
-      description: data?['description'] ?? '',
-      user: AppUserModel.fromFirestore(data?['user']),
-      startDate: data?['start_date'],
-      dueDate: data?['due_date'] ?? '',
-      status: data?['status'] ?? '',
-    );
+        id: data?['id'] ?? '',
+        subTaskName: data?['sub_task_name'] ?? '',
+        description: data?['description'] ?? '',
+        user: AppUserModel.fromFirestore(data?['user']),
+        startDate: data?['start_date'],
+        dueDate: data?['due_date'] ?? '',
+        status: data?['status'] ?? '',
+        messages: (data?['message'] as List<dynamic>)
+            .map((e) => MessageModel.fromJson(e))
+            .toList());
   }
 
   factory SubTaskModel.fromJson(Map<String, dynamic> json) {
@@ -50,9 +52,9 @@ class SubTaskModel {
         startDate: json['start_date'],
         dueDate: json['due_date'] ?? '',
         status: json['status'] ?? '',
-        messages: json['message'] == null
+        messages: json['messages'] == null
             ? []
-            : (json['message'] as List<dynamic>)
+            : (json['messages'] as List<dynamic>)
                 .map((e) => MessageModel.fromJson(e))
                 .toList());
   }
@@ -65,6 +67,8 @@ class SubTaskModel {
       "user": user?.toFirestore(),
       "start_date": startDate,
       "due_date": dueDate,
+      "status": status,
+      "messages": messages.map((e) => e.toFirestore()),
     };
   }
 }

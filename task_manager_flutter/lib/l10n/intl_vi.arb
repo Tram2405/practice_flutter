@@ -72,6 +72,7 @@
     "txtSnackbarUpdate" : "Cập nhật thông tin thành công",
     "txtSnackbarUpdateSubTask" : "Chỉnh sửa Sub-task thành công",
     "txtSnackbarChangePass" : "Đổi mật khẩu thành công",
+    "txtSnackbarAddSubbtask" : "Thêm Sub-Task thành công",
     "btnDone" : "Hoàn thành",
     "btnLogin" : "Đăng nhập",
     "btnSendCode" : "Gửi mã",

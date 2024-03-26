@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
@@ -7,8 +8,7 @@ class TaskMemberRepository {
 
   TaskMemberRepository({required this.taskProvider});
 
-  Future<List<TaskModel>> getMyTasks(String myEmail) async {
-    final tasks = await taskProvider.getTasks();
+  Future<List<TaskModel>> getMyTasks({required String myEmail,required List<TaskModel> tasks}) async {
     List<TaskModel> myTasks = [];
 
     for (TaskModel task in tasks) {
@@ -21,4 +21,11 @@ class TaskMemberRepository {
     }
     return myTasks;
   }
+
+  Stream<QuerySnapshot> stream() {
+    return taskProvider.tasksCollection
+        .snapshots();
+  }
+
+
 }

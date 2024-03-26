@@ -1,9 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
 import 'package:task_manager_flutter/components/card/tm_card_task.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
+import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/task/task_controller.dart';
+import 'package:task_manager_flutter/data/model/document_data.dart';
+import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
@@ -23,54 +27,75 @@ class TaskPage extends StatelessWidget {
         ),
       ),
     );
-    return Obx(
-      () => TMScaffold(
-        backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
-        appBar: TMAppbar(
-          leftIcon: Assets.icons.iconAdd,
-          leftPressed: () {
-            Get.toNamed(Routes.ADD_TASK)?.then((value) {
-              controller.listTask.add(value);
-            });
-          },
-          title: AppLocalizations.of(context).txtTask,
-          rightIcon: Assets.icons.iconBell,
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: controller.listTask.isEmpty
-                  ? Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Image.asset(Assets.images.imgTaskEmpty.path),
-                      ),
-                    )
-                  : ListView.separated(
-                      itemCount: controller.listTask.length,
-                      itemBuilder: (_, index) {
-                        final task =
-                            controller.listTask.reversed.toList()[index];
-
-                        return TMCardTask(
-                          task: task,
-                          onPressed: () => Get.toNamed(
-                            Routes.DETAIL_TASK,
-                            arguments: [task],
-                          )?.then((_) {
-                            controller.listTask.refresh();
-                          }),
-                        );
-                      },
-                      separatorBuilder: (_, __) => const SizedBox(
-                        height: 10.0,
-                      ),
-                    ),
-            ),
-          ],
-        ),
+    return TMScaffold(
+      backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
+      appBar: TMAppbar(
+        leftIcon: Assets.icons.iconAdd,
+        leftPressed: () {
+          Get.toNamed(Routes.ADD_TASK);
+        },
+        title: AppLocalizations.of(context).txtTask,
+        rightIcon: Assets.icons.iconBell,
       ),
+      body: StreamBuilder<QuerySnapshot>(
+          stream: controller.taskStream(),
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return const TMTitle(title: 'Something went wrong');
+            }
+
+            if (snapshot.connectionState == (ConnectionState.waiting)) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            List<DocumentData> documents = snapshot.data?.docs
+                    .map((e) => DocumentData()
+                      ..id = e.id
+                      ..task =
+                          TaskModel.fromJson(e.data() as Map<String, dynamic>))
+                    .toList() ??
+                [];
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: documents.isEmpty
+                      ? Center(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
+                            child: Image.asset(Assets.images.imgTaskEmpty.path),
+                          ),
+                        )
+                      : ListView.separated(
+                          itemCount: documents.length,
+                          itemBuilder: (_, index) {
+                            final id =
+                                documents[index].id ?? '';
+                            final task =
+                                documents[index].task ??
+                                    TaskModel();
+
+                            return TMCardTask(
+                              task: task,
+                              onPressed: () => Get.toNamed(
+                                Routes.DETAIL_TASK,
+                                arguments: {'task': task, 'id': id},
+                              )?.then((_) {
+                                controller.listTask.refresh();
+                              }),
+                            );
+                          },
+                          separatorBuilder: (_, __) => const SizedBox(
+                            height: 10.0,
+                          ),
+                        ),
+                ),
+              ],
+            );
+          }),
     );
   }
 }

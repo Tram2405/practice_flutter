@@ -218,6 +218,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get txtSnackbarChangePass => 'Change password successfully';
 
   @override
+  String get txtSnackbarAddSubbtask => 'Add Sub-task successfully';
+
+  @override
   String get btnRegister => 'Register';
 
   @override

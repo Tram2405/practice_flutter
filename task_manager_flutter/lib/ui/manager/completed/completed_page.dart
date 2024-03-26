@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/appbar/tm_appbar.dart';
@@ -24,30 +25,36 @@ class CompletedTaskPage extends StatelessWidget {
         ),
       ),
     );
-    controller.getSubTaskConfirm();
-    return TMScaffold(
-      backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
-      appBar: TMAppbar(
-        title: AppLocalizations.of(context).txtCompletedTask,
-        rightIcon: Assets.icons.iconBell,
-      ),
-      body: controller.taskCompleteds.isEmpty
-          ? TMTextPrompt(text: AppLocalizations.of(context).txtNoCompleted)
-          : ListView.separated(
-              itemCount: controller.taskCompleteds.length,
-              itemBuilder: (_, index) {
-                final task = controller.taskCompleteds[index];
-                return TMCardCompleted(
-                    onPressed: () {
-                      Get.toNamed(
-                        Routes.DETAIL_COMPLETED_TASK,
-                        arguments: [task],
-                      );
-                    },
-                    task: task);
-              },
-              separatorBuilder: (_, __) => const SizedBox(height: 10.0),
+
+    return StreamBuilder<QuerySnapshot>(
+        stream: controller.taskStream(),
+        builder: (context, snapshot) {
+          controller.getSubTaskConfirm(snapshot);
+          return TMScaffold(
+            backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
+            appBar: TMAppbar(
+              title: AppLocalizations.of(context).txtCompletedTask,
+              rightIcon: Assets.icons.iconBell,
             ),
-    );
+            body: controller.taskCompleteds.isEmpty
+                ? TMTextPrompt(
+                    text: AppLocalizations.of(context).txtNoCompleted)
+                : ListView.separated(
+                    itemCount: controller.taskCompleteds.length,
+                    itemBuilder: (_, index) {
+                      final task = controller.taskCompleteds[index];
+                      return TMCardCompleted(
+                          onPressed: () {
+                            Get.toNamed(
+                              Routes.DETAIL_COMPLETED_TASK,
+                              arguments: {'task': task},
+                            );
+                          },
+                          task: task);
+                    },
+                    separatorBuilder: (_, __) => const SizedBox(height: 10.0),
+                  ),
+          );
+        });
   }
 }

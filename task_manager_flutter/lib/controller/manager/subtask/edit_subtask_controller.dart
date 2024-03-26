@@ -87,11 +87,6 @@ class EditSubTaskController extends GetxController {
       ..startDate = startDate.value
       ..dueDate = dueDate.value
       ..user = userSelect.value;
-
     Get.back(result: subTask);
-    TMSnackBar.tmSnackBarSuccess(
-      context,
-      titleSnackbar: AppLocalizations.of(context).txtSnackbarUpdateSubTask,
-    );
   }
 }

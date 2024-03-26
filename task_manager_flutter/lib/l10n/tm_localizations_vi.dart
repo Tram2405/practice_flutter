@@ -218,6 +218,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get txtSnackbarChangePass => 'Đổi mật khẩu thành công';
 
   @override
+  String get txtSnackbarAddSubbtask => 'Thêm Sub-Task thành công';
+
+  @override
   String get btnRegister => 'Tạo tài khoản';
 
   @override

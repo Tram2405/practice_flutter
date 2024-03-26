@@ -25,7 +25,7 @@ class AddSubTaskController extends GetxController {
     startDate.value = await ChooseDateTime.pickDateTime(
           context,
           firstDate: DateTime.now(),
-          lastDate: DateTime(2030),
+          lastDate: DateTime.parse(dueDate.value ?? DateTime(2030).toString()),
         ) ??
         startDate.value;
   }
@@ -35,7 +35,7 @@ class AddSubTaskController extends GetxController {
   void chooseDueDate(BuildContext context) async {
     dueDate.value = await ChooseDateTime.pickDateTime(
           context,
-          firstDate: DateTime.now(),
+          firstDate: DateTime.parse(startDate.value ?? DateTime.now().toString()),
           lastDate: DateTime(2030),
         ) ??
         dueDate.value;

@@ -519,6 +519,12 @@ abstract class AppLocalizations {
   /// **'Change password successfully'**
   String get txtSnackbarChangePass;
 
+  /// No description provided for @txtSnackbarAddSubbtask.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Sub-task successfully'**
+  String get txtSnackbarAddSubbtask;
+
   /// No description provided for @btnRegister.
   ///
   /// In en, this message translates to:

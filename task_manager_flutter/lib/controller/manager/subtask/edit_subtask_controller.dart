@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/date_time/tm_choose_date_time.dart';
+import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 
 class EditSubTaskController extends GetxController {
   TextEditingController subTaskNameController = TextEditingController();
@@ -21,7 +23,6 @@ class EditSubTaskController extends GetxController {
   ///An observable variable to test that can perform an action when the conditions are right
   RxBool canAction = false.obs;
 
- 
   ///Get subtask information and fill in the fields to edit the subtask
   void getSubTask(SubTaskModel subTask) {
     startDate.value = subTask.startDate;
@@ -78,7 +79,7 @@ class EditSubTaskController extends GetxController {
   }
 
   ///Method to update the subtask with the modified details and return to the previous screen.
-  void updateSubTask() {
+  void updateSubTask(BuildContext context) {
     SubTaskModel subTask = SubTaskModel()
       ..status = status
       ..subTaskName = subTaskNameController.text
@@ -88,5 +89,9 @@ class EditSubTaskController extends GetxController {
       ..user = userSelect.value;
 
     Get.back(result: subTask);
+    TMSnackBar.tmSnackBarSuccess(
+      context,
+      titleSnackbar: AppLocalizations.of(context).txtSnackbarUpdateSubTask,
+    );
   }
 }

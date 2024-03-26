@@ -112,7 +112,7 @@ class EditSubTaskPage extends GetView<EditSubTaskController> {
         ),
         bottomNavigationBar: TMBottomButton(
           text: 'Edit Sub Task',
-          onPressed: controller.updateSubTask,
+          onPressed: () => controller.updateSubTask(context),
           isAction: controller.canAction.value,
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:task_manager_flutter/bindings/auth/register_bind.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/services/local/shared_prefs.dart';
 import 'package:task_manager_flutter/theme/tm_text_theme.dart';
@@ -39,12 +40,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
       getPages: AppPage.routes,
       initialBinding: RegisterBinding(),
       initialRoute: Routes.INITIAL,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale('en'),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: TMTextTheme.appTextTheme,

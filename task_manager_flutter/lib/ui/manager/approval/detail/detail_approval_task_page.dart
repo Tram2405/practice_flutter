@@ -24,6 +24,7 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
     const sizedBox12 = SizedBox(height: 12.0);
     return Obx(
       () => TMScaffold(
+        backgroundColor: TMColor.onSecondary,
         appBar: TMAppbar(
           title: controller.subTask.value.user?.name ?? '',
           leftIcon: Assets.icons.iconClose,

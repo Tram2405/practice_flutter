@@ -195,12 +195,6 @@ abstract class AppLocalizations {
   /// **'Login here'**
   String get txtLoginHere;
 
-  /// No description provided for @btnRegister.
-  ///
-  /// In en, this message translates to:
-  /// **'Register'**
-  String get btnRegister;
-
   /// No description provided for @txtLetsLogin.
   ///
   /// In en, this message translates to:
@@ -506,6 +500,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Description for sub-task'**
   String get txhintDescription;
+
+  /// No description provided for @txtSnackbarUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Update profile successfully'**
+  String get txtSnackbarUpdate;
+
+  /// No description provided for @txtSnackbarUpdateSubTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Sub-task successfully'**
+  String get txtSnackbarUpdateSubTask;
+
+  /// No description provided for @txtSnackbarChangePass.
+  ///
+  /// In en, this message translates to:
+  /// **'Change password successfully'**
+  String get txtSnackbarChangePass;
+
+  /// No description provided for @btnRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get btnRegister;
 
   /// No description provided for @btnDone.
   ///

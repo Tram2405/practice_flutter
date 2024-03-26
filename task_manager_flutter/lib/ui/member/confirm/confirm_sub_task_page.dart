@@ -7,6 +7,7 @@ import 'package:task_manager_flutter/components/text_form_field/tm_form_field.da
 import 'package:task_manager_flutter/controller/member/confirm/confirm_subtask_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class ConfirmSubTaskPage extends GetView<ConfirmSubTaskController> {
   const ConfirmSubTaskPage({super.key});
@@ -14,6 +15,7 @@ class ConfirmSubTaskPage extends GetView<ConfirmSubTaskController> {
   @override
   Widget build(BuildContext context) {
     return TMScaffold(
+      backgroundColor: TMColor.onSecondary,
       appBar: TMAppbar(
         title: AppLocalizations.of(context).txtConfirmTask,
         leftIcon: Assets.icons.iconBack,

@@ -15,8 +15,8 @@ class TaskController extends GetxController {
     getTask();
   }
 
-  getTask() {
-    listTask.value = taskRepository.getTasks();
+ Future<void> getTask() async {
+    listTask.value = await taskRepository.getTasks();
   }
 
   void checkIdTaskUpdate(TaskModel? task) {

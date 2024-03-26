@@ -17,7 +17,9 @@ class TaskMemberController extends GetxController {
     super.onInit();
   }
 
-  getMyTask() {
-    myTasks.value = taskMemberRepository.getMyTasks(userCurrent?.email ?? '');
+  Future<void> getMyTask() async {
+    final tasks =
+        await taskMemberRepository.getMyTasks(userCurrent?.email ?? '');
+    myTasks.value = tasks;
   }
 }

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 
@@ -7,12 +8,50 @@ class TaskModel {
   String? nameTask;
   String? description;
   String? startDate;
-  String? dueDate;
   int? numberFile;
   int? numberComment;
   List<SubTaskModel> subTasks = [];
 
-  TaskModel();
+  TaskModel({
+    this.id,
+    this.typeTask,
+    this.nameTask,
+    this.description,
+    this.startDate,
+    this.numberFile,
+    this.numberComment,
+    this.subTasks = const [],
+  });
+
+  factory TaskModel.fromFirestore(
+      DocumentSnapshot<Map<String, dynamic>>? snapshot) {
+    final data = snapshot?.data();
+    return TaskModel(
+      id: data?['id'] ?? '',
+      typeTask: data?['type_task'] ?? '',
+      nameTask: data?['name_task'] ?? '',
+      description: data?['description'] ?? '',
+      startDate: data?['start_date'] ?? '',
+      numberFile: data?['number_file'] ?? 0,
+      numberComment: data?['number_comment'] ?? 0,
+      subTasks:  (data?['sub_tasks'] as List<dynamic>)
+          .map((e) => SubTaskModel.fromJson(e))
+          .toList(),
+    );
+  }
+
+  Map<String, dynamic> toFirestore() {
+    return {
+      "id": id,
+      "type-task": typeTask,
+      "name_task": nameTask,
+      "description": description,
+      "start_date": startDate,
+      "number_file": numberFile,
+      "number_comment": numberComment,
+      "sub_task": subTasks.map((e) => e.toFirestore()),
+    };
+  }
 
   TaskModel copyWith({
     String? id,
@@ -29,7 +68,6 @@ class TaskModel {
       ..nameTask = nameTask ?? this.nameTask
       ..description = description ?? this.description
       ..startDate = startDate ?? this.startDate
-      ..dueDate = dueDate ?? this.dueDate
       ..subTasks = subTasks ?? this.subTasks;
   }
 

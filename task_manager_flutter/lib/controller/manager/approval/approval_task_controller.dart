@@ -21,8 +21,8 @@ class ApprovalTaskController extends GetxController {
     super.onInit();
   }
 
-  void getTask (){
-    taskConfirms.value = taskRepository.getTasks();
+  Future<void> getTask ()async{
+    taskConfirms.value =  await taskRepository.getTasks();
   }
 
   void getSubTaskConfirm(TaskModel? task) {

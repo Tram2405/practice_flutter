@@ -13,13 +13,21 @@ class AppUserModel {
   String memberPicture() => TMUtils.memberPicture(pictureId: email.hashCode);
 
   factory AppUserModel.fromFirestore(
-    DocumentSnapshot<Map<String, dynamic>>? snapshot,
-  ) {
+      DocumentSnapshot<Map<String, dynamic>>? snapshot) {
     final data = snapshot?.data();
     return AppUserModel(
       name: data?['full_name'] ?? '',
       email: data?['email_address'] ?? '',
       avatar: data?['avatar'] ?? '',
+    );
+  }
+
+   factory AppUserModel.fromJson(
+      Map<String, dynamic> json) {
+    return AppUserModel(
+      name: json['full_name'] ?? '',
+      email: json['email_address'] ?? '',
+      avatar: json['avatar'] ?? '',
     );
   }
 

@@ -18,8 +18,8 @@ class CompletedMemberController extends GetxController {
     super.onInit();
   }
 
-  getTaskCompleted() {
-    final tasks = taskMemberRepository.getMyTasks(userCurrent?.email ?? '');
+  Future<void> getTaskCompleted()async {
+    final tasks = await taskMemberRepository.getMyTasks(userCurrent?.email ?? '');
     for (var task in tasks) {
       for (var subtask in task.subTasks) {
         if (subtask.status == StatusType.completed.name && subtask.user?.email == userCurrent?.email) {

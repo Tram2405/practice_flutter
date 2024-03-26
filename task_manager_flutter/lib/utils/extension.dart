@@ -16,11 +16,12 @@ extension ExString on String? {
     }
   }
 
-  Widget toStyleTaskDisplay(BuildContext context) {
+  Widget toStyleTaskDisplay(BuildContext context, {bool isFocus = false}) {
     switch (this) {
       case 'low':
         return TMDisplayInfo(
           color: TMColor.completed,
+          border: isFocus ? Border.all(color: TMColor.onCompleted) : null,
           child: Text(
             AppLocalizations.of(context).txtLow,
             style: context.textTheme.bodySmall?.copyWith(
@@ -31,6 +32,7 @@ extension ExString on String? {
       case 'high':
         return TMDisplayInfo(
           color: TMColor.high,
+          border: isFocus ? Border.all(color: TMColor.onHigh) : null,
           child: Text(
             AppLocalizations.of(context).txtHigh,
             style: context.textTheme.bodySmall?.copyWith(
@@ -41,6 +43,7 @@ extension ExString on String? {
       case 'medium':
         return TMDisplayInfo(
           color: TMColor.progress,
+          border: isFocus ? Border.all(color: TMColor.onProgress) : null,
           child: Text(
             AppLocalizations.of(context).txtMedium,
             style: context.textTheme.bodySmall?.copyWith(

@@ -6,7 +6,7 @@ class TaskRepository{
 
   TaskRepository({required this.taskProvider});
 
-  List<TaskModel> getTasks() {
-    return taskProvider.getTasks();
+ Future <List<TaskModel>> getTasks() async{
+    return await taskProvider.getTasks();
   }
 }

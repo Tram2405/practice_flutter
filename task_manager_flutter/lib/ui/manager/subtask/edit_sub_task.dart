@@ -77,6 +77,7 @@ class EditSubTaskPage extends GetView<EditSubTaskController> {
                       onPressed: () {
                         TMBottomSheet.show(
                           context,
+                          users: controllerS.listSearch,
                           onPressed: (user) {
                             controller.assignUser(user);
                           },

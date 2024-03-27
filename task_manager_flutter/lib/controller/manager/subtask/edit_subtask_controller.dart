@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/date_time/tm_choose_date_time.dart';
-import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 
 class EditSubTaskController extends GetxController {
   TextEditingController subTaskNameController = TextEditingController();

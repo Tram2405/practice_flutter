@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 
@@ -9,8 +8,7 @@ class TaskRepository {
   TaskRepository({required this.taskProvider});
 
   Stream<QuerySnapshot> stream() {
-    return taskProvider.tasksCollection
-        .snapshots();
+    return taskProvider.tasksCollection.snapshots();
   }
 
   Future<List<TaskModel>> getTasks() async {
@@ -27,11 +25,20 @@ class TaskRepository {
   }
 
   Future<String> updateSubTask(
-      {required String id, required List<SubTaskModel> subTasks}) async {
+      {required String id, required TaskModel task}) async {
     try {
       await taskProvider.tasksCollection
           .doc(id)
-          .update(TaskModel(subTasks: subTasks).toFirestore());
+          .update(task.toFirestore());
+      return 'success';
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+  Future<String> removeTask({required String id}) async {
+    try {
+      await taskProvider.tasksCollection.doc(id).delete();
       return 'success';
     } catch (e) {
       return e.toString();

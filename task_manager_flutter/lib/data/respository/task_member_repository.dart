@@ -3,6 +3,7 @@ import 'package:task_manager_flutter/data/model/document_data.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
+import 'package:task_manager_flutter/utils/enum.dart';
 
 class TaskMemberRepository {
   final TaskProvider taskProvider;
@@ -14,7 +15,7 @@ class TaskMemberRepository {
     List<TaskModel> myTasks = [];
 
     for (TaskModel task in tasks) {
-      for (SubTaskModel subtask in task.subTasks) {
+      for (SubTaskModel subtask in task.subTasks ?? []) {
         if (myEmail == subtask.user?.email) {
           myTasks.add(task);
           break;
@@ -25,12 +26,14 @@ class TaskMemberRepository {
   }
 
   List<FirebaseCollectionData> getMyDocument(
-      {required String myEmail, required List<FirebaseCollectionData> documents}) {
+      {required String myEmail,
+      required List<FirebaseCollectionData> documents}) {
     List<FirebaseCollectionData> docs = [];
 
     for (FirebaseCollectionData doc in documents) {
       for (SubTaskModel subtask in doc.task?.subTasks ?? []) {
-        if (myEmail == subtask.user?.email) {
+        if (myEmail == subtask.user?.email &&
+            subtask.status != StatusType.completed.name) {
           docs.add(doc);
           break;
         }

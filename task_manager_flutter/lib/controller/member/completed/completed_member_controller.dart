@@ -28,7 +28,7 @@ class CompletedMemberController extends GetxController {
     );
     subTaskCompleted.clear();
     for (var task in tasks) {
-      for (var subtask in task.subTasks) {
+      for (var subtask in task.subTasks ?? []) {
         if (subtask.status == StatusType.completed.name &&
             subtask.user?.email == userCurrent?.email) {
           subTaskCompleted.add(subtask);

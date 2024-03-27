@@ -221,10 +221,22 @@ class AppLocalizationsVi extends AppLocalizations {
   String get txtSnackbarAddSubbtask => 'Thêm Sub-Task thành công';
 
   @override
-  String get txtSnackbarError => 'Something went wrong';
+  String get txtSnackbarError => 'Đã xảy ra lỗi';
 
   @override
   String get txtNoMessage => 'Không có tin nhắn';
+
+  @override
+  String get txtDeleteTask => 'Xoá nhiệm vụ thành công';
+
+  @override
+  String get txtEditTask => 'Chỉnh sửa nhiệm  vụ';
+
+  @override
+  String get btnSave => 'Lưu';
+
+  @override
+  String get btnCancel => 'Huỷ';
 
   @override
   String get btnRegister => 'Tạo tài khoản';

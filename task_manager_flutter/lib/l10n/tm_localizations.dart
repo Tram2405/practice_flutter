@@ -528,7 +528,7 @@ abstract class AppLocalizations {
   /// No description provided for @txtSnackbarError.
   ///
   /// In en, this message translates to:
-  /// **'Đã xảy ra lỗi'**
+  /// **'Something went wrong'**
   String get txtSnackbarError;
 
   /// No description provided for @txtNoMessage.
@@ -536,6 +536,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No messages'**
   String get txtNoMessage;
+
+  /// No description provided for @txtDeleteTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted Task successfully'**
+  String get txtDeleteTask;
+
+  /// No description provided for @txtEditTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Task'**
+  String get txtEditTask;
+
+  /// No description provided for @btnSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get btnSave;
+
+  /// No description provided for @btnCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get btnCancel;
 
   /// No description provided for @btnRegister.
   ///

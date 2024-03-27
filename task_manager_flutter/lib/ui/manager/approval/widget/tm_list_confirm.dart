@@ -42,7 +42,7 @@ class TMListConfirm extends StatelessWidget {
                 Routes.DETAIL_APPROVAL_TASK,
                 arguments: [subTask],
               )?.then((value) {
-                controller.updateSubTasks(id, task.subTasks);
+                controller.updateSubTasks(id, task.subTasks ?? []);
               });
             },
             task: task,

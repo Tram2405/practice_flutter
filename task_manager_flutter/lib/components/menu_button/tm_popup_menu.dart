@@ -18,12 +18,14 @@ class TMPopupMenuSubtask extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupMenuButton(
       color: TMColor.onSecondary,
-      elevation: 0,
       padding: EdgeInsets.zero,
+      elevation: 0.8,
       icon: SvgPicture.asset(Assets.icons.iconMore),
       shape: BeveledRectangleBorder(
-        borderRadius: BorderRadius.circular(6.0),
+        borderRadius: BorderRadius.circular(4.0),
       ),
+      shadowColor: TMColor.secondaryOnBoarding,
+      
       itemBuilder: (context) {
         return [
           PopupMenuItem(

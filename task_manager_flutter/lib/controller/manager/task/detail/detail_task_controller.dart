@@ -56,25 +56,29 @@ class DetailTaskController extends GetxController {
       )?.then<SubTaskModel?>(
         (value) {
           if (value != null) {
-            task.value?.subTasks[index] = value;
+            task.value?.subTasks?[index] = value;
             task.refresh();
             if (id != null) {
               taskRepository.updateSubTask(
-                  id: id!, subTasks: task.value?.subTasks ?? []);
+                id: id!,
+                task: TaskModel(
+                  subTasks: task.value?.subTasks ?? [],
+                ),
+              );
             }
           }
           return null;
         },
       );
     } else {
-      task.value?.subTasks.remove(subTask);
+      task.value?.subTasks?.remove(subTask);
       task.refresh();
 
       String result = '';
       if (id != null) {
         result = await taskRepository.updateSubTask(
           id: id!,
-          subTasks: task.value?.subTasks ?? [],
+          task: TaskModel(subTasks: task.value?.subTasks ?? []),
         );
       }
 
@@ -90,14 +94,14 @@ class DetailTaskController extends GetxController {
   }
 
   addSubTask(BuildContext context, SubTaskModel value) async {
-    task.value?.subTasks.add(value);
+    task.value?.subTasks?.add(value);
     task.refresh();
 
     String result = '';
     if (id != null) {
       result = await taskRepository.updateSubTask(
         id: id!,
-        subTasks: task.value?.subTasks ?? [],
+        task: TaskModel(subTasks: task.value?.subTasks ?? []),
       );
     }
 
@@ -115,7 +119,7 @@ class DetailTaskController extends GetxController {
     if (id != null) {
       await taskRepository.updateSubTask(
         id: id!,
-        subTasks: subTasks,
+        task: TaskModel(subTasks: task.value?.subTasks ?? []),
       );
     }
   }

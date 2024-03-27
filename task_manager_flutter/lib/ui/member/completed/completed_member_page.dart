@@ -44,7 +44,10 @@ class CompletedMemberPage extends StatelessWidget {
                       final subTask = controller.subTaskCompleted[index];
                       return TMCardCompletedSubTask(
                           onPressed: () {
-                            Get.toNamed(Routes.DETAIL_SUB_TASK_MEMBER);
+                            Get.toNamed(
+                              Routes.DETAIL_SUB_TASK_MEMBER,
+                              arguments: [subTask],
+                            );
                           },
                           subTask: subTask);
                     },

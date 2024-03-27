@@ -13,7 +13,7 @@ class DetailTaskController extends GetxController {
   final TaskRepository taskRepository;
   DetailTaskController({required this.taskRepository});
 
-  Rx<TaskModel> task = (Get.arguments?['task'] as TaskModel).obs;
+  Rx<TaskModel?> task = (Get.arguments?['task'] as TaskModel?).obs;
 
   String? id;
 
@@ -56,19 +56,19 @@ class DetailTaskController extends GetxController {
       )?.then<SubTaskModel?>(
         (value) {
           if (value != null) {
-            task.value.subTasks[index] = value;
+            task.value?.subTasks[index] = value;
             task.refresh();
             taskRepository.updateSubTask(
-                id: id ?? '', subTasks: task.value.subTasks);
+                id: id ?? '', subTasks: task.value?.subTasks ?? []);
           }
           return null;
         },
       );
     } else {
-      task.value.subTasks.remove(subTask);
+      task.value?.subTasks.remove(subTask);
       task.refresh();
       String result = await taskRepository.updateSubTask(
-          id: id ?? '', subTasks: task.value.subTasks);
+          id: id ?? '', subTasks: task.value?.subTasks ?? []);
       if (result == 'success') {
         TMSnackBar.tmSnackBarSuccess(
           context,
@@ -81,11 +81,11 @@ class DetailTaskController extends GetxController {
   }
 
   addSubTask(BuildContext context,SubTaskModel value) async {
-    task.value.subTasks.add(value);
+    task.value?.subTasks.add(value);
     task.refresh();
 
     String result = await taskRepository.updateSubTask(
-        id: id ?? '', subTasks: task.value.subTasks);
+        id: id ?? '', subTasks: task.value?.subTasks ?? []);
 
     if (result == 'success') {
       TMSnackBar.tmSnackBarSuccess(

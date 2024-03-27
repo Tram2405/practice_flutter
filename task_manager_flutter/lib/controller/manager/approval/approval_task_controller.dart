@@ -32,6 +32,9 @@ class ApprovalTaskController extends GetxController {
   }
 
   void updateSubTasks(String id, List<SubTaskModel> subTasks) {
-    taskRepository.updateSubTask(id: id, subTasks: subTasks);
+    taskRepository.updateSubTask(
+      id: id,
+      task: TaskModel(subTasks: subTasks),
+    );
   }
 }

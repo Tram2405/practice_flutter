@@ -99,14 +99,14 @@ class DetailTaskPage extends StatelessWidget {
                 ),
               ],
               sizedBox16,
-              controller.task.value?.subTasks.isNotEmpty ?? false
+              controller.task.value?.subTasks?.isNotEmpty ?? false
                   ? ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: controller.task.value?.subTasks.length ?? 0,
+                      itemCount: controller.task.value?.subTasks?.length ?? 0,
                       reverse: true,
                       itemBuilder: (context, index) {
-                        final subTask = controller.task.value?.subTasks[index];
+                        final subTask = controller.task.value?.subTasks?[index];
                         return TMCardSubTask(
                           onTap: controller.emailUser != null &&
                                   controller.emailUser == subTask?.user?.email

@@ -221,10 +221,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get txtSnackbarAddSubbtask => 'Add Sub-task successfully';
 
   @override
-  String get txtSnackbarError => 'Đã xảy ra lỗi';
+  String get txtSnackbarError => 'Something went wrong';
 
   @override
   String get txtNoMessage => 'No messages';
+
+  @override
+  String get txtDeleteTask => 'Deleted Task successfully';
 
   @override
   String get btnRegister => 'Register';

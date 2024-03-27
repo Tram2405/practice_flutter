@@ -6,7 +6,6 @@ import 'package:task_manager_flutter/components/card/tm_card_task.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/task/task_controller.dart';
-import 'package:task_manager_flutter/data/model/document_data.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
@@ -41,7 +40,8 @@ class TaskPage extends StatelessWidget {
           stream: controller.taskStream(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
-              return  TMTitle(title: AppLocalizations.of(context).txtSnackbarError);
+              return TMTitle(
+                  title: AppLocalizations.of(context).txtSnackbarError);
             }
 
             if (snapshot.connectionState == (ConnectionState.waiting)) {
@@ -49,19 +49,12 @@ class TaskPage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             }
-
-            List<FirebaseCollectionData> documents = snapshot.data?.docs
-                    .map((e) => FirebaseCollectionData()
-                      ..id = e.id
-                      ..task =
-                          TaskModel.fromJson(e.data() as Map<String, dynamic>))
-                    .toList() ??
-                [];
+            controller.getTask(snapshot);
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: documents.isEmpty
+                  child: controller.docs.isEmpty
                       ? Center(
                           child: Padding(
                             padding:
@@ -70,22 +63,27 @@ class TaskPage extends StatelessWidget {
                           ),
                         )
                       : ListView.separated(
-                          itemCount: documents.length,
+                          itemCount: controller.docs.length,
                           itemBuilder: (_, index) {
-                            String? id =
-                                documents[index].id;
                             final task =
-                                documents[index].task ??
-                                    TaskModel();
+                                controller.docs[index].task ?? TaskModel();
 
                             return TMCardTask(
                               task: task,
                               onPressed: () => Get.toNamed(
                                 Routes.DETAIL_TASK,
-                                arguments: {'task': task, 'id': id},
-                              )?.then((_) {
-                                controller.listTask.refresh();
-                              }),
+                                arguments: {
+                                  'task': task,
+                                  'id': controller.docs[index].id
+                                },
+                              ),
+                              onSelected: (value) {
+                                controller.onSelectDropDown(
+                                  context,
+                                  value,
+                                  controller.docs[index],
+                                );
+                              },
                             );
                           },
                           separatorBuilder: (_, __) => const SizedBox(

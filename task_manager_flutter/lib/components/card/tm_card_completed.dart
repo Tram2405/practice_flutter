@@ -68,7 +68,7 @@ class TMCardCompleted extends StatelessWidget {
                 ),
                 const Spacer(),
                 TMAvatarMember(
-                  subtasks: task.subTasks,
+                  subtasks: task.subTasks ?? [],
                   minLength: 4,
                 ),
               ],

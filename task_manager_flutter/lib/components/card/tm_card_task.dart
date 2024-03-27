@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/card/tm_avatar_member.dart';
 import 'package:task_manager_flutter/components/card/tm_display_info.dart';
 import 'package:task_manager_flutter/components/card/tm_percent_task.dart';
+import 'package:task_manager_flutter/components/menu_button/tm_popup_menu.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
@@ -17,9 +18,11 @@ class TMCardTask extends StatelessWidget {
     required this.task,
     required this.onPressed,
     super.key,
+    this.onSelected,
   });
   final TaskModel task;
   final Function() onPressed;
+  final Function(int)? onSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +57,10 @@ class TMCardTask extends StatelessWidget {
                 const SizedBox(width: 10.0),
                 task.typeTask.toStyleTaskDisplay(context),
                 const Spacer(),
+                if (onSelected != null)
+                  TMPopupMenuSubtask(
+                    onSelected: onSelected,
+                  ),
               ],
             ),
             const SizedBox(height: 10.0),
@@ -79,7 +86,7 @@ class TMCardTask extends StatelessWidget {
             Row(
               children: [
                 TMAvatarMember(
-                  subtasks: task.subTasks,
+                  subtasks: task.subTasks ?? [],
                   minLength: 4,
                 ),
                 const Spacer(),

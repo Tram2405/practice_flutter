@@ -10,7 +10,7 @@ class TaskModel {
   String? startDate;
   int? numberFile;
   int? numberComment;
-  List<SubTaskModel> subTasks = [];
+  List<SubTaskModel>? subTasks;
 
   TaskModel({
     this.id,
@@ -66,7 +66,8 @@ class TaskModel {
       if (startDate != null) "start_date": startDate,
       if (numberFile != null) "number_file": numberFile,
       if (numberComment != null) "number_comment": numberComment,
-      "sub_tasks": subTasks.map((e) => e.toFirestore()).toList(),
+      if (subTasks != null)
+        "sub_tasks": subTasks?.map((e) => e.toFirestore()).toList(),
     };
   }
 
@@ -90,8 +91,8 @@ class TaskModel {
 
   double getPercentCompleted() {
     double total = 0;
-    double percentMember = 100 / (subTasks.length);
-    for (SubTaskModel subTask in subTasks) {
+    double percentMember = 100 / (subTasks?.length ?? 0);
+    for (SubTaskModel subTask in subTasks ?? []) {
       if (subTask.status == StatusType.completed.name) {
         total = total + percentMember;
       }

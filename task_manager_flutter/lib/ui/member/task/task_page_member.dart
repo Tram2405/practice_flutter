@@ -90,9 +90,11 @@ class TaskMemberPage extends StatelessWidget {
                                       .toList()[index]
                                       .id,
                                 },
-                              )?.then((_) {
-                                controller.docs.refresh();
-                              }),
+                              )?.then(
+                                (_) {
+                                  controller.docs.refresh();
+                                },
+                              ),
                             );
                           },
                           separatorBuilder: (_, __) => const SizedBox(

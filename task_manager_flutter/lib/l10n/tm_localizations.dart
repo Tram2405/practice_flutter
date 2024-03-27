@@ -543,6 +543,24 @@ abstract class AppLocalizations {
   /// **'Deleted Task successfully'**
   String get txtDeleteTask;
 
+  /// No description provided for @txtEditTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Task'**
+  String get txtEditTask;
+
+  /// No description provided for @btnSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get btnSave;
+
+  /// No description provided for @btnCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get btnCancel;
+
   /// No description provided for @btnRegister.
   ///
   /// In en, this message translates to:

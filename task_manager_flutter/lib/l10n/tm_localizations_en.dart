@@ -230,6 +230,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get txtDeleteTask => 'Deleted Task successfully';
 
   @override
+  String get txtEditTask => 'Edit Task';
+
+  @override
+  String get btnSave => 'Save';
+
+  @override
+  String get btnCancel => 'Cancel';
+
+  @override
   String get btnRegister => 'Register';
 
   @override

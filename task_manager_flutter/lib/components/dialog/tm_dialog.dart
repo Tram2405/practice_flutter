@@ -176,15 +176,16 @@ class TMDialog {
                         }
                       : null,
                   child: Text(
-                    'Save',
-                    style: TextStyle(
-                        color: canAction ? null : TMColor.onSecondaryBackground,
-                        fontSize: 16.0),
+                    AppLocalizations.of(context).btnYes,
+                    style: 
+                        // color: canAction ? null : TMColor.onSecondaryBackground,
+                        context.textTheme.labelMedium?.copyWith(color: canAction ? TMColor.onPrimary : TMColor.onSecondaryBackground)
                   ),
                 ),
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('Cancel', style: TextStyle(fontSize: 16.0)),
+                  child: Text(AppLocalizations.of(context).btnCancel,
+                      style: context.textTheme.labelMedium?.copyWith(color: TMColor.onSecondaryBackground)),
                 ),
               ],
             );

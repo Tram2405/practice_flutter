@@ -24,11 +24,11 @@ class TaskMemberRepository {
     return myTasks;
   }
 
-  List<DocumentData> getMyDocument(
-      {required String myEmail, required List<DocumentData> documents}) {
-    List<DocumentData> docs = [];
+  List<FirebaseCollectionData> getMyDocument(
+      {required String myEmail, required List<FirebaseCollectionData> documents}) {
+    List<FirebaseCollectionData> docs = [];
 
-    for (DocumentData doc in documents) {
+    for (FirebaseCollectionData doc in documents) {
       for (SubTaskModel subtask in doc.task?.subTasks ?? []) {
         if (myEmail == subtask.user?.email) {
           docs.add(doc);

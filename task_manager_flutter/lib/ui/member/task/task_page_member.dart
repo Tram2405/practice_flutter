@@ -46,8 +46,8 @@ class TaskMemberPage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             }
-            List<DocumentData> documents = snapshot.data?.docs
-                    .map((e) => DocumentData()
+            List<FirebaseCollectionData> documents = snapshot.data?.docs
+                    .map((e) => FirebaseCollectionData()
                       ..id = e.id
                       ..task =
                           TaskModel.fromJson(e.data() as Map<String, dynamic>))

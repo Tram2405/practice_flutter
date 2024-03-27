@@ -10,13 +10,13 @@ class TaskMemberController extends GetxController {
   TaskMemberController({required this.taskMemberRepository});
 
   final userCurrent = FirebaseAuth.instance.currentUser;
-  RxList<DocumentData> docs = <DocumentData>[].obs;
+  RxList<FirebaseCollectionData> docs = <FirebaseCollectionData>[].obs;
 
   Stream<QuerySnapshot> taskStream() {
     return taskMemberRepository.stream();
   }
 
-  void getMyTask(List<DocumentData> documents) {
+  void getMyTask(List<FirebaseCollectionData> documents) {
     docs.value = taskMemberRepository.getMyDocument(
       myEmail: userCurrent?.email ?? '',
       documents: documents,

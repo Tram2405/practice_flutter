@@ -20,7 +20,7 @@ class ApprovalTaskController extends GetxController {
     return taskRepository.stream();
   }
 
-  Future<void> getTask(List<DocumentData> documents) async {
+  Future<void> getTask(List<FirebaseCollectionData> documents) async {
     taskConfirms.value = documents.map((e) => e.task ?? TaskModel()).toList();
   }
 

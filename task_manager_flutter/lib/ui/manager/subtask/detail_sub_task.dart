@@ -7,6 +7,7 @@ import 'package:task_manager_flutter/components/card/tm_card_message.dart';
 import 'package:task_manager_flutter/components/card/tm_member_assign.dart';
 import 'package:task_manager_flutter/components/date_time/tm_display_date_time.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
+import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/subtask/detail_subtask_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
@@ -82,17 +83,22 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
                 textStyle: context.textTheme.displaySmall,
               ),
               sizedBox12,
-              ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: controller.subTask.value.messages.length,
-                itemBuilder: (context, index) {
-                  final message = controller.subTask.value.messages[index];
-                  return TMCardMessage(message: message);
-                },
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 10.0),
-              ),
+              controller.subTask.value.messages.isEmpty
+                  ? TMTextPrompt(
+                      text: AppLocalizations.of(context).txtNoMessage,
+                    )
+                  : ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: controller.subTask.value.messages.length,
+                      itemBuilder: (context, index) {
+                        final message =
+                            controller.subTask.value.messages[index];
+                        return TMCardMessage(message: message);
+                      },
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 10.0),
+                    ),
             ],
           ),
         ),

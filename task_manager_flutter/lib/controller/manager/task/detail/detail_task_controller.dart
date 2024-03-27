@@ -80,7 +80,7 @@ class DetailTaskController extends GetxController {
     }
   }
 
-  addSubTask(BuildContext context,SubTaskModel value) async {
+  addSubTask(BuildContext context, SubTaskModel value) async {
     task.value?.subTasks.add(value);
     task.refresh();
 
@@ -95,5 +95,12 @@ class DetailTaskController extends GetxController {
     } else {
       TMSnackBar.tmSnackBarError(context, titleSnackbar: result);
     }
+  }
+
+  updateStatusSubTask(List<SubTaskModel> subTasks) async {
+    await taskRepository.updateSubTask(
+      id: id ?? '',
+      subTasks: subTasks,
+    );
   }
 }

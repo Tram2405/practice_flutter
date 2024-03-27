@@ -74,6 +74,7 @@
     "txtSnackbarChangePass" : "Đổi mật khẩu thành công",
     "txtSnackbarAddSubbtask" : "Thêm Sub-Task thành công",
     "txtSnackbarError" : "Something went wrong",
+    "txtNoMessage" : "Không có tin nhắn",
     "btnDone" : "Hoàn thành",
     "btnLogin" : "Đăng nhập",
     "btnSendCode" : "Gửi mã",

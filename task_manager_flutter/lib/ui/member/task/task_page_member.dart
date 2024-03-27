@@ -64,7 +64,7 @@ class TaskMemberPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16.0),
                 Expanded(
-                  child: controller.myTasks.isEmpty
+                  child: controller.docs.isEmpty
                       ? Center(
                           child: Padding(
                             padding:
@@ -73,10 +73,11 @@ class TaskMemberPage extends StatelessWidget {
                           ),
                         )
                       : ListView.separated(
-                          itemCount: controller.myTasks.length,
+                          itemCount: controller.docs.length,
                           itemBuilder: (_, index) {
                             final task =
-                                controller.myTasks.reversed.toList()[index];
+                                controller.docs.reversed.toList()[index].task ??
+                                    TaskModel();
 
                             return TMCardTask(
                               task: task,
@@ -85,9 +86,12 @@ class TaskMemberPage extends StatelessWidget {
                                 arguments: {
                                   'task': task,
                                   'email': controller.userCurrent?.email,
+                                  'id': controller.docs.reversed
+                                      .toList()[index]
+                                      .id,
                                 },
                               )?.then((_) {
-                                controller.myTasks.refresh();
+                                controller.docs.refresh();
                               }),
                             );
                           },

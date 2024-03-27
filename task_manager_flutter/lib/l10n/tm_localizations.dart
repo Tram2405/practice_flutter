@@ -531,6 +531,12 @@ abstract class AppLocalizations {
   /// **'Đã xảy ra lỗi'**
   String get txtSnackbarError;
 
+  /// No description provided for @txtNoMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No messages'**
+  String get txtNoMessage;
+
   /// No description provided for @btnRegister.
   ///
   /// In en, this message translates to:

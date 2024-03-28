@@ -8,7 +8,7 @@ import 'package:task_manager_flutter/data/model/document_data.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/ui/manager/approval/widget/tm_list_confirm.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/manager/approval/approval_task_controller.dart';
@@ -31,7 +31,7 @@ class ApprovalTaskPage extends StatelessWidget {
         stream: controller.taskStream(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return  TMTitle(title: AppLocalizations.of(context).txtSnackbarError);
+            return  TMTitle(title: S.of(context).txtSnackbarError);
           }
 
           if (snapshot.connectionState == (ConnectionState.waiting)) {
@@ -51,12 +51,12 @@ class ApprovalTaskPage extends StatelessWidget {
           return TMScaffold(
             backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
             appBar: TMAppbar(
-              title: AppLocalizations.of(context).txtApproval,
+              title: S.of(context).txtApproval,
               leftIcon: Assets.icons.iconAdd,
               rightIcon: Assets.icons.iconBell,
             ),
             body: controller.taskConfirms.isEmpty
-                ? TMTextPrompt(text: AppLocalizations.of(context).txtNoSubTask)
+                ? TMTextPrompt(text: S.of(context).txtNoSubTask)
                 : ListView.separated(
                     itemCount: controller.taskConfirms.length,
                     itemBuilder: (_, index) {

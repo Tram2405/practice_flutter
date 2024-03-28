@@ -10,7 +10,7 @@ import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/data/provider/auth_service_provider.dart';
 import 'package:task_manager_flutter/data/respository/auth_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/ui/settings/widget/tm_buttom_edit_profile.dart';
 import 'package:task_manager_flutter/ui/settings/widget/tm_img_network.dart';
@@ -42,7 +42,7 @@ class EditProfilePage extends GetView<EditProfileController> {
             return TMScaffold(
               backgroundColor: TMColor.onSecondary,
               appBar: TMAppbar(
-                title: AppLocalizations.of(context).btnEditProfile,
+                title: S.of(context).btnEditProfile,
                 leftIcon: Assets.icons.iconBack,
                 leftPressed: () => Get.back(),
               ),
@@ -88,7 +88,7 @@ class EditProfilePage extends GetView<EditProfileController> {
                       ),
                       const SizedBox(height: 16.0),
                       TMButtomEditProfile(
-                        title: AppLocalizations.of(context).btnChangeImage,
+                        title: S.of(context).btnChangeImage,
                         mainAxisSize: MainAxisSize.min,
                         onPressed: controller.pickAvatar,
                       ),
@@ -97,19 +97,19 @@ class EditProfilePage extends GetView<EditProfileController> {
                       const SizedBox(height: 24.0),
                       TMTextFormField(
                         controller: controller.nameController,
-                        lableText: AppLocalizations.of(context).txtFullName,
+                        lableText: S.of(context).txtFullName,
                         validator: FormValidator.validatorRequired,
                       ),
                       const SizedBox(height: 32.0),
                       TMTextFormField(
                         controller: controller.emailController,
-                        lableText: AppLocalizations.of(context).txtEmail,
+                        lableText: S.of(context).txtEmail,
                         readOnly: true,
                         validator: FormValidator.validatorEmail,
                       ),
                       const SizedBox(height: 40.0),
                       TMElevateButton(
-                        text: AppLocalizations.of(context).btnSaveChange,
+                        text: S.of(context).btnSaveChange,
                         color: TMColor.secondary,
                         textColor: TMColor.onSecondary,
                         onPressed: () {

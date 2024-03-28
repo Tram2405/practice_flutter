@@ -8,7 +8,7 @@ import 'package:task_manager_flutter/controller/member/completed/completed_membe
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_member_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/ui/member/completed/widget/tm_card_completed.dart';
@@ -32,12 +32,12 @@ class CompletedMemberPage extends StatelessWidget {
           return TMScaffold(
             backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
             appBar: TMAppbar(
-              title: AppLocalizations.of(context).txtCompletedTask,
+              title: S.of(context).txtCompletedTask,
               rightIcon: Assets.icons.iconBell,
             ),
             body: controller.subTaskCompleted.isEmpty
                 ? TMTextPrompt(
-                    text: AppLocalizations.of(context).txtNoCompleted)
+                    text: S.of(context).txtNoCompleted)
                 : ListView.separated(
                     itemCount: controller.subTaskCompleted.length,
                     itemBuilder: (context, index) {

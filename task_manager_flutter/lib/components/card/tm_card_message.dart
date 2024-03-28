@@ -27,7 +27,9 @@ class TMCardMessage extends StatelessWidget {
               TMTitle(
                 title: message.email ?? '',
                 textStyle: context.textTheme.bodySmall?.copyWith(
-                    fontFamily: FontFamily.interBold, color: TMColor.onPrimary),
+                  fontFamily: FontFamily.interBold,
+                  color: TMColor.onPrimary,
+                ),
               ),
               TMTitle(
                 title: message.message ?? '',

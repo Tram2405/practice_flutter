@@ -7,7 +7,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_text_form_field_password.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_text_form_filed.dart';
 import 'package:task_manager_flutter/controller/auth/login_controller.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/validator.dart';
@@ -25,17 +25,17 @@ class LoginPage extends GetView<LoginController> {
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: ListView(
             children: [
-              TMTitle(title: AppLocalizations.of(context).txtLetsLogin),
+              TMTitle(title: S.of(context).txtLetsLogin),
               const SizedBox(height: 16.0),
               TMTitle(
-                title: AppLocalizations.of(context).txtTitleLogin,
+                title: S.of(context).txtTitleLogin,
                 textStyle: context.textTheme.titleLarge
                     ?.copyWith(color: TMColor.onSecondaryBackground),
               ),
               sizedBox32,
               TMTextFormField(
-                hintText: AppLocalizations.of(context).txtHintEmail,
-                lableText: AppLocalizations.of(context).txtEmail,
+                hintText: S.of(context).txtHintEmail,
+                lableText: S.of(context).txtEmail,
                 controller: controller.emailController,
                 onChanged: (_) => controller.isEmpty(),
                 textInputAction: TextInputAction.next,
@@ -43,8 +43,8 @@ class LoginPage extends GetView<LoginController> {
               ),
               sizedBox32,
               TMTextFormFieldPassword(
-                lableText: AppLocalizations.of(context).txtPassword,
-                hintText: AppLocalizations.of(context).txtHintPassword,
+                lableText: S.of(context).txtPassword,
+                hintText: S.of(context).txtHintPassword,
                 controller: controller.passwordController,
                 validator: FormValidator.validatorPassword,
                 readOnly: controller.isLoading.value,
@@ -56,7 +56,7 @@ class LoginPage extends GetView<LoginController> {
                   Get.toNamed(Routes.FORGOT_PASSWORD);
                 },
                 child: Text(
-                  AppLocalizations.of(context).txtForgotPassword,
+                  S.of(context).txtForgotPassword,
                   style: context.textTheme.titleMedium?.copyWith(
                     decoration: TextDecoration.underline,
                     decorationColor: TMColor.onError,
@@ -71,7 +71,7 @@ class LoginPage extends GetView<LoginController> {
                     controller.login(context);
                   },
                   isDisable: controller.isLoading.value,
-                  text: AppLocalizations.of(context).btnLogin,
+                  text: S.of(context).btnLogin,
                   color: controller.hasContent.value
                       ? TMColor.primary
                       : TMColor.button,
@@ -79,8 +79,8 @@ class LoginPage extends GetView<LoginController> {
               ),
               sizedBox32,
               TMTextLink(
-                text: AppLocalizations.of(context).txtLableLogin,
-                linkText: AppLocalizations.of(context).txtRegisterHere,
+                text: S.of(context).txtLableLogin,
+                linkText: S.of(context).txtRegisterHere,
                 onPressed: () => Get.toNamed(Routes.REGISTER),
               )
             ],

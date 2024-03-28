@@ -7,7 +7,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/settings/setting_controller.dart';
 import 'package:task_manager_flutter/data/provider/auth_service_provider.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/ui/settings/widget/tm_buttom_edit_profile.dart';
@@ -24,7 +24,7 @@ class SettingPage extends GetView<SettingController> {
     return TMScaffold(
       backgroundColor: TMColor.onSecondary,
       appBar: TMAppbar(
-        title: AppLocalizations.of(context).txtSetting,
+        title: S.of(context).txtSetting,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,20 +35,20 @@ class SettingPage extends GetView<SettingController> {
             onPressed: () {
               Get.toNamed(Routes.EDIT_PROFILE);
             },
-            title: AppLocalizations.of(context).btnEditProfile,
+            title: S.of(context).btnEditProfile,
           ),
           sizedBox24,
           const Divider(color: TMColor.primaryDivider),
           sizedBox24,
           TMTitle(
-            title: AppLocalizations.of(context).txtAppSetting,
+            title: S.of(context).txtAppSetting,
             textStyle: context.textTheme.bodySmall,
           ),
           TMCardSetting(
             onPressed: () {
               Get.toNamed(Routes.CHANGE_PASSWORD);
             },
-            title: AppLocalizations.of(context).btnChangePass,
+            title: S.of(context).btnChangePass,
             leftIcon: Assets.icons.iconLock,
           ),
           TMCardSetting(
@@ -65,7 +65,7 @@ class SettingPage extends GetView<SettingController> {
                         () => Column(
                           children: [
                             TMCardNoitfication(
-                              title: AppLocalizations.of(context)
+                              title: S.of(context)
                                   .btnEmailNotification,
                               onChanged: () {
                                 controller.isEmailTurnOn.value =
@@ -75,7 +75,7 @@ class SettingPage extends GetView<SettingController> {
                             ),
                             TMCardNoitfication(
                               title:
-                                  AppLocalizations.of(context).btnPushNotification,
+                                  S.of(context).btnPushNotification,
                               onChanged: () {
                                 controller.isNotification.value =
                                     !controller.isNotification.value;
@@ -90,18 +90,18 @@ class SettingPage extends GetView<SettingController> {
                 },
               );
             },
-            title: AppLocalizations.of(context).btnNotification,
+            title: S.of(context).btnNotification,
             leftIcon: Assets.icons.iconBell,
           ),
           TMCardSetting(
-            title: AppLocalizations.of(context).btnLogout,
+            title: S.of(context).btnLogout,
             titleColor: TMColor.onError,
             leftIcon: Assets.icons.iconLogout,
             onPressed: () {
               return TMDialog.dialog(
                 context,
-                title: AppLocalizations.of(context).btnLogout,
-                content: AppLocalizations.of(context).txtTitleLogout,
+                title: S.of(context).btnLogout,
+                content: S.of(context).txtTitleLogout,
                 action: () => WidgetsBinding.instance.addPostFrameCallback(
                   (_) {
                     AuthServiceProvider().signOut();

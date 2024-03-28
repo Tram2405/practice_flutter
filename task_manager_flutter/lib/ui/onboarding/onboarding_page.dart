@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/buttons/tm_elevatebutton.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/controller/onboarding/onboarding_controller.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 
 class OnBoardingPage extends GetView<OnBoardingController> {
@@ -29,9 +29,9 @@ class OnBoardingPage extends GetView<OnBoardingController> {
                     controller.changePage(pageViewIndex);
                   },
                   children: List.generate(
-                    controller.onboardings(context).length,
+                    controller.onboardings().length,
                     (index) => Image.asset(
-                        controller.onboardings(context)[index].imagePath ?? '',
+                        controller.onboardings()[index].imagePath ?? '',
                         fit: BoxFit.fitHeight),
                   ),
                 ),
@@ -44,8 +44,7 @@ class OnBoardingPage extends GetView<OnBoardingController> {
                     height: 90.0,
                     child: Text(
                       controller
-                              .onboardings(
-                                  context)[controller.currentIndex.value]
+                              .onboardings()[controller.currentIndex.value]
                               .text ??
                           '',
                       style: context.textTheme.labelMedium,
@@ -59,7 +58,7 @@ class OnBoardingPage extends GetView<OnBoardingController> {
                 () => Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
-                    controller.onboardings(context).length,
+                    controller.onboardings().length,
                     (index) => Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4.6),
                       child: AnimatedContainer(
@@ -85,14 +84,14 @@ class OnBoardingPage extends GetView<OnBoardingController> {
                     if (controller.currentIndex.value > 0)
                       TMElevateButton(
                         onPressed: controller.onBack,
-                        text: AppLocalizations.of(context).txtBack,
+                        text: S.of(context).txtBack,
                         textColor: TMColor.primaryOnBoarding,
                         padding: const EdgeInsets.symmetric(horizontal: 30.0),
                       ),
                     const Spacer(),
                     TMElevateButton(
-                      onPressed: () => controller.onNext(context),
-                      text: AppLocalizations.of(context).txtNext,
+                      onPressed: () => controller.onNext(),
+                      text: S.of(context).txtNext,
                       textColor: TMColor.primaryOnBoarding,
                       padding: const EdgeInsets.symmetric(horizontal: 30.0),
                     ),

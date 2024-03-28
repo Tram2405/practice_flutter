@@ -1,31 +1,25 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/data/model/message_model.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 
 class DetailSubTaskController extends GetxController {
   Rx<SubTaskModel> subTask = (Get.arguments[0] as SubTaskModel).obs;
 
-  String getTextButton(BuildContext context, String status) {
-    if (status == StatusType.newTask.name) {
-      return AppLocalizations.of(context).txtInProgress;
-    } else if (status == StatusType.inProgress.name) {
-      return AppLocalizations.of(context).txtConfirmation;
-    } else if (status == StatusType.error.name) {
-      return AppLocalizations.of(context).txtConfirmation;
-    } else {
-      return AppLocalizations.of(context).btnWaitResponse;
-    }
+  String getTextButton(String status) {
+    if (status == StatusType.newTask.name) return S.current.txtInProgress;
+    if (status == StatusType.inProgress.name) return S.current.txtConfirmation;
+    if (status == StatusType.error.name) return S.current.txtConfirmation;
+    return S.current.btnWaitResponse;
   }
 
   void action() {
     if (subTask.value.status == StatusType.newTask.name) {
       subTask.value.status = StatusType.inProgress.name;
-      
+
       Get.back(result: subTask);
     } else if (subTask.value.status == StatusType.inProgress.name ||
         subTask.value.status == StatusType.error.name) {

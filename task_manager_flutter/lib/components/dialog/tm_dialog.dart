@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_text_form_filed.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
@@ -49,7 +49,7 @@ class TMDialog {
             children: [
               textDialog(
                 context,
-                title: AppLocalizations.of(context).btnYes,
+                title: S.of(context).btnYes,
                 onPressed: () {
                   action?.call();
                   Navigator.pop(context);
@@ -58,7 +58,7 @@ class TMDialog {
               const SizedBox(width: 40.0),
               textDialog(
                 context,
-                title: AppLocalizations.of(context).btnNo,
+                title: S.of(context).btnNo,
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -176,7 +176,7 @@ class TMDialog {
                         }
                       : null,
                   child: Text(
-                    AppLocalizations.of(context).btnYes,
+                    S.of(context).btnYes,
                     style: 
                         // color: canAction ? null : TMColor.onSecondaryBackground,
                         context.textTheme.labelMedium?.copyWith(color: canAction ? TMColor.onPrimary : TMColor.onSecondaryBackground)
@@ -184,7 +184,7 @@ class TMDialog {
                 ),
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text(AppLocalizations.of(context).btnCancel,
+                  child: Text(S.of(context).btnCancel,
                       style: context.textTheme.labelMedium?.copyWith(color: TMColor.onSecondaryBackground)),
                 ),
               ],

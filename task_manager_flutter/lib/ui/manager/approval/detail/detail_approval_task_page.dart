@@ -9,7 +9,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_form_field.dart';
 import 'package:task_manager_flutter/controller/manager/approval/detail/detail_approval_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
@@ -44,12 +44,12 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
               Row(
                 children: [
                   TMDisplayDateTime(
-                    title: AppLocalizations.of(context).txtStartDate,
+                    title: S.of(context).txtStartDate,
                     dateTime: controller.subTask.value.startDate.toDateTime,
                   ),
                   const SizedBox(width: 30.0),
                   TMDisplayDateTime(
-                    title: AppLocalizations.of(context).txtDueDate,
+                    title: S.of(context).txtDueDate,
                     textColor: TMColor.onError,
                     dateTime: controller.subTask.value.dueDate.toDateTime,
                   ),
@@ -64,7 +64,7 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
               ),
               const SizedBox(height: 15.0),
               TMTextField(
-                hintText: AppLocalizations.of(context).txtDescription,
+                hintText: S.of(context).txtDescription,
                 textInputAction: TextInputAction.done,
                 controller: controller.descriptionController,
                 onChanged: (_) => controller.checkIsEmpty(),
@@ -97,7 +97,7 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
               TMElevateButton(
                 onPressed:
                     controller.canAction.value ? controller.addMessage : null,
-                text: AppLocalizations.of(context).btnSendAgain,
+                text: S.of(context).btnSendAgain,
                 color: controller.canAction.value
                     ? TMColor.primary
                     : TMColor.button,
@@ -112,7 +112,7 @@ class DetailApprovalTaskPage extends GetView<DetailApprovalController> {
                   controller.subTask.value.status = StatusType.completed.name;
                   Get.back();
                 },
-                text: AppLocalizations.of(context).btnApproval,
+                text: S.of(context).btnApproval,
                 color: TMColor.primaryOnBoarding,
                 textColor: TMColor.onSecondary,
                 borderRadius: BorderRadius.circular(10.0),

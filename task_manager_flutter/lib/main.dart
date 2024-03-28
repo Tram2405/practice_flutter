@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:task_manager_flutter/bindings/auth/register_bind.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/gen/fonts.gen.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/services/local/shared_prefs.dart';
 import 'package:task_manager_flutter/theme/tm_text_theme.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,13 +36,19 @@ class MyApp extends StatelessWidget {
       getPages: AppPage.routes,
       initialBinding: RegisterBinding(),
       initialRoute: Routes.INITIAL,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: const Locale('en'),
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      locale: const Locale('vi'),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: TMTextTheme.appTextTheme,
         useMaterial3: true,
+        fontFamily: FontFamily.
       ),
     );
   }

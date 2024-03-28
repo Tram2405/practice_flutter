@@ -10,7 +10,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_form_field.dart';
 import 'package:task_manager_flutter/controller/manager/add_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
@@ -23,7 +23,7 @@ class AddTaskPage extends GetView<AddTaskController> {
     return Obx(
       () => TMScaffold(
         appBar: TMAppbar(
-          title: AppLocalizations.of(context).txtCreateTask,
+          title: S.of(context).txtCreateTask,
           leftIcon: Assets.icons.iconClose,
           leftPressed: () {
             Get.back();
@@ -34,7 +34,7 @@ class AddTaskPage extends GetView<AddTaskController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TMTitle(
-                title: AppLocalizations.of(context).txtTaskType,
+                title: S.of(context).txtTaskType,
                 textStyle: context.textTheme.bodyLarge,
               ),
               const SizedBox(height: 14.0),
@@ -55,14 +55,14 @@ class AddTaskPage extends GetView<AddTaskController> {
               ),
               const SizedBox(height: 20.0),
               TMTextField(
-                hintText: AppLocalizations.of(context).txtTaskName,
+                hintText: S.of(context).txtTaskName,
                 textInputAction: TextInputAction.next,
                 controller: controller.taskNameController,
                 onChanged: (_) => controller.checkIsEmpty(),
               ),
               const SizedBox(height: 15.0),
               TMTextField(
-                hintText: AppLocalizations.of(context).txtDescription,
+                hintText: S.of(context).txtDescription,
                 focusNode: controller.descriptonFocusNode,
                 maxLines: 4,
                 textInputAction: TextInputAction.done,
@@ -77,14 +77,14 @@ class AddTaskPage extends GetView<AddTaskController> {
                     controller.addSubTask(value);
                   });
                 },
-                text: AppLocalizations.of(context).txtAddSubTask,
+                text: S.of(context).txtAddSubTask,
                 leftIcon: Assets.icons.iconAdd,
                 leftIconColor: TMColor.background,
               ),
               const SizedBox(height: 8.0),
               controller.subTaskAdds.isEmpty
                   ? TMTextPrompt(
-                      text: AppLocalizations.of(context).txtNoSubTask)
+                      text: S.of(context).txtNoSubTask)
                   : ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
@@ -110,7 +110,7 @@ class AddTaskPage extends GetView<AddTaskController> {
           ),
         ),
         bottomNavigationBar: TMBottomButton(
-          text: AppLocalizations.of(context).btnAddTask,
+          text: S.of(context).btnAddTask,
           onPressed: () => controller.addTask(context),
           isAction: controller.canAction.value,
         ),

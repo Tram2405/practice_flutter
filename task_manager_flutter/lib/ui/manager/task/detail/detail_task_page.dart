@@ -13,7 +13,7 @@ import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
@@ -40,7 +40,7 @@ class DetailTaskPage extends StatelessWidget {
       () => TMScaffold(
         backgroundColor: TMColor.onSecondary,
         appBar: TMAppbar(
-          title: AppLocalizations.of(context).txtDetailTask,
+          title: S.of(context).txtDetailTask,
           leftIcon: Assets.icons.iconArrowLeft,
           leftPressed: () => Get.back(result: controller.task.value),
           rightIcon: Assets.icons.iconComment,
@@ -59,7 +59,7 @@ class DetailTaskPage extends StatelessWidget {
               ),
               sizedBox12,
               TMDisplayDateTime(
-                title: AppLocalizations.of(context).txtStartDate,
+                title: S.of(context).txtStartDate,
                 dateTime: controller.task.value?.startDate.toDateTime ??
                     DateTime.now().toIso8601String(),
               ),
@@ -71,7 +71,7 @@ class DetailTaskPage extends StatelessWidget {
               ),
               sizedBox12,
               TMTitle(
-                title: AppLocalizations.of(context).txtProgress,
+                title: S.of(context).txtProgress,
                 textStyle: context.textTheme.labelLarge,
               ),
               sizedBox16,
@@ -80,7 +80,7 @@ class DetailTaskPage extends StatelessWidget {
               ),
               sizedBox16,
               TMTitle(
-                title: AppLocalizations.of(context).txtSubTasks,
+                title: S.of(context).txtSubTasks,
                 textStyle: context.textTheme.labelLarge,
               ),
               if (detailType == DetailType.edit) ...[
@@ -93,7 +93,7 @@ class DetailTaskPage extends StatelessWidget {
                       },
                     );
                   },
-                  text: AppLocalizations.of(context).txtAddSubTask,
+                  text: S.of(context).txtAddSubTask,
                   leftIcon: Assets.icons.iconAdd,
                   leftIconColor: TMColor.background,
                 ),
@@ -153,7 +153,7 @@ class DetailTaskPage extends StatelessWidget {
                       separatorBuilder: (_, __) => const SizedBox(height: 6.0),
                     )
                   : TMTextPrompt(
-                      text: AppLocalizations.of(context).txtNoSubTask,
+                      text: S.of(context).txtNoSubTask,
                     ),
             ],
           ),

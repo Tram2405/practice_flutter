@@ -8,7 +8,7 @@ import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/model/document_data.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart'; 
 import 'package:task_manager_flutter/routes/app_page.dart';
 
 class TaskController extends GetxController {
@@ -49,7 +49,7 @@ class TaskController extends GetxController {
     } else if (value == 1) {
       TMDialog.editingDialog(
         context,
-        title: AppLocalizations.of(context).txtEditTask,
+        title: S.of(context).txtEditTask,
         valueNameTask: doc.task?.nameTask ?? '',
         valueDescriptionTask: doc.task?.description ?? '',
         nameTaskType: doc.task?.typeTask ?? '',
@@ -72,7 +72,7 @@ class TaskController extends GetxController {
         String result = await taskRepository.removeTask(id: doc.id!);
         if (result == 'success') {
           TMSnackBar.tmSnackBarSuccess(context,
-              titleSnackbar: AppLocalizations.of(context).txtDeleteTask);
+              titleSnackbar: S.of(context).txtDeleteTask);
         }
       }
     }

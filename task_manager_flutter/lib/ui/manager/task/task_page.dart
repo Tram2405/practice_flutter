@@ -10,7 +10,7 @@ import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 
@@ -33,7 +33,7 @@ class TaskPage extends StatelessWidget {
         leftPressed: () {
           Get.toNamed(Routes.ADD_TASK);
         },
-        title: AppLocalizations.of(context).txtTask,
+        title: S.of(context).txtTask,
         rightIcon: Assets.icons.iconBell,
       ),
       body: StreamBuilder<QuerySnapshot>(
@@ -41,7 +41,7 @@ class TaskPage extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return TMTitle(
-                  title: AppLocalizations.of(context).txtSnackbarError);
+                  title: S.of(context).txtSnackbarError);
             }
 
             if (snapshot.connectionState == (ConnectionState.waiting)) {

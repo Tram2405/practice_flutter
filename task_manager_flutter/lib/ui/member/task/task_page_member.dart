@@ -11,7 +11,7 @@ import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/provider/task_provider.dart';
 import 'package:task_manager_flutter/data/respository/task_member_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 
@@ -30,7 +30,7 @@ class TaskMemberPage extends StatelessWidget {
     return TMScaffold(
       backgroundColor: TMColor.primaryIcon.withOpacity(0.1),
       appBar: TMAppbar(
-        title: AppLocalizations.of(context).txtTask,
+        title: S.of(context).txtTask,
         rightIcon: Assets.icons.iconBell,
       ),
       body: StreamBuilder<QuerySnapshot>(
@@ -38,7 +38,7 @@ class TaskMemberPage extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return TMTitle(
-                  title: AppLocalizations.of(context).txtSnackbarError);
+                  title: S.of(context).txtSnackbarError);
             }
 
             if (snapshot.connectionState == (ConnectionState.waiting)) {
@@ -59,7 +59,7 @@ class TaskMemberPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TMTitle(
-                  title: AppLocalizations.of(context).txtMyTask,
+                  title: S.of(context).txtMyTask,
                   textStyle: context.textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 16.0),

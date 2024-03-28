@@ -11,7 +11,7 @@ import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_form_field.dart';
 import 'package:task_manager_flutter/controller/manager/subtask/add_sub_task_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
@@ -24,7 +24,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
       () => TMScaffold(
         backgroundColor: TMColor.onSecondary,
         appBar: TMAppbar(
-          title: AppLocalizations.of(context).txtCreateSubtask,
+          title: S.of(context).txtCreateSubtask,
           leftIcon: Assets.icons.iconClose,
           leftPressed: () {
             Get.back();
@@ -35,7 +35,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TMTitle(
-                title: AppLocalizations.of(context).txtChooseDate,
+                title: S.of(context).txtChooseDate,
                 textStyle: context.textTheme.bodyLarge,
               ),
               const SizedBox(height: 10.0),
@@ -43,7 +43,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                 onPressed: () {
                   controller.chooseStartDate(context);
                 },
-                text: AppLocalizations.of(context).txtStartDate,
+                text: S.of(context).txtStartDate,
                 dateTime: controller.startDate.value.toDateTime,
               ),
               const SizedBox(height: 12.0),
@@ -51,12 +51,12 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                 onPressed: () {
                   controller.chooseDueDate(context);
                 },
-                text: AppLocalizations.of(context).txtDueDate,
+                text: S.of(context).txtDueDate,
                 dateTime: controller.dueDate.value.toDateTime,
               ),
               const SizedBox(height: 25.0),
               TMTitle(
-                title: AppLocalizations.of(context).txtAssignedUser,
+                title: S.of(context).txtAssignedUser,
                 textStyle: context.textTheme.bodyLarge,
               ),
               const SizedBox(height: 15.0),
@@ -70,7 +70,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                           onPressed: controller.assignUser,
                         );
                       },
-                      text: AppLocalizations.of(context).btnAdd,
+                      text: S.of(context).btnAdd,
                       leftIcon: Assets.icons.iconAdd2,
                     )
                   : TMCardMemberSubTask(
@@ -79,14 +79,14 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                     ),
               const SizedBox(height: 15.0),
               TMTextField(
-                hintText: AppLocalizations.of(context).txtSubTaskName,
+                hintText: S.of(context).txtSubTaskName,
                 textInputAction: TextInputAction.next,
                 controller: controller.subTaskNameController,
                 onChanged: (_) => controller.checkIsEmpty(),
               ),
               const SizedBox(height: 26.0),
               TMTextField(
-                hintText: AppLocalizations.of(context).txtDescription,
+                hintText: S.of(context).txtDescription,
                 maxLines: 4,
                 textInputAction: TextInputAction.done,
                 controller: controller.descriptionController,
@@ -97,7 +97,7 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
           ),
         ),
         bottomNavigationBar: TMBottomButton(
-          text: AppLocalizations.of(context).txtAddSubTask,
+          text: S.of(context).txtAddSubTask,
           onPressed: controller.addSubTask,
           isAction: controller.canAction.value,
         ),

@@ -11,7 +11,7 @@ import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/subtask/detail_subtask_controller.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
@@ -30,7 +30,7 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
       () => TMScaffold(
         backgroundColor: TMColor.background,
         appBar: TMAppbar(
-          title: AppLocalizations.of(context).txtDetailSubTask,
+          title: S.of(context).txtDetailSubTask,
           leftIcon: Assets.icons.iconArrowLeft,
           leftPressed: () => Get.back(),
         ),
@@ -48,12 +48,12 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
               Row(
                 children: [
                   TMDisplayDateTime(
-                    title: AppLocalizations.of(context).txtStartDate,
+                    title: S.of(context).txtStartDate,
                     dateTime: controller.subTask.value.startDate.toDateTime,
                   ),
                   const SizedBox(width: 30.0),
                   TMDisplayDateTime(
-                    title: AppLocalizations.of(context).txtDueDate,
+                    title: S.of(context).txtDueDate,
                     textColor: TMColor.onError,
                     dateTime: controller.subTask.value.dueDate.toDateTime,
                   ),
@@ -68,7 +68,7 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
               ),
               const SizedBox(height: 16.0),
               TMTitle(
-                title: AppLocalizations.of(context).txtExecutor,
+                title: S.of(context).txtExecutor,
                 textStyle: context.textTheme.displaySmall,
               ),
               sizedBox12,
@@ -85,7 +85,7 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
               sizedBox12,
               controller.subTask.value.messages.isEmpty
                   ? TMTextPrompt(
-                      text: AppLocalizations.of(context).txtNoMessage,
+                      text: S.of(context).txtNoMessage,
                     )
                   : ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
@@ -114,7 +114,8 @@ class DetailSubTaskPage extends GetView<DetailSubTaskController> {
                       controller.action();
                     },
                     text: controller.getTextButton(
-                        context, controller.subTask.value.status ?? ''),
+                      controller.subTask.value.status ?? '',
+                    ),
                   ),
                 ],
               )

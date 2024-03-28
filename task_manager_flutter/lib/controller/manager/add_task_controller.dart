@@ -6,7 +6,7 @@ import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
-import 'package:task_manager_flutter/l10n/tm_localizations.dart';
+import 'package:task_manager_flutter/generated/l10n.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 
@@ -65,7 +65,7 @@ class AddTaskController extends GetxController {
     if (result == 'success') {
       TMSnackBar.tmSnackBarSuccess(
         context,
-        titleSnackbar: AppLocalizations.of(context).txtSnackbarUpdate,
+        titleSnackbar: S.of(context).txtSnackbarUpdate,
       );
     } else {
       TMSnackBar.tmSnackBarError(context, titleSnackbar: result);

@@ -40,11 +40,12 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
               ),
               const SizedBox(height: 10.0),
               TMDateTime(
-                  onPressed: () {
-                    controller.chooseStartDate(context);
-                  },
-                  text: AppLocalizations.of(context).txtStartDate,
-                  dateTime: controller.startDate.value.toDateTime),
+                onPressed: () {
+                  controller.chooseStartDate(context);
+                },
+                text: AppLocalizations.of(context).txtStartDate,
+                dateTime: controller.startDate.value.toDateTime,
+              ),
               const SizedBox(height: 12.0),
               TMDateTime(
                 onPressed: () {
@@ -64,10 +65,9 @@ class AddSubTaskPage extends GetView<AddSubTaskController> {
                       onPressed: () {
                         TMBottomSheet.show(
                           context,
-                          
-                          onPressed: (user) {
-                            controller.assignUser(user);
-                          },
+                          users: controller.listSearch,
+                          onSearch: controller.searchUser,
+                          onPressed: controller.assignUser,
                         );
                       },
                       text: AppLocalizations.of(context).btnAdd,

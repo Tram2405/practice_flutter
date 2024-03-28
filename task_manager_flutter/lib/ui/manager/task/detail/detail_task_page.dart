@@ -9,6 +9,9 @@ import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_text_prompt.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/controller/manager/task/detail/detail_task_controller.dart';
+import 'package:task_manager_flutter/data/model/subtask_model.dart';
+import 'package:task_manager_flutter/data/provider/task_provider.dart';
+import 'package:task_manager_flutter/data/respository/task_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/resources/tm_color.dart';
@@ -23,7 +26,13 @@ class DetailTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(DetailTaskController());
+    final controller = Get.put(
+      DetailTaskController(
+        taskRepository: TaskRepository(
+          taskProvider: TaskProvider(),
+        ),
+      ),
+    );
     const sizedBox12 = SizedBox(height: 12.0);
     const sizedBox16 = SizedBox(height: 16.0);
 
@@ -40,21 +49,23 @@ class DetailTaskPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              controller.task.value.typeTask.toStyleTaskDisplay(context),
+              controller.task.value?.typeTask.toStyleTaskDisplay(context) ??
+                  Container(),
               sizedBox12,
               TMTitle(
-                title: controller.task.value.nameTask ?? '--:--',
+                title: controller.task.value?.nameTask ?? '--:--',
                 textStyle: context.textTheme.displaySmall,
                 isReadMore: true,
               ),
               sizedBox12,
               TMDisplayDateTime(
                 title: AppLocalizations.of(context).txtStartDate,
-                dateTime: controller.task.value.startDate.toDateTime,
+                dateTime: controller.task.value?.startDate.toDateTime ??
+                    DateTime.now().toIso8601String(),
               ),
               sizedBox12,
               TMTitle(
-                title: controller.task.value.description ?? '',
+                title: controller.task.value?.description ?? '',
                 textStyle: context.textTheme.bodyMedium,
                 isReadMore: true,
               ),
@@ -65,7 +76,7 @@ class DetailTaskPage extends StatelessWidget {
               ),
               sizedBox16,
               TMPercentTask(
-                percent: controller.task.value.getPercentCompleted(),
+                percent: controller.task.value?.getPercentCompleted() ?? 0.0,
               ),
               sizedBox16,
               TMTitle(
@@ -77,9 +88,7 @@ class DetailTaskPage extends StatelessWidget {
                 TMButtonTask(
                   onPressed: () {
                     Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
-                      controller.addSubTask(value);
-                      // controller.task.value.subTasks.add(value);
-                      // controller.task.refresh();
+                      controller.addSubTask(context, value);
                     });
                   },
                   text: AppLocalizations.of(context).txtAddSubTask,
@@ -88,17 +97,17 @@ class DetailTaskPage extends StatelessWidget {
                 ),
               ],
               sizedBox16,
-              controller.task.value.subTasks.isNotEmpty
+              controller.task.value?.subTasks.isNotEmpty ?? false
                   ? ListView.separated(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: controller.task.value.subTasks.length,
+                      itemCount: controller.task.value?.subTasks.length ?? 0,
                       reverse: true,
                       itemBuilder: (context, index) {
-                        final subTask = controller.task.value.subTasks[index];
+                        final subTask = controller.task.value?.subTasks[index];
                         return TMCardSubTask(
                           onTap: controller.emailUser != null &&
-                                  controller.emailUser == subTask.user?.email
+                                  controller.emailUser == subTask?.user?.email
                               ? () {
                                   Get.toNamed(
                                     controller.emailUser == null
@@ -121,14 +130,14 @@ class DetailTaskPage extends StatelessWidget {
                                   : null,
                           onSelected: detailType == DetailType.edit
                               ? (value) {
-                                  controller.onSelectDropDown(
-                                      context, value, subTask, index);
+                                  controller.onSelectDropDown(context, value,
+                                      subTask ?? SubTaskModel(), index);
                                 }
                               : null,
-                          subTask: subTask,
+                          subTask: subTask ?? SubTaskModel(),
                           index: index,
                           color: controller.emailUser != null &&
-                                  controller.emailUser == subTask.user?.email
+                                  controller.emailUser == subTask?.user?.email
                               ? TMColor.primaryContainer
                               : null,
                         );
@@ -136,7 +145,8 @@ class DetailTaskPage extends StatelessWidget {
                       separatorBuilder: (_, __) => const SizedBox(height: 6.0),
                     )
                   : TMTextPrompt(
-                      text: AppLocalizations.of(context).txtNoSubTask)
+                      text: AppLocalizations.of(context).txtNoSubTask,
+                    )
             ],
           ),
         ),

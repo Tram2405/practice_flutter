@@ -13,16 +13,18 @@ class CompletedMemberController extends GetxController {
   RxList<SubTaskModel> subTaskCompleted = <SubTaskModel>[].obs;
 
   @override
-  onInit(){
+  onInit() {
     getTaskCompleted();
     super.onInit();
   }
 
-  Future<void> getTaskCompleted()async {
-    final tasks = await taskMemberRepository.getMyTasks(userCurrent?.email ?? '');
+  Future<void> getTaskCompleted() async {
+    final tasks = await taskMemberRepository
+        .getMyTasks(myEmail: userCurrent?.email ?? '', tasks: []);
     for (var task in tasks) {
       for (var subtask in task.subTasks) {
-        if (subtask.status == StatusType.completed.name && subtask.user?.email == userCurrent?.email) {
+        if (subtask.status == StatusType.completed.name &&
+            subtask.user?.email == userCurrent?.email) {
           subTaskCompleted.add(subtask);
           continue;
         }

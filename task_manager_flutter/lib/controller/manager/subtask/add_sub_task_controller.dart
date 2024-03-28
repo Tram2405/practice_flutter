@@ -3,9 +3,13 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/date_time/tm_choose_date_time.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
+import 'package:task_manager_flutter/data/respository/user_repository.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 
 class AddSubTaskController extends GetxController {
+  UserRepository userRepository;
+  AddSubTaskController({required this.userRepository});
+
   TextEditingController subTaskNameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
@@ -19,13 +23,26 @@ class AddSubTaskController extends GetxController {
   ///An observable variable to test that can perform an action when the conditions are right
   RxBool canAction = false.obs;
 
+  ///Observable list for displaying search results
+  RxList<AppUserModel> listSearch = <AppUserModel>[].obs;
+
+// RxList<AppUserModel> users = <AppUserModel>[].obs;
+  /// Observable boolean to track if a user is selected.
+  List<AppUserModel>? userPick;
+
+  @override
+  void onInit() {
+    super.onInit();
+    getUsers();
+  }
+
   ///method choose start date, firsDate: date now, last date: 2030
   ///if select null -> display start date
   void chooseStartDate(BuildContext context) async {
     startDate.value = await ChooseDateTime.pickDateTime(
           context,
           firstDate: DateTime.now(),
-          lastDate: DateTime(2030),
+          lastDate: DateTime.parse(dueDate.value ?? DateTime(2030).toString()),
         ) ??
         startDate.value;
   }
@@ -35,7 +52,8 @@ class AddSubTaskController extends GetxController {
   void chooseDueDate(BuildContext context) async {
     dueDate.value = await ChooseDateTime.pickDateTime(
           context,
-          firstDate: DateTime.now(),
+          firstDate:
+              DateTime.parse(startDate.value ?? DateTime.now().toString()),
           lastDate: DateTime(2030),
         ) ??
         dueDate.value;
@@ -44,7 +62,21 @@ class AddSubTaskController extends GetxController {
   ///Method to assign a user to the subtask
   void assignUser(AppUserModel user) {
     userSelect.value = user;
+    listSearch.map((element) => element.isCheck = false).toList();
+    user.isCheck = true;
+    listSearch.refresh();
+    update();
     checkIsEmpty();
+  }
+
+  ///Method to search for users based on search text
+  void searchUser([String? name]) {
+    listSearch.value = userPick
+            ?.where((e) => (e.name ?? '').toLowerCase().contains(
+                  name?.toLowerCase() ?? '',
+                ))
+            .toList() ??
+        [];
   }
 
   ///Method to add the subtask to the list and return to the previous screen
@@ -63,7 +95,8 @@ class AddSubTaskController extends GetxController {
   ///Method to remove the assigned user from the subtask.
   void onDeleteUser() {
     userSelect.value = null;
-    checkIsEmpty();
+    listSearch.map((element) => element.isCheck = false).toList();
+    listSearch.refresh();
   }
 
   ///Method to check if any of the input fields is empty and updates canAction value
@@ -73,5 +106,11 @@ class AddSubTaskController extends GetxController {
         userSelect.value == null ||
         subTaskNameController.text.isEmpty ||
         descriptionController.text.isEmpty);
+  }
+
+  void getUsers() async {
+    final users = await userRepository.getUsers();
+    listSearch.value = users;
+    userPick = users;
   }
 }

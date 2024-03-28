@@ -25,6 +25,7 @@ class AppUserModel {
    factory AppUserModel.fromJson(
       Map<String, dynamic> json) {
     return AppUserModel(
+      id: json['id'] ?? '',
       name: json['full_name'] ?? '',
       email: json['email_address'] ?? '',
       avatar: json['avatar'] ?? '',
@@ -33,6 +34,7 @@ class AppUserModel {
 
   Map<String, dynamic> toFirestore() {
     return {
+      "id" : id,
       "full_name": name,
       "email_address": email,
       "avatar": avatar,

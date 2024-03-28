@@ -1,15 +1,22 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/snackbar/tm_snackbar.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
+import 'package:task_manager_flutter/data/respository/task_repository.dart';
+import 'package:task_manager_flutter/l10n/tm_localizations.dart';
 import 'package:task_manager_flutter/routes/app_page.dart';
 import 'package:task_manager_flutter/utils/enum.dart';
 
 class AddTaskController extends GetxController {
+  final TaskRepository taskRepository;
+  AddTaskController({required this.taskRepository});
+
   TextEditingController taskNameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
-  final descriptonFocusNode = FocusNode();
+  FocusNode descriptonFocusNode = FocusNode();
 
   ///Observable variable to listen for added subtasks
   RxList<SubTaskModel> subTaskAdds = <SubTaskModel>[].obs;
@@ -46,17 +53,24 @@ class AddTaskController extends GetxController {
   }
 
   ///Method to add a task to the list and return to the previous screen
-  void addTask(BuildContext context) {
+  Future<void> addTask(BuildContext context) async {
     TaskModel task = TaskModel()
       ..typeTask = taskTypes[currentIndex.value].name
       ..nameTask = taskNameController.text
       ..description = descriptionController.text
       ..subTasks = subTaskAdds
       ..startDate = subTaskAdds[0].startDate;
+    String result = await taskRepository.addTask(task);
 
-    Get.back(result: task);
-    TMSnackBar.tmSnackBarSuccess(context,
-        titleSnackbar: 'New task created successfully');
+    if (result == 'success') {
+      TMSnackBar.tmSnackBarSuccess(
+        context,
+        titleSnackbar: AppLocalizations.of(context).txtSnackbarUpdate,
+      );
+    } else {
+      TMSnackBar.tmSnackBarError(context, titleSnackbar: result);
+    }
+    Get.back();
   }
 
   void onSelectDropDown(int value, SubTaskModel subTask, int index) {

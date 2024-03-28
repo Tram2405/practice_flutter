@@ -4,13 +4,24 @@ import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/ui/manager/subtask/add_user.dart';
 
 class TMBottomSheet extends StatelessWidget {
-  const TMBottomSheet({super.key, this.onPressed, this.controller});
+  const TMBottomSheet({
+    super.key,
+    this.onPressed,
+    this.controller,
+    required this.users,
+    this.onSearch,
+  });
+
   final ScrollController? controller;
   final Function(AppUserModel)? onPressed;
+  final List<AppUserModel> users;
+  final Function(String)? onSearch;
 
   static Future<T?> show<T>(
     BuildContext context, {
     Function(AppUserModel)? onPressed,
+    required List<AppUserModel> users,
+    Function(String)? onSearch,
   }) {
     return showFlexibleBottomSheet(
       isModal: true,
@@ -22,10 +33,11 @@ class TMBottomSheet extends StatelessWidget {
       ),
       context: context,
       builder: (context, controller, _) {
-        ///Create a stateful widget to update the bottom sheet appearance
         return TMBottomSheet(
           onPressed: onPressed,
+          onSearch: onSearch,
           controller: controller,
+          users: users,
         );
       },
     );
@@ -37,7 +49,9 @@ class TMBottomSheet extends StatelessWidget {
       borderRadius: BorderRadius.circular(10.0),
       child: AddUser(
         onPressed: onPressed,
+        onSearch: onSearch,
         controller: controller,
+        users: users,
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/data/model/task_model.dart';
 import 'package:task_manager_flutter/data/respository/task_repository.dart';
@@ -8,6 +9,10 @@ class TaskController extends GetxController {
   TaskController({required this.taskRepository});
 
   RxList<TaskModel> listTask = <TaskModel>[].obs;
+
+   Stream<QuerySnapshot> taskStream() {
+    return taskRepository.stream();
+   }
 
   @override
   void onInit() {

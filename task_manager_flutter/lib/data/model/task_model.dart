@@ -34,22 +34,39 @@ class TaskModel {
       startDate: data?['start_date'] ?? '',
       numberFile: data?['number_file'] ?? 0,
       numberComment: data?['number_comment'] ?? 0,
-      subTasks:  (data?['sub_tasks'] as List<dynamic>)
+      subTasks: (data?['sub_tasks'] as List<dynamic>)
           .map((e) => SubTaskModel.fromJson(e))
           .toList(),
     );
   }
 
+  factory TaskModel.fromJson(Map<String, dynamic> json) {
+    return TaskModel(
+      id: json['id'] ?? '',
+      typeTask: json['type_task'] ?? '',
+      nameTask: json['name_task'] ?? '',
+      description: json['description'] ?? '',
+      startDate: json['start_date'] ?? '',
+      numberFile: json['number_file'] ?? 0,
+      numberComment: json['number_comment'] ?? 0,
+      subTasks: json['sub_tasks'] == null
+          ? []
+          : (json['sub_tasks'] as List<dynamic>)
+              .map((e) => SubTaskModel.fromJson(e))
+              .toList(),
+    );
+  }
+
   Map<String, dynamic> toFirestore() {
     return {
-      "id": id,
-      "type-task": typeTask,
-      "name_task": nameTask,
-      "description": description,
-      "start_date": startDate,
-      "number_file": numberFile,
-      "number_comment": numberComment,
-      "sub_task": subTasks.map((e) => e.toFirestore()),
+      if (id != null) "id": id,
+      if (typeTask != null) "type_task": typeTask,
+      if (nameTask != null) "name_task": nameTask,
+      if (description != null) "description": description,
+      if (startDate != null) "start_date": startDate,
+      if (numberFile != null) "number_file": numberFile,
+      if (numberComment != null) "number_comment": numberComment,
+      "sub_tasks": subTasks.map((e) => e.toFirestore()).toList(),
     };
   }
 

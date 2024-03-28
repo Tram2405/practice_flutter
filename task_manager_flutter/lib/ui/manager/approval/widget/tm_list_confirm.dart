@@ -12,9 +12,11 @@ class TMListConfirm extends StatelessWidget {
   const TMListConfirm({
     required this.task,
     super.key,
+    required this.id,
   });
 
   final TaskModel task;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class TMListConfirm extends StatelessWidget {
                 Routes.DETAIL_APPROVAL_TASK,
                 arguments: [subTask],
               )?.then((value) {
-                controller.taskConfirms.refresh();
+                controller.updateSubTasks(id, task.subTasks);
               });
             },
             task: task,

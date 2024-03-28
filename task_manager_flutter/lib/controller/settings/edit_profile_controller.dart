@@ -48,7 +48,7 @@ class EditProfileController extends GetxController {
       ref.getDownloadURL().then((value) {
         avatarUrl.value = value;
 
-        isLoadAvatar.value = false;        
+        isLoadAvatar.value = false;
       });
     }
   }
@@ -57,10 +57,17 @@ class EditProfileController extends GetxController {
     return authRepository.getUserByEmail(emailCurrent.value);
   }
 
-  Future<void> updateProfile(BuildContext context, {required String id}) async {
+  Future<void> updateProfile(BuildContext context, {String? id}) async {
     isLoading.value = true;
-    String resultUpdate = await authRepository.updateProfile(
-        id, nameController.text, avatarUrl.value);
+    String resultUpdate = '';
+    if (id != null) {
+      resultUpdate = await authRepository.updateProfile(
+        id,
+        nameController.text,
+        avatarUrl.value,
+      );
+    }
+    
     if (resultUpdate == 'success') {
       isLoading.value = false;
       WidgetsBinding.instance.addPostFrameCallback((_) {

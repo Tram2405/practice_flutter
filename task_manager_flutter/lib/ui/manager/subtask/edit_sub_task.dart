@@ -81,10 +81,11 @@ class EditSubTaskPage extends GetView<EditSubTaskController> {
                           onPressed: (user) {
                             controller.assignUser(user);
                           },
-                        ).whenComplete(() {
-                          // controller.descriptionController
-                          controllerS.searchUser();
-                        });
+                        ).whenComplete(
+                          () {
+                            controllerS.searchUser();
+                          },
+                        );
                       },
                       text: 'Add',
                       leftIcon: Assets.icons.iconAdd2,

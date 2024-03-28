@@ -25,6 +25,7 @@ class DetailSubTaskController extends GetxController {
   void action() {
     if (subTask.value.status == StatusType.newTask.name) {
       subTask.value.status = StatusType.inProgress.name;
+      
       Get.back(result: subTask);
     } else if (subTask.value.status == StatusType.inProgress.name ||
         subTask.value.status == StatusType.error.name) {

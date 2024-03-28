@@ -16,7 +16,7 @@ class AddUserController extends GetxController {
 
   @override
   void onInit() {
-    // getUsers();
+    getUsers();
     super.onInit();
   }
 

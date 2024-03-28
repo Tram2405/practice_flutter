@@ -87,9 +87,11 @@ class DetailTaskPage extends StatelessWidget {
                 sizedBox12,
                 TMButtonTask(
                   onPressed: () {
-                    Get.toNamed(Routes.ADD_SUB_TASK)?.then((value) {
-                      controller.addSubTask(context, value);
-                    });
+                    Get.toNamed(Routes.ADD_SUB_TASK)?.then(
+                      (value) {
+                        controller.addSubTask(context, value);
+                      },
+                    );
                   },
                   text: AppLocalizations.of(context).txtAddSubTask,
                   leftIcon: Assets.icons.iconAdd,
@@ -114,9 +116,15 @@ class DetailTaskPage extends StatelessWidget {
                                         ? Routes.DETAIL_SUB_TASK
                                         : Routes.DETAIL_SUB_TASK_MEMBER,
                                     arguments: [subTask],
-                                  )?.then((value) {
-                                    controller.task.refresh();
-                                  });
+                                  )?.then(
+                                    (value) {
+                                      controller.task.refresh();
+                                      controller.updateStatusSubTask(
+                                        controller.task.value?.subTasks ?? [],
+                                        
+                                      );
+                                    },
+                                  );
                                 }
                               : detailType == DetailType.edit
                                   ? () {
@@ -146,7 +154,7 @@ class DetailTaskPage extends StatelessWidget {
                     )
                   : TMTextPrompt(
                       text: AppLocalizations.of(context).txtNoSubTask,
-                    )
+                    ),
             ],
           ),
         ),

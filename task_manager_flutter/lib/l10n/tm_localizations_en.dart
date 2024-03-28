@@ -224,6 +224,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get txtSnackbarError => 'Đã xảy ra lỗi';
 
   @override
+  String get txtNoMessage => 'No messages';
+
+  @override
   String get btnRegister => 'Register';
 
   @override

@@ -224,6 +224,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get txtSnackbarError => 'Something went wrong';
 
   @override
+  String get txtNoMessage => 'Không có tin nhắn';
+
+  @override
   String get btnRegister => 'Tạo tài khoản';
 
   @override

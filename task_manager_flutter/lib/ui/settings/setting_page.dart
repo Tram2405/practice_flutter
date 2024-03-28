@@ -105,7 +105,7 @@ class SettingPage extends GetView<SettingController> {
                 action: () => WidgetsBinding.instance.addPostFrameCallback(
                   (_) {
                     AuthServiceProvider().signOut();
-                    Get.toNamed(Routes.LOGIN);
+                    Get.offAndToNamed(Routes.LOGIN);
                   },
                 ),
               );

@@ -73,6 +73,7 @@
     "txtSnackbarChangePass" : "Change password successfully",
     "txtSnackbarAddSubbtask" : "Add Sub-task successfully",
     "txtSnackbarError" : "Đã xảy ra lỗi",
+    "txtNoMessage" : "No messages",
     "btnRegister" : "Register",
     "btnDone" : "Done",
     "btnLogin" : "Login",

@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_flutter/data/model/document_data.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
@@ -21,7 +20,7 @@ class ApprovalTaskController extends GetxController {
     return taskRepository.stream();
   }
 
-  Future<void> getTask(List<DocumentData> documents) async {
+  Future<void> getTask(List<FirebaseCollectionData> documents) async {
     taskConfirms.value = documents.map((e) => e.task ?? TaskModel()).toList();
   }
 

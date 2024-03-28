@@ -115,7 +115,7 @@ class EditProfilePage extends GetView<EditProfileController> {
                         onPressed: () {
                           controller.updateProfile(
                             context,
-                            id: snapshot.data?.docs.first.id ?? '',
+                            id: snapshot.data?.docs.first.id,
                           );
                         },
                         isDisable: controller.isLoading.value ||

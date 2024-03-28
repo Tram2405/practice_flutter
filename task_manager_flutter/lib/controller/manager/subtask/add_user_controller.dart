@@ -14,6 +14,9 @@ class AddUserController extends GetxController {
   /// Observable boolean to track if a user is selected.
   List<AppUserModel>? userPick;
 
+  ///Observable for holding the selected user
+  Rx<AppUserModel?> userSelect = Rx(null);
+
   @override
   void onInit() {
     getUsers();
@@ -36,10 +39,12 @@ class AddUserController extends GetxController {
         [];
   }
 
-  /// Method to mark a user as selected and unselect others.
-  void selectedUser(AppUserModel user) {
+  ///Method to assign a user to the subtask
+  void assignUser(AppUserModel user) {
+    userSelect.value = user;
     listSearch.map((element) => element.isCheck = false).toList();
     user.isCheck = true;
     listSearch.refresh();
+    update();
   }
 }

@@ -49,14 +49,14 @@ class TaskController extends GetxController {
     } else if (value == 1) {
       TMDialog.editingDialog(
         context,
-        title: 'Edit ',
+        title: AppLocalizations.of(context).txtEditTask,
         valueNameTask: doc.task?.nameTask ?? '',
         valueDescriptionTask: doc.task?.description ?? '',
         nameTaskType: doc.task?.typeTask ?? '',
         nameTaskController: taskNameEditController,
         descriptionController: taskDesEditController,
         action: (value) {
-          if (doc.id != null) {
+          if (doc.id != null && (doc.id?.isNotEmpty ?? false)) {
             doc.task?.nameTask = value.nameTask;
             doc.task?.description = value.description;
             doc.task?.typeTask = value.typeTask;

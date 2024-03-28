@@ -73,7 +73,7 @@ class RegisterPage extends GetView<RegisterController> {
                 validator: (value) {
                   return FormValidator.validatorConfirmPassword(
                     value,
-                    controller.retypePasswordController.value.text,
+                    controller.passwordController.value.text,
                   );
                 },
                 readOnly: controller.isLoading.value,

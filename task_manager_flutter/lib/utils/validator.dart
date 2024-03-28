@@ -33,7 +33,7 @@ class FormValidator {
     if (value == null || value.isEmpty) {
       return 'Cannot be left blank';
     }
-    if(value.toString().length < 6) {
+    if(value.toString().length < 8) {
       return 'Password more than 8 characters';
     }
     if(value != password) {

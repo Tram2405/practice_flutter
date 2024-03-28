@@ -3,8 +3,11 @@ import 'package:get/get.dart';
 import 'package:task_manager_flutter/components/date_time/tm_choose_date_time.dart';
 import 'package:task_manager_flutter/data/model/app_user_model.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
+import 'package:task_manager_flutter/data/respository/user_repository.dart';
 
 class EditSubTaskController extends GetxController {
+  final UserRepository userRepository;
+  EditSubTaskController({required this.userRepository});
   TextEditingController subTaskNameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
@@ -20,6 +23,21 @@ class EditSubTaskController extends GetxController {
 
   ///An observable variable to test that can perform an action when the conditions are right
   RxBool canAction = false.obs;
+
+  RxList<AppUserModel> listSearch = <AppUserModel>[].obs;
+  List<AppUserModel>? userPick;
+
+  @override
+  void onInit() {
+    getUsers();
+    super.onInit();
+  }
+
+  void getUsers() async {
+    final users = await userRepository.getUsers();
+    listSearch.value = users;
+    userPick = users;
+  }
 
   ///Get subtask information and fill in the fields to edit the subtask
   void getSubTask(SubTaskModel subTask) {
@@ -57,15 +75,29 @@ class EditSubTaskController extends GetxController {
         dueDate.value;
   }
 
-  ///Method to assign a user to the subtask
   void assignUser(AppUserModel user) {
     userSelect.value = user;
+    listSearch.map((element) => element.isCheck = false).toList();
+    user.isCheck = true;
+    listSearch.refresh();
+    update();
     checkIsEmpty();
+  }
+
+  ///Method to search for users based on search text
+  void searchUser([String? name]) {
+    listSearch.value = userPick
+            ?.where((e) => (e.name ?? '').toLowerCase().contains(
+                  name?.toLowerCase() ?? '',
+                ))
+            .toList() ??
+        [];
   }
 
   ///Method to remove the assigned user from the subtask
   void onDeleteUser() {
     userSelect.value = null;
+    listSearch.map((element) => element.isCheck = false).toList();
     checkIsEmpty();
   }
 

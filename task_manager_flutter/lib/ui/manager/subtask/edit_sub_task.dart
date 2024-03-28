@@ -9,11 +9,8 @@ import 'package:task_manager_flutter/components/date_time/tm_date_time.dart';
 import 'package:task_manager_flutter/components/scaffold/tm_scaffold.dart';
 import 'package:task_manager_flutter/components/text/tm_title.dart';
 import 'package:task_manager_flutter/components/text_form_field/tm_form_field.dart';
-import 'package:task_manager_flutter/controller/manager/subtask/add_user_controller.dart';
 import 'package:task_manager_flutter/controller/manager/subtask/edit_subtask_controller.dart';
 import 'package:task_manager_flutter/data/model/subtask_model.dart';
-import 'package:task_manager_flutter/data/provider/user_provider.dart';
-import 'package:task_manager_flutter/data/respository/user_repository.dart';
 import 'package:task_manager_flutter/gen/assets.gen.dart';
 import 'package:task_manager_flutter/utils/extension.dart';
 
@@ -26,13 +23,6 @@ class EditSubTaskPage extends GetView<EditSubTaskController> {
     final subTask = Get.arguments[0] as SubTaskModel;
     controller.getSubTask(subTask);
 
-    final controllerS = Get.put(
-      AddUserController(
-        userRepository: UserRepository(
-          userProvider: UserProvider(),
-        ),
-      ),
-    );
     return Obx(
       () => TMScaffold(
         appBar: TMAppbar(
@@ -77,15 +67,21 @@ class EditSubTaskPage extends GetView<EditSubTaskController> {
                       onPressed: () {
                         TMBottomSheet.show(
                           context,
-                          users: controllerS.listSearch,
-                          onPressed: (user) {
-                            controller.assignUser(user);
-                          },
-                        ).whenComplete(
-                          () {
-                            controllerS.searchUser();
-                          },
+                          users: controller.listSearch,
+                          onSearch: controller.searchUser,
+                          onPressed: controller.assignUser,
                         );
+                        // TMBottomSheet.show(
+                        //   context,
+                        //   users: controllerS.listSearch,
+                        //   onPressed: (user) {
+                        //     controller.assignUser(user);
+                        //   },
+                        // ).whenComplete(
+                        //   () {
+                        //     controllerS.searchUser();
+                        //   },
+                        // );
                       },
                       text: 'Add',
                       leftIcon: Assets.icons.iconAdd2,

@@ -18,7 +18,7 @@ class TMCardMemberSubTask extends StatelessWidget {
   });
 
   final AppUserModel user;
-  final Function()? onRemove;
+  final VoidCallback? onRemove;
 
   @override
   Widget build(BuildContext context) {
